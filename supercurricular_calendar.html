@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supercurricular Planner — PPE &amp; Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F7F5;
+    --surface:#FFFFFF;
+    --surface-2:#FBFBF9;
+    --ink:#14161A;
+    --ink-2:#3D434D;
+    --muted:#6B7280;
+    --faint:#9CA3AF;
+    --line:#E5E5E1;
+    --line-2:#EFEFEC;
+    --accent:#B45309;
+    --phil:#7C3AED;
+    --pol:#DC2626;
+    --econ:#059669;
+    --law:#2563EB;
+    --multi:#D97706;
+    --ok-bg:#ECFDF5; --ok-fg:#065F46; --ok-line:#A7F3D0;
+    --wait-bg:#F4F4F5; --wait-fg:#52525B; --wait-line:#E4E4E7;
+    --warn-bg:#FEF3C7; --warn-fg:#92400E; --warn-line:#FDE68A;
+    --shadow:0 1px 2px rgba(16,18,22,.04), 0 6px 16px -8px rgba(16,18,22,.10);
+    --shadow-lg:0 2px 4px rgba(16,18,22,.05), 0 18px 40px -20px rgba(16,18,22,.22);
+    --radius:12px;
+    --tab-well:#EFEFEC;
+    --tab-sel:#FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0D0F12;
+      --surface:#15181D;
+      --surface-2:#1A1E24;
+      --ink:#ECEEF1;
+      --ink-2:#C3C9D2;
+      --muted:#98A0AC;
+      --faint:#6B7280;
+      --line:#262B33;
+      --line-2:#1F242B;
+      --accent:#F59E0B;
+      --phil:#A78BFA;
+      --pol:#F87171;
+      --econ:#34D399;
+      --law:#60A5FA;
+      --multi:#FBBF24;
+      --ok-bg:#052E22; --ok-fg:#6EE7B7; --ok-line:#065F46;
+      --wait-bg:#1C1F25; --wait-fg:#9CA3AF; --wait-line:#2A2F37;
+      --warn-bg:#3B2A08; --warn-fg:#FCD34D; --warn-line:#5A4210;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 16px -8px rgba(0,0,0,.6);
+      --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 18px 40px -20px rgba(0,0,0,.8);
+      --tab-well:#080A0D;
+      --tab-sel:#232830;
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 96px;}
+  .wrap.top{padding-bottom:0;}
+
+  /* ---------- header ---------- */
+  header.hero{
+    padding:56px 0 28px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(30px,4.4vw,46px);
+    letter-spacing:-.02em;
+    line-height:1.08;
+    margin:0 0 12px;
+  }
+  .sub{color:var(--muted);font-size:16px;max-width:60ch;margin:0;}
+  .stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:26px;}
+  .stat b{
+    display:block;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:600;
+    letter-spacing:-.02em;line-height:1;
+  }
+  .stat span{font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;font-weight:500;}
+
+  /* ---------- toolbar ---------- */
+  .toolbar{
+    position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  .toolbar-inner{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;flex-direction:column;gap:10px;}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+
+  .yeartabs{display:flex;gap:4px;background:var(--tab-well);border:1px solid var(--line);border-radius:10px;padding:4px;}
+  .yeartab{
+    appearance:none;border:0;background:transparent;cursor:pointer;
+    font:inherit;font-size:13px;font-weight:600;color:var(--muted);
+    padding:7px 14px;border-radius:7px;white-space:nowrap;transition:.15s;
+  }
+  .yeartab small{display:block;font-size:10.5px;font-weight:500;opacity:.75;letter-spacing:.02em;}
+  .yeartab:hover{color:var(--ink);}
+  .yeartab[aria-selected="true"]{background:var(--tab-sel);color:var(--ink);box-shadow:var(--shadow);}
+
+  .pill{
+    appearance:none;cursor:pointer;font:inherit;font-size:12.5px;font-weight:500;
+    padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);color:var(--muted);transition:.15s;
+    display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  }
+  .pill:hover{color:var(--ink);border-color:var(--faint);}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex:none;}
+  .pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+  .pill[aria-pressed="true"] .dot{background:var(--bg);}
+  .pill.phil{color:var(--phil);} .pill.pol{color:var(--pol);}
+  .pill.econ{color:var(--econ);} .pill.law{color:var(--law);} .pill.multi{color:var(--multi);}
+
+  .search{
+    flex:1;min-width:180px;
+    display:flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:6px 14px;
+  }
+  .search input{
+    flex:1;border:0;outline:0;background:transparent;font:inherit;font-size:13px;color:var(--ink);min-width:0;
+  }
+  .search input::placeholder{color:var(--faint);}
+  .search svg{flex:none;color:var(--faint);}
+
+  .toggle{
+    appearance:none;cursor:pointer;font:inherit;font-size:12.5px;font-weight:500;
+    padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);color:var(--muted);transition:.15s;white-space:nowrap;
+  }
+  .toggle[aria-pressed="true"]{background:var(--ok-bg);color:var(--ok-fg);border-color:var(--ok-line);}
+  .count{font-size:12px;color:var(--faint);margin-left:auto;white-space:nowrap;}
+
+  /* ---------- caveat ---------- */
+  .caveat{
+    display:flex;gap:12px;
+    background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-fg);
+    padding:13px 16px;border-radius:var(--radius);font-size:13px;line-height:1.5;margin-bottom:34px;
+  }
+  .caveat svg{flex:none;margin-top:2px;}
+
+  /* ---------- month ---------- */
+  .month{margin-bottom:38px;}
+  .month-head{
+    display:flex;align-items:baseline;gap:12px;
+    margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);
+  }
+  .month-head h2{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;
+    letter-spacing:-.01em;margin:0;
+  }
+  .month-head .n{font-size:11.5px;color:var(--faint);font-weight:500;}
+
+  /* ---------- card ---------- */
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px 15px;
+    margin-bottom:10px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+  }
+  .card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc,var(--multi));
+  }
+  .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px);border-color:var(--faint);}
+  .card.phil{--sc:var(--phil);} .card.pol{--sc:var(--pol);}
+  .card.econ{--sc:var(--econ);} .card.law{--sc:var(--law);} .card.multi{--sc:var(--multi);}
+
+  .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:7px;}
+  .chip{
+    font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    padding:3px 8px;border-radius:5px;white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .chip.subj{color:var(--sc);background:color-mix(in srgb, var(--sc) 11%, transparent);border-color:color-mix(in srgb, var(--sc) 26%, transparent);}
+  .chip.new{background:var(--accent);color:#fff;}
+  @media (prefers-color-scheme: dark){ .chip.new{color:#1A1206;} }
+  .chip.yr{background:var(--wait-bg);color:var(--wait-fg);border-color:var(--wait-line);text-transform:none;letter-spacing:0;font-weight:500;}
+  .chip.elig-now{background:var(--ok-bg);color:var(--ok-fg);border-color:var(--ok-line);}
+  .chip.elig-later{background:var(--wait-bg);color:var(--wait-fg);border-color:var(--wait-line);}
+  .chip.tbc{background:transparent;color:var(--faint);border-color:var(--line);text-transform:none;letter-spacing:0;font-weight:500;font-style:italic;}
+
+  .card h3{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:17px;
+    letter-spacing:-.01em;margin:0 0 5px;line-height:1.25;
+  }
+  .when{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:600;color:var(--ink-2);
+    font-variant-numeric:tabular-nums;margin-bottom:7px;
+  }
+  .when svg{color:var(--faint);flex:none;}
+  .note{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin:0 0 11px;}
+  .note em{color:var(--accent);font-style:normal;font-weight:600;}
+
+  /* ---------- reading ---------- */
+  .reading{
+    background:var(--surface-2);
+    border:1px solid var(--line-2);
+    border-radius:9px;
+    padding:11px 13px;
+    margin-bottom:11px;
+  }
+  .reading-h{
+    font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:9px;
+  }
+  .book{display:grid;grid-template-columns:74px 1fr;gap:10px;align-items:start;margin-bottom:8px;font-size:13px;line-height:1.5;}
+  .book:last-of-type{margin-bottom:0;}
+  .book .lbl{
+    font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    padding:3px 0 0;color:var(--faint);
+  }
+  .book.m .lbl{color:var(--econ);}
+  .book.n .lbl{color:var(--phil);}
+  .book .txt{color:var(--ink-2);}
+  .book .txt b{color:var(--ink);font-weight:600;}
+  .book .txt i{font-style:italic;}
+  .book .txt .why{display:block;color:var(--muted);font-size:12.5px;margin-top:1px;}
+  .thelink{
+    margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);
+    font-size:12.5px;color:var(--muted);line-height:1.5;
+  }
+  .thelink b{color:var(--ink-2);font-weight:600;}
+
+  .src{font-size:12.5px;}
+  .src a{
+    color:var(--muted);text-decoration:none;font-weight:500;
+    border-bottom:1px solid var(--line);padding-bottom:1px;transition:.15s;
+  }
+  .src a:hover{color:var(--accent);border-color:var(--accent);}
+  .src .nolink{color:var(--faint);font-style:italic;}
+
+  .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+  .empty b{display:block;font-family:'Fraunces',Georgia,serif;font-size:19px;color:var(--ink);margin-bottom:6px;font-weight:600;}
+
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);line-height:1.6;}
+  footer b{color:var(--ink-2);}
+
+  @media (max-width:640px){
+    .wrap{padding:0 14px 70px;}
+    header.hero{padding:36px 0 22px;}
+    .stats{gap:18px;}
+    .book{grid-template-columns:1fr;gap:2px;}
+    .book .lbl{padding:0;}
+    .count{margin-left:0;width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <header class="hero">
+    <div class="eyebrow">Plan: Oxbridge — companion planner</div>
+    <h1>Supercurricular Planner</h1>
+    <p class="sub">Philosophy · Politics · Economics · Law — every competition, programme and prize sorted into the school year it actually applies to, each paired with one mainstream and one niche book.</p>
+    <div class="stats">
+      <div class="stat"><b id="s-total">—</b><span>opportunities</span></div>
+      <div class="stat"><b id="s-now">—</b><span>you can enter now</span></div>
+      <div class="stat"><b id="s-new">—</b><span>added this pass</span></div>
+    </div>
+  </header>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="row">
+      <div class="yeartabs" id="yeartabs" role="tablist"></div>
+      <div class="search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="Search competitions, books, authors…" autocomplete="off">
+      </div>
+    </div>
+    <div class="row" id="filters"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="caveat" id="caveat"></div>
+  <main id="content"></main>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   s   : phil | pol | econ | law | multi
+   elig: "now"   — you can enter this as a Year 11
+         "later" — Y12+ only, listed so the timing doesn't surprise you
+         "check" — eligibility genuinely unconfirmed
+   reading: { m: mainstream entry point, n: niche standout, link: how to use the pair }
+   ============================================================ */
+const CAVEATS = {
+  y11:"Year 11 view (Sept 2026 – Aug 2027). Where an organiser has published a 2026 date, that exact date is shown and the 2027 equivalent will land within a week or two of it. Anything marked <b>date TBC</b> is dated from its most recent cycle only — check the official page before you rely on it.",
+  y1213:"Year 12/13 view (Sept 2027 onward). Almost nothing has published 2027-28 or 2028-29 dates yet. Every date below is the most recent <i>confirmed</i> cycle, shown as a reliable guide to the month — not a confirmed future date. Re-check each site when you actually reach that year."
+};
+
+const DATA = {};
+
+DATA.y11 = [
+{ month:"Rolling — start any time this year", items:[
+
+  {t:"Oxford 14–16 Digital Resources", s:"multi", yr:"Ages 14–16", elig:"now",
+   when:"Open all year", link:"https://www.ox.ac.uk/admissions/undergraduate/increasing-access/ug-digital-resources/students-12-16",
+   note:"Subject-specific resource hub aimed at <em>exactly</em> your age bracket right now — the only Oxford-run thing on this list built for pre-sixth-form students.",
+   reading:{
+     m:"Simon Blackburn, <i>Think</i>|The standard first philosophy book — on multiple Oxford PPE prep lists.",
+     n:"Edmund Gettier, <i>“Is Justified True Belief Knowledge?”</i>|A three-page 1963 paper that broke the definition of knowledge everyone had used since Plato.",
+     link:"Blackburn spends a whole chapter building up the classic definition of knowledge. Gettier demolishes it in three pages. Reading the actual paper straight after the textbook is the cheapest depth available to you — and almost no applicant has done it."}},
+
+  {t:"Cambridge: Exploring Law Course", s:"law", yr:"16+ (Y11/12/13)", elig:"now",
+   when:"Open all year", link:"https://www.law.cam.ac.uk/access-outreach/exploring-law-course-studying-law-university",
+   note:"Short self-paced course introducing legal study. Open to you now — this is not a Y12-only programme.",
+   reading:{
+     m:"Barnard, O'Sullivan &amp; Virgo, <i>What About Law?</i>|Written by Cambridge law fellows and recommended by Cambridge colleges as pre-arrival reading.",
+     n:"H.L.A. Hart, <i>The Concept of Law</i>, ch. 5|The foundational text of modern legal positivism. Read one chapter properly rather than skimming all of it.",
+     link:"<i>What About Law?</i> shows you what law students <b>do</b>. Hart asks what law <b>is</b> — his 'union of primary and secondary rules' is the answer. Being able to name that distinction unprompted is a genuine interview differentiator."}},
+
+  {t:"KCL Online Law Lecture Series", s:"law", yr:"Y11–13", elig:"now",
+   when:"Termly — check KCL for the current schedule", link:"https://www.kcl.ac.uk/study/social-mobility/projects/prospective-students/online-law-lecture-series",
+   note:"Free online lecture series, explicitly open from Y11.",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|A former Lord Chief Justice setting out eight principles of the rule of law. The most-recommended law book for applicants.",
+     n:"A.V. Dicey, <i>Introduction to the Study of the Law of the Constitution</i>|The 1885 Victorian original that gave us 'parliamentary sovereignty' and 'the rule of law' as UK constitutional doctrine.",
+     link:"Bingham's eight principles are a deliberate modern restatement of Dicey. Reading the original lets you say precisely <b>where Bingham departs from him</b> — especially on whether the rule of law includes human rights. That is a real argument, not a summary."}},
+
+  {t:"Forage Online Job Simulations", s:"econ", yr:"16+ / Y11+", elig:"now",
+   when:"Self-paced, open all year", link:"https://www.theforage.com/",
+   note:"Free simulations built with real employers. Low effort, decent signal — but only if you have something to say <em>about</em> the industry afterwards.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|The single most-recommended starting point for law applicants; also the best plain-English account of what commercial lawyers actually do.",
+     n:"John Kay, <i>Other People's Money</i>|A former Oxford economist's forensic case that most of modern finance serves finance, not the real economy.",
+     link:"A Forage sim teaches you the <b>tasks</b>. Kay asks whether the industry performing those tasks is socially useful at all. 'I completed the simulation, then read Kay and started doubting the point of half of it' is a far better answer than listing modules."}},
+
+  {t:"CISI Certifications", s:"econ", yr:"Age not stated — verify", elig:"check",
+   when:"Self-paced", link:"https://www.cisi.org/cisiweb2",
+   note:"Self-paced finance certifications. Confirm the entry age with CISI directly before paying for anything.",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|The classic case for efficient markets and index investing.",
+     n:"Walter Bagehot, <i>Lombard Street</i> (1873)|The Victorian text that invented the 'lender of last resort' — still quoted by central bankers today.",
+     link:"Malkiel explains why markets are hard to beat; Bagehot explains why we regulate them at all. CISI's syllabus sits precisely between those two, and citing an 1873 book on a finance certification is exactly the kind of thing an interviewer remembers."}},
+
+  {t:"Coursera Courses", s:"econ", yr:"Age not stated — verify", elig:"check",
+   when:"Self-paced", link:"https://www.coursera.org/",
+   note:"Pick courses tied directly to economics/PPE topics rather than collecting generic certificates. <em>One finished course you can argue about beats five you skimmed.</em>",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online)|Literally what Oxford tells PPE offer-holders to read before arriving. Using it <i>before</i> you apply is a strong signal.",
+     n:"Ha-Joon Chang, <i>Kicking Away the Ladder</i>|A Cambridge economist arguing, from the historical record, that today's rich countries all used the protectionist policies they now tell poor countries to avoid.",
+     link:"CORE is the modern mainstream curriculum. Chang attacks one of its central assumptions using economic history. Doing the course and then reading the strongest available objection to it is the whole game."}},
+]},
+
+{ month:"August – September 2026", items:[
+
+  {t:"Wharton Global High School Investment Competition", s:"econ", yr:"Grades 9–12 (UK Y10–13)", elig:"now", tag:"NEW",
+   when:"Registration 10 Aug – 11 Sept 2026 · competition runs 28 Sept – 4 Dec 2026",
+   link:"https://globalyouth.wharton.upenn.edu/competitions/investment-competition/",
+   note:"<em>Team event — you need 4–6 students and a teacher advisor, so raise it with a teacher in September.</em> Top 50 teams reach virtual semi-finals; top 10 go to the Global Finale at Wharton (29–30 April 2027). Crucially, teams are judged on the <em>quality of their investment strategy and report, not their returns.</em>",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|The standard argument that stock-picking rarely beats the index — which is awkward and useful for a stock-picking competition.",
+     n:"Howard Marks, <i>The Most Important Thing</i>|A working fund manager on 'second-level thinking' and risk control, written for professionals rather than students.",
+     link:"You're marked on your Investment Policy Statement, not your P&amp;L. Marks is a book about exactly that discipline — defining risk before you chase return. Almost no competing school team will have read it, and it maps one-to-one onto the judging criteria."}},
+
+  {t:"ESU Schools' Mace — registration", s:"pol", yr:"Ages 11–18 (Y7–13)", elig:"now", tag:"NEW",
+   when:"Register with your school Sept/Oct · rounds run to ~April finals",
+   link:"https://www.esu.org/competitions/schools-mace/",
+   note:"The UK's largest schools debating competition. Strong for Politics <em>and</em> for the Law-style skill of arguing a side you don't hold.",
+   reading:{
+     m:"J.S. Mill, <i>On Liberty</i>|The harm principle — the single most-invoked idea in school debating, usually by people who haven't read it.",
+     n:"Isaiah Berlin, <i>Two Concepts of Liberty</i> (essay)|Splits freedom into 'negative' (absence of interference) and 'positive' (capacity to act).",
+     link:"Every debater says 'freedom'. Berlin lets you stop and ask <b>which kind</b> your opponent means — and most motions collapse the moment someone does. It is the highest-leverage 60 pages you can read for this competition."}},
+
+  {t:"JLI Global Essay Prize — registration opens", s:"multi", yr:"Y11 / Y12", elig:"now", tbc:true,
+   when:"Registration opens autumn/winter · deadline 31 May 2027",
+   link:"https://www.johnlockeinstitute.com/essay-competition",
+   note:"Categories include Philosophy, Politics, Economics <em>and</em> Law — your single best PPE-spanning entry point, because you pick whichever category matches your strongest current interest.",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|On Oxford PPE first-year reading lists; teaches you to lay out both sides of a dispute cleanly.",
+     n:"G.A. Cohen, <i>Why Not Socialism?</i>|Under 100 pages. An Oxford political philosopher arguing a position most readers begin hostile to — and doing it with a camping-trip thought experiment.",
+     link:"JLI questions are deliberately provocative and reward <b>taking a clear side well</b>, not surveying opinions. Cohen is a masterclass in exactly that move, and he's short enough to read twice before you write."}},
+]},
+
+{ month:"October – November 2026", items:[
+
+  {t:"Warwick Future Economist Essay Competition", s:"econ", yr:"Ages 16–18", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 cycle: opened 6 Oct, closed 7 Nov — expect the same window",
+   link:"https://www.warwickeconomicssociety.com/copy-of-careers-talks",
+   note:"<em>Age gate matters: you must be 16–18.</em> If you turn 16 during Y11 you're in; if not, this becomes a Y12 target. £100 first prize, £50 for two runners-up. Past questions covered the end of globalisation, AI and the productivity puzzle, and the inequality-vs-growth trade-off.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Teaches you to apply economic reasoning to ordinary situations — the exact register these essays want.",
+     n:"Dani Rodrik, <i>The Globalization Paradox</i>|Sets out the 'political trilemma': you can have deep globalisation, democracy and national sovereignty — but only two of the three.",
+     link:"Rodrik's trilemma is a ready-made analytical frame for 'is the era of globalisation ending?'. Applying a named framework beats describing tariffs, and Rodrik is respected enough that a Warwick economist will recognise him instantly."}},
+]},
+
+{ month:"January – February 2027", items:[
+
+  {t:"Cambridge Re:Think Essay Competition", s:"multi", yr:"Eligibility not clearly stated — verify", elig:"check", tbc:true,
+   when:"Opens mid-January · closes early May", link:"https://cambridge-research.org/essay-competition/",
+   note:"Interdisciplinary, open-topic. <em>Confirm the year-group rules before assuming Y11 can enter.</em>",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i>|A Nobel economist writing philosophy — the cleanest single demonstration of what PPE crossover thinking looks like.",
+     n:"Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|Where 'paradigm shift' comes from; argues sciences advance by rupture, not accumulation.",
+     link:"Re:Think rewards essays that cut across disciplines. Kuhn is the ultimate crossover text — you can turn it on economics itself and ask whether it's a science or a paradigm defending itself. That's a genuinely arresting essay opening."}},
+
+  {t:"Dukes Plus Essay Competition", s:"econ", yr:"Ages 15–17", elig:"now", tbc:true,
+   when:"Opens Jan/Feb", link:"https://dukesplus.com/essay-competition-2026/",
+   note:"Broad, current-affairs-flavoured questions. A good low-stakes first essay competition.",
+   reading:{
+     m:"Blastland &amp; Dilnot, <i>The Tiger That Isn't</i>|How to read statistics in the news without being fooled — explicitly on Oxford's own PPE prep reading.",
+     n:"Kate Raworth, <i>Doughnut Economics</i>|Argues the goal of economics should be a safe and just space for humanity, not growth.",
+     link:"Dukes Plus questions are broad enough that most entrants describe the problem. Blastland &amp; Dilnot stop you misusing the numbers; Raworth gives you a rival objective to argue <b>for</b>. Description loses; a thesis wins."}},
+
+  {t:"Peter Cane Legal Reasoning Prize", s:"law", yr:"Y12 only — not yet eligible", elig:"later",
+   when:"Runs Dec – Feb", link:"https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize",
+   note:"Listed here only so the timing doesn't confuse you — <em>this is Y12-only, so it is a next-year target.</em>",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|Explains what legal reasoning actually is before you're asked to perform it.",
+     n:"Hart, <i>The Concept of Law</i> + Dworkin, <i>Law's Empire</i>|The two sides of the central dispute in modern jurisprudence: is law a set of rules, or an interpretive practice?",
+     link:"A prize literally named for legal reasoning is the single best place to show you understand the <b>Hart–Dworkin debate</b>. Read Hart first, then Dworkin's attack on him — you'll have a live argument rather than two summaries."}},
+]},
+
+{ month:"February 2027", items:[
+
+  {t:"Gerald O'Connell Essay Competition in Economics (Fitzwilliam, Cambridge)", s:"econ", yr:"Y12, UK state school", elig:"later", tag:"NEW",
+   when:"Deadline 6pm, Friday 27 February", link:"https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026",
+   note:"1,000 words, one set question. <em>Restricted to home students in Year 12 at a UK state school</em> — so it's a Y12 target, flagged here for planning. Fitzwilliam runs parallel prizes in English, History, Land Economy, Classics and more on the same deadline.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Best model for writing economics that is precise but readable — which is what a 1,000-word limit demands.",
+     n:"Branko Milanovic, <i>Global Inequality</i>|The 'elephant curve' — inequality <i>between</i> countries as much as within them, a genuinely different lens from Piketty.",
+     link:"At 1,000 words you cannot survey a topic; you need one sharp mechanism. Milanovic supplies mechanisms — and because everyone reaches for Piketty on inequality, reaching for Milanovic instead is an immediate signal of real reading."}},
+]},
+
+{ month:"March – April 2027", items:[
+
+  {t:"Think Essay Prize (Royal Institute of Philosophy)", s:"phil", yr:"Ages 15–18", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 cycle closed ~20 April — expect similar for 2027",
+   link:"https://royalinstitutephilosophy.org/news/think-essay-prize/",
+   note:"1,200 words on one of six set questions — past prompts covered moral responsibility under determinism, machine consciousness, and when the state may restrict speech. Winner is published in <i>Think</i> alongside professional philosophers. <em>No AI permitted — essays using it are disqualified.</em>",
+   reading:{
+     m:"Thomas Nagel, <i>What Does It All Mean?</i>|Under 100 pages, one short chapter per classic problem — free will, consciousness, meaning. Almost exactly maps the prompt list.",
+     n:"Harry Frankfurt, <i>“Alternate Possibilities and Moral Responsibility”</i>|The essay that argues you can be morally responsible even if you couldn't have done otherwise — the standard counter-example in the free-will debate.",
+     link:"If you take the determinism question, Nagel frames it and Frankfurt gives you the move that breaks the obvious answer. In 1,200 words you win by deploying one precise argument, not by surveying the debate."}},
+
+  {t:"King's Entrepreneurship Essay Competition (King's College, Cambridge)", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Opens 2 April · deadline 5 August, 9pm · winners announced October",
+   link:"https://www.kingselab.org/essay-competition",
+   note:"Run by King's Entrepreneurship Lab. Up to 1,000 words (aim for 850+). <em>£1,500 first prize, £750 for two runners-up</em>, prize ceremony at King's in December. Explicitly open to Year 11 — one of very few Cambridge college prizes that is.",
+   reading:{
+     m:"Tim Harford, <i>Adapt: Why Success Always Starts with Failure</i>|Argues that progress comes from variation and selection, not planning — directly on-topic for the 'role of failure' prompts.",
+     n:"Mariana Mazzucato, <i>The Entrepreneurial State</i>|Argues the state, not the lone founder, took the foundational risks behind technologies like the iPhone.",
+     link:"Every entrant will write about individual grit. Mazzucato lets you argue that the entrepreneurial risk-taking we celebrate was substantially public — a contrarian thesis with hard evidence behind it. That is how you place in a field of 1,000-word essays."}},
+
+  {t:"Queen's Commonwealth Writing Competition (Royal Commonwealth Society)", s:"pol", yr:"18 and under — one category", elig:"now", tag:"NEW",
+   when:"Deadline 30 April", link:"https://www.royalcwsociety.org/writing-competition",
+   note:"<em>Corrected from your note:</em> for 2026 the age structure changed — there is now a <em>single</em> category for entrants aged 18 or under, not the old age bands. Max 1,000 words; 2026 theme was 'Common Ground: Better Together'. Winners get a trip to London. Free to enter, and the world's oldest schools writing competition.",
+   reading:{
+     m:"Steven Levitsky &amp; Daniel Ziblatt, <i>How Democracies Die</i>|Very readable account of how democracies erode from within — ideal for a 'common ground' theme.",
+     n:"Benedict Anderson, <i>Imagined Communities</i>|The classic argument that nations are 'imagined political communities' constructed through print and shared narrative.",
+     link:"A theme like 'Common Ground' invites platitudes. Anderson lets you ask a real question instead — whether a Commonwealth of 56 countries can be an imagined community at all, and what would have to be true for it to work."}},
+
+  {t:"Big Think Competition (St Edmund Hall, Oxford)", s:"multi", yr:"Y11 / Y12 / Y13, UK state school", elig:"now", tbc:true,
+   when:"2026 round closed; register interest for 2027 · winners' Oxford visit was 18 June",
+   link:"https://www.seh.ox.ac.uk/study/outreach/events-and-competitions/big-think-competition",
+   note:"<em>Corrected — this is not an essay competition.</em> You submit a <em>video of 5 minutes or less</em> answering a question set by a St Edmund Hall academic, across 17 subject areas. Filming on a phone is explicitly fine; narrated slides or drawings count. Judged on creativity, structure, research and use of evidence. Prizes £100 / £50 / £35 plus an Oxford visit with tutors. <em>UK state school only.</em>",
+   reading:{
+     m:"Michael Sandel, <i>Justice: What's the Right Thing to Do?</i>|Built from Sandel's filmed Harvard lectures — the best available model of arguing philosophy <i>out loud</i> to a camera.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|Rejects designing the perfect just society in favour of comparing real, achievable improvements.",
+     link:"This is a five-minute video, so structure and delivery are half the marks. Sandel shows you the spoken register; Sen gives you a thesis that fits a short format — you don't need a complete theory of justice, just a better comparison than the one you were given."}},
+
+  {t:"Minds Underground Law Essay Competition", s:"law", yr:"Y11 / Y12", elig:"now", tbc:true,
+   when:"Month not published — their Philosophy/Politics prizes close ~3 April",
+   link:"https://www.mindsunderground.com/law-competition",
+   note:"Verify the date directly; this provider doesn't advertise it clearly.",
+   reading:{
+     m:"Helena Kennedy, <i>Eve Was Framed</i>|A practising QC on how the courts treat women — accessible, angry, and full of concrete cases.",
+     n:"Jeremy Waldron, <i>Law and Disagreement</i>|Asks how law should work when citizens reasonably disagree about justice itself — and defends legislatures over judges.",
+     link:"Kennedy gives you the evidence that legal outcomes track social assumptions. Waldron gives you the constitutional question that follows: if we disagree, who should decide — elected politicians or judges? That pairing turns an outrage essay into a jurisprudential one."}},
+
+  {t:"Sheffield Philosophy Essay Prize", s:"phil", yr:"Years 10–12", elig:"now", tag:"NEW", tbc:true,
+   when:"Date unconfirmed — verify with Sheffield's Philosophy department", link:"",
+   note:"A rare philosophy prize with a Y10/11 entry point. <em>Could not locate an official current page — treat as unconfirmed.</em>",
+   reading:{
+     m:"Simon Blackburn, <i>Think</i>|The clearest map of the main problems in philosophy for someone choosing what to write about.",
+     n:"Philippa Foot, <i>Virtues and Vices</i>|Short essays by the philosopher who invented the trolley problem — including the paper it came from.",
+     link:"Everyone has heard of the trolley problem; almost nobody has read Foot's original, where it was a minor illustration in an argument about the doctrine of double effect. Citing the source and correcting the popular version is a strong, cheap move."}},
+
+  {t:"Economics World Cup", s:"econ", yr:"Ages 12–18", elig:"now", tag:"NEW", tbc:true,
+   when:"Registration deadline ~10 March", link:"https://www.economicsworldcup.org/",
+   note:"Fully virtual: an individual multiple-choice round (top 15% advance their team), then a week-long team case study judged by an Oxford-affiliated panel.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Fast, applied reasoning — the right mode for a timed MCQ round.",
+     n:"Banerjee &amp; Duflo, <i>Poor Economics</i>|Nobel-winning development economics built on randomised trials rather than grand theory.",
+     link:"The final round is a real development case study. <i>Poor Economics</i> is a book of exactly those case studies, and it teaches the habit the judges are marking: ask what evidence would settle this, not what theory sounds best."}},
+]},
+
+{ month:"May – June 2027", items:[
+
+  {t:"JLI Global Essay Prize — deadline", s:"multi", yr:"Y11 / Y12", elig:"now",
+   when:"Deadline 31 May", link:"https://www.johnlockeinstitute.com/essay-competition",
+   note:"Final submission. Registration is earlier in the year — see the autumn entry above.",
+   reading:{
+     m:"Match your category: Philosophy → Blackburn · Politics → Wolff · Economics → Harford · Law → McBride|Each is the standard accessible entry point in its field.",
+     n:"Then take the opposing pair: Rawls↔Nozick · Mill↔Rousseau · Piketty↔Hayek · Hart↔Dworkin|Four live disputes, one per category.",
+     link:"JLI marks argument, not coverage. Pick the pair matching your category, work out which side you actually believe, and spend the essay defending it against the strongest version of the other."}},
+
+  {t:"Young Economist of the Year", s:"econ", yr:"Years 10–13", elig:"now",
+   when:"2026 deadline: 29 June, 23:59 BST — expect the same in 2027",
+   link:"https://www.discovereconomics.co.uk/young-economist-of-the-year-2026",
+   note:"Free. 1,000 words, <em>or</em> a 5-minute video/podcast, <em>or</em> 8 slides — an unusually flexible format. Solo or teams of 2–5. Winners present at a final at KPMG. <em>No AI tools permitted.</em> Past questions: is a high-GDP but unhappy country wealthy? Should billionaires exist? How will AI affect long-run growth?",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|The register these questions want: everyday examples, real mechanisms.",
+     n:"Banerjee &amp; Duflo, <i>Good Economics for Hard Times</i>|The same Nobel pair turning randomised-trial rigour onto immigration, trade, automation and growth — i.e. the exact question set.",
+     link:"On 'how will AI affect growth', most entrants speculate. Banerjee &amp; Duflo devote a chapter to automation and show why the labour-market evidence is messier than either the doom or boom story. Citing evidence against your own intuition is what wins these."}},
+]},
+
+{ month:"July – August 2027", items:[
+
+  {t:"King's Entrepreneurship Essay Competition — deadline", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Deadline 5 August, 9pm", link:"https://www.kingselab.org/essay-competition",
+   note:"Final submission for the competition that opened in April — a genuinely long runway, so start in the summer term rather than August.",
+   reading:{
+     m:"Tim Harford, <i>Adapt</i>|See the April entry.",
+     n:"Mariana Mazzucato, <i>The Entrepreneurial State</i>|See the April entry.",
+     link:"Four months is long enough to read both properly and still draft twice. Use it."}},
+]},
+
+{ month:"Date not confirmed — verify before relying on these", items:[
+
+  {t:"FSLA Essay Competition", s:"law", yr:"Age range not confirmed", elig:"check",
+   when:"Not published", link:"https://fsla.org.uk/fsla-essay-competition-2026/",
+   note:"Financial Services Lawyers Association essay competition.",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|Grounding in why legal constraint matters before you specialise into financial regulation.",
+     n:"Walter Bagehot, <i>Lombard Street</i>|The 1873 root text of central banking and, by extension, of financial regulation itself.",
+     link:"FSLA sits at the join of law and finance. Bagehot is the historical origin of the whole regulatory instinct — using a Victorian banking text in a modern financial-law essay is precisely the kind of unexpected connection that gets remembered."}},
+
+  {t:"AmplifyME Accreditation", s:"econ", yr:"Sixth-form access unclear", elig:"check",
+   when:"Not published", link:"https://amplifyme.com/schools",
+   note:"<em>Checked and flagged:</em> their Summer Analyst Programme gives a real LIBF-accredited Level 6 Diploma, but the student 'Pathways' product costs around £400/year and there is no clearly free sixth-form entry point. <em>Verify before committing time or money.</em>",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|Free from a library, and covers most of what a paid trading course will tell you.",
+     n:"Adam Tooze, <i>Crashed</i>|How the 2008 crisis reshaped the global financial and political order over the following decade.",
+     link:"If you end up not paying for this, the pairing still stands on its own: Malkiel for how markets are supposed to work, Tooze for what happened when they didn't."}},
+]},
+];
+
+DATA.y1213 = [
+{ month:"Rolling — apply as soon as Y12 starts", items:[
+
+  {t:"LSE Pathways to Law", s:"law", yr:"Early Y12", elig:"now",
+   when:"Apply the moment the Y12 window opens", link:"https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/pathways-to-law-london-years-12-13",
+   note:"<em>Your notes flag this as an EARLY Y12 application — do not wait.</em> Two-year programme running across Y12 and Y13.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|The standard first book; read it before the programme starts so the sessions land harder.",
+     n:"Jonathan Sumption, <i>Trials of the State</i> (Reith Lectures)|A former Supreme Court justice arguing that law has expanded too far into territory politics should own.",
+     link:"Pathways will show you law as a career. Sumption asks whether the judiciary has too much power — a genuine constitutional argument from the inside. It's short, it's on iPlayer as lectures, and it makes you a Law <b>and</b> PPE candidate at once."}},
+
+  {t:"Extended Project Qualification (EPQ)", s:"multi", yr:"Y12 (some schools run into Y13)", elig:"now", tag:"NEW",
+   when:"Register with your school's EPQ coordinator early in Y12",
+   link:"",
+   note:"Free, school-delivered, Ofqual-regulated Level 3 qualification worth <em>up to 28 UCAS points</em>. A 5,000-word dissertation on a question you choose — the single best vehicle for testing a PPE-crossover idea before you apply, and the thing interviewers most reliably ask about.",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i>|Broad enough to seed a genuine PPE-crossover question, rigorous enough to sustain 5,000 words.",
+     n:"Karl Polanyi, <i>The Great Transformation</i>|Argues markets are always politically constructed and never 'natural' — historically grounded and rarely cited by applicants.",
+     link:"An EPQ lives or dies on having a question with a real disagreement inside it. Sen and Polanyi disagree productively about whether market outcomes can be judged by a single standard — that tension is a dissertation, not a topic."}},
+
+  {t:"Apply:Cambridge — Year 12", s:"multi", yr:"Y12", elig:"now",
+   when:"Register at the start of Y12", link:"https://www.undergraduate.study.cam.ac.uk/find-out-more/widening-participation/apply-cambridge",
+   note:"Rolling widening-participation engagement programme.",
+   reading:{
+     m:"The PPE starter trio: Blackburn <i>Think</i> · Wolff <i>Intro to Political Philosophy</i> · Harford <i>The Undercover Economist</i>|One per discipline, all short.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|The crossover pick that shows you see PPE as one subject rather than three.",
+     link:"Read the trio to know the vocabulary of each discipline; read Sen to have an opinion about how they fit together. The second thing is what these programmes are actually assessing you for."}},
+
+  {t:"Balliol College outreach (taster days, PS workshops)", s:"multi", yr:"Y12", elig:"now",
+   when:"Multiple events through the year — check the calendar termly",
+   link:"https://www.balliol.ox.ac.uk/admissions/schools-and-outreach/outreach-talks-and-events",
+   note:"Try-before-you-buy days, personal statement workshops and taster sessions.",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Wolff taught at UCL and now Oxford; this is close to what a first-year tutorial reading feels like.",
+     n:"Bernard Williams, <i>Ethics and the Limits of Philosophy</i>|A sustained attack on the idea that ethics can be systematised at all.",
+     link:"At a taster day everyone agrees with the tutor. Williams gives you a respectable way to push back on the whole framing of a moral question — which is what tutorials actually reward."}},
+
+  {t:"Worcester College Outreach", s:"multi", yr:"Y12 (verify)", elig:"check",
+   when:"No single fixed date", link:"https://www.worc.ox.ac.uk/study-here/outreach",
+   note:"General college outreach programme.",
+   reading:{
+     m:"Match the book to the specific session topic — check before you go.|Turning up having read <i>for that session</i> is worth more than a general list.",
+     n:"Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|The universal fallback: applies to any discipline's account of its own progress.",
+     link:"If you can't find out the topic in advance, Kuhn works everywhere — you can ask any tutor whether their field advances by accumulation or rupture, and it is always a live question."}},
+
+  {t:"Oxford PPE Supercurricular Hub", s:"multi", yr:"Any year", elig:"now",
+   when:"Ongoing resource", link:"https://www.ppe.ox.ac.uk/open-days-and-visiting",
+   note:"Reading lists and subject material curated by Oxford's own PPE department.",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online)|What Oxford tells PPE offer-holders to read before they arrive.",
+     n:"Robert Allen, <i>Global Economic History: A Very Short Introduction</i>|Short, dense, and gives you centuries of context most applicants lack entirely.",
+     link:"Use this hub to supplement the pairings here, not replace them — its lists are broad by design, and breadth is exactly what doesn't distinguish an applicant."}},
+]},
+
+{ month:"September – December 2027 (apply early)", items:[
+
+  {t:"Social Mobility Foundation — Aspiring Professionals Programme", s:"multi", yr:"Y12 · income / first-gen / FSM / care-experienced", elig:"check", tag:"NEW",
+   when:"Applications Sept – Dec · outcomes from January", link:"https://www.socialmobility.org.uk/student",
+   note:"<em>Important for you specifically:</em> eligibility is based on household income, first-generation status, FSM or care experience — <em>not school type</em>, so grammar school doesn't rule you out. Covers Law (Linklaters Making Links), Economics/Finance (J.P. Morgan strand) and Politics/business (PA Consulting Springboard) in one programme, with mentoring through to your first graduate job.",
+   reading:{
+     m:"Match your strand: Law → McBride · Finance → Malkiel · Politics → Mill|The accessible entry point for whichever route you're placed on.",
+     n:"Michael Sandel, <i>The Tyranny of Merit</i>|Argues meritocracy itself generates humiliation and resentment among those it leaves behind.",
+     link:"You'll be on a social mobility programme. Sandel is the sharpest available critique of the meritocratic story such programmes rest on — reading it makes you a participant with a view rather than a grateful beneficiary, and that is far more interesting to talk about."}},
+
+  {t:"Warwick Future Economist Essay Competition", s:"econ", yr:"Ages 16–18", elig:"now", tag:"NEW", tbc:true,
+   when:"2025 cycle: 6 Oct – 7 Nov · expect the same window", link:"https://www.warwickeconomicssociety.com/copy-of-careers-talks",
+   note:"If the 16–18 age gate blocked you in Y11, this is your year. £100 first prize; two runners-up at £50.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|The right register: precise, applied, readable.",
+     n:"Dani Rodrik, <i>The Globalization Paradox</i>|The political trilemma — deep globalisation, democracy, national sovereignty: pick two.",
+     link:"See the Y11 entry. By Y12 you can push further and use Rodrik against himself — asking whether the trilemma still binds when capital moves faster than any of the three."}},
+
+  {t:"Wharton Global High School Investment Competition", s:"econ", yr:"Grades 9–12 (UK Y10–13)", elig:"now", tag:"NEW",
+   when:"Registration 10 Aug – 11 Sept · competition to 4 Dec · global finale late April",
+   link:"https://globalyouth.wharton.upenn.edu/competitions/investment-competition/",
+   note:"Teams of 4–6 plus a teacher advisor. Judged on strategy and report quality, <em>not portfolio returns</em>. Top 50 → virtual semi-finals; top 10 → Philadelphia.",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|Why beating the index is hard — worth confronting in a stock-picking competition.",
+     n:"Howard Marks, <i>The Most Important Thing</i>|Second-level thinking and risk control, from a working fund manager.",
+     link:"Your Investment Policy Statement is the marked artefact. Marks is a whole book on writing down your risk discipline before the market tests it — a direct match for the rubric."}},
+]},
+
+{ month:"December 2027 – January 2028 (apply)", items:[
+
+  {t:"Oxford UNIQ Summer Schools", s:"multi", yr:"Y12, UK state school, WP-prioritised", elig:"check",
+   when:"2026 cycle: opened 15 Dec, closed 13 Jan — expect the same",
+   link:"https://www.uniq.ox.ac.uk/",
+   note:"<em>Corrected — this is not a spring window.</em> Applications open mid-December and close mid-January. Prioritisation uses POLAR/ACORN postcode data and household income, <em>not simply 'state school'</em> — so a grammar-school student is neither automatically in nor automatically out. Don't miss it waiting for a March deadline that doesn't exist.",
+   reading:{
+     m:"Match your course: Law → Bingham <i>The Rule of Law</i> · PPE → Sen <i>The Idea of Justice</i>|Read before you go, not after.",
+     n:"Law → Hart <i>The Concept of Law</i> · PPE → Polanyi <i>The Great Transformation</i>|The harder second text for whichever strand you're on.",
+     link:"UNIQ tutorials run at first-year undergraduate pace. Arriving having read the harder text — even partially, honestly — changes what you get out of the week entirely."}},
+
+  {t:"Peter Cane Legal Reasoning Prize", s:"law", yr:"Y12", elig:"now",
+   when:"Runs December – February", link:"https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize",
+   note:"Corpus Christi College, Oxford. Now you're eligible.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|What legal reasoning is, before you're asked to do it.",
+     n:"Hart, <i>The Concept of Law</i> ↔ Dworkin, <i>Law's Empire</i>|Rules versus interpretation — the central dispute of modern jurisprudence.",
+     link:"A prize named for legal reasoning is the best possible venue for the <b>Hart–Dworkin debate</b>. Read Hart, then read Dworkin attacking him, and take a side. Two summaries lose; one argued position wins."}},
+]},
+
+{ month:"January – March 2028 (apply)", items:[
+
+  {t:"Sutton Trust — Warwick PPE stream", s:"multi", yr:"Y12, WP eligible", elig:"check", tag:"NEW",
+   when:"Applications open ~mid-Jan, close ~early March · summer school ~July",
+   link:"https://summerschools.suttontrust.com/course/university-of-warwick/philosophy-politics-economics-ppe/",
+   note:"Free, fully-funded residential week built around Warwick's actual PPE degree. WP eligibility is income/first-gen/school-performance based.",
+   reading:{
+     m:"The PPE starter trio: Blackburn · Wolff · Harford|One per discipline.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|The crossover text that treats PPE as one question, not three subjects.",
+     link:"On a PPE-specific summer school, the students who stand out are the ones who can say why the three disciplines belong in one degree. Sen is the cleanest answer to that."}},
+
+  {t:"Sutton Trust — Y12 Social Sciences → Law", s:"law", yr:"Y12, WP eligible", elig:"check",
+   when:"Applications ~12 Jan – ~5 March", link:"https://summerschools.suttontrust.com/browse-courses/",
+   note:"Fully funded residential summer school.",
+   reading:{
+     m:"Barnard, O'Sullivan &amp; Virgo, <i>What About Law?</i>|Written by Cambridge law fellows; shows you what studying law is actually like.",
+     n:"H.L.A. Hart, <i>The Concept of Law</i>|Legal positivism's foundational modern statement.",
+     link:"<i>What About Law?</i> answers 'what will I study'. Hart answers 'what is the thing I'd be studying'. Asking a tutor the second question is how you get remembered on a summer school."}},
+
+  {t:"Cambridge Re:Think Essay Competition", s:"multi", yr:"Eligibility not clearly stated — verify", elig:"check", tbc:true,
+   when:"Opens mid-January · closes early May", link:"https://cambridge-research.org/essay-competition/",
+   note:"Interdisciplinary, open-topic essay competition.",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i>|Crossover thinking demonstrated by a Nobel economist.",
+     n:"Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|Paradigms, and why disciplines resist the evidence that would overturn them.",
+     link:"Turn Kuhn on economics itself: is it a science, or a paradigm defending its core assumptions? That's an essay opening a Cambridge judge will read to the end."}},
+]},
+
+{ month:"February 2028", items:[
+
+  {t:"Gerald O'Connell Essay Competition in Economics (Fitzwilliam, Cambridge)", s:"econ", yr:"Y12, UK state school", elig:"now", tag:"NEW",
+   when:"Deadline 6pm, Friday 27 February", link:"https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026",
+   note:"1,000 words, one set question, restricted to Year 12 home students at UK state schools. Fitzwilliam runs parallel prizes in English, History, Land Economy, Classics, Archaeology and Slavonic Studies on the same deadline — <em>worth a look if a second subject interests you.</em>",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Precision inside a tight word count.",
+     n:"Branko Milanovic, <i>Global Inequality</i>|Inequality between countries, not just within them — a different lens from the default Piketty answer.",
+     link:"1,000 words forces one mechanism, argued properly. Everyone reaches for Piketty; reaching for Milanovic signals you read past the obvious book."}},
+]},
+
+{ month:"February – April 2028", items:[
+
+  {t:"Robert Walker Prize for Essays in Law (Trinity, Cambridge)", s:"law", yr:"Final or penultimate school year (Y12/13)", elig:"now", tag:"NEW",
+   when:"Deadline 1pm, Thursday 2 April — the form closes promptly",
+   link:"https://www.trin.cam.ac.uk/undergraduate/essay-prizes/law/",
+   note:"Up to 2,000 words including footnotes, on <em>a legal topic of importance to modern society</em> — you choose. First prizes £300, second £200, in separate UK and International divisions. Top ten in each division are invited to a ceremony at Trinity. <em>One entry per student, ever — you cannot enter twice, so pick your year deliberately.</em>",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|Eight principles that give you a ready-made framework for judging any modern legal controversy.",
+     n:"Conor Gearty, <i>Can Human Rights Survive?</i>|A sympathetic insider asking whether the human rights framework can withstand its own political backlash.",
+     link:"The question is open, so your topic choice <i>is</i> the first mark. Bingham gives you the standard to judge against; Gearty gives you a genuinely contested modern question to apply it to. Together they produce a thesis rather than a survey — and 2,000 words has no room for anything else."}},
+
+  {t:"Minds Underground Politics Essay Competition", s:"pol", yr:"Y12", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline ~3 April", link:"https://www.mindsunderground.com/politics-competition",
+   note:"1,000–1,500 words on democracy, justice or governance.",
+   reading:{
+     m:"John Rawls, <i>A Theory of Justice</i>|The foundational modern account — the veil of ignorance and the difference principle.",
+     n:"Iris Marion Young, <i>Justice and the Politics of Difference</i>|Attacks the whole distributive paradigm, arguing justice is about oppression and structural domination, not slicing a pie.",
+     link:"Everyone answers a justice question with Rawls, and the sharp ones add Nozick. Young attacks the shared assumption <i>underneath</i> both of them — that justice is fundamentally about distribution. That's a third position, and it's the one that gets read twice."}},
+
+  {t:"Minds Underground Philosophy Essay Competition", s:"phil", yr:"Y12", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline ~3 April", link:"https://www.mindsunderground.com/philosophy-competition",
+   note:"Set questions leaning towards philosophy of mind.",
+   reading:{
+     m:"Thomas Nagel, <i>“What Is It Like to Be a Bat?”</i>|The short essay that made subjective experience the central problem of consciousness.",
+     n:"Daniel Dennett, <i>Consciousness Explained</i> ↔ David Chalmers, <i>The Conscious Mind</i>|Dennett says consciousness is fully physically explicable; Chalmers formalises the 'hard problem' saying it isn't.",
+     link:"Nagel sets the problem in 15 pages. Dennett and Chalmers are the two live answers, and they genuinely disagree. Reading Nagel then picking a side between the other two gives you a real position in an unresolved debate — which is the whole point of a philosophy essay."}},
+
+  {t:"UCL Masterclasses", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"2026 window ran February – April", link:"https://www.ucl.ac.uk/widening-participation/learners/year-12-and-13/information-advice-and-guidance/masterclasses",
+   note:"Online, subject-specific sessions.",
+   reading:{
+     m:"Match the masterclass subject — check the listing before you book.|A targeted book beats a general one every time here.",
+     n:"Bernard Williams, <i>Ethics and the Limits of Philosophy</i>|Universal fallback for any social-science session: a serious challenge to systematising human judgement.",
+     link:"These are short sessions where asking one good question is the entire opportunity. Have the question ready before you log on."}},
+
+  {t:"ExpLaw (Oxford)", s:"law", yr:"Y12, BAME state school", elig:"check",
+   when:"Opens in April", link:"https://www.law.ox.ac.uk/content/uniq-explaw",
+   note:"Run with Freshfields, alongside UNIQ.",
+   reading:{
+     m:"Helena Kennedy, <i>Eve Was Framed</i>|A practising QC on how courts treat the people in front of them.",
+     n:"Michelle Alexander, <i>The New Jim Crow</i>|US mass incarceration and race — hugely influential, and powerful comparative material against the UK system.",
+     link:"Kennedy shows bias operating in British courts; Alexander shows a system where it became structural. The comparison — what stops the UK going the same way — is a serious question, and it's yours to raise."}},
+
+  {t:"Regent's Park College (Oxford) — Online PPE Masterclass", s:"multi", yr:"Y12 only, predicted AAA", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 ran 5 July — dates move, check from spring", link:"https://www.rpc.ox.ac.uk/access-outreach/ppe-masterclass-2025/",
+   note:"Half-day PPE-specific online masterclass.",
+   reading:{
+     m:"The PPE starter trio: Blackburn · Wolff · Harford|One per discipline, going in.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|The crossover pick.",
+     link:"A half-day session gives you maybe two chances to speak. Sen gives you something to say that spans all three disciplines at once."}},
+
+  {t:"Oriel College (Oxford) — PPE Study Day", s:"multi", yr:"Y12 only, UK state school, predicted AAA", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 ran mid-April · applications closed mid-March — apply early",
+   link:"https://www.ox.ac.uk/admissions/undergraduate/visiting-and-outreach/outreach-events/year-12-ppe-study-day",
+   note:"Free PPE-specific taster day with travel and food covered.",
+   reading:{
+     m:"The PPE starter trio: Blackburn · Wolff · Harford|The shared vocabulary.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|Why the three disciplines belong in one degree.",
+     link:"Same logic as Regent's Park — and the applications close a month before the event, so the diary entry that matters is mid-March, not mid-April."}},
+]},
+
+{ month:"March – August 2028", items:[
+
+  {t:"R.A. Butler Prize for Politics and International Studies (Trinity, Cambridge)", s:"pol", yr:"Y12 / S5 when questions are released", elig:"now",
+   when:"Questions announced March · deadline 12 noon, Friday 31 July",
+   link:"https://www.trin.cam.ac.uk/undergraduate/essay-prizes/politics/",
+   note:"<em>Corrected from your note:</em> the deadline is <em>31 July</em>, not August — you get four full months from the March question release. Up to 3,000 words including footnotes. First prize £600, second £400 (each split with your school), plus ~8 special commendations and ~40 commendations. Open internationally; one entry per student.",
+   reading:{
+     m:"J.S. Mill, <i>On Liberty</i> · Rousseau, <i>The Social Contract</i>|The two canonical positions on where individual freedom meets collective authority.",
+     n:"Robert Dahl, <i>Polyarchy</i> ↔ Hannah Arendt, <i>The Origins of Totalitarianism</i>|Dahl gives rigorous institutional criteria for what makes a system genuinely democratic; Arendt gives the anatomy of what replaces it when it fails.",
+     link:"3,000 words and four months is enough for real depth, so the mainstream pair alone will read thin. Dahl lets you <b>measure</b> a democracy rather than describe it; Arendt lets you say what the failure mode actually looks like. Bringing an institutional political scientist into a school essay is unusual and it shows."}},
+
+  {t:"IEA Monetary Policy Essay Prize (Sixth Form)", s:"econ", yr:"Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Deadline 31 August, 23:59 · semi-finals October (Buckingham) · final 1 December (IEA, London)",
+   link:"https://iea.org.uk/Monetary-Policy-Essay-Prize/",
+   note:"<em>Corrected — the deadline is 31 August, not July.</em> Up to 2,500 words (references count, bibliography doesn't). <em>£1,500 first prize, £750 for two runners-up.</em> You must attend the semi-final and final in person. The 2026 question was whether tariffs raise the price level or inflation.",
+   reading:{
+     m:"Blastland &amp; Dilnot, <i>The Tiger That Isn't</i>|Stops you misreading the inflation statistics the question turns on.",
+     n:"Milton Friedman &amp; Anna Schwartz, <i>A Monetary History of the United States</i> (Great Depression chapters)|The foundational monetarist text — read selectively, it's technical.",
+     link:"The IEA is a free-market think tank, so knowing the tradition behind the prize is worth real marks. The tariff question is precisely a price-level-versus-inflation distinction — which is a monetarist point, and Friedman &amp; Schwartz is where it was made most rigorously. <b>Being able to say which chapters you read is more credible than claiming the whole book.</b>"}},
+
+  {t:"King's Entrepreneurship Essay Competition (King's, Cambridge)", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Opens 2 April · deadline 5 August, 9pm", link:"https://www.kingselab.org/essay-competition",
+   note:"Up to 1,000 words. £1,500 first prize, £750 for two runners-up, ceremony at King's in December.",
+   reading:{
+     m:"Tim Harford, <i>Adapt</i>|Progress by variation and selection, not planning.",
+     n:"Mariana Mazzucato, <i>The Entrepreneurial State</i>|The public sector took the foundational risks behind the technologies we credit to founders.",
+     link:"The field will be full of essays about individual grit. Mazzucato lets you argue the opposite with evidence — and a contrarian thesis, properly supported, is the only reliable way to place in a 1,000-word competition."}},
+
+  {t:"IEA Dorian Fisher Memorial Prize", s:"econ", yr:"Sixth form — mainly non-UK schools, check eligibility", elig:"check", tag:"NEW", tbc:true,
+   when:"Deadline ~late July", link:"https://iea.org.uk/students/",
+   note:"<em>Primarily aimed at students at schools outside the UK — verify you qualify before investing time.</em>",
+   reading:{
+     m:"Milton Friedman, <i>Capitalism and Freedom</i>|The compact statement of the classical-liberal position the IEA exists to advance.",
+     n:"Thomas Piketty, <i>Capital in the Twenty-First Century</i>|The most serious modern empirical challenge to that position.",
+     link:"Writing for a free-market institute doesn't mean agreeing with it. Knowing Piketty's r &gt; g argument and answering it is far more impressive than restating Friedman back to the people who publish him."}},
+
+  {t:"Trinity College Cambridge — Philosophy Essay Prize", s:"phil", yr:"Y12", elig:"check", tag:"NEW", tbc:true,
+   when:"Not confirmed — likely spring/summer, matching Trinity's other prizes", link:"",
+   note:"<em>Could not confirm an official page — verify directly with Trinity before planning around it.</em>",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Clean exposition of the main disputes.",
+     n:"Derek Parfit, <i>Reasons and Persons</i> (Part 3, personal identity)|Wildly influential, genuinely hard — read one part properly and say so.",
+     link:"Parfit was a Fellow of All Souls and is central to modern Oxford philosophy. Reading Part 3 honestly — and admitting that's what you read — is more credible and more impressive than claiming the whole book."}},
+]},
+
+{ month:"June – August 2028 (summer schools & open days)", items:[
+
+  {t:"Cambridge Open Days", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"Typically late June / early July", link:"https://www.undergraduate.study.cam.ac.uk/events/cambridge-open-days",
+   note:"Book early — the popular subject talks fill up.",
+   reading:{
+     m:"Match the faculty talks you plan to attend.|Read the department's own suggested list first.",
+     n:"Whatever the talk's academic has written.|Ten minutes on their staff page tells you their actual research.",
+     link:"The highest-leverage preparation for an open day is reading one paper or chapter by the person giving the talk. Almost nobody does it, and it turns a queue question into a conversation."}},
+
+  {t:"Christ's College Cambridge Summer School", s:"multi", yr:"Y12 only", elig:"now",
+   when:"Runs over the summer", link:"https://www.christs.cam.ac.uk/admissions/undergraduate-admissions/events-including-online-events/experience-christs-summer-school",
+   note:"Residential experience programme.",
+   reading:{
+     m:"Match the subject strand offered.|Check the programme before you go.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|Reliable crossover fallback for any PPE-adjacent strand.",
+     link:"Same principle throughout: targeted beats general, and one book you can argue about beats five you can name."}},
+
+  {t:"Caius Explore", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"No fixed month confirmed — check the page", link:"https://www.cai.cam.ac.uk/access-outreach/schemes-and-events/caius-explore",
+   note:"Gonville &amp; Caius access scheme.",
+   reading:{
+     m:"Match the subject strand.|As above.",
+     n:"Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|Universal fallback.",
+     link:"Works for any strand — every discipline has a story about how it progresses, and Kuhn gives you a way to question it."}},
+
+  {t:"Marshall Society Economics Essay Competition", s:"econ", yr:"Sixth form (not stated explicitly)", elig:"check", tbc:true,
+   when:"Opens mid-summer", link:"https://www.marshallsociety.com/",
+   note:"Run by Cambridge's undergraduate economics society — <em>questions reward technical depth more than most school competitions.</em>",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online)|The rigorous mainstream curriculum, free.",
+     n:"Thomas Piketty, <i>Capital in the Twenty-First Century</i>|Read the data chapters properly rather than claiming all 700 pages.",
+     link:"Marshall Society judges are Cambridge economics undergraduates. They will notice whether you can handle an actual model or only a narrative — CORE gives you the machinery, Piketty gives you the evidence to run it on."}},
+]},
+
+{ month:"September 2028 (Y13 start, and Y12 autumn deadlines)", items:[
+
+  {t:"LSESU Economics Society Essay Competition", s:"econ", yr:"Y12 recommended, open to all", elig:"now",
+   when:"Deadline 1 September", link:"https://lsesueconsoc.org/competitions/",
+   note:"Run by the LSE Students' Union economics society.",
+   reading:{
+     m:"Thomas Piketty, <i>Capital in the Twenty-First Century</i>|Inequality, empirically — a field with deep LSE ties.",
+     n:"Anthony Atkinson, <i>Inequality: What Can Be Done?</i>|Piketty's mentor, and far more prescriptive: fifteen concrete policy proposals.",
+     link:"Piketty diagnoses; Atkinson prescribes. Atkinson taught at LSE and Piketty calls him his intellectual father — using the pair is both a stronger argument and a quiet signal that you know the discipline's actual lineage."}},
+
+  {t:"CSEP Economics/Finance Essay Competition", s:"econ", yr:"Y12 / Y13", elig:"now",
+   when:"September deadline", link:"https://www.cambridgepluralism.org/essay-competition",
+   note:"Run by the Cambridge Society for Economic Pluralism — <em>explicitly about challenging mainstream economics.</em>",
+   reading:{
+     m:"Ha-Joon Chang, <i>23 Things They Don't Tell You About Capitalism</i>|Accessible heterodox economics from a Cambridge economist — almost the house style of this competition.",
+     n:"Karl Polanyi, <i>The Great Transformation</i>|The deep historical case that markets are politically constructed and self-regulating markets are a fiction.",
+     link:"CSEP wants pluralism, so a critique of orthodoxy is the assignment. Chang is the readable version; Polanyi is where the argument originally comes from. Going to the source rather than the popularisation is exactly the move this particular audience rewards."}},
+
+  {t:"Sidgwick Prize (Cambridge)", s:"multi", yr:"High-school age — verify whether Y11 can enter", elig:"check", tag:"NEW",
+   when:"Registration opens September · essay deadline ~30 June",
+   link:"https://www.sidgwickprize.com/",
+   note:"Covers Philosophy, Politics, Economics <em>and</em> Law across eight disciplines. £12 entry fee, and <em>every entry gets written feedback from Cambridge academics</em> — which is worth the fee on its own even if you don't place.",
+   reading:{
+     m:"Pick your discipline's entry point: Blackburn · Wolff · Harford · McBride|One accessible book to establish the vocabulary.",
+     n:"Then the matching dispute: Rawls↔Nozick · Mill↔Rousseau · Piketty↔Hayek · Hart↔Dworkin|Two thinkers who genuinely disagree.",
+     link:"A nine-month runway is long enough to read a real pairing properly. The feedback is the actual prize here — write something you want a Cambridge academic to argue with."}},
+]},
+
+{ month:"No fixed date confirmed — verify", items:[
+
+  {t:"LSE Explore — subject masterclasses", s:"multi", yr:"Y12", elig:"now",
+   when:"Not published", link:"https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/lse-explore-year-12",
+   note:"Coffee-break research talks and subject masterclasses.",
+   reading:{
+     m:"Match the masterclass subject.|Check the listing first.",
+     n:"Look up the speaker's own research.|LSE staff pages list current papers.",
+     link:"Same as Cambridge Open Days: reading one thing by the person speaking is the cheapest way to have a real conversation instead of a queue question."}},
+
+  {t:"UCL Expand", s:"multi", yr:"Y12", elig:"now",
+   when:"Not published", link:"https://www.ucl.ac.uk/widening-participation/learners/year-12-and-13/ucl-expand",
+   note:"Hybrid Y12 programme.",
+   reading:{
+     m:"Match the strand you're placed on.|Ask the coordinator what you'll cover.",
+     n:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Wolff is at UCL — reading him before a UCL programme is a small, specific, noticeable choice.",
+     link:"Reading the department's own academic is a genuinely underrated move. It costs nothing and it is immediately obvious to anyone from that department."}},
+
+  {t:"Lloyd Davies Philosophy Prize", s:"phil", yr:"Y12", elig:"check", tag:"NEW",
+   when:"No confirmed date — verify directly", link:"",
+   note:"<em>No official current page located.</em> £250 first prize reported, possible £150 second.",
+   reading:{
+     m:"Bertrand Russell, <i>The Problems of Philosophy</i>|Short, primary-source, and still the best introduction to epistemology.",
+     n:"René Descartes, <i>Meditations on First Philosophy</i>|The six meditations that set the modern agenda Russell is responding to.",
+     link:"Russell is answering Descartes across 250 years. Reading them in the wrong order — Russell first, then the original he's arguing with — makes the argument much easier to follow and gives you a genuine line to take."}},
+
+  {t:"Future Thought Leaders Essay Competition", s:"multi", yr:"Y12", elig:"now", tag:"NEW",
+   when:"2026 round already closed — watch for the 2027/28 opening",
+   link:"https://www.futurethoughtleaders.co.uk/essay-competition",
+   note:"Interdisciplinary essay on the defining challenges of your generation.",
+   reading:{
+     m:"Kate Raworth, <i>Doughnut Economics</i>|A rival objective to growth, argued accessibly.",
+     n:"Amartya Sen, <i>Development as Freedom</i>|Redefines development as the expansion of real freedoms rather than income — the rigorous version of the same instinct.",
+     link:"Raworth is the popular framing; Sen is the Nobel-winning argument underneath it. On a 'challenges of your generation' prompt, having the serious source rather than the infographic version is the whole difference."}},
+
+  {t:"Cambridge Subject Masterclasses / Applicant Webinars / Exploring Law Conference", s:"multi", yr:"Not specified", elig:"check",
+   when:"Check the Cambridge events calendar", link:"https://www.undergraduate.study.cam.ac.uk/events/masterclasses",
+   note:"General Cambridge outreach. <em>You can filter the events listing by 'state school' and 'widening participation' audience</em> — worth doing rather than scrolling everything.",
+   reading:{
+     m:"Match the session subject.|As always.",
+     n:"For the Law conference: Barnard, O'Sullivan &amp; Virgo, <i>What About Law?</i>|Written by the Cambridge fellows who run these events.",
+     link:"For the Exploring Law Conference specifically, the authors of <i>What About Law?</i> are Cambridge law fellows — you may well be in a room with one of them."}},
+]},
+
+{ month:"Fee-paying summer schools (optional — cost flagged, not endorsed)", items:[
+
+  {t:"Immerse Education — PPE Summer Programme", s:"multi", yr:"~15–18", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://www.immerse.education/philosophy-politics-economics-summer-school/",
+   note:"<em>Fee-paying, typically thousands of pounds.</em> Oxford/Cambridge locations but not run by the universities.",
+   reading:{
+     m:"The PPE starter trio: Blackburn · Wolff · Harford|Free from a library.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|Also free from a library.",
+     link:"Worth saying plainly: admissions tutors know which of these are paid-for. The reading costs nothing and signals more than the programme does."}},
+
+  {t:"Oxford Summer Courses — PPE", s:"multi", yr:"16–17", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://oxfordsummercourses.com/subjects/ppe",
+   note:"<em>Fee-paying — quoted from £6,995 for two weeks.</em> Not run by the University of Oxford.",
+   reading:{
+     m:"PPE starter trio.|As above.",
+     n:"Sen, <i>The Idea of Justice</i>.|As above.",
+     link:"See above — and note that UNIQ, Sutton Trust and the Oriel PPE day are free and university-run."}},
+
+  {t:"John Locke Institute — PPE Summer School", s:"multi", yr:"16–19", elig:"now", tag:"NEW",
+   when:"Summer, Oxford-based", link:"https://www.johnlockeinstitute.com/oxford-summer-schools/1000",
+   note:"<em>Fee-paying.</em> Note their essay prize is free — see the Y11 list.",
+   reading:{
+     m:"John Rawls, <i>A Theory of Justice</i>|The syllabus leans heavily on political philosophy.",
+     n:"Robert Nozick, <i>Anarchy, State, and Utopia</i>|The direct libertarian answer to Rawls, written by his Harvard colleague.",
+     link:"Rawls and Nozick were colleagues arguing in print. Read them as one conversation and you have the backbone of any political philosophy discussion — free, and without the summer school."}},
+
+  {t:"Debate Chamber — PPE Summer School", s:"multi", yr:"~15–18", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://debatechamber.com/project/ppe-summer-school/",
+   note:"<em>Fee-paying.</em>",
+   reading:{
+     m:"F.A. Hayek, <i>The Road to Serfdom</i>|On the course's own reading list.",
+     n:"G.A. Cohen, <i>Self-Ownership, Freedom, and Equality</i>|Also on their list — the most rigorous egalitarian answer to the Hayek/Nozick tradition.",
+     link:"They publish their reading list. Reading it yourself gets you most of the intellectual content at none of the cost — and the Hayek↔Cohen opposition is a genuinely first-rate pairing."}},
+
+  {t:"Oxbridge Summer Scholars — Law, PPE &amp; Global Issues", s:"multi", yr:"Not fully specified", elig:"check", tag:"NEW",
+   when:"Summer", link:"https://www.oxbridgesummerscholars.com/law-ppe-and-global-issues",
+   note:"<em>Fee-paying</em>, combined Law + PPE stream.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|The Law half.",
+     n:"Amartya Sen, <i>The Idea of Justice</i>|The PPE half, and the bridge between them.",
+     link:"Sen is a economist writing about justice — which is exactly the Law/PPE join this course is selling. The book does the bridging for free."}},
+]},
+];
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+const SUBJECTS = [
+  {k:"phil",  label:"Philosophy"},
+  {k:"pol",   label:"Politics"},
+  {k:"econ",  label:"Economics"},
+  {k:"law",   label:"Law"},
+  {k:"multi", label:"Multi-subject"},
+];
+const YEARS = [
+  {k:"y11",   label:"Year 11",      range:"Sept 2026 – Aug 2027"},
+  {k:"y1213", label:"Year 12 / 13", range:"Sept 2027 – Aug 2029"},
+];
+
+const state = { year:"y11", subjects:new Set(), eligOnly:false, q:"" };
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, html) => {
+  const n = document.createElement(tag);
+  if(cls) n.className = cls;
+  if(html !== undefined) n.innerHTML = html;
+  return n;
+};
+
+const ICON_CAL  = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+const ICON_WARN = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>';
+
+/* "Author, <i>Title</i>|why it earns its place" -> two-part markup */
+function bookRow(kind, raw){
+  const i = raw.indexOf('|');
+  const title = i === -1 ? raw : raw.slice(0, i);
+  const why   = i === -1 ? ''  : raw.slice(i + 1);
+  const lbl = kind === 'm' ? 'Start here' : 'Stand out';
+  return '<div class="book ' + kind + '">'
+       +   '<div class="lbl">' + lbl + '</div>'
+       +   '<div class="txt"><b>' + title + '</b>'
+       +     (why ? '<span class="why">' + why + '</span>' : '')
+       +   '</div>'
+       + '</div>';
+}
+
+function matches(item){
+  if(state.subjects.size && !state.subjects.has(item.s)) return false;
+  if(state.eligOnly && item.elig !== 'now') return false;
+  if(state.q){
+    const hay = [
+      item.t, item.yr, item.when, item.note,
+      item.reading ? item.reading.m + ' ' + item.reading.n + ' ' + item.reading.link : ''
+    ].join(' ').replace(/<[^>]*>/g, '').toLowerCase();
+    if(!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function card(item){
+  const c = el('div', 'card ' + item.s);
+
+  const meta = el('div', 'meta');
+  meta.appendChild(el('span', 'chip subj', SUBJECTS.find(s => s.k === item.s).label));
+  if(item.tag) meta.appendChild(el('span', 'chip new', item.tag));
+  if(item.elig === 'now')        meta.appendChild(el('span', 'chip elig-now',   'Eligible now'));
+  else if(item.elig === 'later') meta.appendChild(el('span', 'chip elig-later', 'Y12+ only'));
+  else                           meta.appendChild(el('span', 'chip elig-later', 'Check eligibility'));
+  meta.appendChild(el('span', 'chip yr', item.yr));
+  if(item.tbc) meta.appendChild(el('span', 'chip tbc', 'date TBC'));
+  c.appendChild(meta);
+
+  c.appendChild(el('h3', null, item.t));
+  if(item.when) c.appendChild(el('div', 'when', ICON_CAL + '<span>' + item.when + '</span>'));
+  if(item.note) c.appendChild(el('p', 'note', item.note));
+
+  if(item.reading){
+    const r = el('div', 'reading');
+    r.appendChild(el('div', 'reading-h', 'Read alongside this'));
+    r.insertAdjacentHTML('beforeend', bookRow('m', item.reading.m));
+    r.insertAdjacentHTML('beforeend', bookRow('n', item.reading.n));
+    if(item.reading.link){
+      r.appendChild(el('div', 'thelink', '<b>The link →</b> ' + item.reading.link));
+    }
+    c.appendChild(r);
+  }
+
+  const src = el('div', 'src');
+  if(item.link){
+    src.innerHTML = '<a href="' + item.link + '" target="_blank" rel="noopener">Official page ↗</a>';
+  } else {
+    src.innerHTML = '<span class="nolink">No official page found — verify directly</span>';
+  }
+  c.appendChild(src);
+  return c;
+}
+
+function render(){
+  const content = $('content');
+  content.innerHTML = '';
+  $('caveat').innerHTML = ICON_WARN + '<div>' + CAVEATS[state.year] + '</div>';
+
+  let shown = 0;
+  DATA[state.year].forEach(group => {
+    const items = group.items.filter(matches);
+    if(!items.length) return;
+    shown += items.length;
+
+    const m = el('div', 'month');
+    const head = el('div', 'month-head');
+    head.appendChild(el('h2', null, group.month));
+    head.appendChild(el('span', 'n', items.length + (items.length === 1 ? ' entry' : ' entries')));
+    m.appendChild(head);
+    items.forEach(it => m.appendChild(card(it)));
+    content.appendChild(m);
+  });
+
+  if(!shown){
+    content.appendChild(el('div', 'empty',
+      '<b>Nothing matches those filters</b>Try clearing the search box or turning off “Eligible now”.'));
+  }
+
+  const total = DATA[state.year].reduce((a, g) => a + g.items.length, 0);
+  $('count').textContent = shown === total
+    ? total + ' shown'
+    : shown + ' of ' + total + ' shown';
+
+  updateStats();
+}
+
+function updateStats(){
+  const all = [].concat(...Object.values(DATA).map(y => [].concat(...y.map(g => g.items))));
+  $('s-total').textContent = all.length;
+  $('s-now').textContent   = [].concat(...DATA.y11.map(g => g.items)).filter(i => i.elig === 'now').length;
+  $('s-new').textContent   = all.filter(i => i.tag === 'NEW').length;
+}
+
+function buildControls(){
+  const yt = $('yeartabs');
+  YEARS.forEach(y => {
+    const b = el('button', 'yeartab', y.label + '<small>' + y.range + '</small>');
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', y.k === state.year);
+    b.onclick = () => {
+      state.year = y.k;
+      [...yt.children].forEach(c => c.setAttribute('aria-selected', 'false'));
+      b.setAttribute('aria-selected', 'true');
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    yt.appendChild(b);
+  });
+
+  const f = $('filters');
+  SUBJECTS.forEach(s => {
+    const b = el('button', 'pill ' + s.k, '<span class="dot"></span>' + s.label);
+    b.setAttribute('aria-pressed', 'false');
+    b.onclick = () => {
+      if(state.subjects.has(s.k)) state.subjects.delete(s.k);
+      else state.subjects.add(s.k);
+      b.setAttribute('aria-pressed', state.subjects.has(s.k));
+      render();
+    };
+    f.appendChild(b);
+  });
+
+  const t = el('button', 'toggle', '✓ Eligible now only');
+  t.setAttribute('aria-pressed', 'false');
+  t.onclick = () => {
+    state.eligOnly = !state.eligOnly;
+    t.setAttribute('aria-pressed', state.eligOnly);
+    render();
+  };
+  f.appendChild(t);
+
+  const c = el('span', 'count');
+  c.id = 'count';
+  f.appendChild(c);
+
+  let timer;
+  $('q').addEventListener('input', e => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); render(); }, 140);
+  });
+}
+
+$('foot').innerHTML =
+  '<b>How to use the reading pairs.</b> Every entry gives you one <b>mainstream</b> book (the accessible way in, usually on an official prep list) and one <b>niche</b> one (the text that makes you memorable). '
++ 'Read the mainstream one first so the niche one lands — then use the tension between them as your personal-statement line: <i>“I read X, which led me to Y, so I argued Z in [competition].”</i> '
++ 'It is the contrast, not the number of books, that reads as real engagement.<br><br>'
++ '<b>Honesty rule.</b> Several niche picks are genuinely hard (Hart, Parfit, Piketty, Friedman &amp; Schwartz). Reading three chapters properly and saying so is stronger than claiming a book you skimmed — interviewers ask follow-ups.<br><br>'
++ 'Dates checked against organisers’ own pages, July 2026. Anything marked <b>date TBC</b> or <b>Check eligibility</b> is not confirmed — verify before you plan around it.';
+
+buildControls();
+render();
+</script>
+</body>
+</html>
