@@ -629,7 +629,7 @@ const SEC_COL = { 'Banking':'teal', 'Consulting & Accounting':'multi', 'AI & Tec
 const PROGRAMMES = ['Work experience','Spring week','Insight day','Virtual programme','Talk / webinar','Open day','Vacation scheme','Fellowship','Accelerator','Pre-university programme','Competition'];
 /* same rules as scripts/scan.mjs: experiences, not jobs */
 const EXP_KEEP = /(work[- ]experience|spring (week|insight|programme|internship)|insight (day|week|programme|event|evening|series)|virtual (work|experience|insight|internship|programme|event)|open (day|evening|week)|taster|discovery (day|week|programme|event)|\btalks?\b|webinar|masterclass|workshop|school (students?|leavers? insight)|sixth[- ]form|year 1[0-3]\b|early insight|first[- ]year (programme|insight|event)|pre-?university|vacation scheme|fellowship|accelerator)/i, EXP_DROP = /(senior|principal|director|head of|\blead\b|manager\b|vice president|\bvp\b|graduate (programme|scheme|analyst)|analyst programme|full[- ]time|permanent|apprenticeship|industrial placement|placement year|year[- ]long|12[- ]month|engineer\b|developer\b|associate\b|summer (analyst|associate)|off[- ]cycle)/i;
-const isExperience = o => EXP_KEEP.test(o.role || '') && !EXP_DROP.test(o.role || '');
+const isExperience = o => o.kind ? (o.kind === 'experience' || (opF.interns && o.kind === 'internship')) : (EXP_KEEP.test(o.role || '') && !EXP_DROP.test(o.role || ''));
 const YEAR_GROUPS = ['Year 10','Year 11','Year 12','Year 13','Gap year','First year','Penultimate year','Any'];
 const AGE_GROUPS = [['14-16','School, 14–16 (Y10–11)'], ['16-18','School, 16–18 (Y12–13)'], ['18+','Gap year / school leaver, 18+'], ['uni1','University 1st year, 18–19'], ['uni2','Penultimate year, 19–21'], ['grad','Final year / graduate, 21+']];
 const AGE_TEXT = { '14-16':'14–16 · Y10–11', '16-18':'16–18 · Y12–13', '18+':'18+ · school leaver', 'uni1':'18–19 · uni 1st year', 'uni2':'19–21 · penultimate year', 'grad':'21+ · final year / grad' };
@@ -649,7 +649,7 @@ function ageCell(o){ const a = ageOf(o); if(!a) return '<span class="faint">Chec
 const REGIONS = ['London','South East','South West','East of England','West Midlands','East Midlands','North West','Yorkshire','North East','Scotland','Wales','Northern Ireland','Remote (UK)','UK (region not stated)'];
 const APP_STATUS = ['', 'Planning', 'Applied', 'Online test', 'Interview', 'Assessment centre', 'Offer', 'Rejected'];
 const statusCls = s => ({ 'Offer':'s-offer', 'Rejected':'s-rejected', 'Applied':'s-applied', 'Online test':'s-online', 'Interview':'s-interview', 'Assessment centre':'s-ac' }[s] || '');
-const opF = { tab:'all', q:'', region:'', sector:'', area:'', prog:'', yg:'', isNew:false, soon:false, sort:'deadline', dir:1 };
+const opF = { tab:'all', q:'', interns:false, openOnly:false, region:'', sector:'', area:'', prog:'', yg:'', isNew:false, soon:false, sort:'deadline', dir:1 };
 
 const GHOSTS = [
   { company:'Example Bank', sector:'Banking', ageGroup:'uni1', role:'Spring Insight Programme', area:'Markets & Trading', programme:'Spring week', location:'London', region:'London', deadline:'', posted:isoToday(), isNew:true },
@@ -737,7 +737,7 @@ function viewOpenings(v){
       ${selectBox('opProg', 'All programmes', PROGRAMMES, opF.prog)}
       ${selectBox('opYg', 'Any age', AGE_GROUPS, opF.yg)}
       ${selectBox('opReg', 'All UK regions', REGIONS, opF.region)}
-      <span class="row" style="gap:14px;flex-wrap:nowrap">${sw('opNew', 'New (7 days)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)}</span>
+      <span class="row" style="gap:14px">${sw('opOpen', 'Open now', opF.openOnly)} ${sw('opNew', 'New (7 days)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opInt', 'Include internships', opF.interns)}</span>
     </div>
   </div>
   <div id="opBody"></div>`;
@@ -748,6 +748,8 @@ function viewOpenings(v){
   [['opReg','region'], ['opSec','sector'], ['opArea','area'], ['opProg','prog'], ['opYg','yg']].forEach(([id, k]) => $('#' + id).onchange = e => { opF[k] = e.target.value; drawOpenings(); });
   $('#opNew').onchange = e => { opF.isNew = e.target.checked; drawOpenings(); };
   $('#opSoon').onchange = e => { opF.soon = e.target.checked; drawOpenings(); };
+  $('#opOpen').onchange = e => { opF.openOnly = e.target.checked; drawOpenings(); };
+  $('#opInt').onchange = e => { opF.interns = e.target.checked; viewOpenings($('#view')); };
   drawOpenings();
 }
 
@@ -761,6 +763,7 @@ function opFiltered(){
     if(opF.prog && o.programme !== opF.prog) return false;
     if(opF.yg && ageOf(o) !== opF.yg && o.yearGroup !== 'Any') return false;
     if(opF.isNew){ const d = daysUntil(o.posted); if(d === null || d < -7) return false; }
+    if(opF.openOnly && (o.live === 'closed' || (daysUntil(o.deadline) ?? 0) < 0)) return false;
     if(opF.soon){ const d = daysUntil(o.deadline); if(d === null || d < 0 || d > 14) return false; }
     if(opF.q && ![o.company, o.role, o.area, o.location, o.programme, o.sector, o.notes].join(' ').toLowerCase().includes(opF.q)) return false;
     return true;
@@ -801,11 +804,11 @@ function opRow(o, ghost){
   const isNew = ghost ? o.isNew : (daysUntil(o.posted) ?? -99) >= -7;
   return `<div class="tr-row ${ghost ? 'ghost' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
     <div class="cell-main"><b>${esc(o.company)}</b><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
-    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew ? '<span class="badge-new">NEW</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(o.area || '')}</small></div>
+    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew ? '<span class="badge-new">NEW</span>' : ''}${o.live === 'open' ? '<span class="cd open">Open</span>' : ''}${o.kind === 'internship' ? '<span class="chip soft">Internship</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(o.area || '')}</small></div>
     <div class="cell-txt">${esc(o.programme || '')}</div>
     <div class="cell-age">${ageCell(o)}</div>
     <div class="cell-main"><b style="font-weight:500">${esc(o.location || o.region || '')}</b><small>${o.region && o.region !== o.location ? esc(o.region) : ''}</small></div>
-    <div>${countdown(o.deadline, o.opens, o.rolling)}</div>
+    <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : countdown(o.deadline, o.opens, o.rolling)}</div>
     <div class="cell-main posted"><b style="font-weight:500">${esc(ago(o.posted))}</b>${o.opens && daysUntil(o.opens) > 0 ? `<small>opens ${fmtD(o.opens)}</small>` : ''}</div>
     <div class="m-extra">${esc([o.programme, ageOf(o) && 'Age ' + AGE_TEXT[ageOf(o)], o.location].filter(Boolean).join(' · '))}</div>
     <div class="acts">

@@ -13,9 +13,13 @@ import { readFile, writeFile } from 'node:fs/promises';
 // Only EXPERIENCES, not jobs: work experience, spring weeks, insight days/weeks, virtual programmes, open days, talks.
 const KEYWORDS = /(work[- ]experience|spring (week|insight|programme|internship)|insight (day|week|programme|event|evening|series)|virtual (work|experience|insight|internship|programme|event)|open (day|evening|week)|taster|discovery (day|week|programme|event)|\btalks?\b|webinar|masterclass|workshop|school (students?|leavers? insight)|sixth[- ]form|year 1[0-3]\b|early insight|first[- ]year (programme|insight|event)|pre-?university|vacation scheme|fellowship|accelerator)/i;
 const EXCLUDE = /(senior|principal|director|head of|\blead\b|manager\b|vice president|\bvp\b|graduate (programme|scheme|analyst)|analyst programme|full[- ]time|permanent|apprenticeship|industrial placement|placement year|year[- ]long|12[- ]month|engineer\b|developer\b|associate\b|summer (analyst|associate)|off[- ]cycle)/i;
+const INTERN = /\bintern(s|ship|ships)?\b|summer analyst|summer associate|off[- ]cycle/i;
+const NOT_INTERN = /(senior|director|head of|manager\b|vice president|\bvp\b|graduate (programme|scheme)|full[- ]time|permanent|apprenticeship|internal\b)/i;
+const kindOf = t => (KEYWORDS.test(t) && !EXCLUDE.test(t)) ? 'experience' : (INTERN.test(t) && !NOT_INTERN.test(t)) ? 'internship' : null;
 function programmeOf(t){
   t = t.toLowerCase();
   if(/spring/.test(t)) return 'Spring week';
+  if(/\bintern|summer analyst|summer associate|off[- ]cycle/.test(t) && !/insight|spring/.test(t)) return 'Internship';
   if(/virtual|online/.test(t)) return 'Virtual programme';
   if(/vacation scheme/.test(t)) return 'Vacation scheme';
   if(/open (day|evening|week)/.test(t)) return 'Open day';
@@ -127,12 +131,63 @@ async function scanCompany(co, cache){
   if(!hit) return { status:{ ok:false, via:null, total:0, found:0, note:'No job board found yet — add a "sources" entry' }, found:[] };
   const found = [];
   for(const j of hit.jobs){
-    if(!j.role || !KEYWORDS.test(j.role) || EXCLUDE.test(j.role)) continue;
+    const kind = j.role ? kindOf(j.role) : null;
+    if(!kind) continue;
     const region = regionOf(j.location || '');
     if(!region) continue;
-    found.push({ id:idOf(co.company, j.role, j.link), company:co.company, sector:co.sector || 'Other', sub:co.sub || '', role:j.role, programme:programmeOf(j.role), ageGroup:ageOf(j.role), location:j.location || '', region, link:j.link || '', source:hit.via.split(':')[0] });
+    found.push({ id:idOf(co.company, j.role, j.link), company:co.company, sector:co.sector || 'Other', sub:co.sub || '', role:j.role, kind, programme:programmeOf(j.role), ageGroup:ageOf(j.role), location:j.location || '', region, link:j.link || '', source:hit.via.split(':')[0] });
   }
   return { status:{ ok:true, via:hit.via, total:hit.jobs.length, found:found.length }, found };
+}
+
+/* ---------- firms' own programme pages, opened in a real browser (data/sources.json) ---------- */
+let browser = null;
+async function getBrowser(){
+  if(browser !== null) return browser;
+  try{ const { chromium } = await import('playwright'); browser = await chromium.launch(); }
+  catch(e){ console.warn('⚠ Playwright not installed — skipping firms’ own pages. Run: npm i playwright && npx playwright install chromium'); browser = false; }
+  return browser;
+}
+const MONTH = '(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)';
+const DATE_RE = new RegExp(`(\\d{1,2})(?:st|nd|rd|th)?\\s+(${MONTH})\\s*,?\\s*(20\\d\\d)?`, 'i');
+const MI = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+function deadlineIn(text){
+  const m = text.match(new RegExp(`(?:deadline|close[sd]?|closing|apply by|applications? (?:close|due))[^.]{0,60}?(\\d{1,2}(?:st|nd|rd|th)?\\s+${MONTH}\\s*,?\\s*(?:20\\d\\d)?)`, 'i'));
+  if(!m) return '';
+  const d = m[1].match(DATE_RE); if(!d) return '';
+  const now = new Date(); let y = d[3] ? +d[3] : now.getFullYear();
+  const dt = new Date(Date.UTC(y, MI[d[2].slice(0,3).toLowerCase()], +d[1]));
+  if(!d[3] && dt < now) dt.setUTCFullYear(y + 1);
+  return dt.toISOString().slice(0, 10);
+}
+function statusIn(text){
+  if(/applications? (?:are |is )?(?:now )?closed|(?:has|have) now closed|no longer accepting|closed for (?:this|20)|currently closed|not currently open|register (?:your )?interest/i.test(text)) return 'closed';
+  if(/apply now|applications? (?:are |is )?(?:now )?open|now accepting|open for applications|submit your application|start (?:your )?application/i.test(text)) return 'open';
+  return 'check';
+}
+async function scanPage(src){
+  const b = await getBrowser(); if(!b) return { ok:false, note:'browser unavailable', items:[] };
+  const page = await b.newPage({ userAgent:UA['user-agent'] });
+  try{
+    await page.goto(src.url, { waitUntil:'domcontentloaded', timeout:30000 });
+    await page.waitForLoadState('networkidle', { timeout:12000 }).catch(() => {});
+    await page.waitForTimeout(1500);
+    const text = (await page.evaluate(() => document.body ? document.body.innerText : '')).replace(/\s+/g, ' ');
+    if(src.type === 'programme'){
+      return { ok:true, items:[{ role:src.title, link:src.url, live:statusIn(text), deadline:deadlineIn(text), location:src.location || 'London, United Kingdom' }] };
+    }
+    const links = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim(), h:a.href, ctx:(a.closest('li,article,div') || a).innerText.replace(/\s+/g, ' ').slice(0, 400) })));
+    const seen = new Set(), items = [];
+    for(const l of links){
+      if(!l.t || l.t.length < 6 || l.t.length > 140 || seen.has(l.h)) continue;
+      if(!kindOf(l.t)) continue;
+      if(/\b(new york|hong kong|singapore|tokyo|paris|frankfurt|dubai|sydney|mumbai|apac|americas|middle east|asia)\b/i.test(l.t + ' ' + l.ctx) && !/london|uk\b|united kingdom|emea/i.test(l.t + ' ' + l.ctx)) continue;
+      seen.add(l.h);
+      items.push({ role:l.t, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), location:src.location || 'London, United Kingdom' });
+    }
+    return { ok:true, items };
+  }catch(e){ return { ok:false, note:e.message.split('\n')[0], items:[] }; }
+  finally{ await page.close().catch(() => {}); }
 }
 
 async function pool(items, n, fn){ const out = []; let i = 0; await Promise.all(Array.from({ length:n }, async () => { while(i < items.length){ const k = i++; out[k] = await fn(items[k]); } })); return out; }
@@ -150,11 +205,28 @@ const onList = new Set(watch.map(c => c.company));
 const dRes = await pool(disc.filter(c => !onList.has(c.company)), 8, c => scanCompany(c, cache));
 
 const health = {}; watch.forEach((c, i) => health[c.company] = wRes[i].status);
+
+const srcList = (await read('data/sources.json', { sources:[] })).sources;
+const sector = Object.fromEntries(watch.map(c => [c.company, c]));
+const pageFound = [];
+for(const src of srcList){
+  const r = await scanPage(src);
+  const co = sector[src.company] || { company:src.company, sector:src.sector || 'Access programmes', sub:'' };
+  for(const it of r.items){
+    const region = regionOf(it.location) || 'London';
+    pageFound.push({ id:idOf(co.company, it.role, it.link), company:co.company, sector:co.sector, sub:co.sub || '', role:it.role, kind:kindOf(it.role) || 'experience', programme:programmeOf(it.role), ageGroup:src.age || ageOf(it.role), location:it.location, region, link:it.link, live:it.live, deadline:it.deadline || '', source:'page' });
+  }
+  const h = health[co.company] || { ok:false, via:null, total:0, found:0 };
+  health[co.company] = { ...h, ok:h.ok || r.ok, via:h.via || (r.ok ? 'own site' : null), pages:(h.pages || 0) + 1, found:(h.found || 0) + r.items.length, note:r.ok ? h.note : (h.note || r.note) };
+  console.log((r.ok ? '✓ ' : '✗ ') + src.company + ' — ' + (r.ok ? r.items.length + ' found' : r.note) + ' · ' + src.url);
+}
+if(browser) await browser.close();
+const byId = new Map(); [...wRes.flatMap(r => r.found), ...pageFound].forEach(o => byId.set(o.id, o));
 const out = {
   updated:new Date().toISOString(),
   watchlist:watch.map(c => ({ company:c.company, sector:c.sector, sub:c.sub, addedByClaude:!!c.addedByClaude })),
   health,
-  openings:stamp(wRes.flatMap(r => r.found)),
+  openings:stamp([...byId.values()]),
   review:stamp(dRes.flatMap(r => r.found)),
 };
 await writeFile('data/openings.json', JSON.stringify(out, null, 1));
