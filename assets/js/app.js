@@ -626,7 +626,10 @@ function editExtra(ex){
    ============================================================ */
 const SECTORS = ['Banking','Consulting & Accounting','AI & Tech','Private Equity & VC','Investment (HF / AM / ER)','Law','Access programmes','Other'];
 const SEC_COL = { 'Banking':'teal', 'Consulting & Accounting':'multi', 'AI & Tech':'phil', 'Private Equity & VC':'pol', 'Investment (HF / AM / ER)':'econ', 'Law':'law', 'Access programmes':'accent', 'Other':'grey' };
-const PROGRAMMES = ['Insight day','Work experience','Spring week','Summer internship','Off-cycle internship','Industrial placement','Virtual programme','Fellowship','Accelerator','Pre-university programme','Vacation scheme','Open day','Apprenticeship','Competition'];
+const PROGRAMMES = ['Work experience','Spring week','Insight day','Virtual programme','Talk / webinar','Open day','Vacation scheme','Fellowship','Accelerator','Pre-university programme','Competition'];
+/* same rules as scripts/scan.mjs: experiences, not jobs */
+const EXP_KEEP = /(work[- ]experience|spring (week|insight|programme|internship)|insight (day|week|programme|event|evening|series)|virtual (work|experience|insight|internship|programme|event)|open (day|evening|week)|taster|discovery (day|week|programme|event)|\btalks?\b|webinar|masterclass|workshop|school (students?|leavers? insight)|sixth[- ]form|year 1[0-3]\b|early insight|first[- ]year (programme|insight|event)|pre-?university|vacation scheme|fellowship|accelerator)/i, EXP_DROP = /(senior|principal|director|head of|\blead\b|manager\b|vice president|\bvp\b|graduate (programme|scheme|analyst)|analyst programme|full[- ]time|permanent|apprenticeship|industrial placement|placement year|year[- ]long|12[- ]month|engineer\b|developer\b|associate\b|summer (analyst|associate)|off[- ]cycle)/i;
+const isExperience = o => EXP_KEEP.test(o.role || '') && !EXP_DROP.test(o.role || '');
 const YEAR_GROUPS = ['Year 10','Year 11','Year 12','Year 13','Gap year','First year','Penultimate year','Any'];
 const AGE_GROUPS = [['14-16','School, 14–16 (Y10–11)'], ['16-18','School, 16–18 (Y12–13)'], ['18+','Gap year / school leaver, 18+'], ['uni1','University 1st year, 18–19'], ['uni2','Penultimate year, 19–21'], ['grad','Final year / graduate, 21+']];
 const AGE_TEXT = { '14-16':'14–16 · Y10–11', '16-18':'16–18 · Y12–13', '18+':'18+ · school leaver', 'uni1':'18–19 · uni 1st year', 'uni2':'19–21 · penultimate year', 'grad':'21+ · final year / grad' };
@@ -662,7 +665,7 @@ if(!S.opMeta) S.opMeta = {};
 if(!S.reviewDecisions) S.reviewDecisions = {};
 function OPS(){
   const accepted = new Set(Object.keys(S.reviewDecisions).filter(k => S.reviewDecisions[k] === 'accept'));
-  const remote = LIVE.openings.concat(LIVE.review.filter(r => accepted.has(r.company)));
+  const remote = LIVE.openings.concat(LIVE.review.filter(r => accepted.has(r.company))).filter(isExperience);
   return remote.map(r => Object.assign({ remote:true }, r, S.opMeta[r.id] || {})).concat(S.openings);
 }
 function setOp(o, patch){
@@ -673,7 +676,7 @@ function setOp(o, patch){
 function pendingReview(){
   const onList = new Set(LIVE.watchlist.map(w => w.company));
   const by = {};
-  LIVE.review.forEach(r => { if(onList.has(r.company) || S.reviewDecisions[r.company]) return; (by[r.company] = by[r.company] || { company:r.company, sector:r.sector, items:[] }).items.push(r); });
+  LIVE.review.filter(isExperience).forEach(r => { if(onList.has(r.company) || S.reviewDecisions[r.company]) return; (by[r.company] = by[r.company] || { company:r.company, sector:r.sector, items:[] }).items.push(r); });
   return Object.values(by);
 }
 async function loadLive(silent){
@@ -718,7 +721,7 @@ function viewOpenings(v){
   const live = OPS().filter(o => { const d = daysUntil(o.deadline); return (d === null || d >= 0); }).length;
   v.innerHTML = head({
     crumbs:crumbsFor('openings'), title:'Openings tracker',
-    sub:'UK spring weeks, insight days, work experience, internships, fellowships and accelerators across AI & tech, consulting, banking, law and investment.',
+    sub:'UK work experience, spring weeks, insight days, virtual programmes, open days and talks — experiences, not jobs — across banking, consulting, tech, PE, investment and law.',
     stats:[[OPS().length, 'openings'], [live, 'still open'], [OPS().filter(o => o.saved).length, 'saved'], [OPS().filter(o => o.status && o.status !== 'Planning').length, 'applied']],
     actions:`<button class="btn" id="opRefresh">↻ Refresh</button><button class="btn primary" id="opAdd">${I(IC.plus,14)} Add opening</button>`
   }) + `<div style="margin:-8px 0 18px">${liveLine()}</div>
@@ -1379,7 +1382,7 @@ function openClaude(prefill){
     <div class="chat" id="chatLog">${CHAT.turns.length ? '' : `<div class="chat-hello"><b>Hi — I can see your ${esc(label.toLowerCase())} page.</b>${isCV
       ? 'Ask me to edit your CV — e.g. “Tighten my profile to two lines” or “Import my uploaded CV”.'
       : 'Ask about anything here, or tell me to change your entries — e.g. “Add Jane Doe from LSE to my contacts”, “Mark the JLI essay as done, result: commended”.'} I’ll only change things when you ask, and you’ll always click <b>Yes</b> first. A restore point is saved before every change and kept for 24 hours.</div>`}</div>
-    ${claudeReady() ? '' : `<div class="caveat" style="margin:10px 0 0">${I(IC.warn,15)}<div>${SAMPLE === null && !window.claude ? 'On this site Claude needs an Anthropic API key. Add one under <b>Settings</b> (database icon, top right).' : 'Connecting to Claude…'}</div></div>`}
+    ${claudeReady() ? '' : `<p class="faint" style="font-size:12px;margin:8px 0 0">Works with your Claude Pro account: after you send, copy the prompt into Claude and paste its reply back here.</p>`}
     <form class="chat-box" id="chatForm"><textarea class="inp" id="chatIn" rows="2" placeholder="${isCV ? 'e.g. Rewrite my work experience bullets to sound more concrete' : 'Ask Claude…'}">${esc(prefill || '')}</textarea>
       <div class="row" style="justify-content:space-between"><span class="row"><button type="button" class="btn sm ghost" id="chatClear">New chat</button><button type="button" class="btn sm ghost" id="chatRP">Restore points (${(pruneRestorePoints(), S.restorePoints.length)})</button></span>
       <div class="row"><button type="button" class="btn sm hidden" id="chatStop">Stop</button><button class="btn primary sm" id="chatSend">Send</button></div></div></form>`, b => {
@@ -1398,18 +1401,50 @@ function openClaude(prefill){
       CHAT.turns.push({ role:'user', content:q, shown:q });
       const rules = 'You are a helpful, encouraging assistant inside “Admissions Home”, a UK Year 11 student’s application planner (target: PPE at Oxford, LSE, UCL, Warwick etc.; also interested in law, economics, finance). Be concise, specific and practical. British English.\n\nCurrent page: ' + label + '\n' + pageContext(page) + '\n\n' + EDIT_RULES;
       const turns = [{ role:'user', content:rules }, { role:'assistant', content:'Understood. I will reply with the JSON object only.' }].concat(CHAT.turns.slice(-10).map(t => ({ role:t.role, content:t.content })));
-      const out = bubble('ai', 'Thinking…'); out.classList.add('pending');
-      CHAT.busy = true; CHAT.ctl = new AbortController(); $('#chatStop', b).classList.remove('hidden'); $('#chatSend', b).disabled = true;
-      try{
-        const text = await askClaude(turns, { signal:CHAT.ctl.signal });
-        out.classList.remove('pending');
+      const handleReply = (text, out) => {
         const j = parseJSON(text);
         const shown = (j && j.reply) || text;
         out.textContent = shown;
         const changes = j && Array.isArray(j.changes) ? j.changes.filter(validChange) : [];
         if(changes.length) out.appendChild(confirmCard(changes, page));
         CHAT.turns.push({ role:'assistant', content:text, shown });
-        CHAT.turns.push({ role:'assistant', content:text, shown });
+        log.scrollTop = log.scrollHeight;
+      };
+
+      /* No built-in Claude here (the GitHub site with a Pro plan): hand the prompt to claude.ai and paste the answer back */
+      if(!claudeReady()){
+        const prompt = rules + '\n\n--- Conversation so far ---\n' + CHAT.turns.slice(-10).map(t => (t.role === 'user' ? 'Student: ' : 'You: ') + t.content).join('\n\n')
+          + '\n\nReply to the student’s latest message. Output ONLY the JSON object described above, in one code block, nothing else.';
+        const out = bubble('ai', '');
+        out.classList.add('handoff');
+        out.innerHTML = `<b>Ask Claude with your Pro account</b>
+          <ol><li><button class="btn primary sm" data-copy>Copy prompt &amp; open Claude</button> <span class="faint" data-copied></span></li>
+          <li>In the new Claude tab, paste (<kbd>Ctrl+V</kbd>) and send.</li>
+          <li>Copy Claude’s whole reply (the copy icon under it), then paste it here:</li></ol>
+          <textarea class="inp" rows="3" placeholder="Paste Claude’s reply here" data-paste></textarea>
+          <div class="row" style="margin-top:6px"><button class="btn sm" data-use>Use this reply</button></div>
+          <details style="margin-top:8px"><summary class="faint" style="cursor:pointer;font-size:12px">Copy didn’t work? Show the prompt</summary><textarea class="inp" rows="5" readonly data-raw></textarea></details>`;
+        $('[data-raw]', out).value = prompt;
+        $('[data-copy]', out).onclick = () => {
+          const done = ok => { $('[data-copied]', out).textContent = ok ? 'Copied ✓' : 'Copy the prompt from “Show the prompt” below'; };
+          (navigator.clipboard ? navigator.clipboard.writeText(prompt) : Promise.reject()).then(() => done(true), () => { const r = $('[data-raw]', out); r.closest('details').open = true; r.select(); done(false); });
+          window.open('https://claude.ai/new', '_blank', 'noopener');
+        };
+        $('[data-use]', out).onclick = () => {
+          const t = $('[data-paste]', out).value.trim(); if(!t){ toast('Paste Claude’s reply first'); return; }
+          const res = bubble('ai', ''); handleReply(t, res);
+          if(!parseJSON(t)) res.appendChild(Object.assign(document.createElement('div'), { className:'faint', style:'font-size:12px;margin-top:6px', textContent:'(That reply wasn’t in the expected format, so no changes can be applied — shown as text.)' }));
+          out.remove();
+        };
+        return;
+      }
+
+      const out = bubble('ai', 'Thinking…'); out.classList.add('pending');
+      CHAT.busy = true; CHAT.ctl = new AbortController(); $('#chatStop', b).classList.remove('hidden'); $('#chatSend', b).disabled = true;
+      try{
+        const text = await askClaude(turns, { signal:CHAT.ctl.signal });
+        out.classList.remove('pending');
+        handleReply(text, out);
       }catch(err){
         out.classList.remove('pending');
         if(err && err.code === 'cancelled'){ out.textContent = (err.text || '') + ' [stopped]'; }
@@ -1516,7 +1551,7 @@ $('#backupBtn').onclick = () => openDrawer('Settings', `<h2>Back up your data</h
   <p class="note">Saved automatically before every change Claude makes. Each one disappears after 24 hours.</p>
   ${restoreListHTML()}
   <h2 style="margin-top:30px">Claude on your site</h2>
-  <p class="note">In the Claude preview, “Ask Claude” uses your Claude account. On the GitHub site it needs an Anthropic API key from console.anthropic.com. The key is stored only in this browser and sent only to Anthropic — never put it in the repo.</p>
+  <p class="note">You don’t need anything here: Ask Claude works with your Claude Pro account by copy and paste. Optional, for developers only: an Anthropic API key (18+, billed separately) makes answers appear directly. It’s stored only in this browser.</p>
   <label class="field">API key<input class="inp" id="apiKey" type="password" value="${esc(S.settings.apiKey || '')}" placeholder="sk-ant-…" autocomplete="off"></label>
   <label class="field" style="margin-top:10px">Model<input class="inp" id="apiModel" value="${esc(S.settings.model || 'claude-sonnet-5')}"></label>
   <div class="row" style="margin-top:10px"><button class="btn primary sm" id="apiSave">Save</button></div>`, b => {

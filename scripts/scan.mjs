@@ -10,8 +10,22 @@
 // What worked is remembered in data/ats-cache.json so later runs go straight to it.
 import { readFile, writeFile } from 'node:fs/promises';
 
-const KEYWORDS = /(spring|insight|\bintern(s|ship|ships)?\b|work experience|placement|fellowship|accelerator|early careers?|sixth[- ]form|year 1[0-3]\b|school leaver|apprentice|discovery|pre-?university|off-?cycle|vacation scheme|open day|first[- ]year|penultimate|graduate programme|summer analyst|industrial placement|residency|scholar)/i;
-const EXCLUDE = /(senior|principal|staff engineer|director|head of|lead\b|manager\b|vice president|\bvp\b)/i;
+// Only EXPERIENCES, not jobs: work experience, spring weeks, insight days/weeks, virtual programmes, open days, talks.
+const KEYWORDS = /(work[- ]experience|spring (week|insight|programme|internship)|insight (day|week|programme|event|evening|series)|virtual (work|experience|insight|internship|programme|event)|open (day|evening|week)|taster|discovery (day|week|programme|event)|\btalks?\b|webinar|masterclass|workshop|school (students?|leavers? insight)|sixth[- ]form|year 1[0-3]\b|early insight|first[- ]year (programme|insight|event)|pre-?university|vacation scheme|fellowship|accelerator)/i;
+const EXCLUDE = /(senior|principal|director|head of|\blead\b|manager\b|vice president|\bvp\b|graduate (programme|scheme|analyst)|analyst programme|full[- ]time|permanent|apprenticeship|industrial placement|placement year|year[- ]long|12[- ]month|engineer\b|developer\b|associate\b|summer (analyst|associate)|off[- ]cycle)/i;
+function programmeOf(t){
+  t = t.toLowerCase();
+  if(/spring/.test(t)) return 'Spring week';
+  if(/virtual|online/.test(t)) return 'Virtual programme';
+  if(/vacation scheme/.test(t)) return 'Vacation scheme';
+  if(/open (day|evening|week)/.test(t)) return 'Open day';
+  if(/\btalks?\b|webinar|masterclass|workshop/.test(t)) return 'Talk / webinar';
+  if(/work[- ]experience/.test(t)) return 'Work experience';
+  if(/fellowship/.test(t)) return 'Fellowship';
+  if(/accelerator/.test(t)) return 'Accelerator';
+  if(/insight|discovery|taster/.test(t)) return 'Insight day';
+  return 'Work experience';
+}
 const UA = { 'user-agent':'Mozilla/5.0 (admissions-home scanner; +https://github.com/)' };
 const read = async (f, d) => { try{ return JSON.parse(await readFile(f, 'utf8')); }catch(e){ return d; } };
 const idOf = (co, title, link) => (co + '|' + title + '|' + (link || '')).toLowerCase().replace(/[^a-z0-9|]+/g, '-').slice(0, 160);
@@ -36,9 +50,10 @@ const UK = /united kingdom|\buk\b|england|scotland|wales|northern ireland|great 
 const US = /united states|\busa?\b|, ?(al|ca|ct|ma|nc|nh|nj|ny|pa|ri|tx|wa|il|ga|fl|va|md|co)\b|new york|san francisco|seattle|chicago|boston|austin|palo alto|mountain view/i;
 function regionOf(loc){
   if(!loc) return null;
-  if(US.test(loc) && !UK.test(loc.replace(/new york/ig, ''))) return null;   // "New York", "Cambridge, MA" etc. are not UK
-  loc = loc.replace(/new york/ig, '');
+  const us = US.test(loc);
+  loc = loc.replace(/new york/ig, '').replace(/\b(cambridge|manchester|birmingham|durham|reading|newport|york)\s*,\s*(ma|nh|al|nc|pa|ri|me)\b/ig, '');
   for(const [r, re] of REGIONS) if(re.test(loc)) return r;
+  if(us && !UK.test(loc)) return null;
   if(/remote/i.test(loc) && UK.test(loc)) return 'Remote (UK)';
   if(UK.test(loc)) return 'UK (region not stated)';
   return null;
@@ -115,7 +130,7 @@ async function scanCompany(co, cache){
     if(!j.role || !KEYWORDS.test(j.role) || EXCLUDE.test(j.role)) continue;
     const region = regionOf(j.location || '');
     if(!region) continue;
-    found.push({ id:idOf(co.company, j.role, j.link), company:co.company, sector:co.sector || 'Other', sub:co.sub || '', role:j.role, ageGroup:ageOf(j.role), location:j.location || '', region, link:j.link || '', source:hit.via.split(':')[0] });
+    found.push({ id:idOf(co.company, j.role, j.link), company:co.company, sector:co.sector || 'Other', sub:co.sub || '', role:j.role, programme:programmeOf(j.role), ageGroup:ageOf(j.role), location:j.location || '', region, link:j.link || '', source:hit.via.split(':')[0] });
   }
   return { status:{ ok:true, via:hit.via, total:hit.jobs.length, found:found.length }, found };
 }
