@@ -1,0 +1,708 @@
+/* Supercurricular data — ported verbatim from supercurricular_calendar.html. Edit entries here. */
+/* ============================================================
+   DATA
+   s   : phil | pol | econ | law | multi
+   elig: "now"   — you can enter this as a Year 11
+         "later" — Y12+ only, listed so the timing doesn't surprise you
+         "check" — eligibility genuinely unconfirmed
+   reading: { m: mainstream entry point, n: niche standout, link: how to use the pair }
+   ============================================================ */
+const CAVEATS = {
+  y11:"Year 11 view (Sept 2026 – Aug 2027). Where an organiser has published a 2026 date, that exact date is shown and the 2027 equivalent will land within a week or two of it. Anything marked <b>date TBC</b> is dated from its most recent cycle only — check the official page before you rely on it.",
+  y1213:"Year 12/13 view (Sept 2027 onward). Almost nothing has published 2027-28 or 2028-29 dates yet. Every date below is the most recent <i>confirmed</i> cycle, shown as a reliable guide to the month — not a confirmed future date. Re-check each site when you actually reach that year."
+};
+
+const DATA = {};
+
+DATA.y11 = [
+{ month:"Rolling — start any time this year", items:[
+
+  {t:"Oxford 14–16 Digital Resources", s:"multi", yr:"Ages 14–16", elig:"now",
+   when:"Open all year", link:"https://www.ox.ac.uk/admissions/undergraduate/increasing-access/ug-digital-resources/students-12-16",
+   note:"Subject-specific resource hub aimed at <em>exactly</em> your age bracket right now — the only Oxford-run thing on this list built for pre-sixth-form students.",
+   reading:{
+     m:"Simon Blackburn, <i>Think</i>|The standard first philosophy book, on multiple Oxford PPE prep lists. Assume every applicant has read it — necessary, not distinguishing.",
+     n:"Susan Stebbing, <i>Thinking to Some Purpose</i> (1939)|Britain's first female professor of philosophy, on how public argument actually goes wrong. Written for ordinary readers facing propaganda, still in print, and essentially unknown to applicants.",
+     link:"Blackburn tells you what philosophers argue about. Stebbing trains you to catch bad reasoning in a newspaper or a speech — which is the skill nearly every competition on this page is really marking. Short, cheap, and nobody else will cite it."}},
+
+  {t:"Cambridge: Exploring Law Course", s:"law", yr:"16+ (Y11/12/13)", elig:"now",
+   when:"Open all year", link:"https://www.law.cam.ac.uk/access-outreach/exploring-law-course-studying-law-university",
+   note:"Short self-paced course introducing legal study. Open to you now — this is not a Y12-only programme.",
+   reading:{
+     m:"H.L.A. Hart, <i>The Concept of Law</i>, ch. 5|The foundational text of modern legal positivism — and table stakes for a serious law applicant, not a differentiator. If this is your first law book, read Barnard, O'Sullivan &amp; Virgo's <i>What About Law?</i> first.",
+     n:"Jeremy Waldron, <i>Law and Disagreement</i>|Attacks the assumption Hart and Dworkin <i>share</i> — that judges are the right people to settle moral disagreement — and defends legislatures instead.",
+     c:"Lon Fuller, <i>The Morality of Law</i>|Hart's other great opponent, and the one most applicants skip. Fuller argues a legal system can be so iniquitous that it fails its own internal logic and stops being law at all — which Hart flatly denies.",
+     link:"Every coached applicant arrives with the Hart–Dworkin debate ready. Waldron's move is to ask why unelected judges should resolve questions citizens reasonably disagree about. That turns a rehearsed exchange into a live constitutional argument — the version the tutor has not already heard that morning."}},
+
+  {t:"KCL Online Law Lecture Series", s:"law", yr:"Y11–13", elig:"now",
+   when:"Termly — check KCL for the current schedule", link:"https://www.kcl.ac.uk/study/social-mobility/projects/prospective-students/online-law-lecture-series",
+   note:"Free online lecture series, explicitly open from Y11.",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|A former Lord Chief Justice on eight principles. <i>The</i> most-recommended law book for applicants — assume it is expected rather than impressive.",
+     n:"A.V. Dicey, <i>Introduction to the Study of the Law of the Constitution</i> (1885)|The Victorian original that gave us 'parliamentary sovereignty' and 'the rule of law' as UK doctrine. Cited second-hand constantly; actually opened almost never.",
+     c:"J.A.G. Griffith, <i>The Politics of the Judiciary</i>|The classic dissent: judges are not neutral umpires but a narrow social group whose decisions track a definite view of the public interest. Treats 'the rule of law' as a claim to be tested rather than a virtue to be praised.",
+     link:"Bingham's eight principles are a deliberate modern restatement of Dicey. Reading the original lets you say precisely <b>where Bingham departs from him</b> — above all on whether the rule of law includes human rights, which Dicey would have denied. That is an argument, not a summary."}},
+
+  {t:"Forage Online Job Simulations", s:"econ", yr:"16+ / Y11+", elig:"now",
+   when:"Self-paced, open all year", link:"https://www.theforage.com/",
+   note:"Free simulations built with real employers. Low effort, decent signal — but only if you have something to say <em>about</em> the industry afterwards.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|The most-recommended starting point for law applicants, and the best plain-English account of what commercial lawyers actually do. Universal — everyone has it.",
+     n:"John Kay, <i>Other People's Money</i>|A former Oxford economist's forensic case that most of modern finance serves finance, not the real economy.",
+     link:"A Forage sim teaches you the <b>tasks</b>. Kay asks whether the industry performing those tasks is socially useful at all. 'I completed the simulation, then read Kay and started doubting the point of half of it' is a far better answer than listing modules."}},
+
+  {t:"CISI Certifications", s:"econ", yr:"Age not stated — verify", elig:"check",
+   when:"Self-paced", link:"https://www.cisi.org/cisiweb2",
+   note:"Self-paced finance certifications. Confirm the entry age with CISI directly before paying for anything.",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|The classic case for efficient markets and index investing. Standard on every finance reading list.",
+     n:"Walter Bagehot, <i>Lombard Street</i> (1873)|The Victorian text that invented the 'lender of last resort'. Still quoted by central bankers; essentially never by sixth-formers.",
+     link:"Malkiel explains why markets are hard to beat; Bagehot explains why we regulate them at all. CISI's syllabus sits precisely between those two, and citing an 1873 book on a finance certification is exactly the kind of thing an interviewer remembers."}},
+
+  {t:"Coursera Courses", s:"econ", yr:"Age not stated — verify", elig:"check",
+   when:"Self-paced", link:"https://www.coursera.org/",
+   note:"Pick courses tied directly to economics/PPE topics rather than collecting generic certificates. <em>One finished course you can argue about beats five you skimmed.</em>",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online)|Literally what Oxford tells PPE offer-holders to read before arriving. Rigorous, free, and increasingly expected.",
+     n:"Ha-Joon Chang, <i>Kicking Away the Ladder</i>|Chang's <i>academic</i> book, not the popular <i>23 Things</i> — argues from the historical record that today's rich countries all used the protectionism they now tell poor countries to avoid.",
+     link:"CORE is the modern mainstream curriculum; Chang attacks one of its central assumptions using economic history. Note the specific title — <i>23 Things</i> is everywhere in applications, <i>Kicking Away the Ladder</i> is not."}},
+]},
+
+{ month:"August – September 2026", items:[
+
+  {t:"Wharton Global High School Investment Competition", s:"econ", yr:"Grades 9–12 (UK Y10–13)", elig:"now", tag:"NEW",
+   when:"Registration 10 Aug – 11 Sept 2026 · competition runs 28 Sept – 4 Dec 2026",
+   link:"https://globalyouth.wharton.upenn.edu/competitions/investment-competition/",
+   note:"<em>Team event — you need 4–6 students and a teacher advisor, so raise it with a teacher in September.</em> Top 50 teams reach virtual semi-finals; top 10 go to the Global Finale at Wharton (29–30 April 2027). Crucially, teams are judged on the <em>quality of their investment strategy and report, not their returns.</em>",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|The standard argument that stock-picking rarely beats the index — awkward and useful in a stock-picking competition. Everyone in finance has read it.",
+     n:"Howard Marks, <i>The Most Important Thing</i>|A working fund manager on 'second-level thinking' and risk control — written for professionals, and a book about exactly the discipline this competition marks.",
+     c:"Warren Buffett, the Berkshire Hathaway shareholder letters (free online)|Buffett has spent sixty years arguing, in public and with results, that Malkiel is wrong — that markets are beatable if you understand the business rather than the price.",
+     link:"You're marked on your Investment Policy Statement, not your P&amp;L. Marks is a book about exactly that discipline — defining risk before you chase return. Almost no competing school team will have read it, and it maps one-to-one onto the judging criteria."}},
+
+  {t:"ESU Schools' Mace — registration", s:"pol", yr:"Ages 11–18 (Y7–13)", elig:"now", tag:"NEW",
+   when:"Register with your school Sept/Oct · rounds run to ~April finals",
+   link:"https://www.esu.org/competitions/schools-mace/",
+   note:"The UK's largest schools debating competition. Strong for Politics <em>and</em> for the Law-style skill of arguing a side you don't hold.",
+   reading:{
+     m:"J.S. Mill, <i>On Liberty</i> + Isaiah Berlin, <i>Two Concepts of Liberty</i>|The harm principle, and the negative/positive liberty split. Both fully canonical — every trained debater in the room already has them.",
+     n:"Albert Hirschman, <i>The Rhetoric of Reaction</i>|Identifies the three argumentative moves reactionaries have reused for two centuries: <i>perversity</i> (it will backfire), <i>futility</i> (it changes nothing), <i>jeopardy</i> (it endangers something else).",
+     s:"Thucydides, <i>The Melian Dialogue</i>|Five pages, written 2,400 years ago, and still the sharpest statement of might-versus-right ever put on paper: 'the strong do what they can and the weak suffer what they must.' Usable in an extraordinary range of motions.",
+     c:"Jason Brennan, <i>Against Democracy</i>|Argues most voters are ignorant or irrational, and that democracy therefore has no strong claim to legitimacy. A serious philosopher defending a position almost every debater assumes is unarguable.",
+     link:"Mill and Berlin give you the vocabulary of liberty. Hirschman gives you something better — a way to <b>diagnose your opponent's argument mid-round</b>. Naming the move out loud (“that's a futility argument, and here's why it fails”) is devastating in a debate and effectively unheard of at school level."}},
+
+  {t:"JLI Global Essay Prize — registration opens", s:"multi", yr:"Y11 / Y12", elig:"now", tbc:true,
+   when:"Registration opens autumn/winter · deadline 31 May 2027",
+   link:"https://www.johnlockeinstitute.com/essay-competition",
+   note:"Categories include Philosophy, Politics, Economics <em>and</em> Law — your single best PPE-spanning entry point, because you pick whichever category matches your strongest current interest.",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|On Oxford PPE first-year reading lists. Teaches you to lay out both sides of a dispute cleanly — standard equipment, not an edge.",
+     n:"G.A. Cohen, <i>Why Not Socialism?</i>|Under 100 pages. An Oxford political philosopher arguing a position most readers start out hostile to, via a camping-trip thought experiment.",
+     c:"Robert Nozick, <i>Anarchy, State, and Utopia</i>|Famous, and still the best answer to Cohen: the Wilt Chamberlain argument, showing that any pattern of distribution you like will be destroyed by people freely choosing what to do with what is theirs.",
+     link:"JLI questions are deliberately provocative and reward <b>taking a clear side well</b>, not surveying opinions. Cohen is a masterclass in exactly that move, and he's short enough to read twice before you write."}},
+]},
+
+{ month:"October – November 2026", items:[
+
+  {t:"Warwick Future Economist Essay Competition", s:"econ", yr:"Ages 16–18", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 cycle: opened 6 Oct, closed 7 Nov — expect the same window",
+   link:"https://www.warwickeconomicssociety.com/copy-of-careers-talks",
+   note:"<em>Age gate matters: you must be 16–18.</em> If you turn 16 during Y11 you're in; if not, this becomes a Y12 target. £100 first prize, £50 for two runners-up. Past questions covered the end of globalisation, AI and the productivity puzzle, and the inequality-vs-growth trade-off.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Applies economic reasoning to ordinary situations — the exact register these essays want. Near-universal among economics applicants.",
+     n:"Dani Rodrik, <i>The Globalization Paradox</i>|The 'political trilemma': you can have deep globalisation, democracy and national sovereignty — but only two of the three.",
+     s:"Richard Baldwin, <i>The Great Convergence</i>|Explains globalisation as a sequence of 'unbundlings' — first goods became cheap to move, then ideas — and why the second one hit developed-world workers so differently from the first.",
+     c:"Paul Krugman, <i>“Ricardo's Difficult Idea”</i> (essay, free online)|A Nobel economist arguing that most educated critics of free trade simply fail to understand comparative advantage. Bracing, slightly rude, and a direct challenge if your essay leans anti-globalisation.",
+     link:"Rodrik's trilemma is a ready-made analytical frame for 'is the era of globalisation ending?'. Applying a named framework beats describing tariffs, and Rodrik is respected enough that a Warwick economist will recognise him instantly — which is the ideal combination: rare to your competitors, familiar to your judge."}},
+]},
+
+{ month:"January – February 2027", items:[
+
+  {t:"Cambridge Re:Think Essay Competition", s:"multi", yr:"Eligibility not clearly stated — verify", elig:"check", tbc:true,
+   when:"Opens mid-January · closes early May", link:"https://cambridge-research.org/essay-competition/",
+   note:"Interdisciplinary, open-topic. <em>Confirm the year-group rules before assuming Y11 can enter.</em>",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i>|The standard PPE crossover text — and named in admissions guides among the most-cited authors in applications. Read it; just don't expect it to distinguish you.",
+     n:"Albert Hirschman, <i>Exit, Voice, and Loyalty</i>|A 1970 classic of about 120 pages: when anything declines you can leave (exit) or complain (voice), and loyalty decides which. It applies identically to firms, parties, schools and states.",
+     s:"Peter Godfrey-Smith, <i>Other Minds</i>|An Australian philosopher of science who is also a diver, using the octopus — which evolved complex cognition on a completely separate branch from us — to ask what minds are for. Genuine curiosity, and it crosses biology, philosophy and consciousness in one book.",
+     link:"Re:Think rewards essays that genuinely cut across disciplines rather than announcing that they do. Hirschman <i>is</i> that crossover in one framework — economics, politics and organisational theory at once — and it gives you a machine for analysing almost any open prompt."}},
+
+  {t:"Dukes Plus Essay Competition", s:"econ", yr:"Ages 15–17", elig:"now", tbc:true,
+   when:"Opens Jan/Feb", link:"https://dukesplus.com/essay-competition-2026/",
+   note:"Broad, current-affairs-flavoured questions. A good low-stakes first essay competition.",
+   reading:{
+     m:"Blastland &amp; Dilnot, <i>The Tiger That Isn't</i>|How to read statistics in the news without being fooled — explicitly on Oxford's own PPE prep reading.",
+     n:"Diane Coyle, <i>GDP: A Brief but Affectionate History</i>|~150 pages on where GDP came from, what it deliberately excludes, and why it is a wartime accounting convention rather than a law of nature. Coyle is a Cambridge professor and rarely cited by applicants.",
+     c:"Johan Norberg, <i>Progress</i>|Marshals the long-run data on hunger, literacy, violence, child mortality and poverty to argue that nearly everything has improved dramatically — and that our sense of decline is a failure of measurement and memory.",
+     link:"Dukes Plus questions are broad, so most entrants just describe the problem. Blastland &amp; Dilnot stop you misusing the numbers; Coyle lets you attack the headline number itself. <i>Doughnut Economics</i> makes a similar case and is a bestseller — Coyle makes it with more authority and far less company."}},
+
+  {t:"Peter Cane Legal Reasoning Prize", s:"law", yr:"Y12 only — not yet eligible", elig:"later",
+   when:"Runs Dec – Feb", link:"https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize",
+   note:"Listed here only so the timing doesn't confuse you — <em>this is Y12-only, so it is a next-year target.</em>",
+   reading:{
+     m:"Hart, <i>The Concept of Law</i> + Dworkin, <i>Law's Empire</i>|The central dispute in modern jurisprudence: is law a system of rules, or an interpretive practice? Expected of any serious law applicant — and the tutor has read your version of it many times over.",
+     n:"Edward Levi, <i>An Introduction to Legal Reasoning</i> (1949)|About 100 pages on how judges actually move from case to case by analogy, and how a rule's meaning shifts while they do it. A genuine classic of US legal education.",
+     c:"Lon Fuller, <i>The Morality of Law</i>|Hart's other opponent — the one most applicants skip in favour of Dworkin. Argues a system can be so iniquitous it fails its own internal logic and ceases to be law.",
+     link:"For a prize named for legal <i>reasoning</i>, note the gap: Hart and Dworkin argue about what law <b>is</b>, while Levi shows the mechanics of what judges are literally <b>doing</b> when they decide. Levi is the one that lets you analyse a case rather than recite a theory."}},
+]},
+
+{ month:"February 2027", items:[
+
+  {t:"Gerald O'Connell Essay Competition in Economics (Fitzwilliam, Cambridge)", s:"econ", yr:"Y12, UK state school", elig:"later", tag:"NEW",
+   when:"Deadline 6pm, Friday 27 February", link:"https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026",
+   note:"1,000 words, one set question. <em>Restricted to home students in Year 12 at a UK state school</em> — so it's a Y12 target, flagged here for planning. Fitzwilliam runs parallel prizes in English, History, Land Economy, Classics and more on the same deadline.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Best model for writing economics that is precise but readable — which is what a 1,000-word limit demands.",
+     n:"Branko Milanovic, <i>Global Inequality</i>|The 'elephant curve' — inequality <i>between</i> countries as much as within them, a genuinely different lens from Piketty.",
+     c:"Gregory Mankiw, <i>“Defending the One Percent”</i> (essay, free online)|A Harvard economist arguing top incomes largely reflect genuine value created, and that the case for redistributing them is weaker than it looks. Short, clearly argued, and almost nobody engages with it seriously.",
+     link:"At 1,000 words you cannot survey a topic; you need one sharp mechanism. Milanovic supplies mechanisms — and because everyone reaches for Piketty on inequality, reaching for Milanovic instead is an immediate signal of real reading."}},
+]},
+
+{ month:"March – April 2027", items:[
+
+  {t:"Think Essay Prize (Royal Institute of Philosophy)", s:"phil", yr:"Ages 15–18", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 cycle closed ~20 April — expect similar for 2027",
+   link:"https://royalinstitutephilosophy.org/news/think-essay-prize/",
+   note:"1,200 words on one of six set questions — past prompts covered moral responsibility under determinism, machine consciousness, and when the state may restrict speech. Winner is published in <i>Think</i> alongside professional philosophers. <em>No AI permitted — essays using it are disqualified.</em>",
+   reading:{
+     m:"Thomas Nagel, <i>What Does It All Mean?</i>|Under 100 pages, one short chapter per classic problem — free will, consciousness, meaning. Almost exactly maps the prompt list.",
+     n:"Harry Frankfurt, <i>“Alternate Possibilities and Moral Responsibility”</i>|The essay that argues you can be morally responsible even if you couldn't have done otherwise — the standard counter-example in the free-will debate.",
+     c:"Galen Strawson, <i>“The Impossibility of Moral Responsibility”</i>|The Basic Argument: to be responsible for what you do, you'd have to be responsible for how you are — and to be responsible for that, responsible for how you came to be that way, and so on forever. Concludes nobody is ever truly responsible for anything.",
+     link:"If you take the determinism question, Nagel frames it and Frankfurt gives you the move that breaks the obvious answer. In 1,200 words you win by deploying one precise argument, not by surveying the debate."}},
+
+  {t:"King's Entrepreneurship Essay Competition (King's College, Cambridge)", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Opens 2 April · deadline 5 August, 9pm · winners announced October",
+   link:"https://www.kingselab.org/essay-competition",
+   note:"Run by King's Entrepreneurship Lab. Up to 1,000 words (aim for 850+). <em>£1,500 first prize, £750 for two runners-up</em>, prize ceremony at King's in December. Explicitly open to Year 11 — one of very few Cambridge college prizes that is.",
+   reading:{
+     m:"Tim Harford, <i>Adapt: Why Success Always Starts with Failure</i>|Progress comes from variation and selection, not planning — directly on-topic for the 'role of failure' prompts, and widely read.",
+     n:"Amar Bhidé, <i>The Origin and Evolution of New Businesses</i>|A Harvard/Columbia professor who went and surveyed hundreds of actual Inc. 500 founders. Finding: most successful startups began with no novel idea, little capital and no plan — the opposite of the founder myth.",
+     c:"Mariana Mazzucato, <i>The Entrepreneurial State</i>|Argues the state, not the founder, took the foundational risks behind almost everything in an iPhone — and that we have misattributed the reward ever since. The strongest available answer to the whole premise of an entrepreneurship prize.",
+     link:"Every entrant writes about grit and vision. Bhidé has the <b>empirical data</b> showing that most real founders had neither. Answering a prompt about entrepreneurial character with evidence that the character trait is largely retrospective narrative is exactly how you place in a 1,000-word field."}},
+
+  {t:"Queen's Commonwealth Writing Competition (Royal Commonwealth Society)", s:"pol", yr:"18 and under — one category", elig:"now", tag:"NEW",
+   when:"Deadline 30 April", link:"https://www.royalcwsociety.org/writing-competition",
+   note:"<em>Corrected from your note:</em> for 2026 the age structure changed — there is now a <em>single</em> category for entrants aged 18 or under, not the old age bands. Max 1,000 words; 2026 theme was 'Common Ground: Better Together'. Winners get a trip to London. Free to enter, and the world's oldest schools writing competition.",
+   reading:{
+     m:"Steven Levitsky &amp; Daniel Ziblatt, <i>How Democracies Die</i>|Readable account of democracies eroding from within. A genuine bestseller — assume plenty of entrants have it.",
+     n:"Elinor Ostrom, <i>Governing the Commons</i>|The only woman to win the Nobel in economics, documenting how real communities — Swiss alpine pastures, Japanese forests, Spanish irrigation — sustainably share resources <i>without</i> either privatising them or handing them to a state.",
+     s:"Amartya Sen, <i>Identity and Violence</i>|Argues that the real driver of conflict is the insistence that people have <i>one</i> identity — and that the cure is remembering everyone has many at once. Written partly out of Sen's own childhood memory of Partition.",
+     link:"A theme like 'Common Ground' invites platitudes. Ostrom is the rigorous, evidence-based version of the same idea: she showed the famous 'tragedy of the commons' is often simply false, and identified the conditions under which cooperation actually holds. That converts a warm theme into a testable argument, and almost nobody your age has read her."}},
+
+  {t:"Big Think Competition (St Edmund Hall, Oxford)", s:"multi", yr:"Y11 / Y12 / Y13, UK state school", elig:"now", tbc:true,
+   when:"2026 round closed; register interest for 2027 · winners' Oxford visit was 18 June",
+   link:"https://www.seh.ox.ac.uk/study/outreach/events-and-competitions/big-think-competition",
+   note:"<em>Corrected — this is not an essay competition.</em> You submit a <em>video of 5 minutes or less</em> answering a question set by a St Edmund Hall academic, across 17 subject areas. Filming on a phone is explicitly fine; narrated slides or drawings count. Judged on creativity, structure, research and use of evidence. Prizes £100 / £50 / £35 plus an Oxford visit with tutors. <em>UK state school only.</em>",
+   reading:{
+     m:"Michael Sandel, <i>Justice: What's the Right Thing to Do?</i>|Built from Sandel's filmed Harvard lectures — the best model of arguing philosophy <i>out loud</i>. Also among the most-cited books in PPE applications, so use it as craft training rather than as content.",
+     n:"Onora O'Neill, <i>A Question of Trust</i> (2002 Reith Lectures)|Five short lectures by a Cambridge philosopher and crossbench peer, arguing that our drive for accountability and transparency has actively corroded trust rather than restored it.",
+     s:"The specific St Edmund Hall academic who set your question — search their staff page for one paper or talk|Seventeen subjects, seventeen different academics, each setting a question they actually care about.",
+     link:"These were <i>delivered</i>, so they model precisely what you're marked on: a complete argument in the length of a talk. And since the competition sets a different question for each of 17 subjects, O'Neill's shape — the standard fix is making the problem worse — is one you can apply to almost any of them."}},
+
+  {t:"Minds Underground Law Essay Competition", s:"law", yr:"Y11 / Y12", elig:"now", tbc:true,
+   when:"Month not published — their Philosophy/Politics prizes close ~3 April",
+   link:"https://www.mindsunderground.com/law-competition",
+   note:"Verify the date directly; this provider doesn't advertise it clearly.",
+   reading:{
+     m:"Helena Kennedy, <i>Eve Was Framed</i>|A practising KC on how the courts treat women — accessible, angry, full of concrete cases, and a standard recommendation.",
+     n:"Nicola Lacey, <i>Women, Crime and Character</i>|An LSE professor tracing how the criminal law's idea of 'character' shifted between the eighteenth and twentieth centuries, and why that shift landed differently on women. Based on her Clarendon Lectures.",
+     c:"Jonathan Sumption, <i>Trials of the State</i> (Reith Lectures)|A former Supreme Court justice arguing courts have expanded into territory that belongs to politics — so the remedy for social injustice is legislation, not litigation. Directly resists the instinct Kennedy and Lacey encourage.",
+     link:"Kennedy gives you the evidence that outcomes track social assumptions. Lacey gives you the <b>mechanism and the history</b> — how the legal concept of responsibility was built such that this happens. That is the difference between an essay that is indignant and one that is jurisprudential."}},
+
+  {t:"Sheffield Philosophy Essay Prize", s:"phil", yr:"Years 10–12", elig:"now", tag:"NEW", tbc:true,
+   when:"Date unconfirmed — verify with Sheffield's Philosophy department", link:"",
+   note:"A rare philosophy prize with a Y10/11 entry point. <em>Could not locate an official current page — treat as unconfirmed.</em>",
+   reading:{
+     m:"Simon Blackburn, <i>Think</i>|The clearest map of the main problems in philosophy for someone choosing what to write about.",
+     n:"Philippa Foot, <i>Virtues and Vices</i>|Short essays by the philosopher who invented the trolley problem — including the paper it came from.",
+     s:"Judith Jarvis Thomson, <i>“The Trolley Problem”</i> (1985)|The philosopher who actually named it, and who spent thirty years inventing the variants — the fat man, the loop track — designed to break every tidy answer to Foot's original case.",
+     link:"Everyone has heard of the trolley problem; almost nobody has read Foot's original, where it was a minor illustration in an argument about the doctrine of double effect. Citing the source and correcting the popular version is a strong, cheap move."}},
+
+  {t:"Economics World Cup", s:"econ", yr:"Ages 12–18", elig:"now", tag:"NEW", tbc:true,
+   when:"Registration deadline ~10 March", link:"https://www.economicsworldcup.org/",
+   note:"Fully virtual: an individual multiple-choice round (top 15% advance their team), then a week-long team case study judged by an Oxford-affiliated panel.",
+   reading:{
+     m:"Banerjee &amp; Duflo, <i>Poor Economics</i>|Nobel-winning development economics built on randomised trials. A book of exactly the case studies this competition runs on — and very widely read.",
+     n:"Morten Jerven, <i>Poor Numbers</i>|Shows that much African GDP and development data is far less reliable than anyone admits — some national statistics are effectively estimates built on estimates.",
+     c:"William Easterly, <i>The White Man's Burden</i>|Argues planned, top-down development aid mostly fails, and that the randomised-trial project treats symptoms while leaving the political causes untouched. The strongest attack on the approach the competition will expect you to apply.",
+     link:"The final round is a team case study judged on analysis. Every team will apply development theory to the numbers. Jerven lets you open by asking <b>whether the numbers can bear the weight</b> — which is both a genuinely sophisticated move and, in a room full of confident modelling, a memorable one."}},
+]},
+
+{ month:"May – June 2027", items:[
+
+  {t:"JLI Global Essay Prize — deadline", s:"multi", yr:"Y11 / Y12", elig:"now",
+   when:"Deadline 31 May", link:"https://www.johnlockeinstitute.com/essay-competition",
+   note:"Final submission. Registration is earlier in the year — see the autumn entry above.",
+   reading:{
+     m:"Your category's canon: Philosophy → Rawls↔Nozick · Politics → Mill↔Rousseau · Economics → Piketty↔Hayek · Law → Hart↔Dworkin|Four live disputes — and the four most predictable pairings in the entire applicant pool. You need them; they will not make you memorable.",
+     n:"The rarer counterpart: Philosophy → G.A. Cohen · Politics → Albert Hirschman · Economics → Dani Rodrik or Diane Coyle · Law → Jeremy Waldron|Each attacks an assumption that the canonical pair quietly shares.",
+     link:"JLI marks argument, not coverage. The canon gets you a competent essay; the second name stops it reading like every other competent essay. Find the point where your rarer author says the famous dispute is asking the <i>wrong question</i> — and write that essay instead."}},
+
+  {t:"Young Economist of the Year", s:"econ", yr:"Years 10–13", elig:"now",
+   when:"2026 deadline: 29 June, 23:59 BST — expect the same in 2027",
+   link:"https://www.discovereconomics.co.uk/young-economist-of-the-year-2026",
+   note:"Free. 1,000 words, <em>or</em> a 5-minute video/podcast, <em>or</em> 8 slides — an unusually flexible format. Solo or teams of 2–5. Winners present at a final at KPMG. <em>No AI tools permitted.</em> Past questions: is a high-GDP but unhappy country wealthy? Should billionaires exist? How will AI affect long-run growth?",
+   reading:{
+     m:"Banerjee &amp; Duflo, <i>Good Economics for Hard Times</i>|The Nobel pair turning randomised-trial rigour onto immigration, trade, automation and growth — almost exactly this question set. Popular and widely recommended.",
+     n:"Carl Benedikt Frey, <i>The Technology Trap</i>|An Oxford economist tracing 300 years of automation to show the real variable is not whether machines destroy jobs but <i>who holds the political power to resist</i> — which is why the Industrial Revolution impoverished a generation of English workers before it enriched them.",
+     c:"Robert Gordon, <i>The Rise and Fall of American Growth</i>|Argues the transformative inventions — electricity, sanitation, the internal combustion engine — are behind us, and that computing and AI are simply far less economically significant than we assume. Read the argument, not all 750 pages.",
+     link:"On 'how will AI affect long-run growth', most entrants will speculate about robots. Frey's argument is historical and political: the outcome depends on the distribution of power, not the technology. It reframes the question rather than answering it — and he is at Oxford, which does you no harm at all."}},
+]},
+
+{ month:"July – August 2027", items:[
+
+  {t:"King's Entrepreneurship Essay Competition — deadline", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Deadline 5 August, 9pm", link:"https://www.kingselab.org/essay-competition",
+   note:"Final submission for the competition that opened in April — a genuinely long runway, so start in the summer term rather than August.",
+   reading:{
+     m:"Tim Harford, <i>Adapt</i>|See the April entry.",
+     n:"Amar Bhidé, <i>The Origin and Evolution of New Businesses</i>|See the April entry — the empirical study of what founders actually did, as against what they later said they did.",
+     link:"Four months is long enough to read both properly and still draft twice. Use it."}},
+]},
+
+{ month:"Date not confirmed — verify before relying on these", items:[
+
+  {t:"FSLA Essay Competition", s:"law", yr:"Age range not confirmed", elig:"check",
+   when:"Not published", link:"https://fsla.org.uk/fsla-essay-competition-2026/",
+   note:"Financial Services Lawyers Association essay competition.",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|Why legal constraint matters at all, before you specialise into financial regulation. Standard.",
+     n:"Katharina Pistor, <i>The Code of Capital</i>|A Columbia law professor arguing that capital is not a thing but a <i>legal coding</i> — that lawyers, by selecting which private assets get the law's protection, are the people who actually manufacture wealth and inequality.",
+     c:"Hernando de Soto, <i>The Mystery of Capital</i>|The mirror image: a Peruvian economist arguing that formal legal property rights are precisely what the world's poor <i>lack</i>, and that extending the legal coding of capital to them is the route out of poverty.",
+     link:"FSLA sits exactly at the join of law and finance, and Pistor's thesis is that the join <b>is</b> the mechanism. It hands you a genuinely provocative claim — that financial lawyers are not neutral technicians but the authors of the distribution — to argue for or against in front of an audience of financial lawyers."}},
+
+  {t:"AmplifyME Accreditation", s:"econ", yr:"Sixth-form access unclear", elig:"check",
+   when:"Not published", link:"https://amplifyme.com/schools",
+   note:"<em>Checked and flagged:</em> their Summer Analyst Programme gives a real LIBF-accredited Level 6 Diploma, but the student 'Pathways' product costs around £400/year and there is no clearly free sixth-form entry point. <em>Verify before committing time or money.</em>",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|Free from a library, and covers most of what a paid trading course will tell you.",
+     n:"Perry Mehrling, <i>The New Lombard Street</i>|A monetary economist showing how the Fed quietly moved from 'lender of last resort' to <i>dealer</i> of last resort — the actual plumbing of the 2008 rescue, explained by someone who teaches it.",
+     link:"If you decide not to pay for this, the pairing still stands alone and costs nothing: Malkiel for how markets are supposed to work, Mehrling for the machinery that catches them when they don't. Mehrling also picks up directly where Bagehot left off, if you read that one too."}},
+]},
+];
+
+DATA.y1213 = [
+{ month:"Rolling — apply as soon as Y12 starts", items:[
+
+  {t:"LSE Pathways to Law", s:"law", yr:"Early Y12", elig:"now",
+   when:"Apply the moment the Y12 window opens", link:"https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/pathways-to-law-london-years-12-13",
+   note:"<em>Your notes flag this as an EARLY Y12 application — do not wait.</em> Two-year programme running across Y12 and Y13.",
+   reading:{
+     m:"Nicholas McBride, <i>Letters to a Law Student</i>|The standard first book; read it before the programme starts so the sessions land harder.",
+     n:"Jonathan Sumption, <i>Trials of the State</i> (Reith Lectures)|A former Supreme Court justice arguing that law has expanded too far into territory politics should own.",
+     c:"Tom Bingham, <i>The Rule of Law</i>, ch. 12|Bingham's direct answer to Sumption, written before the lectures: protecting rights against a parliamentary majority is not judges overreaching, it is precisely the job the rule of law gives them.",
+     link:"Pathways will show you law as a career. Sumption asks whether the judiciary has too much power — a genuine constitutional argument from the inside. It's short, it's on iPlayer as lectures, and it makes you a Law <b>and</b> PPE candidate at once."}},
+
+  {t:"Extended Project Qualification (EPQ)", s:"multi", yr:"Y12 (some schools run into Y13)", elig:"now", tag:"NEW",
+   when:"Register with your school's EPQ coordinator early in Y12",
+   link:"",
+   note:"Free, school-delivered, Ofqual-regulated Level 3 qualification worth <em>up to 28 UCAS points</em>. A 5,000-word dissertation on a question you choose — the single best vehicle for testing a PPE-crossover idea before you apply, and the thing interviewers most reliably ask about.",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i>|Broad enough to seed a PPE-crossover question, rigorous enough to sustain 5,000 words. Also one of the most-cited authors in PPE applications — treat it as your foundation, not your hook.",
+     n:"Elizabeth Anderson, <i>Private Government</i>|A Michigan philosopher arguing the modern workplace is a <i>dictatorship</i> — a form of government most of us live under for eight hours a day with no vote in it.",
+     s:"Albert Hirschman, <i>Exit, Voice, and Loyalty</i>|~120 pages: when anything declines you can leave (exit) or complain (voice), and loyalty decides which. One framework that works on firms, parties, schools and states alike.",
+     c:"Milton Friedman, <i>Capitalism and Freedom</i>, ch. 1|The direct answer to Anderson: the employment contract is voluntary, and the freedom to quit is exactly what distinguishes a job from a government. Someone will put this to you, so get there first.",
+     link:"An EPQ lives or dies on a question with a real disagreement inside it. Anderson's move — applying the vocabulary of political legitimacy to employment, where we normally only use the vocabulary of contract — is a whole dissertation's worth of tension, and it is unmistakably a PPE question rather than an economics or a politics one."}},
+
+  {t:"Apply:Cambridge — Year 12", s:"multi", yr:"Y12", elig:"now",
+   when:"Register at the start of Y12", link:"https://www.undergraduate.study.cam.ac.uk/find-out-more/widening-participation/apply-cambridge",
+   note:"Rolling widening-participation engagement programme.",
+   reading:{
+     m:"The PPE starter trio: Blackburn <i>Think</i> · Wolff <i>Intro to Political Philosophy</i> · Harford <i>The Undercover Economist</i>|One per discipline, all short — and all thoroughly expected.",
+     n:"Partha Dasgupta, <i>Economics: A Very Short Introduction</i>|Unlike every other VSI, Dasgupta builds the whole book around two real children — one in Ethiopia, one in Chicago — and asks what economics can say about the distance between their lives. He is a Cambridge professor, and it is about 150 pages.",
+     link:"The trio gives you each discipline's vocabulary. Dasgupta shows you all three working on one human question at once, which is the thing these programmes are actually assessing. And on a <i>Cambridge</i> programme, having read the Cambridge economist who wrote the most humane introduction in the field is not a small detail."}},
+
+  {t:"Balliol College outreach (taster days, PS workshops)", s:"multi", yr:"Y12", elig:"now",
+   when:"Multiple events through the year — check the calendar termly",
+   link:"https://www.balliol.ox.ac.uk/admissions/schools-and-outreach/outreach-talks-and-events",
+   note:"Try-before-you-buy days, personal statement workshops and taster sessions.",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Wolff taught at UCL and now Oxford; this is close to what a first-year tutorial reading feels like.",
+     n:"Bernard Williams, <i>Ethics and the Limits of Philosophy</i>|A sustained attack on the idea that ethics can be systematised at all.",
+     link:"At a taster day everyone agrees with the tutor. Williams gives you a respectable way to push back on the whole framing of a moral question — which is what tutorials actually reward."}},
+
+  {t:"Worcester College Outreach", s:"multi", yr:"Y12 (verify)", elig:"check",
+   when:"No single fixed date", link:"https://www.worc.ox.ac.uk/study-here/outreach",
+   note:"General college outreach programme.",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|The reliable general grounding if the session topic isn't published in advance. Check the topic anyway — a targeted book always beats a general one.",
+     n:"Bernard Crick, <i>In Defence of Politics</i> (1962)|A short, combative classic arguing that politics — the messy business of reconciling incompatible interests without violence — is a genuine moral achievement, not a grubby necessity. Barely read now, and it reframes almost any political question.",
+     link:"Crick works at any session because his claim is prior to the topic: whatever the disagreement, he asks whether politics is the failure or the solution. It is also exactly the answer to the interview question 'why politics rather than just economics?'"}},
+
+  {t:"Oxford PPE Supercurricular Hub", s:"multi", yr:"Any year", elig:"now",
+   when:"Ongoing resource", link:"https://www.ppe.ox.ac.uk/open-days-and-visiting",
+   note:"Reading lists and subject material curated by Oxford's own PPE department.",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online)|What Oxford tells PPE offer-holders to read before they arrive.",
+     n:"Robert Allen, <i>Global Economic History: A Very Short Introduction</i>|Short, dense, and gives you centuries of context most applicants lack entirely.",
+     link:"Use this hub to supplement the pairings here, not replace them — its lists are broad by design, and breadth is exactly what doesn't distinguish an applicant."}},
+]},
+
+{ month:"September – December 2027 (apply early)", items:[
+
+  {t:"Social Mobility Foundation — Aspiring Professionals Programme", s:"multi", yr:"Y12 · income / first-gen / FSM / care-experienced", elig:"check", tag:"NEW",
+   when:"Applications Sept – Dec · outcomes from January", link:"https://www.socialmobility.org.uk/student",
+   note:"<em>Important for you specifically:</em> eligibility is based on household income, first-generation status, FSM or care experience — <em>not school type</em>, so grammar school doesn't rule you out. Covers Law (Linklaters Making Links), Economics/Finance (J.P. Morgan strand) and Politics/business (PA Consulting Springboard) in one programme, with mentoring through to your first graduate job.",
+   reading:{
+     m:"Michael Sandel, <i>The Tyranny of Merit</i>|Argues meritocracy generates humiliation and resentment among those it leaves behind. A recent bestseller — widely read, including by the people running these programmes.",
+     n:"Michael Young, <i>The Rise of the Meritocracy</i> (1958)|The book that <b>invented the word</b> — as a dystopian satire, written by the Labour sociologist who drafted the party's 1945 manifesto. He spent the rest of his life appalled that it had been adopted as a compliment.",
+     c:"Adrian Wooldridge, <i>The Aristocracy of Talent</i>|A full-throated defence: meritocracy is a genuinely radical idea that broke the grip of birth and inheritance, and the fashionable case against it mostly serves people who have already benefited.",
+     link:"Sandel's argument is Young's, sixty years later and without the irony. Knowing that 'meritocracy' entered English as a <i>warning</i> — and being able to say so on a social mobility programme — makes you a participant with a view rather than a grateful beneficiary. That is a far more interesting person to interview."}},
+
+  {t:"Warwick Future Economist Essay Competition", s:"econ", yr:"Ages 16–18", elig:"now", tag:"NEW", tbc:true,
+   when:"2025 cycle: 6 Oct – 7 Nov · expect the same window", link:"https://www.warwickeconomicssociety.com/copy-of-careers-talks",
+   note:"If the 16–18 age gate blocked you in Y11, this is your year. £100 first prize; two runners-up at £50.",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|The right register: precise, applied, readable.",
+     n:"Dani Rodrik, <i>The Globalization Paradox</i>|The political trilemma — deep globalisation, democracy, national sovereignty: pick two.",
+     c:"Paul Krugman, <i>“Ricardo's Difficult Idea”</i> (essay, free online)|A Nobel economist arguing most educated critics of free trade simply don't understand comparative advantage. Blunt, short, and a genuine test of whether your position survives contact with the theory.",
+     link:"See the Y11 entry. By Y12 you can push further and use Rodrik against himself — asking whether the trilemma still binds when capital moves faster than any of the three."}},
+
+  {t:"Wharton Global High School Investment Competition", s:"econ", yr:"Grades 9–12 (UK Y10–13)", elig:"now", tag:"NEW",
+   when:"Registration 10 Aug – 11 Sept · competition to 4 Dec · global finale late April",
+   link:"https://globalyouth.wharton.upenn.edu/competitions/investment-competition/",
+   note:"Teams of 4–6 plus a teacher advisor. Judged on strategy and report quality, <em>not portfolio returns</em>. Top 50 → virtual semi-finals; top 10 → Philadelphia.",
+   reading:{
+     m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|Why beating the index is hard — worth confronting in a stock-picking competition.",
+     n:"Howard Marks, <i>The Most Important Thing</i>|Second-level thinking and risk control, from a working fund manager.",
+     c:"Warren Buffett, the Berkshire Hathaway shareholder letters (free online)|Sixty years of publicly arguing that Malkiel is wrong — and a track record that makes the argument hard to dismiss.",
+     link:"Your Investment Policy Statement is the marked artefact. Marks is a whole book on writing down your risk discipline before the market tests it — a direct match for the rubric."}},
+]},
+
+{ month:"December 2027 – January 2028 (apply)", items:[
+
+  {t:"Oxford UNIQ Summer Schools", s:"multi", yr:"Y12, UK state school, WP-prioritised", elig:"check",
+   when:"2026 cycle: opened 15 Dec, closed 13 Jan — expect the same",
+   link:"https://www.uniq.ox.ac.uk/",
+   note:"<em>Corrected — this is not a spring window.</em> Applications open mid-December and close mid-January. Prioritisation uses POLAR/ACORN postcode data and household income, <em>not simply 'state school'</em> — so a grammar-school student is neither automatically in nor automatically out. Don't miss it waiting for a March deadline that doesn't exist.",
+   reading:{
+     m:"Law → Bingham <i>The Rule of Law</i> + Hart <i>The Concept of Law</i> · PPE → Sen <i>The Idea of Justice</i>|The expected grounding for whichever strand you're on. Read before you go, not after.",
+     n:"Law → Lon Fuller, <i>The Morality of Law</i> · PPE → Karl Polanyi, <i>The Great Transformation</i>|Fuller is Hart's other great opponent — the one everybody skips in favour of Dworkin. Polanyi argues markets are always politically constructed and never 'natural'.",
+     link:"UNIQ tutorials run at first-year undergraduate pace, so the marginal value of the harder text is high. Note the Law pick specifically: every applicant brings Hart–Dworkin, almost none brings <b>Hart–Fuller</b>, which is the same debate about law and morality with a much better story attached."}},
+
+  {t:"Peter Cane Legal Reasoning Prize", s:"law", yr:"Y12", elig:"now",
+   when:"Runs December – February", link:"https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize",
+   note:"Corpus Christi College, Oxford. Now you're eligible.",
+   reading:{
+     m:"Hart, <i>The Concept of Law</i> ↔ Dworkin, <i>Law's Empire</i>|Rules versus interpretation — the central dispute of modern jurisprudence, and the single most predictable thing a law applicant brings to the table.",
+     n:"Edward Levi, <i>An Introduction to Legal Reasoning</i> (1949)|About 100 pages on how judges genuinely move from case to case by analogy, and how the rule quietly changes shape as they do it.",
+     c:"Lon Fuller, <i>The Morality of Law</i>|Hart's other opponent, and the one most applicants skip: a legal system can be so iniquitous that it fails its own internal logic and stops being law.",
+     link:"Note what the prize is called. Hart and Dworkin argue about what law <b>is</b>; Levi describes what judges are actually <b>doing</b> when they reason. That lets you analyse a line of cases and show the rule shifting — a concrete demonstration of legal reasoning rather than a description of a theory about it."}},
+]},
+
+{ month:"January – March 2028 (apply)", items:[
+
+  {t:"Sutton Trust — Warwick PPE stream", s:"multi", yr:"Y12, WP eligible", elig:"check", tag:"NEW",
+   when:"Applications open ~mid-Jan, close ~early March · summer school ~July",
+   link:"https://summerschools.suttontrust.com/course/university-of-warwick/philosophy-politics-economics-ppe/",
+   note:"Free, fully-funded residential week built around Warwick's actual PPE degree. WP eligibility is income/first-gen/school-performance based.",
+   reading:{
+     m:"The PPE starter trio (Blackburn · Wolff · Harford) + Sen, <i>The Idea of Justice</i>|The expected foundation. Sen in particular is among the most-cited authors in PPE applications.",
+     n:"Albert Hirschman, <i>The Passions and the Interests</i>|Traces how, before Adam Smith, European thinkers argued that commerce would <i>civilise</i> us — that greed was worth encouraging because it was calmer than glory and conquest. About 130 pages.",
+     link:"On a PPE-specific summer school the students who stand out can say why the three disciplines belong in one degree. Sen asserts it; Hirschman <b>demonstrates</b> it, by showing that the case for capitalism began as a moral and political argument rather than an economic one. That is PPE in a single book."}},
+
+  {t:"Sutton Trust — Y12 Social Sciences → Law", s:"law", yr:"Y12, WP eligible", elig:"check",
+   when:"Applications ~12 Jan – ~5 March", link:"https://summerschools.suttontrust.com/browse-courses/",
+   note:"Fully funded residential summer school.",
+   reading:{
+     m:"Barnard, O'Sullivan &amp; Virgo, <i>What About Law?</i> + Hart, <i>The Concept of Law</i>|What studying law is like, and legal positivism's foundational statement. Both entirely expected of a law applicant by this stage.",
+     n:"Joseph Raz, <i>The Authority of Law</i>|Hart's student, pushing positivism further than Hart did: law claims authority over you, so what would have to be true for that claim to be legitimate?",
+     c:"Ronald Dworkin, <i>Law's Empire</i>|The standing objection to all of them: law is not a set of rules at all but an interpretive practice, and judges in hard cases are not exercising discretion — they are searching for the answer the law's own principles already imply.",
+     link:"Hart tells you what law is. Raz asks the harder question — why its say-so should bind anyone at all. On a summer school where every student has read Hart, the person asking the tutor about Raz's service conception of authority is the one who gets a real conversation."}},
+
+  {t:"Cambridge Re:Think Essay Competition", s:"multi", yr:"Eligibility not clearly stated — verify", elig:"check", tbc:true,
+   when:"Opens mid-January · closes early May", link:"https://cambridge-research.org/essay-competition/",
+   note:"Interdisciplinary, open-topic essay competition.",
+   reading:{
+     m:"Amartya Sen, <i>The Idea of Justice</i> + Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|Crossover thinking, and paradigms. Both canonical — 'paradigm shift' is a cliché in ordinary speech by now.",
+     n:"Albert Hirschman, <i>Exit, Voice, and Loyalty</i>|About 120 pages: when anything declines you can leave (exit) or complain (voice), and loyalty decides which. Applies identically to firms, parties, schools and states.",
+     s:"Peter Godfrey-Smith, <i>Other Minds</i>|A philosopher of science and diver using the octopus — complex cognition evolved on a separate branch from ours — to ask what minds are for. Crosses biology, philosophy and consciousness in one readable book.",
+     link:"Re:Think rewards essays that genuinely cross disciplines rather than announcing that they do. Hirschman gives you one portable framework that <i>is</i> economics, politics and sociology at once — and unlike Kuhn, nobody will have seen it deployed on their prompt before."}},
+]},
+
+{ month:"February 2028", items:[
+
+  {t:"Gerald O'Connell Essay Competition in Economics (Fitzwilliam, Cambridge)", s:"econ", yr:"Y12, UK state school", elig:"now", tag:"NEW",
+   when:"Deadline 6pm, Friday 27 February", link:"https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026",
+   note:"1,000 words, one set question, restricted to Year 12 home students at UK state schools. Fitzwilliam runs parallel prizes in English, History, Land Economy, Classics, Archaeology and Slavonic Studies on the same deadline — <em>worth a look if a second subject interests you.</em>",
+   reading:{
+     m:"Tim Harford, <i>The Undercover Economist</i>|Precision inside a tight word count.",
+     n:"Branko Milanovic, <i>Global Inequality</i>|Inequality between countries, not just within them — a different lens from the default Piketty answer.",
+     c:"Gregory Mankiw, <i>“Defending the One Percent”</i> (essay, free online)|Top incomes largely reflect value genuinely created. Short, clearly argued, and almost never engaged with properly at school level.",
+     link:"1,000 words forces one mechanism, argued properly. Everyone reaches for Piketty; reaching for Milanovic signals you read past the obvious book."}},
+]},
+
+{ month:"February – April 2028", items:[
+
+  {t:"Robert Walker Prize for Essays in Law (Trinity, Cambridge)", s:"law", yr:"Final or penultimate school year (Y12/13)", elig:"now", tag:"NEW",
+   when:"Deadline 1pm, Thursday 2 April — the form closes promptly",
+   link:"https://www.trin.cam.ac.uk/undergraduate/essay-prizes/law/",
+   note:"Up to 2,000 words including footnotes, on <em>a legal topic of importance to modern society</em> — you choose. First prizes £300, second £200, in separate UK and International divisions. Top ten in each division are invited to a ceremony at Trinity. <em>One entry per student, ever — you cannot enter twice, so pick your year deliberately.</em>",
+   reading:{
+     m:"Tom Bingham, <i>The Rule of Law</i>|Eight principles that give you a ready-made framework for judging any modern legal controversy.",
+     n:"Conor Gearty, <i>Can Human Rights Survive?</i>|A sympathetic insider asking whether the human rights framework can withstand its own political backlash.",
+     c:"Jonathan Sumption, <i>Trials of the State</i> (Reith Lectures)|A former Supreme Court justice arguing law has expanded into questions that belong to democratic politics — and that rights adjudication by judges is part of the problem, not the cure.",
+     link:"The question is open, so your topic choice <i>is</i> the first mark. Bingham gives you the standard to judge against; Gearty gives you a genuinely contested modern question to apply it to. Together they produce a thesis rather than a survey — and 2,000 words has no room for anything else."}},
+
+  {t:"Minds Underground Politics Essay Competition", s:"pol", yr:"Y12", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline ~3 April", link:"https://www.mindsunderground.com/politics-competition",
+   note:"1,000–1,500 words on democracy, justice or governance.",
+   reading:{
+     m:"John Rawls, <i>A Theory of Justice</i>|The foundational modern account — the veil of ignorance and the difference principle.",
+     n:"Iris Marion Young, <i>Justice and the Politics of Difference</i>|Attacks the whole distributive paradigm, arguing justice is about oppression and structural domination, not slicing a pie.",
+     c:"Robert Nozick, <i>Anarchy, State, and Utopia</i>|Famous, and still the sharpest objection to both: the Wilt Chamberlain argument, showing that <i>any</i> preferred pattern of justice gets destroyed the moment people freely use what is theirs.",
+     link:"Everyone answers a justice question with Rawls, and the sharp ones add Nozick. Young attacks the shared assumption <i>underneath</i> both of them — that justice is fundamentally about distribution. That's a third position, and it's the one that gets read twice."}},
+
+  {t:"Minds Underground Philosophy Essay Competition", s:"phil", yr:"Y12", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline ~3 April", link:"https://www.mindsunderground.com/philosophy-competition",
+   note:"Set questions leaning towards philosophy of mind.",
+   reading:{
+     m:"Nagel, <i>“What Is It Like to Be a Bat?”</i> + Dennett ↔ Chalmers|Nagel sets the problem in 15 pages; Dennett and Chalmers are the two standard answers. All three are covered in every introduction to philosophy of mind.",
+     n:"Frank Jackson, <i>“Epiphenomenal Qualia”</i> (1982)|The 'Mary's Room' paper: a scientist who knows every physical fact about colour but has only seen black and white — does she learn something new on leaving the room? <b>Jackson later publicly abandoned his own argument.</b>",
+     c:"Patricia Churchland, <i>Touching a Nerve</i>|The hard-nosed neurophilosophical reply: the 'hard problem' is not a discovery but a failure of imagination, and questions that looked irreducibly mysterious have repeatedly dissolved once the neuroscience arrived.",
+     link:"The paper is short and free online. The real prize is the recantation: being able to say 'Jackson made the strongest anti-physicalist argument in the literature and then changed his mind — here is why I think he was right the first time' shows you can track a philosopher's reasoning across decades. Almost nobody at school level knows he recanted."}},
+
+  {t:"UCL Masterclasses", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"2026 window ran February – April", link:"https://www.ucl.ac.uk/widening-participation/learners/year-12-and-13/information-advice-and-guidance/masterclasses",
+   note:"Online, subject-specific sessions.",
+   reading:{
+     m:"Match the masterclass subject — check the listing before you book.|A targeted book beats a general one every time. If the topic isn't published, Wolff's <i>Intro to Political Philosophy</i> is the safe default.",
+     n:"Bernard Williams, <i>Ethics and the Limits of Philosophy</i>|A sustained attack on the idea that ethics can be systematised at all. Williams is enormously respected inside philosophy and barely read outside it.",
+     link:"These are short sessions where asking one good question is the entire opportunity. Williams gives you a question that works on almost any social-science topic: whoever is presenting a framework, ask what human judgement it had to flatten in order to work."}},
+
+  {t:"ExpLaw (Oxford)", s:"law", yr:"Y12, BAME state school", elig:"check",
+   when:"Opens in April", link:"https://www.law.ox.ac.uk/content/uniq-explaw",
+   note:"Run with Freshfields, alongside UNIQ.",
+   reading:{
+     m:"Helena Kennedy, <i>Eve Was Framed</i> + Michelle Alexander, <i>The New Jim Crow</i>|A practising KC on the British courts, and the standard account of US mass incarceration. Both are bestsellers and both are widely cited on this exact topic.",
+     n:"David Lammy, <i>The Lammy Review</i> (2017)|The independent government review of BAME treatment in the England and Wales criminal justice system. Free to download, and full of primary UK charge, plea and sentencing data.",
+     c:"Thomas Sowell, <i>Discrimination and Disparities</i>|Argues a statistical disparity does not by itself establish discrimination, because groups differ systematically in age, geography and other variables that independently drive outcomes. The objection any serious interviewer will put to you.",
+     link:"ExpLaw is a <i>UK</i> programme about <i>UK</i> access to the profession, and Alexander's book is about America. Lammy gives you the domestic evidence — actual charge, plea and sentencing disparities here. Citing a primary government report rather than a bestseller is a serious signal, and it costs nothing but the download."}},
+
+  {t:"Regent's Park College (Oxford) — Online PPE Masterclass", s:"multi", yr:"Y12 only, predicted AAA", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 ran 5 July — dates move, check from spring", link:"https://www.rpc.ox.ac.uk/access-outreach/ppe-masterclass-2025/",
+   note:"Half-day PPE-specific online masterclass.",
+   reading:{
+     m:"The PPE starter trio (Blackburn · Wolff · Harford) + Sen|The expected foundation going in.",
+     n:"Bernard Crick, <i>In Defence of Politics</i> (1962)|Short and combative: politics — reconciling incompatible interests without violence — is a moral achievement, not a grubby necessity.",
+     link:"A half-day session gives you maybe two chances to speak. Crick hands you the best available answer to the question these masterclasses always circle: why study politics alongside philosophy and economics, rather than instead of them?"}},
+
+  {t:"Oriel College (Oxford) — PPE Study Day", s:"multi", yr:"Y12 only, UK state school, predicted AAA", elig:"check", tag:"NEW", tbc:true,
+   when:"2025 ran mid-April · applications closed mid-March — apply early",
+   link:"https://www.ox.ac.uk/admissions/undergraduate/visiting-and-outreach/outreach-events/year-12-ppe-study-day",
+   note:"Free PPE-specific taster day with travel and food covered.",
+   reading:{
+     m:"The PPE starter trio (Blackburn · Wolff · Harford) + Sen|The shared vocabulary, and thoroughly expected.",
+     n:"Partha Dasgupta, <i>Economics: A Very Short Introduction</i>|~150 pages built around two real children, one in Ethiopia and one in Chicago, asking what economics can say about the gap between their lives.",
+     link:"Same logic as Regent's Park. And note the diary entry that actually matters is <b>mid-March</b>, when applications close — not mid-April, when the day runs."}},
+]},
+
+{ month:"March – August 2028", items:[
+
+  {t:"R.A. Butler Prize for Politics and International Studies (Trinity, Cambridge)", s:"pol", yr:"Y12 / S5 when questions are released", elig:"now",
+   when:"Questions announced March · deadline 12 noon, Friday 31 July",
+   link:"https://www.trin.cam.ac.uk/undergraduate/essay-prizes/politics/",
+   note:"<em>Corrected from your note:</em> the deadline is <em>31 July</em>, not August — you get four full months from the March question release. Up to 3,000 words including footnotes. First prize £600, second £400 (each split with your school), plus ~8 special commendations and ~40 commendations. Open internationally; one entry per student.",
+   reading:{
+     m:"J.S. Mill, <i>On Liberty</i> · Rousseau, <i>The Social Contract</i>|The two canonical positions on where individual freedom meets collective authority.",
+     n:"Robert Dahl, <i>Polyarchy</i>|Rigorous institutional criteria for what actually makes a system democratic — so you can <i>measure</i> a regime rather than describe it.",
+     s:"Hannah Arendt, <i>The Origins of Totalitarianism</i>|The anatomy of what replaces democracy when it fails — how atomised, lonely populations become available to total movements. Read the third part if the whole is too much, and say so.",
+     c:"Jason Brennan, <i>Against Democracy</i>|Argues most voters are ignorant or irrational and that democracy has no strong claim to legitimacy — a serious philosopher attacking the premise the entire prize takes for granted.",
+     link:"3,000 words and four months is enough for real depth, so the mainstream pair alone will read thin. Dahl lets you <b>measure</b> a democracy rather than describe it; Arendt lets you say what the failure mode actually looks like. Bringing an institutional political scientist into a school essay is unusual and it shows."}},
+
+  {t:"IEA Monetary Policy Essay Prize (Sixth Form)", s:"econ", yr:"Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Deadline 31 August, 23:59 · semi-finals October (Buckingham) · final 1 December (IEA, London)",
+   link:"https://iea.org.uk/Monetary-Policy-Essay-Prize/",
+   note:"<em>Corrected — the deadline is 31 August, not July.</em> Up to 2,500 words (references count, bibliography doesn't). <em>£1,500 first prize, £750 for two runners-up.</em> You must attend the semi-final and final in person. The 2026 question was whether tariffs raise the price level or inflation.",
+   reading:{
+     m:"Blastland &amp; Dilnot, <i>The Tiger That Isn't</i>|Stops you misreading the inflation statistics the question turns on.",
+     n:"Milton Friedman &amp; Anna Schwartz, <i>A Monetary History of the United States</i> (Great Depression chapters)|The foundational monetarist text — read selectively, it's technical.",
+     c:"Stephanie Kelton, <i>The Deficit Myth</i>|The Modern Monetary Theory case that a currency-issuing government is not budget-constrained the way a household is, and that inflation, not the deficit, is the only real limit. Roughly everything the IEA exists to oppose.",
+     link:"The IEA is a free-market think tank, so knowing the tradition behind the prize is worth real marks. The tariff question is precisely a price-level-versus-inflation distinction — which is a monetarist point, and Friedman &amp; Schwartz is where it was made most rigorously. <b>Being able to say which chapters you read is more credible than claiming the whole book.</b>"}},
+
+  {t:"King's Entrepreneurship Essay Competition (King's, Cambridge)", s:"econ", yr:"Y11 / Y12 / Y13", elig:"now", tag:"NEW",
+   when:"Opens 2 April · deadline 5 August, 9pm", link:"https://www.kingselab.org/essay-competition",
+   note:"Up to 1,000 words. £1,500 first prize, £750 for two runners-up, ceremony at King's in December.",
+   reading:{
+     m:"Tim Harford, <i>Adapt</i>|Progress by variation and selection, not planning. Widely read.",
+     n:"Amar Bhidé, <i>The Origin and Evolution of New Businesses</i>|Surveyed hundreds of real Inc. 500 founders and found most began with no novel idea, almost no capital and no plan — the reverse of the founder myth.",
+     c:"Mariana Mazzucato, <i>The Entrepreneurial State</i>|The state, not the founder, took the foundational risks behind almost everything in an iPhone — so we have been misattributing the reward for decades.",
+     link:"The field will be full of essays about individual grit and vision. Bhidé has the empirical data showing most successful founders had neither, and that the vision was largely constructed afterwards. A contrarian thesis with real evidence is the only reliable way to place in a 1,000-word field."}},
+
+  {t:"IEA Dorian Fisher Memorial Prize", s:"econ", yr:"Sixth form — mainly non-UK schools, check eligibility", elig:"check", tag:"NEW", tbc:true,
+   when:"Deadline ~late July", link:"https://iea.org.uk/students/",
+   note:"<em>Primarily aimed at students at schools outside the UK — verify you qualify before investing time.</em>",
+   reading:{
+     m:"Milton Friedman, <i>Capitalism and Freedom</i> ↔ Thomas Piketty, <i>Capital in the Twenty-First Century</i>|The two canonical poles — the classical-liberal statement the IEA exists to advance, and the most-cited modern challenge to it. Both are on every list.",
+     n:"Deirdre McCloskey, <i>Bourgeois Dignity</i>|Argues that <i>neither</i> capital accumulation nor institutions explain the modern enrichment — what changed was ideas, specifically that societies began according dignity to commerce and innovation. A serious economic historian taking a third position.",
+     s:"Adam Smith, <i>The Theory of Moral Sentiments</i>|Smith's <i>other</i> book, and the one he thought was his best: an account of morality built on sympathy and the 'impartial spectator'. Reading it complicates the cartoon of Smith as the prophet of self-interest.",
+     link:"Writing for a free-market institute does not mean reciting one back at it. McCloskey lets you say that Friedman and Piketty are arguing about the wrong variable — which is a genuinely free-market conclusion arrived at by disagreeing with the free-market canon. That is exactly the kind of essay a think tank remembers."}},
+
+  {t:"Trinity College Cambridge — Philosophy Essay Prize", s:"phil", yr:"Y12", elig:"check", tag:"NEW", tbc:true,
+   when:"Not confirmed — likely spring/summer, matching Trinity's other prizes", link:"",
+   note:"<em>Could not confirm an official page — verify directly with Trinity before planning around it.</em>",
+   reading:{
+     m:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Clean exposition of the main disputes.",
+     n:"Derek Parfit, <i>Reasons and Persons</i> (Part 3, personal identity)|Wildly influential, genuinely hard — read one part properly and say so.",
+     c:"Bernard Williams, <i>“Persons, Character and Morality”</i>|Argues Parfit's kind of impartial reasoning would strip away exactly the personal attachments that make a life worth living — the famous 'one thought too many' objection.",
+     link:"Parfit was a Fellow of All Souls and is central to modern Oxford philosophy. Reading Part 3 honestly — and admitting that's what you read — is more credible and more impressive than claiming the whole book."}},
+]},
+
+{ month:"June – August 2028 (summer schools & open days)", items:[
+
+  {t:"Cambridge Open Days", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"Typically late June / early July", link:"https://www.undergraduate.study.cam.ac.uk/events/cambridge-open-days",
+   note:"Book early — the popular subject talks fill up.",
+   reading:{
+     m:"Match the faculty talks you plan to attend.|Read the department's own suggested list first.",
+     n:"One paper or chapter by the academic giving the talk — their staff page lists it.|Read it for the <i>argument</i>, not the findings.",
+     link:"The point isn't to flatter them. If you've read one thing they wrote, you can ask about a choice they made — why that method, why that case — instead of a fact you could have looked up. That is the difference between a queue question and a conversation."}},
+
+  {t:"Christ's College Cambridge Summer School", s:"multi", yr:"Y12 only", elig:"now",
+   when:"Runs over the summer", link:"https://www.christs.cam.ac.uk/admissions/undergraduate-admissions/events-including-online-events/experience-christs-summer-school",
+   note:"Residential experience programme.",
+   reading:{
+     m:"Match the subject strand offered.|Check the programme before you go.",
+     n:"Bernard Crick, <i>In Defence of Politics</i> — or Dasgupta's <i>Economics: A VSI</i> for an economics strand|Either gives you a position to test the sessions against.",
+     link:"A week of talks produces notes; a week of talks you disagree with somewhere produces an opinion. Go in with one claim you're willing to defend, and use the tutors to attack it."}},
+
+  {t:"Caius Explore", s:"multi", yr:"Y12", elig:"now", tbc:true,
+   when:"No fixed month confirmed — check the page", link:"https://www.cai.cam.ac.uk/access-outreach/schemes-and-events/caius-explore",
+   note:"Gonville &amp; Caius access scheme.",
+   reading:{
+     m:"Match the subject strand.|As above.",
+     n:"Thomas Kuhn, <i>The Structure of Scientific Revolutions</i>|Famous, and that's fine — it still does real work here, because it hands you one question that lands in <i>any</i> discipline.",
+     link:"A good example of the principle: Kuhn is not remotely obscure, but 'does this field progress by accumulating evidence or by overturning it?' is a genuine question you can put to any tutor, in any strand, and get a real answer to. Usefulness beats rarity."}},
+
+  {t:"Marshall Society Economics Essay Competition", s:"econ", yr:"Sixth form (not stated explicitly)", elig:"check", tbc:true,
+   when:"Opens mid-summer", link:"https://www.marshallsociety.com/",
+   note:"Run by Cambridge's undergraduate economics society — <em>questions reward technical depth more than most school competitions.</em>",
+   reading:{
+     m:"CORE Econ, <i>The Economy</i> (free online) + Piketty, <i>Capital in the Twenty-First Century</i>|The rigorous mainstream curriculum, and the standard inequality reference. Read the Piketty data chapters properly rather than claiming all 700 pages.",
+     n:"Steve Keen, <i>Debunking Economics</i>|A technical, equation-level assault on the foundations of neoclassical theory — including the claim that the standard demand curve cannot be derived the way textbooks say it can.",
+     c:"Dani Rodrik, <i>Economics Rules</i>|Defends the discipline against exactly Keen's kind of attack: economics is not one model but a library of them, and the real skill is knowing which applies where. Critics, he says, are usually demolishing a caricature.",
+     link:"Marshall Society judges are Cambridge economics undergraduates who will notice instantly whether you can handle a model or only a narrative. CORE gives you the machinery; Keen shows you where its own practitioners think the machinery creaks. Criticising a model from inside it is a completely different signal from criticising it from outside."}},
+]},
+
+{ month:"September 2028 (Y13 start, and Y12 autumn deadlines)", items:[
+
+  {t:"LSESU Economics Society Essay Competition", s:"econ", yr:"Y12 recommended, open to all", elig:"now",
+   when:"Deadline 1 September", link:"https://lsesueconsoc.org/competitions/",
+   note:"Run by the LSE Students' Union economics society.",
+   reading:{
+     m:"Thomas Piketty, <i>Capital in the Twenty-First Century</i>|Inequality, empirically — a field with deep LSE ties.",
+     n:"Anthony Atkinson, <i>Inequality: What Can Be Done?</i>|Piketty's mentor, and far more prescriptive: fifteen concrete policy proposals.",
+     c:"Gregory Mankiw, <i>“Defending the One Percent”</i> (essay, free online)|Argues top incomes largely reflect value genuinely created, and that the redistributive case is weaker than it appears. Short, clear, and rarely engaged with properly.",
+     link:"Piketty diagnoses; Atkinson prescribes. Atkinson taught at LSE and Piketty calls him his intellectual father — using the pair is both a stronger argument and a quiet signal that you know the discipline's actual lineage."}},
+
+  {t:"CSEP Economics/Finance Essay Competition", s:"econ", yr:"Y12 / Y13", elig:"now",
+   when:"September deadline", link:"https://www.cambridgepluralism.org/essay-competition",
+   note:"Run by the Cambridge Society for Economic Pluralism — <em>explicitly about challenging mainstream economics.</em>",
+   reading:{
+     m:"Ha-Joon Chang, <i>23 Things They Don't Tell You About Capitalism</i>|Accessible heterodox economics from a Cambridge economist — almost the house style of this competition.",
+     n:"Karl Polanyi, <i>The Great Transformation</i>|The deep historical case that markets are politically constructed, and that a self-regulating market is a fiction.",
+     c:"Friedrich Hayek, <i>“The Use of Knowledge in Society”</i> (essay, free online)|Twelve pages, and the best argument ever made <i>for</i> the price system: no planner can gather the dispersed, local, tacit knowledge that prices aggregate automatically.",
+     link:"CSEP wants pluralism, so a critique of orthodoxy is the assignment. Chang is the readable version; Polanyi is where the argument originally comes from. Going to the source rather than the popularisation is exactly the move this particular audience rewards."}},
+
+  {t:"Sidgwick Prize (Cambridge)", s:"multi", yr:"High-school age — verify whether Y11 can enter", elig:"check", tag:"NEW",
+   when:"Registration opens September · essay deadline ~30 June",
+   link:"https://www.sidgwickprize.com/",
+   note:"Covers Philosophy, Politics, Economics <em>and</em> Law across eight disciplines. £12 entry fee, and <em>every entry gets written feedback from Cambridge academics</em> — which is worth the fee on its own even if you don't place.",
+   reading:{
+     m:"Your discipline's canonical dispute: Rawls↔Nozick · Mill↔Rousseau · Piketty↔Hayek · Hart↔Dworkin|Two thinkers who genuinely disagree — and the four most predictable pairings in the applicant pool.",
+     n:"The rarer third voice: Philosophy → G.A. Cohen · Politics → Bernard Crick · Economics → Diane Coyle · Law → Jeremy Waldron|Each says the famous dispute is asking a question that was framed wrongly.",
+     c:"Whichever thinker your own essay would find hardest to answer|Identify it deliberately, read them, and put their strongest objection in your own essay before a judge has to.",
+     link:"A nine-month runway is long enough to read the canon <i>and</i> a third voice properly. The written feedback from a Cambridge academic is the real prize here — so write the essay you actually want one to argue with, not the one you think is safe."}},
+]},
+
+{ month:"No fixed date confirmed — verify", items:[
+
+  {t:"LSE Explore — subject masterclasses", s:"multi", yr:"Y12", elig:"now",
+   when:"Not published", link:"https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/lse-explore-year-12",
+   note:"Coffee-break research talks and subject masterclasses.",
+   reading:{
+     m:"Match the masterclass subject.|Check the listing first; Wolff's <i>Intro to Political Philosophy</i> is the safe default if it isn't published.",
+     n:"One recent paper by the speaker — LSE staff pages list them.|Read it for the method they chose, not the conclusion they reached.",
+     link:"Same as Cambridge Open Days. Reading one thing by the person speaking is the cheapest possible way to have something specific to ask — and 'why did you approach it that way?' is a question no one can prepare a stock answer to."}},
+
+  {t:"UCL Expand", s:"multi", yr:"Y12", elig:"now",
+   when:"Not published", link:"https://www.ucl.ac.uk/widening-participation/learners/year-12-and-13/ucl-expand",
+   note:"Hybrid Y12 programme.",
+   reading:{
+     m:"Match the strand you're placed on.|Ask the coordinator what you'll cover.",
+     n:"Jonathan Wolff, <i>An Introduction to Political Philosophy</i>|Wolff is at UCL — reading him before a UCL programme is a small, specific, noticeable choice.",
+     link:"Reading the department's own academic is a genuinely underrated move. It costs nothing and it is immediately obvious to anyone from that department."}},
+
+  {t:"Lloyd Davies Philosophy Prize", s:"phil", yr:"Y12", elig:"check", tag:"NEW",
+   when:"No confirmed date — verify directly", link:"",
+   note:"<em>No official current page located.</em> £250 first prize reported, possible £150 second.",
+   reading:{
+     m:"Russell, <i>The Problems of Philosophy</i> + Descartes, <i>Meditations on First Philosophy</i>|Russell answering Descartes across 250 years. Read Russell first, then the original he is arguing with. Both utterly canonical.",
+     n:"Miranda Fricker, <i>Epistemic Injustice</i>|Coined the idea that you can be wronged <i>specifically as a knower</i> — disbelieved because of who you are, or lacking the concepts to name what is happening to you. Now hugely influential in academic philosophy; nearly unknown at school level.",
+     c:"Edmund Gettier, <i>“Is Justified True Belief Knowledge?”</i>|Three pages that broke the definition of knowledge everyone had used since Plato — and which Russell is still relying on. Free online, readable in ten minutes.",
+     link:"Descartes and Russell ask how an isolated mind can know anything. Fricker asks who gets <i>believed</i> — turning epistemology from a solitary puzzle into a social and political one. Setting the classic problem and then showing it left something out is a far stronger essay than restating the classic problem well."}},
+
+  {t:"Future Thought Leaders Essay Competition", s:"multi", yr:"Y12", elig:"now", tag:"NEW",
+   when:"2026 round already closed — watch for the 2027/28 opening",
+   link:"https://www.futurethoughtleaders.co.uk/essay-competition",
+   note:"Interdisciplinary essay on the defining challenges of your generation.",
+   reading:{
+     m:"Kate Raworth, <i>Doughnut Economics</i>|A rival objective to growth, argued accessibly.",
+     n:"Amartya Sen, <i>Development as Freedom</i>|Redefines development as the expansion of real freedoms rather than income — the rigorous version of the same instinct.",
+     c:"Vaclav Smil, <i>How the World Really Works</i>|A materials scientist's cold-water answer to almost every generational-challenge essay: the four pillars of modern civilisation — cement, steel, plastics, ammonia — are all fossil-fuel dependent, and no amount of framing changes the physics.",
+     link:"Raworth is the popular framing; Sen is the Nobel-winning argument underneath it. On a 'challenges of your generation' prompt, having the serious source rather than the infographic version is the whole difference."}},
+
+  {t:"Cambridge Subject Masterclasses / Applicant Webinars / Exploring Law Conference", s:"multi", yr:"Not specified", elig:"check",
+   when:"Check the Cambridge events calendar", link:"https://www.undergraduate.study.cam.ac.uk/events/masterclasses",
+   note:"General Cambridge outreach. <em>You can filter the events listing by 'state school' and 'widening participation' audience</em> — worth doing rather than scrolling everything.",
+   reading:{
+     m:"Match the session subject. For the Exploring Law Conference: Barnard, O'Sullivan &amp; Virgo, <i>What About Law?</i>|Written by Cambridge law fellows — you may well end up in a room with one of them.",
+     n:"Lon Fuller, <i>The Morality of Law</i>|Hart's other great opponent, and the one most applicants skip in favour of Dworkin. Fuller's case: a legal system so unjust it fails its own internal logic isn't merely bad law, it stops being law.",
+     link:"<i>What About Law?</i> tells you what studying law involves. Fuller gives you a question to bring to the conference — whether there is any point at which a rule is too iniquitous to count as law at all. That is a real argument with a real answer on both sides, which is what a tutor wants to hear you attempt."}},
+]},
+
+{ month:"Fee-paying summer schools (optional — cost flagged, not endorsed)", items:[
+
+  {t:"Immerse Education — PPE Summer Programme", s:"multi", yr:"~15–18", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://www.immerse.education/philosophy-politics-economics-summer-school/",
+   note:"<em>Fee-paying, typically thousands of pounds.</em> Oxford/Cambridge locations but not run by the universities.",
+   reading:{
+     m:"The PPE starter trio (Blackburn · Wolff · Harford) + Sen|Free from a library, and expected of you anyway.",
+     n:"Bernard Crick, <i>In Defence of Politics</i>|Also free from a library — and unlike Sen, almost nobody else will have it.",
+     link:"Worth saying plainly: admissions tutors know which programmes are paid-for, and a fee-paying summer school signals your parents' budget rather than your ability. The reading costs nothing and signals more than the programme does."}},
+
+  {t:"Oxford Summer Courses — PPE", s:"multi", yr:"16–17", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://oxfordsummercourses.com/subjects/ppe",
+   note:"<em>Fee-paying — quoted from £6,995 for two weeks.</em> Not run by the University of Oxford.",
+   reading:{
+     m:"PPE starter trio + Sen.|As above.",
+     n:"Bernard Crick, <i>In Defence of Politics</i>.|As above.",
+     link:"See above — and note that UNIQ, the Sutton Trust Warwick PPE week and the Oriel PPE study day are <b>free</b>, university-run, and carry considerably more weight than anything costing £6,995."}},
+
+  {t:"John Locke Institute — PPE Summer School", s:"multi", yr:"16–19", elig:"now", tag:"NEW",
+   when:"Summer, Oxford-based", link:"https://www.johnlockeinstitute.com/oxford-summer-schools/1000",
+   note:"<em>Fee-paying.</em> Note their essay prize is free — see the Y11 list.",
+   reading:{
+     m:"Rawls, <i>A Theory of Justice</i> ↔ Nozick, <i>Anarchy, State, and Utopia</i>|Harvard colleagues arguing in print. The syllabus leans on this, and so does every other applicant.",
+     n:"G.A. Cohen, <i>If You're an Egalitarian, How Come You're So Rich?</i>|Cohen turning the egalitarian argument on egalitarians themselves — including his own family and his own comfortable Oxford life. Short, funny, and genuinely uncomfortable.",
+     link:"Read Rawls and Nozick as one conversation and you have the backbone of any political philosophy discussion — free, and without paying for the summer school. Cohen then asks the question neither of them does: what does believing this actually require <i>you</i> to do? That is a question an interviewer can follow up on for ten minutes."}},
+
+  {t:"Debate Chamber — PPE Summer School", s:"multi", yr:"~15–18", elig:"now", tag:"NEW",
+   when:"Summer", link:"https://debatechamber.com/project/ppe-summer-school/",
+   note:"<em>Fee-paying.</em>",
+   reading:{
+     m:"F.A. Hayek, <i>The Road to Serfdom</i>|On the course's own reading list.",
+     n:"G.A. Cohen, <i>Self-Ownership, Freedom, and Equality</i>|Also on their list — the most rigorous egalitarian answer to the Hayek/Nozick tradition.",
+     link:"They publish their reading list. Reading it yourself gets you most of the intellectual content at none of the cost — and the Hayek↔Cohen opposition is a genuinely first-rate pairing."}},
+
+  {t:"Oxbridge Summer Scholars — Law, PPE &amp; Global Issues", s:"multi", yr:"Not fully specified", elig:"check", tag:"NEW",
+   when:"Summer", link:"https://www.oxbridgesummerscholars.com/law-ppe-and-global-issues",
+   note:"<em>Fee-paying</em>, combined Law + PPE stream.",
+   reading:{
+     m:"McBride, <i>Letters to a Law Student</i> + Sen, <i>The Idea of Justice</i>|The Law half and the PPE half. Both standard.",
+     n:"Katharina Pistor, <i>The Code of Capital</i>|Argues capital is not a thing but a <i>legal coding</i> — that lawyers, by choosing which assets the law protects, are the people who actually manufacture wealth and inequality.",
+     link:"Pistor <i>is</i> the Law/PPE join this course is selling, and she makes it as an argument rather than a brochure line: the distribution of wealth is a question of legal drafting. The book does the bridging for free."}},
+]},
+];
+
+window.SC_DATA = DATA; window.SC_CAVEATS = CAVEATS;

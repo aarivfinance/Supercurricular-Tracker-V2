@@ -1,0 +1,6136 @@
+{
+ "updated": "2026-09-25T16:03:48.643Z",
+ "watchlist": [
+  {
+   "company": "J.P. Morgan",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Goldman Sachs",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Morgan Stanley",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bank of America",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Citi",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Barclays",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Deutsche Bank",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "UBS",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "BNP Paribas",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "HSBC",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Wells Fargo",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "addedByClaude": false
+  },
+  {
+   "company": "Lazard",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": false
+  },
+  {
+   "company": "Evercore",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": false
+  },
+  {
+   "company": "Rothschild & Co",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": false
+  },
+  {
+   "company": "Jefferies",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": false
+  },
+  {
+   "company": "Centerview Partners",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "PJT Partners",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Moelis & Company",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Perella Weinberg",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Houlihan Lokey",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Guggenheim Partners",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "MUFG",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": false
+  },
+  {
+   "company": "Mizuho",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": false
+  },
+  {
+   "company": "Nomura",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "SMBC",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Société Générale",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Crédit Agricole CIB",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Santander",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Standard Chartered",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "RBC Capital Markets",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Macquarie",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "ING",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "NatWest",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Lloyds Banking Group",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Nationwide",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Monzo",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Starling Bank",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Revolut",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "SoFi",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bank of England",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": false
+  },
+  {
+   "company": "HM Treasury",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": false
+  },
+  {
+   "company": "HMRC",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": false
+  },
+  {
+   "company": "World Bank",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": false
+  },
+  {
+   "company": "IMF",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": true
+  },
+  {
+   "company": "European Central Bank",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": true
+  },
+  {
+   "company": "Financial Conduct Authority",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": true
+  },
+  {
+   "company": "Government Economic Service",
+   "sector": "Banking",
+   "sub": "Central banks & public sector",
+   "addedByClaude": true
+  },
+  {
+   "company": "McKinsey & Company",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Boston Consulting Group",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bain & Company",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Oliver Wyman",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "L.E.K. Consulting",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kearney",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Roland Berger",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Strategy&",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Deloitte",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": false
+  },
+  {
+   "company": "PwC",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": false
+  },
+  {
+   "company": "EY",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": false
+  },
+  {
+   "company": "KPMG",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": false
+  },
+  {
+   "company": "Grant Thornton",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": false
+  },
+  {
+   "company": "BDO",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Forvis Mazars",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "RSM UK",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Capgemini",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": false
+  },
+  {
+   "company": "Accenture",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Alvarez & Marsal",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "FTI Consulting",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Oxera",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Frontier Economics",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Compass Lexecon",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "NERA Economic Consulting",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Economic Insight",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Apple",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Google",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Microsoft",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Amazon",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Meta",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Oracle",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "IBM",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "TikTok (ByteDance)",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Alibaba",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Samsung",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "Netflix",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tesla",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": false
+  },
+  {
+   "company": "OpenAI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": false
+  },
+  {
+   "company": "Anthropic",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": false
+  },
+  {
+   "company": "Google DeepMind",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "xAI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": false
+  },
+  {
+   "company": "Mistral AI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": false
+  },
+  {
+   "company": "Perplexity",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": false
+  },
+  {
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "Scale AI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hugging Face",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "Wayve",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "ElevenLabs",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "Synthesia",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "NVIDIA",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "TSMC",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "Broadcom",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "Micron",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "SanDisk",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "Arm",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "AMD",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Intel",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Qualcomm",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "ASML",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Dell",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "HP",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": false
+  },
+  {
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Salesforce",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "ServiceNow",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Adobe",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Palo Alto Networks",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "CrowdStrike",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Cloudflare",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Databricks",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": false
+  },
+  {
+   "company": "Snowflake",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Atlassian",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "SAP",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Reddit",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": false
+  },
+  {
+   "company": "Discord",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": false
+  },
+  {
+   "company": "Spotify",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": false
+  },
+  {
+   "company": "Uber",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": false
+  },
+  {
+   "company": "Shopify",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": false
+  },
+  {
+   "company": "Airbnb",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Stripe",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": false
+  },
+  {
+   "company": "Visa",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": false
+  },
+  {
+   "company": "Mastercard",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": false
+  },
+  {
+   "company": "American Express",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": false
+  },
+  {
+   "company": "Capital One",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": false
+  },
+  {
+   "company": "Wise",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Klarna",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lockheed Martin",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": false
+  },
+  {
+   "company": "SpaceX",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": false
+  },
+  {
+   "company": "BAE Systems",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Rolls-Royce",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Financial Times",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bloomberg",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "The Economist",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "Blackstone",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "KKR",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "Apollo",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "Carlyle",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "EQT",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "TPG",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "CVC Capital Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "Thoma Bravo",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bain Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Permira",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Advent International",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cinven",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Warburg Pincus",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "General Atlantic",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hg",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Silver Lake",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "3i",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ares Management",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brookfield",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sequoia Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Andreessen Horowitz",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Index Ventures",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Balderton Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Accel",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Atomico",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Y Combinator",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Entrepreneur First",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Millennium",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Citadel",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Balyasny",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "ExodusPoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brevan Howard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Capula",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Rokos Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Marshall Wace",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Bridgewater Associates",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Elliott Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Man Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Capstone Investment Advisors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Situational Awareness",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Tudor Investment",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "TCI Fund Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lansdowne Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Partridge, Muir & Warren",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": false
+  },
+  {
+   "company": "Jane Street",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Citadel Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Optiver",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "IMC Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Susquehanna (SIG)",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Two Sigma",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "D. E. Shaw",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "G-Research",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "XTX Markets",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Flow Traders",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Winton",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "AQR",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Renaissance Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Maven Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Da Vinci Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "BlackRock",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Vanguard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Fidelity International",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "State Street",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "BNY",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "PIMCO",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "AllianceBernstein",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Ruffer",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Legal & General",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": false
+  },
+  {
+   "company": "Schroders",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "M&G",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Baillie Gifford",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "abrdn",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Invesco",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Jupiter",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "T. Rowe Price",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Wellington Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Franklin Templeton",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Aviva Investors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Nuveen",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "SemiAnalysis",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": false
+  },
+  {
+   "company": "Rothschild & Co Redburn",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "S&P Global",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Moody's",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Fitch Ratings",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "MSCI",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Nasdaq",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "London Stock Exchange Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "NYSE (ICE)",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "TMX Group (TSX)",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Trading 212",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Interactive Brokers",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Webull",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Pump.fun",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Axiom Trade",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Hargreaves Lansdown",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "Kraken",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "IG Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": false
+  },
+  {
+   "company": "CME Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cboe",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tradeweb",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "eToro",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "AJ Bell",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Freetrade",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "A&O Shearman",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "addedByClaude": false
+  },
+  {
+   "company": "Clifford Chance",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "addedByClaude": false
+  },
+  {
+   "company": "Freshfields",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "addedByClaude": false
+  },
+  {
+   "company": "Linklaters",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "addedByClaude": false
+  },
+  {
+   "company": "Slaughter and May",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "addedByClaude": false
+  },
+  {
+   "company": "Kirkland & Ellis",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Latham & Watkins",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Skadden",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Sullivan & Cromwell",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Cravath",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Wachtell Lipton",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": false
+  },
+  {
+   "company": "Davis Polk",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Simpson Thacher",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Paul Weiss",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cleary Gottlieb",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Milbank",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Weil",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "White & Case",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Gibson Dunn",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sidley Austin",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Goodwin",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Quinn Emanuel",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Covington",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Debevoise",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Herbert Smith Freehills Kramer",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Macfarlanes",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Travers Smith",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ashurst",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hogan Lovells",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Norton Rose Fulbright",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Mishcon de Reya",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Simmons & Simmons",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Stephenson Harwood",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "DLA Piper",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": false
+  },
+  {
+   "company": "Baker McKenzie",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "CMS",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "Pinsent Masons",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "Eversheds Sutherland",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "Bird & Bird",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sutton Trust",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Rare Recruitment",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "upReach",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "SEO London",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Springpod",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Uptree",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Forage",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Bright Network",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Social Mobility Foundation",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  },
+  {
+   "company": "Amazing Apprenticeships",
+   "sector": "Access programmes",
+   "sub": "Schemes & platforms for school students",
+   "addedByClaude": true
+  }
+ ],
+ "health": {
+  "J.P. Morgan": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Goldman Sachs": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Morgan Stanley": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bank of America": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Citi": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Barclays": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Deutsche Bank": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "UBS": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "BNP Paribas": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "HSBC": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Wells Fargo": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Lazard": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Evercore": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Rothschild & Co": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Jefferies": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Centerview Partners": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "PJT Partners": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Moelis & Company": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Perella Weinberg": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Houlihan Lokey": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Guggenheim Partners": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "MUFG": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Mizuho": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Nomura": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SMBC": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Société Générale": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Crédit Agricole CIB": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Santander": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Standard Chartered": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "RBC Capital Markets": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Macquarie": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "ING": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "NatWest": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Lloyds Banking Group": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Nationwide": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Monzo": {
+   "ok": true,
+   "via": "greenhouse:monzo",
+   "total": 71,
+   "found": 0
+  },
+  "Starling Bank": {
+   "ok": true,
+   "via": "workable:starling-bank",
+   "total": 110,
+   "found": 0
+  },
+  "Revolut": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SoFi": {
+   "ok": true,
+   "via": "greenhouse:sofi",
+   "total": 57,
+   "found": 0
+  },
+  "Bank of England": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "HM Treasury": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "HMRC": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "World Bank": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "IMF": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "European Central Bank": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Financial Conduct Authority": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Government Economic Service": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "McKinsey & Company": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Boston Consulting Group": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bain & Company": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Oliver Wyman": {
+   "ok": true,
+   "via": "lever:oliverwyman",
+   "total": 2,
+   "found": 0
+  },
+  "L.E.K. Consulting": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Kearney": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Roland Berger": {
+   "ok": true,
+   "via": "smartrecruiters:rolandberger",
+   "total": 100,
+   "found": 0
+  },
+  "Strategy&": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Deloitte": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "PwC": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "EY": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "KPMG": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Grant Thornton": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "BDO": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Forvis Mazars": {
+   "ok": true,
+   "via": "greenhouse:forvismazars",
+   "total": 157,
+   "found": 0
+  },
+  "RSM UK": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Capgemini": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Accenture": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Baringa": {
+   "ok": true,
+   "via": "greenhouse:baringa",
+   "total": 94,
+   "found": 5
+  },
+  "Alvarez & Marsal": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "FTI Consulting": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Oxera": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Frontier Economics": {
+   "ok": true,
+   "via": "lever:frontier",
+   "total": 9,
+   "found": 0
+  },
+  "Compass Lexecon": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "NERA Economic Consulting": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Economic Insight": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Apple": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Google": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Microsoft": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Amazon": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Meta": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Oracle": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "IBM": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "TikTok (ByteDance)": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Alibaba": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Samsung": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Netflix": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Tesla": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "OpenAI": {
+   "ok": true,
+   "via": "ashby:openai",
+   "total": 828,
+   "found": 2
+  },
+  "Anthropic": {
+   "ok": true,
+   "via": "greenhouse:anthropic",
+   "total": 624,
+   "found": 0
+  },
+  "Google DeepMind": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "xAI": {
+   "ok": true,
+   "via": "greenhouse:xai",
+   "total": 277,
+   "found": 0
+  },
+  "Mistral AI": {
+   "ok": true,
+   "via": "lever:mistral",
+   "total": 0,
+   "found": 0
+  },
+  "Perplexity": {
+   "ok": true,
+   "via": "ashby:perplexity",
+   "total": 124,
+   "found": 2
+  },
+  "Cohere": {
+   "ok": true,
+   "via": "ashby:cohere",
+   "total": 147,
+   "found": 5
+  },
+  "Scale AI": {
+   "ok": true,
+   "via": "greenhouse:scaleai",
+   "total": 206,
+   "found": 1
+  },
+  "Hugging Face": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Wayve": {
+   "ok": true,
+   "via": "greenhouse:wayve",
+   "total": 198,
+   "found": 0
+  },
+  "ElevenLabs": {
+   "ok": true,
+   "via": "ashby:elevenlabs",
+   "total": 208,
+   "found": 1
+  },
+  "Synthesia": {
+   "ok": true,
+   "via": "ashby:synthesia",
+   "total": 50,
+   "found": 0
+  },
+  "NVIDIA": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "TSMC": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Broadcom": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Micron": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SanDisk": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Arm": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "AMD": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Intel": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Qualcomm": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "ASML": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Dell": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "HP": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Palantir": {
+   "ok": true,
+   "via": "lever:palantir",
+   "total": 324,
+   "found": 22
+  },
+  "Salesforce": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "ServiceNow": {
+   "ok": true,
+   "via": "smartrecruiters:servicenow",
+   "total": 100,
+   "found": 0
+  },
+  "Adobe": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Palo Alto Networks": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "CrowdStrike": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Cloudflare": {
+   "ok": true,
+   "via": "greenhouse:cloudflare",
+   "total": 391,
+   "found": 0
+  },
+  "Databricks": {
+   "ok": true,
+   "via": "greenhouse:databricks",
+   "total": 889,
+   "found": 0
+  },
+  "Snowflake": {
+   "ok": true,
+   "via": "ashby:snowflake",
+   "total": 350,
+   "found": 1
+  },
+  "Atlassian": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SAP": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Reddit": {
+   "ok": true,
+   "via": "greenhouse:reddit",
+   "total": 155,
+   "found": 0
+  },
+  "Discord": {
+   "ok": true,
+   "via": "greenhouse:discord",
+   "total": 49,
+   "found": 0
+  },
+  "Spotify": {
+   "ok": true,
+   "via": "lever:spotify",
+   "total": 80,
+   "found": 2
+  },
+  "Uber": {
+   "ok": true,
+   "via": "smartrecruiters:uber",
+   "total": 1,
+   "found": 0
+  },
+  "Shopify": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Airbnb": {
+   "ok": true,
+   "via": "greenhouse:airbnb",
+   "total": 157,
+   "found": 0
+  },
+  "Stripe": {
+   "ok": true,
+   "via": "greenhouse:stripe",
+   "total": 698,
+   "found": 4
+  },
+  "Visa": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Mastercard": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "American Express": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Capital One": {
+   "ok": true,
+   "via": "lever:capital",
+   "total": 45,
+   "found": 0
+  },
+  "Wise": {
+   "ok": true,
+   "via": "greenhouse:wise",
+   "total": 16,
+   "found": 0
+  },
+  "Klarna": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Lockheed Martin": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SpaceX": {
+   "ok": true,
+   "via": "greenhouse:spacex",
+   "total": 2591,
+   "found": 0
+  },
+  "BAE Systems": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Rolls-Royce": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Financial Times": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bloomberg": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "The Economist": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Blackstone": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "KKR": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Apollo": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Carlyle": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "EQT": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "TPG": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "CVC Capital Partners": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Thoma Bravo": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bain Capital": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Permira": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Advent International": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Cinven": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Warburg Pincus": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "General Atlantic": {
+   "ok": true,
+   "via": "greenhouse:generalatlantic",
+   "total": 11,
+   "found": 0
+  },
+  "Hg": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Silver Lake": {
+   "ok": true,
+   "via": "ashby:silver",
+   "total": 45,
+   "found": 0
+  },
+  "3i": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Ares Management": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Brookfield": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Sequoia Capital": {
+   "ok": true,
+   "via": "ashby:sequoia",
+   "total": 8,
+   "found": 0
+  },
+  "Andreessen Horowitz": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Index Ventures": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Balderton Capital": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Accel": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Atomico": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Y Combinator": {
+   "ok": true,
+   "via": "ashby:ycombinator",
+   "total": 9,
+   "found": 0
+  },
+  "Entrepreneur First": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Millennium": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Citadel": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Point72": {
+   "ok": true,
+   "via": "greenhouse:point72",
+   "total": 220,
+   "found": 9
+  },
+  "Balyasny": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "ExodusPoint": {
+   "ok": true,
+   "via": "greenhouse:exoduspoint",
+   "total": 2,
+   "found": 0
+  },
+  "Brevan Howard": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Capula": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Rokos Capital": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Marshall Wace": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bridgewater Associates": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Elliott Management": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Man Group": {
+   "ok": true,
+   "via": "greenhouse:mangroup",
+   "total": 59,
+   "found": 3
+  },
+  "Capstone Investment Advisors": {
+   "ok": true,
+   "via": "greenhouse:capstoneinvestmentadvisors",
+   "total": 15,
+   "found": 2
+  },
+  "Situational Awareness": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Tudor Investment": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Schonfeld": {
+   "ok": true,
+   "via": "greenhouse:schonfeld",
+   "total": 79,
+   "found": 15
+  },
+  "TCI Fund Management": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Lansdowne Partners": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Partridge, Muir & Warren": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Jane Street": {
+   "ok": true,
+   "via": "greenhouse:janestreet",
+   "total": 228,
+   "found": 1
+  },
+  "Citadel Securities": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Optiver": {
+   "ok": true,
+   "via": "greenhouse:optiverus",
+   "total": 166,
+   "found": 1
+  },
+  "IMC Trading": {
+   "ok": true,
+   "via": "greenhouse:imc",
+   "total": 175,
+   "found": 1
+  },
+  "Susquehanna (SIG)": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Hudson River Trading": {
+   "ok": true,
+   "via": "greenhouse:wehrtyou",
+   "total": 85,
+   "found": 8
+  },
+  "Jump Trading": {
+   "ok": true,
+   "via": "greenhouse:jumptrading",
+   "total": 113,
+   "found": 18
+  },
+  "Two Sigma": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "D. E. Shaw": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "G-Research": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "XTX Markets": {
+   "ok": true,
+   "via": "greenhouse:xtxmarketstechnologies",
+   "total": 9,
+   "found": 1
+  },
+  "Squarepoint": {
+   "ok": true,
+   "via": "greenhouse:squarepointcapital",
+   "total": 89,
+   "found": 5
+  },
+  "Qube Research & Technologies": {
+   "ok": true,
+   "via": "greenhouse:quberesearchandtechnologies",
+   "total": 201,
+   "found": 6
+  },
+  "DRW": {
+   "ok": true,
+   "via": "greenhouse:drweng",
+   "total": 166,
+   "found": 6
+  },
+  "Flow Traders": {
+   "ok": true,
+   "via": "greenhouse:flowtraders",
+   "total": 47,
+   "found": 1
+  },
+  "Tower Research Capital": {
+   "ok": true,
+   "via": "greenhouse:towerresearchcapital",
+   "total": 91,
+   "found": 5
+  },
+  "Winton": {
+   "ok": true,
+   "via": "greenhouse:winton",
+   "total": 9,
+   "found": 0
+  },
+  "AQR": {
+   "ok": true,
+   "via": "greenhouse:aqr",
+   "total": 51,
+   "found": 0
+  },
+  "Renaissance Technologies": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Maven Securities": {
+   "ok": true,
+   "via": "ashby:maven",
+   "total": 1,
+   "found": 0
+  },
+  "Da Vinci Trading": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "BlackRock": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Vanguard": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Fidelity International": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "State Street": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "BNY": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "PIMCO": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "AllianceBernstein": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Ruffer": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Legal & General": {
+   "ok": true,
+   "via": "smartrecruiters:legalandgeneral",
+   "total": 97,
+   "found": 0
+  },
+  "Schroders": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "M&G": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Baillie Gifford": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "abrdn": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Invesco": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Jupiter": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "T. Rowe Price": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Wellington Management": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Franklin Templeton": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Aviva Investors": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Nuveen": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SemiAnalysis": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Rothschild & Co Redburn": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "S&P Global": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Moody's": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Fitch Ratings": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "MSCI": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Nasdaq": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "London Stock Exchange Group": {
+   "ok": true,
+   "via": "greenhouse:london",
+   "total": 3,
+   "found": 0
+  },
+  "NYSE (ICE)": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "TMX Group (TSX)": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Coinbase": {
+   "ok": true,
+   "via": "greenhouse:coinbase",
+   "total": 209,
+   "found": 18
+  },
+  "Robinhood": {
+   "ok": true,
+   "via": "greenhouse:robinhood",
+   "total": 160,
+   "found": 11
+  },
+  "Trading 212": {
+   "ok": true,
+   "via": "ashby:trading212",
+   "total": 65,
+   "found": 0
+  },
+  "Interactive Brokers": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Webull": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Pump.fun": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Axiom Trade": {
+   "ok": true,
+   "via": "ashby:axiom-trade",
+   "total": 5,
+   "found": 0
+  },
+  "Hargreaves Lansdown": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Kraken": {
+   "ok": true,
+   "via": "ashby:kraken.com",
+   "total": 71,
+   "found": 0
+  },
+  "IG Group": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "CME Group": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Cboe": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Tradeweb": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "eToro": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "AJ Bell": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Freetrade": {
+   "ok": true,
+   "via": "ashby:freetrade",
+   "total": 8,
+   "found": 0
+  },
+  "A&O Shearman": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Clifford Chance": {
+   "ok": true,
+   "via": "smartrecruiters:cliffordchance",
+   "total": 100,
+   "found": 3
+  },
+  "Freshfields": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Linklaters": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Slaughter and May": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Kirkland & Ellis": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Latham & Watkins": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Skadden": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Sullivan & Cromwell": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Cravath": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Wachtell Lipton": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Davis Polk": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Simpson Thacher": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Paul Weiss": {
+   "ok": true,
+   "via": "greenhouse:paulweiss",
+   "total": 2,
+   "found": 0
+  },
+  "Cleary Gottlieb": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Milbank": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Weil": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "White & Case": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Gibson Dunn": {
+   "ok": true,
+   "via": "greenhouse:gibsondunn",
+   "total": 99,
+   "found": 1
+  },
+  "Sidley Austin": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Goodwin": {
+   "ok": true,
+   "via": "greenhouse:goodwin",
+   "total": 4,
+   "found": 0
+  },
+  "Quinn Emanuel": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Covington": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Debevoise": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Herbert Smith Freehills Kramer": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Macfarlanes": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Travers Smith": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Ashurst": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Hogan Lovells": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Norton Rose Fulbright": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Mishcon de Reya": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Simmons & Simmons": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Stephenson Harwood": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "DLA Piper": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Baker McKenzie": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "CMS": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Pinsent Masons": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Eversheds Sutherland": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bird & Bird": {
+   "ok": true,
+   "via": "greenhouse:bird",
+   "total": 31,
+   "found": 0
+  },
+  "Sutton Trust": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Rare Recruitment": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "upReach": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "SEO London": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Springpod": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Uptree": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Forage": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Bright Network": {
+   "ok": true,
+   "via": "greenhouse:brightnetwork",
+   "total": 1,
+   "found": 0
+  },
+  "Social Mobility Foundation": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  },
+  "Amazing Apprenticeships": {
+   "ok": false,
+   "via": null,
+   "total": 0,
+   "found": 0,
+   "note": "No job board found yet — add a \"sources\" entry"
+  }
+ },
+ "openings": [
+  {
+   "id": "baringa|uk-summer-internship-2027-capabilities|https-job-boards-eu-greenhouse-io-baringa-jobs-4972189101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Capabilities",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972189101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-energy-resources|https-job-boards-eu-greenhouse-io-baringa-jobs-4972870101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Energy & Resources",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972870101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-financial-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972694101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Financial Services",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972694101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-products-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972789101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Products & Services",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972789101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-public-sector-consulting|https-job-boards-eu-greenhouse-io-baringa-jobs-4972723101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Public Sector Consulting",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972723101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "openai|internal-communications-enterprise-growth|https-jobs-ashbyhq-com-openai-dcbb011b-bc0f-41e6-b3c6-34068d177e54",
+   "company": "OpenAI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Internal Communications, Enterprise & Growth",
+   "location": "San Francisco, New York City",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/openai/dcbb011b-bc0f-41e6-b3c6-34068d177e54",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "openai|applied-ai-engineer-government-international|https-jobs-ashbyhq-com-openai-6c01266f-6ddb-42d1-a529-84736ae8587a",
+   "company": "OpenAI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Applied AI Engineer, Government, International",
+   "location": "London, UK",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/openai/6c01266f-6ddb-42d1-a529-84736ae8587a",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "perplexity|internship-search-machine-learning-engineer|https-jobs-ashbyhq-com-perplexity-71168628-1998-47d3-87a9-be7bc56a430d",
+   "company": "Perplexity",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Internship - Search Machine Learning Engineer",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/perplexity/71168628-1998-47d3-87a9-be7bc56a430d",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "perplexity|perplexity-research-fellowship|https-jobs-ashbyhq-com-perplexity-ab076e26-adf1-414f-a006-7b1bdc9247c8",
+   "company": "Perplexity",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Perplexity Research Fellowship",
+   "location": "San Francisco, Palo Alto, New York City",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/perplexity/ab076e26-adf1-414f-a006-7b1bdc9247c8",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "cohere|software-engineer-intern-winter-2027-|https-jobs-ashbyhq-com-cohere-8c035d3d-081d-4c8a-914a-72f4efaad254",
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Software Engineer Intern (Winter 2027)",
+   "location": "Canada, Dubai, London, United States, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/cohere/8c035d3d-081d-4c8a-914a-72f4efaad254",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "cohere|research-internship-winter-2027-|https-jobs-ashbyhq-com-cohere-73bd3e2b-6597-4124-b64b-1e5dbc32e785",
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Research Internship (Winter 2027)",
+   "location": "Canada, San Francisco, Europe, London, United States, United Kingdom, Toronto, Montreal",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/cohere/73bd3e2b-6597-4124-b64b-1e5dbc32e785",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "cohere|machine-learning-intern-co-op-winter-2027-|https-jobs-ashbyhq-com-cohere-36d1f52f-8270-4652-adf5-5303a0ff341b",
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Machine Learning Intern/Co-op  (Winter 2027)",
+   "location": "Canada, Europe, United States, United Kingdom",
+   "region": "UK (region not stated)",
+   "link": "https://jobs.ashbyhq.com/cohere/36d1f52f-8270-4652-adf5-5303a0ff341b",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "cohere|data-scientist-north-insights|https-jobs-ashbyhq-com-cohere-e4603bb7-5bbe-4f73-9556-02c93f78b2af",
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Data Scientist, North Insights",
+   "location": "United States, San Francisco, Canada, New York, Toronto, Montreal",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/cohere/e4603bb7-5bbe-4f73-9556-02c93f78b2af",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "cohere|early-careers-interns-specialist|https-jobs-ashbyhq-com-cohere-80d4af6c-202e-4132-83a4-fd698b3602d4",
+   "company": "Cohere",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Early Careers & Interns Specialist",
+   "location": "San Francisco, Seattle, New York, Toronto",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/cohere/80d4af6c-202e-4132-83a4-fd698b3602d4",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "scale-ai|software-engineering-intern-summer-2027-|https-job-boards-greenhouse-io-scaleai-jobs-4730846005",
+   "company": "Scale AI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Software Engineering Intern (Summer 2027) ",
+   "location": "London, UK",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/scaleai/jobs/4730846005",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "elevenlabs|engineering-internal-ai-transformation|https-jobs-ashbyhq-com-elevenlabs-a3097257-a07a-4a7e-b9fe-b8555c1a0fa7",
+   "company": "ElevenLabs",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Engineering - Internal AI Transformation",
+   "location": "United States, Dublin, Sofia, Germany, Portugal, Poland, Sweden, Italy, Poland, United Kingdom, Amsterdam, Canada, Berlin",
+   "region": "UK (region not stated)",
+   "link": "https://jobs.ashbyhq.com/elevenlabs/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-infrastructure-engineer-internship-us-government|https-jobs-lever-co-palantir-cf5f44ff-1b0b-4752-bcd4-2dc88798f25b",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Infrastructure Engineer, Internship - US Government",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/cf5f44ff-1b0b-4752-bcd4-2dc88798f25b",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-software-engineer-internship-commercial|https-jobs-lever-co-palantir-4d29249a-d7e8-4c39-880d-3b35d7b2f6f6",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Software Engineer, Internship - Commercial",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/4d29249a-d7e8-4c39-880d-3b35d7b2f6f6",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-software-engineer-internship-commercial|https-jobs-lever-co-palantir-599b1907-aba1-4303-837b-66e69a521636",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Software Engineer, Internship - Commercial",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/599b1907-aba1-4303-837b-66e69a521636",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-software-engineer-internship-france|https-jobs-lever-co-palantir-ac0dc094-2480-43c2-8495-26ade227ff4f",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Software Engineer, Internship - France",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/ac0dc094-2480-43c2-8495-26ade227ff4f",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-software-engineer-internship-uk-government|https-jobs-lever-co-palantir-26e23f5d-083b-45aa-b223-1a6e43d960bf",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Software Engineer, Internship - UK Government",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|forward-deployed-software-engineer-internship-us-government|https-jobs-lever-co-palantir-e0010393-c300-446f-bf67-fa2ef067f16f",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Forward Deployed Software Engineer, Internship - US Government",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/e0010393-c300-446f-bf67-fa2ef067f16f",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|information-security-engineer-internship|https-jobs-lever-co-palantir-ef725594-42dd-4f0d-ba8e-df8179dbc6cb",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Information Security Engineer, Internship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/ef725594-42dd-4f0d-ba8e-df8179dbc6cb",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|international-accountant|https-jobs-lever-co-palantir-20f220d8-02bb-404f-bbf1-1022ff3df6b7",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "International Accountant",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/20f220d8-02bb-404f-bbf1-1022ff3df6b7",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|neurodivergent-fellowship|https-jobs-lever-co-palantir-61eaa54c-e1b7-4064-afad-f7df3d48d652",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Neurodivergent Fellowship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/61eaa54c-e1b7-4064-afad-f7df3d48d652",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|privacy-and-civil-liberties-software-engineer-internship|https-jobs-lever-co-palantir-09846827-b931-4a9f-bd64-c3bb8860187b",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Privacy and Civil Liberties Software Engineer, Internship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/09846827-b931-4a9f-bd64-c3bb8860187b",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|product-designer-internship|https-jobs-lever-co-palantir-1a935143-e857-480c-bc5a-ad625d754eb6",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Product Designer, Internship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/1a935143-e857-480c-bc5a-ad625d754eb6",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|product-designer-internship|https-jobs-lever-co-palantir-44129013-01e0-4699-8fc1-7a189bb37b63",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Product Designer, Internship",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/44129013-01e0-4699-8fc1-7a189bb37b63",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|product-designer-internship-us-government|https-jobs-lever-co-palantir-8f7bbffa-92aa-4d25-9586-943b3322a27d",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Product Designer, Internship - US Government",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/8f7bbffa-92aa-4d25-9586-943b3322a27d",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship|https-jobs-lever-co-palantir-76a60923-bb49-40f5-b061-7c7eb1299602",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship|https-jobs-lever-co-palantir-7d69cf8a-06fd-4f05-bd84-27149db29c4d",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/7d69cf8a-06fd-4f05-bd84-27149db29c4d",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship-defense-tech|https-jobs-lever-co-palantir-8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship - Defense Tech",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship-infrastructure|https-jobs-lever-co-palantir-b229baac-494b-4a0d-9a13-2e38806e06f3",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship - Infrastructure",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/b229baac-494b-4a0d-9a13-2e38806e06f3",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship-infrastructure|https-jobs-lever-co-palantir-fd3603a9-7016-45c6-9c8d-04c9279ab85e",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship - Infrastructure",
+   "location": "London, United Kingdom, London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.lever.co/palantir/fd3603a9-7016-45c6-9c8d-04c9279ab85e",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|software-engineer-internship-production-infrastructure|https-jobs-lever-co-palantir-37964982-9b4c-471e-a1d8-fb8f45d7f116",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Software Engineer, Internship - Production Infrastructure",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/37964982-9b4c-471e-a1d8-fb8f45d7f116",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|year-at-palantir-forward-deployed-software-engineer-internship-commercial|https-jobs-lever-co-palantir-e6789b17-62fb-4226-a079-f8c17ff19e2d",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Year at Palantir - Forward Deployed Software Engineer, Internship - Commercial",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/e6789b17-62fb-4226-a079-f8c17ff19e2d",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|year-at-palantir-forward-deployed-software-engineer-internship-usg|https-jobs-lever-co-palantir-5c7bb70c-83ea-43e7-8055-0c8f319f4333",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Year at Palantir - Forward Deployed Software Engineer, Internship - USG",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/5c7bb70c-83ea-43e7-8055-0c8f319f4333",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "palantir|year-at-palantir-software-engineer-internship|https-jobs-lever-co-palantir-655f9937-a4ce-4e7d-80e2-a6659af07329",
+   "company": "Palantir",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "Year at Palantir - Software Engineer, Internship",
+   "location": "New York, NY, New York, NY",
+   "region": "Yorkshire",
+   "link": "https://jobs.lever.co/palantir/655f9937-a4ce-4e7d-80e2-a6659af07329",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "snowflake|sdr-intern-london|https-jobs-ashbyhq-com-snowflake-b9bd62f1-ad91-423a-a680-cf9366960976",
+   "company": "Snowflake",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "role": "SDR Intern - London",
+   "location": "GB-London",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/snowflake/b9bd62f1-ad91-423a-a680-cf9366960976",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "spotify|colm-2026-intern|https-jobs-lever-co-spotify-ba2760c3-6461-45bf-b67b-0508d10c8659",
+   "company": "Spotify",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "role": "CoLM 2026 — Intern",
+   "location": "New York, NY, New York, NY, London, Stockholm",
+   "region": "London",
+   "link": "https://jobs.lever.co/spotify/ba2760c3-6461-45bf-b67b-0508d10c8659",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "spotify|recsys-2026-intern|https-jobs-lever-co-spotify-e7f6e680-bf86-4da6-8711-afe44b84fa41",
+   "company": "Spotify",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "role": "RecSys 2026 — Intern",
+   "location": "New York, NY, New York, NY, London, Stockholm",
+   "region": "London",
+   "link": "https://jobs.lever.co/spotify/e7f6e680-bf86-4da6-8711-afe44b84fa41",
+   "source": "lever",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "stripe|internal-audit-treasury|https-stripe-com-jobs-search-gh-jid-7678541",
+   "company": "Stripe",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "role": "Internal Audit - Treasury",
+   "location": "Dublin OR London",
+   "region": "London",
+   "link": "https://stripe.com/jobs/search?gh_jid=7678541",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "stripe|software-engineer-early-career-immediate-start|https-stripe-com-jobs-search-gh-jid-8212508",
+   "company": "Stripe",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "role": "Software Engineer, Early Career — Immediate Start",
+   "location": "San Francisco, Seattle, New York",
+   "region": "Yorkshire",
+   "link": "https://stripe.com/jobs/search?gh_jid=8212508",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "stripe|software-engineer-intern|https-stripe-com-jobs-search-gh-jid-8130867",
+   "company": "Stripe",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "role": "Software Engineer, Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://stripe.com/jobs/search?gh_jid=8130867",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "stripe|software-engineer-intern-summer-or-winter-|https-stripe-com-jobs-search-gh-jid-8128745",
+   "company": "Stripe",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "role": "Software Engineer, Intern (Summer or Winter)",
+   "location": "San Francisco, Seattle, New York City",
+   "region": "Yorkshire",
+   "link": "https://stripe.com/jobs/search?gh_jid=8128745",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|2027-investment-services-internship-|https-boards-greenhouse-io-point72-jobs-8811167002-gh-jid-8811167002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Investment Services Internship ",
+   "location": "New York, New York, United States, Stamford, Connecticut, United States",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/8811167002?gh_jid=8811167002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|fundamental-researcher-mi-canvas-international|https-boards-greenhouse-io-point72-jobs-8135956002-gh-jid-8135956002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Fundamental Researcher, MI-Canvas International",
+   "location": "London",
+   "region": "London",
+   "link": "https://boards.greenhouse.io/point72/jobs/8135956002?gh_jid=8135956002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|machine-learning-researcher-intern|https-boards-greenhouse-io-point72-jobs-7302611002-gh-jid-7302611002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Machine Learning Researcher - Intern",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/7302611002?gh_jid=7302611002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|quantitative-researcher-intern|https-boards-greenhouse-io-point72-jobs-7586061002-gh-jid-7586061002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quantitative Researcher Intern",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/7586061002?gh_jid=7586061002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|quantitative-researcher-intern|https-boards-greenhouse-io-point72-jobs-7297657002-gh-jid-7297657002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quantitative Researcher - Intern",
+   "location": "London, Paris, Hong Kong, Tokyo",
+   "region": "London",
+   "link": "https://boards.greenhouse.io/point72/jobs/7297657002?gh_jid=7297657002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|quantitative-research-intern|https-boards-greenhouse-io-point72-jobs-7297667002-gh-jid-7297667002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quantitative Research Intern",
+   "location": "New York, Seattle",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/7297667002?gh_jid=7297667002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|quantitative-research-intern-nlp-|https-boards-greenhouse-io-point72-jobs-8018862002-gh-jid-8018862002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quantitative Research Intern (NLP)",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/8018862002?gh_jid=8018862002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|quantitative-software-developer-intern|https-boards-greenhouse-io-point72-jobs-7297666002-gh-jid-7297666002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quantitative Software Developer Intern",
+   "location": "New York, London, or Paris",
+   "region": "London",
+   "link": "https://boards.greenhouse.io/point72/jobs/7297666002?gh_jid=7297666002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "point72|summer-2027-quantitative-research-internship|https-boards-greenhouse-io-point72-jobs-7297642002-gh-jid-7297642002",
+   "company": "Point72",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Summer 2027 Quantitative Research Internship",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/point72/jobs/7297642002?gh_jid=7297642002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "man-group|2027-summer-technology-internship-programme|https-job-boards-eu-greenhouse-io-mangroup-jobs-4978934101",
+   "company": "Man Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Summer Technology Internship Programme",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4978934101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "man-group|idi-summer-2027-internship|https-job-boards-eu-greenhouse-io-mangroup-jobs-4969143101",
+   "company": "Man Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "IDI Summer 2027 Internship",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4969143101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "man-group|quant-researcher-internship|https-job-boards-eu-greenhouse-io-mangroup-jobs-4969142101",
+   "company": "Man Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Quant Researcher Internship",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/mangroup/jobs/4969142101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "capstone-investment-advisors|summer-2027-investment-internship-ldn|https-job-boards-greenhouse-io-capstoneinvestmentadvisors-jobs-8828058002",
+   "company": "Capstone Investment Advisors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Summer 2027 - Investment Internship LDN",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/capstoneinvestmentadvisors/jobs/8828058002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "capstone-investment-advisors|summer-2027-investment-internship-nyc|https-job-boards-greenhouse-io-capstoneinvestmentadvisors-jobs-8827973002",
+   "company": "Capstone Investment Advisors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Summer 2027 - Investment Internship NYC",
+   "location": "New York, New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/capstoneinvestmentadvisors/jobs/8827973002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-business-analytics-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171703",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Business Analytics Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171703",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-cybersecurity-operations-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171696",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Cybersecurity Operations Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171696",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-data-science-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171692",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Data Science Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171692",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-dmfi-fixed-income-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172055",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Fixed Income Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172055",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-dmfi-quant-developer-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8207942",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Quant Developer Intern",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8207942",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-dmfi-quant-research-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8187178",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Quant Research Intern",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8187178",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-dmfi-technology-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171772",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Technology Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171772",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-equity-middle-office-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172072",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Equity Middle Office Intern",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172072",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-equity-middle-office-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172068",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Equity Middle Office Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172068",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-fundamental-equity-coo-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171778",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Fundamental Equity COO Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171778",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-phd-quantitative-research-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172074",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 PhD Quantitative Research Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172074",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-platform-engineering-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8171699",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Platform Engineering Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8171699",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-risk-analyst-dmfi-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172053",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Risk Analyst (DMFI) Intern",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172053",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-software-engineering-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8180089",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Software Engineering Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8180089",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-systematic-coo-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172059",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Systematic COO Intern",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172059",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jane-street|campus-recruiter-early-careers-partnerships-initiatives|https-www-janestreet-com-join-jane-street-apply-8448713002-gh-jid-8448713002",
+   "company": "Jane Street",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Recruiter, Early Careers Partnerships & Initiatives",
+   "location": "New York, New York, United States",
+   "region": "Yorkshire",
+   "link": "https://www.janestreet.com/join-jane-street/apply/8448713002?gh_jid=8448713002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "optiver|software-engineer-internship-2027-start-|https-www-optiver-com-join-us-jobs-8713435002-gh-jid-8713435002",
+   "company": "Optiver",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Engineer Internship (2027 Start)",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://www.optiver.com/join-us/jobs/8713435002/?gh_jid=8713435002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "imc-trading|global-internal-auditor|https-job-boards-eu-greenhouse-io-imc-jobs-4710845101",
+   "company": "IMC Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Global Internal Auditor",
+   "location": "Amsterdam, Netherlands; London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/imc/jobs/4710845101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|algorithm-development-quant-research-trading-internship-summer-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-7964062",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Algorithm Development (Quant Research & Trading) Internship – Summer 2027",
+   "location": "London, United Kingdom; New York, NY, United States; Singapore",
+   "region": "London",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=7964062",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|algorithm-development-quant-research-trading-phd-internship-summer-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8059837",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Algorithm Development (Quant Research & Trading) PhD Internship – Summer 2027",
+   "location": "London, United Kingdom; New York, NY, United States; Singapore",
+   "region": "London",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8059837",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|data-scientist-intern-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8222414",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Data Scientist Intern - 2027",
+   "location": "New York, NY, United States",
+   "region": "Yorkshire",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8222414",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|data-scientist-intern-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8222413",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Data Scientist Intern - 2027",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8222413",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|hardware-engineer-internship-summer-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-7899574",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Hardware Engineer Internship - Summer 2027",
+   "location": "New York, NY, United States",
+   "region": "Yorkshire",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=7899574",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|phd-winter-internship-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8212741",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "PhD Winter Internship - 2027",
+   "location": "New York, NY, United States",
+   "region": "Yorkshire",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8212741",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|software-engineering-internship-c-or-python-summer-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8052083",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Engineering Internship (C++ or Python) – Summer 2027",
+   "location": "Austin, TX, United States; Chicago, Illinois, United States; London, United Kingdom; New York, NY, United States; Singapore",
+   "region": "London",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8052083",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "hudson-river-trading|women-in-trading-and-technology-internship-witti-winter-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-8188637",
+   "company": "Hudson River Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Women in Trading and Technology Internship (WiTTI) – Winter 2027",
+   "location": "New York, NY, United States",
+   "region": "Yorkshire",
+   "link": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8188637",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ai-research-engineer-deep-learning-intern-|https-www-jumptrading-com-hr-job-gh-jid-8052338",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus AI Research Engineer - Deep Learning (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8052338",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ai-research-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-8052281",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus AI Research Engineer (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8052281",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ai-research-engineer-research-automation-intern-|https-www-jumptrading-com-hr-job-gh-jid-8052351",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus AI Research Engineer – Research Automation (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8052351",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ai-researcher-phd-postdoc-intern-|https-www-jumptrading-com-hr-job-gh-jid-7976964",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus AI Researcher, PhD/Postdoc (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7976964",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-asic-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7974837",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus ASIC Engineer (Intern)",
+   "location": "Bristol",
+   "region": "South West",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7974837",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-crypto-researcher-intern-|https-www-jumptrading-com-hr-job-gh-jid-7362318",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Crypto Researcher (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7362318",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-data-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7975008",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Data Engineer (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7975008",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-fpga-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7974391",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus FPGA Engineer (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7974391",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ml-research-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7977145",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus ML Research Engineer (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7977145",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-researcher-intern-|https-www-jumptrading-com-hr-job-gh-jid-8010307",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Researcher (Intern)",
+   "location": "London; Amsterdam",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8010307",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-researcher-m1-m2-intern-|https-www-jumptrading-com-hr-job-gh-jid-8059384",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Researcher (M1/M2 Intern)",
+   "location": "London; Paris",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8059384",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-researcher-phd-intern-|https-www-jumptrading-com-hr-job-gh-jid-8049938",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Researcher, PhD (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8049938",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-researcher-ug-ms-intern-|https-www-jumptrading-com-hr-job-gh-jid-7982648",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Researcher, UG/MS (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7982648",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-trader-intern-|https-www-jumptrading-com-hr-job-gh-jid-8050772",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Trader (Intern)",
+   "location": "London; Amsterdam",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8050772",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-quantitative-trader-intern-|https-www-jumptrading-com-hr-job-gh-jid-7848371",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Quantitative Trader (Intern)",
+   "location": "Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7848371",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-software-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7975026",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Software Engineer (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7975026",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-systems-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-8000323",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus Systems Engineer (Intern)",
+   "location": "London; Amsterdam",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=8000323",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "jump-trading|campus-ui-software-engineer-intern-|https-www-jumptrading-com-hr-job-gh-jid-7974943",
+   "company": "Jump Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Campus UI Software Engineer (Intern)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.jumptrading.com/hr/job?gh_jid=7974943",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "xtx-markets|ai-research-internship-xty-labs|https-job-boards-greenhouse-io-xtxmarketstechnologies-jobs-6274458003",
+   "company": "XTX Markets",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "AI Research Internship - XTY Labs",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/xtxmarketstechnologies/jobs/6274458003",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "squarepoint|intern-quant-researcher|https-www-squarepoint-capital-com-open-opportunities-id-243853-gh-jid-243853",
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Intern Quant Researcher",
+   "location": "London, Paris, New York, Singapore, Hong Kong",
+   "region": "London",
+   "link": "https://www.squarepoint-capital.com/open-opportunities?id=243853&gh_jid=243853",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "squarepoint|intern-software-developer-london-2027|https-www-squarepoint-capital-com-open-opportunities-id-7231006-gh-jid-7231006",
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Intern Software Developer - London - 2027",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.squarepoint-capital.com/open-opportunities?id=7231006&gh_jid=7231006",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "squarepoint|software-developer-internal-compute-frameworks-python-|https-www-squarepoint-capital-com-open-opportunities-id-4906785-gh-jid-4906785",
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Developer - Internal Compute Frameworks (Python)",
+   "location": "London, Montreal, Singapore, Warsaw",
+   "region": "London",
+   "link": "https://www.squarepoint-capital.com/open-opportunities?id=4906785&gh_jid=4906785",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "squarepoint|software-developer-internal-compute-frameworks-rust-|https-www-squarepoint-capital-com-open-opportunities-id-5986280-gh-jid-5986280",
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Developer - Internal Compute Frameworks (Rust)",
+   "location": "London, Montreal, Singapore, Warsaw",
+   "region": "London",
+   "link": "https://www.squarepoint-capital.com/open-opportunities?id=5986280&gh_jid=5986280",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "squarepoint|trading-infrastructure-specialist-graduate-programme|https-www-squarepoint-capital-com-open-opportunities-id-7757021-gh-jid-7757021",
+   "company": "Squarepoint",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Trading Infrastructure Specialist – Graduate Programme",
+   "location": "London, Montreal, Hong Kong, New York, Singapore",
+   "region": "London",
+   "link": "https://www.squarepoint-capital.com/open-opportunities?id=7757021&gh_jid=7757021",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-graduate-or-internship-infrastructure-engineer-|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8773447002",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 – Graduate or Internship, Infrastructure Engineer ",
+   "location": "London, Paris",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8773447002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-internship-data-engineering|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8623972002",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 - Internship, Data Engineering",
+   "location": "Paris, London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8623972002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-internship-or-graduate-fpga-engineering-|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8777855002",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 – Internship or Graduate, FPGA Engineering ",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8777855002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-internship-quantitative-research-and-trading|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8785833002",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 - Internship, Quantitative Research and Trading",
+   "location": "Aarhus, Budapest, Dubai, Geneva, London, Paris, Zurich",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8785833002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-internship-security-engineer-|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8777760002",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 Internship – Security Engineer ",
+   "location": "London, Paris",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8777760002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "qube-research-technologies|2027-internship-software-engineering-and-quantitative-development|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-877",
+   "company": "Qube Research & Technologies",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "2027 - Internship, Software Engineering and Quantitative Development",
+   "location": "London, Paris, Wrocław, Zurich, Dubai",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8773084002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|fpga-intern|https-job-boards-greenhouse-io-drweng-jobs-8070392",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "FPGA Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/8070392",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|leadership-rotation-network-intern|https-job-boards-greenhouse-io-drweng-jobs-7957735",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Leadership Rotation Network Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/7957735",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|quantitative-research-intern|https-job-boards-greenhouse-io-drweng-jobs-7957756",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Research Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/7957756",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|quantitative-research-intern|https-job-boards-greenhouse-io-drweng-jobs-7818540",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Research Intern",
+   "location": "Chicago, New York City",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/7818540",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|quantitative-trading-analyst-intern|https-job-boards-greenhouse-io-drweng-jobs-7957243",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Trading Analyst Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/7957243",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "drw|software-developer-intern|https-job-boards-greenhouse-io-drweng-jobs-7942281",
+   "company": "DRW",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Developer Intern",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/drweng/jobs/7942281",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "flow-traders|quantitative-trading-intern-summer-2027|https-job-boards-greenhouse-io-flowtraders-jobs-8047166",
+   "company": "Flow Traders",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Trading Intern Summer 2027",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/flowtraders/jobs/8047166",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "tower-research-capital|quantitative-developer-intern-summer-2027|https-www-tower-research-com-open-positions-gh-jid-8044334",
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Developer Intern - Summer 2027",
+   "location": "New York, Chicago",
+   "region": "Yorkshire",
+   "link": "https://www.tower-research.com/open-positions/?gh_jid=8044334",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "tower-research-capital|quantitative-research-internship-6-months-central-execution-research|https-www-tower-research-com-open-positions-gh-jid-8113986",
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Research Internship - 6 Months, Central Execution Research",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.tower-research.com/open-positions/?gh_jid=8113986",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "tower-research-capital|quantitative-trader-researcher-graduate-programme-2027-|https-www-tower-research-com-open-positions-gh-jid-8037824",
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Trader/Researcher Graduate Programme 2027 ",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.tower-research.com/open-positions/?gh_jid=8037824",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "tower-research-capital|quantitative-trader-researcher-intern-summer-2027|https-www-tower-research-com-open-positions-gh-jid-8024128",
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Trader/Researcher Intern - Summer 2027",
+   "location": "New York, Chicago",
+   "region": "Yorkshire",
+   "link": "https://www.tower-research.com/open-positions/?gh_jid=8024128",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "tower-research-capital|quantitative-trader-researcher-summer-internship-2027-2028-graduates-|https-www-tower-research-com-open-positions-gh-jid-8037860",
+   "company": "Tower Research Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Trader/Researcher Summer Internship 2027 (2028 Graduates)",
+   "location": "London",
+   "region": "London",
+   "link": "https://www.tower-research.com/open-positions/?gh_jid=8037860",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|accelerations-programs-intern|https-www-coinbase-com-careers-positions-8175363-gh-jid-8175363",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Accelerations Programs Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175363?gh_jid=8175363",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|accounting-intern|https-www-coinbase-com-careers-positions-8173991-gh-jid-8173991",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Accounting Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8173991?gh_jid=8173991",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|business-controller-intern|https-www-coinbase-com-careers-positions-8175366-gh-jid-8175366",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Business Controller Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175366?gh_jid=8175366",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|compliance-international-investigations-associate|https-www-coinbase-com-careers-positions-8224726-gh-jid-8224726",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Compliance, International Investigations Associate",
+   "location": "Remote - UK",
+   "region": "Remote (UK)",
+   "link": "https://www.coinbase.com/careers/positions/8224726?gh_jid=8224726",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|credit-risk-intern|https-www-coinbase-com-careers-positions-8175369-gh-jid-8175369",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Credit Risk Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175369?gh_jid=8175369",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|crypto-inventory-operations-intern|https-www-coinbase-com-careers-positions-8175435-gh-jid-8175435",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Crypto Inventory Operations Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175435?gh_jid=8175435",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|employee-and-workplace-experience-intern|https-www-coinbase-com-careers-positions-8175429-gh-jid-8175429",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Employee and Workplace Experience Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175429?gh_jid=8175429",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|institutional-operations-intern|https-www-coinbase-com-careers-positions-8175569-gh-jid-8175569",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Institutional Operations Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175569?gh_jid=8175569",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|internal-audit-analytics-intern|https-www-coinbase-com-careers-positions-8221238-gh-jid-8221238",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Internal Audit Analytics Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8221238?gh_jid=8221238",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|internal-audit-intern|https-www-coinbase-com-careers-positions-8175432-gh-jid-8175432",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Internal Audit Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175432?gh_jid=8175432",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|learning-development-intern|https-www-coinbase-com-careers-positions-8175514-gh-jid-8175514",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Learning & Development Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175514?gh_jid=8175514",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|payment-risk-intern|https-www-coinbase-com-careers-positions-8175447-gh-jid-8175447",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Payment Risk Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175447?gh_jid=8175447",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|people-analytics-intern|https-www-coinbase-com-careers-positions-8175517-gh-jid-8175517",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "People Analytics Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175517?gh_jid=8175517",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|real-estate-builds-intern|https-www-coinbase-com-careers-positions-8175507-gh-jid-8175507",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Real Estate & Builds Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175507?gh_jid=8175507",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|sales-intern|https-www-coinbase-com-careers-positions-8187551-gh-jid-8187551",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Sales Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8187551?gh_jid=8187551",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|strategic-finance-intern|https-www-coinbase-com-careers-positions-8175438-gh-jid-8175438",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Strategic Finance Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175438?gh_jid=8175438",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|tax-information-reporting-intern|https-www-coinbase-com-careers-positions-8221241-gh-jid-8221241",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Tax Information Reporting Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8221241?gh_jid=8221241",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "coinbase|tax-operations-intern|https-www-coinbase-com-careers-positions-8175453-gh-jid-8175453",
+   "company": "Coinbase",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Tax Operations Intern",
+   "location": "Hybrid - New York, NY",
+   "region": "Yorkshire",
+   "link": "https://www.coinbase.com/careers/positions/8175453?gh_jid=8175453",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|accounting-intern-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8198153-t-gh-src-gh-jid-8198153",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Accounting Intern (Summer 2027)",
+   "location": "New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8198153?t=gh_src=&gh_jid=8198153",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|crypto-operations-intern-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8193484-t-gh-src-gh-jid-8193484",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Crypto Operations Intern (Summer 2027)",
+   "location": "New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8193484?t=gh_src=&gh_jid=8193484",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|crypto-partnership-intern-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8193710-t-gh-src-gh-jid-8193710",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Crypto Partnership Intern (Summer 2027)",
+   "location": "New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8193710?t=gh_src=&gh_jid=8193710",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|people-partner-intern-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8197614-t-gh-src-gh-jid-8197614",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "People Partner Intern (Summer 2027)",
+   "location": "New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8197614?t=gh_src=&gh_jid=8197614",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|software-engineering-intern-android-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8142961-t-gh-src-gh-jid-8142961",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Software Engineering Intern, Android (Summer 2027)",
+   "location": "Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8142961?t=gh_src=&gh_jid=8142961",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|software-engineering-intern-backend-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8123225-t-gh-src-gh-jid-8123225",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Software Engineering Intern, Backend (Summer 2027)",
+   "location": "Bellevue, WA; Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8123225?t=gh_src=&gh_jid=8123225",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|software-engineering-intern-ios-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8142959-t-gh-src-gh-jid-8142959",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Software Engineering Intern, iOS (Summer 2027)",
+   "location": "Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8142959?t=gh_src=&gh_jid=8142959",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|software-engineering-intern-web-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8142963-t-gh-src-gh-jid-8142963",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Software Engineering Intern, Web (Summer 2027)",
+   "location": "Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8142963?t=gh_src=&gh_jid=8142963",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|staff-data-scientist-people-analytics-insights-|https-boards-greenhouse-io-robinhood-jobs-8072766-t-gh-src-gh-jid-8072766",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Staff Data Scientist (People Analytics & Insights)",
+   "location": "Chicago, IL; Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8072766?t=gh_src=&gh_jid=8072766",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|staff-pm-international-growth-expansion|https-boards-greenhouse-io-robinhood-jobs-8060585-t-gh-src-gh-jid-8060585",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Staff PM, International Growth & Expansion",
+   "location": "Menlo Park, CA; New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8060585?t=gh_src=&gh_jid=8060585",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "robinhood|vendor-management-intern-summer-2027-|https-boards-greenhouse-io-robinhood-jobs-8198097-t-gh-src-gh-jid-8198097",
+   "company": "Robinhood",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "role": "Vendor Management Intern (Summer 2027)",
+   "location": "New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/robinhood/jobs/8198097?t=gh_src=&gh_jid=8198097",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "clifford-chance|london-insight-day|https-jobs-smartrecruiters-com-cliffordchance-744000147947124",
+   "company": "Clifford Chance",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "role": "London Insight Day",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.smartrecruiters.com/cliffordchance/744000147947124",
+   "source": "smartrecruiters",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "clifford-chance|middle-east-insight-day|https-jobs-smartrecruiters-com-cliffordchance-744000147948818",
+   "company": "Clifford Chance",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "role": "Middle East Insight Day",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.smartrecruiters.com/cliffordchance/744000147948818",
+   "source": "smartrecruiters",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "clifford-chance|apac-open-day-2026|https-jobs-smartrecruiters-com-cliffordchance-744000146640218",
+   "company": "Clifford Chance",
+   "sector": "Law",
+   "sub": "Magic Circle",
+   "role": "APAC Open Day 2026",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://jobs.smartrecruiters.com/cliffordchance/744000146640218",
+   "source": "smartrecruiters",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "gibson-dunn|legal-technology-ai-attorney-international-disputes|https-job-boards-greenhouse-io-gibsondunn-jobs-4375775009",
+   "company": "Gibson Dunn",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "role": "Legal Technology & AI Attorney – International Disputes",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/gibsondunn/jobs/4375775009",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  }
+ ],
+ "review": [
+  {
+   "id": "pa-consulting|early-career-|-growth-strategy-analyst-2027-|https-jobs-smartrecruiters-com-paconsulting-744000151106940",
+   "company": "PA Consulting",
+   "sector": "Consulting & Accounting",
+   "sub": "",
+   "role": "Early Career | Growth Strategy Analyst (2027)",
+   "location": "New York, us",
+   "region": "Yorkshire",
+   "link": "https://jobs.smartrecruiters.com/paconsulting/744000151106940",
+   "source": "smartrecruiters",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "pa-consulting|early-careers-coordinator-6-m-ftc-|https-jobs-smartrecruiters-com-paconsulting-744000148163855",
+   "company": "PA Consulting",
+   "sector": "Consulting & Accounting",
+   "sub": "",
+   "role": "Early Careers Coordinator (6 m FTC)",
+   "location": "Melbourn, United Kingdom",
+   "region": "UK (region not stated)",
+   "link": "https://jobs.smartrecruiters.com/paconsulting/744000148163855",
+   "source": "smartrecruiters",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|data-engineer-intern-2027-|https-boards-greenhouse-io-figma-jobs-6178851004-gh-jid-6178851004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Data Engineer Intern (2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6178851004?gh_jid=6178851004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|data-science-intern-2027-|https-boards-greenhouse-io-figma-jobs-6178857004-gh-jid-6178857004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Data Science Intern (2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6178857004?gh_jid=6178857004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|early-career-product-designer-2027-|https-boards-greenhouse-io-figma-jobs-6180053004-gh-jid-6180053004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Early Career, Product Designer (2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6180053004?gh_jid=6180053004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|it-engineer-internal-ai-infrastructure|https-boards-greenhouse-io-figma-jobs-6164379004-gh-jid-6164379004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "IT Engineer, Internal AI Infrastructure",
+   "location": "San Francisco, CA • New York, NY • United States",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6164379004?gh_jid=6164379004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|phd-intern-data-science-2027-|https-boards-greenhouse-io-figma-jobs-6200626004-gh-jid-6200626004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "PhD Intern, Data Science (2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6200626004?gh_jid=6200626004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|product-design-intern-2027-|https-boards-greenhouse-io-figma-jobs-6180005004-gh-jid-6180005004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Product Design Intern (2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6180005004?gh_jid=6180005004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|software-engineer-intern-london-united-kingdom-summer-2027-|https-boards-greenhouse-io-figma-jobs-6152695004-gh-jid-6152695004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern (London, United Kingdom) (Summer 2027) ",
+   "location": "London, England",
+   "region": "London",
+   "link": "https://boards.greenhouse.io/figma/jobs/6152695004?gh_jid=6152695004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|software-engineer-intern-summer-2027-|https-boards-greenhouse-io-figma-jobs-6143238004-gh-jid-6143238004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern (Summer 2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6143238004?gh_jid=6143238004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "figma|software-engineer-intern-winter-2027-|https-boards-greenhouse-io-figma-jobs-6131089004-gh-jid-6131089004",
+   "company": "Figma",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern (Winter 2027)",
+   "location": "San Francisco, CA • New York, NY",
+   "region": "Yorkshire",
+   "link": "https://boards.greenhouse.io/figma/jobs/6131089004?gh_jid=6131089004",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "notion|software-engineer-intern-winter-2027-|https-jobs-ashbyhq-com-notion-e66c6658-9e65-4c58-8db2-844628b6e8f8",
+   "company": "Notion",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern (Winter 2027)",
+   "location": "San Francisco, California, New York, New York",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/notion/e66c6658-9e65-4c58-8db2-844628b6e8f8",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "notion|software-engineer-intern-summer-2027-|https-jobs-ashbyhq-com-notion-3fba1c39-c5cb-47d7-9ad2-1cec4d7e9d0c",
+   "company": "Notion",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern (Summer 2027)",
+   "location": "San Francisco, California, New York, New York",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/notion/3fba1c39-c5cb-47d7-9ad2-1cec4d7e9d0c",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "notion|software-engineer-intern-mobile-winter-2027-|https-jobs-ashbyhq-com-notion-2b587e66-deac-421a-a824-9415ba78b5a7",
+   "company": "Notion",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Intern, Mobile (Winter 2027)",
+   "location": "San Francisco, California, New York, New York",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/notion/2b587e66-deac-421a-a824-9415ba78b5a7",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "ramp|software-engineer-international|https-jobs-ashbyhq-com-ramp-009dc18b-26a3-4fac-a773-c60d742cf840",
+   "company": "Ramp",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer, International",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/ramp/009dc18b-26a3-4fac-a773-c60d742cf840",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "ramp|software-engineer-internship-frontend|https-jobs-ashbyhq-com-ramp-a13ae586-f4cb-4385-8822-c42b9b54ed74",
+   "company": "Ramp",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer Internship, Frontend",
+   "location": "New York, NY (HQ)",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/ramp/a13ae586-f4cb-4385-8822-c42b9b54ed74",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "ramp|software-engineering-intern-backend|https-jobs-ashbyhq-com-ramp-acf6b28d-767f-483f-8ff2-114620cd7e04",
+   "company": "Ramp",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineering Intern, Backend",
+   "location": "New York, NY (HQ)",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/ramp/acf6b28d-767f-483f-8ff2-114620cd7e04",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "ramp|software-engineering-intern-android|https-jobs-ashbyhq-com-ramp-fcf118cc-521a-4a62-9d13-945e5b6e3cb8",
+   "company": "Ramp",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineering Intern, Android",
+   "location": "New York, NY (HQ)",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/ramp/fcf118cc-521a-4a62-9d13-945e5b6e3cb8",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "ramp|software-engineering-intern-ios|https-jobs-ashbyhq-com-ramp-b66be397-240b-41a6-9b05-493299b270a9",
+   "company": "Ramp",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineering Intern, iOS",
+   "location": "New York, NY (HQ)",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/ramp/b66be397-240b-41a6-9b05-493299b270a9",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "plaid|internal-communications|https-jobs-ashbyhq-com-plaid-6887f482-81b4-4ec8-8f52-bb29c796f2e8",
+   "company": "Plaid",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Internal Communications",
+   "location": "San Francisco HQ, New York City Office",
+   "region": "Yorkshire",
+   "link": "https://jobs.ashbyhq.com/plaid/6887f482-81b4-4ec8-8f52-bb29c796f2e8",
+   "source": "ashby",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "helsing|ai-research-intern-phd-3d-computer-vision|https-helsing-ai-jobs-4941957101-gh-jid-4941957101",
+   "company": "Helsing",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "AI Research Intern (PhD) – 3D Computer Vision",
+   "location": "Barcelona; Berlin; London; Munich; Paris",
+   "region": "London",
+   "link": "https://helsing.ai/jobs/4941957101?gh_jid=4941957101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "helsing|software-engineer-early-careers-|https-helsing-ai-jobs-4972043101-gh-jid-4972043101",
+   "company": "Helsing",
+   "sector": "AI & Tech",
+   "sub": "",
+   "role": "Software Engineer (Early Careers)",
+   "location": "Berlin; London; Munich",
+   "region": "London",
+   "link": "https://helsing.ai/jobs/4972043101?gh_jid=4972043101",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-internship-quantitative-researcher-phd-|https-job-boards-greenhouse-io-virtu-jobs-8624424002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Internship - Quantitative Researcher (PhD)",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8624424002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-internship-quantitative-researcher-undergrad-|https-job-boards-greenhouse-io-virtu-jobs-8142539002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Internship - Quantitative Researcher (Undergrad)",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8142539002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-internship-quantitative-trading|https-job-boards-greenhouse-io-virtu-jobs-8624408002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Internship - Quantitative Trading",
+   "location": "Austin, TX; Chicago; New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8624408002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-internship-software-engineer|https-job-boards-greenhouse-io-virtu-jobs-8624410002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Internship - Software Engineer",
+   "location": "Austin, TX; New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8624410002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-summer-internship-client-support|https-job-boards-greenhouse-io-virtu-jobs-8746197002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Summer Internship - Client Support",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8746197002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|2027-summer-internship-technical-|https-job-boards-greenhouse-io-virtu-jobs-8745933002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "2027 Summer Internship - Technical ",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8745933002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "virtu-financial|women-s-winternship|https-job-boards-greenhouse-io-virtu-jobs-8445018002",
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "",
+   "role": "Women's Winternship",
+   "location": "New York",
+   "region": "Yorkshire",
+   "link": "https://job-boards.greenhouse.io/virtu/jobs/8445018002",
+   "source": "greenhouse",
+   "posted": "2026-09-25"
+  }
+ ]
+}

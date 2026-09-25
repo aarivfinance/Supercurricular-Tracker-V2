@@ -1,0 +1,397 @@
+{
+ "_help": "Firms NOT on your watchlist that the scanner also checks. Openings found here go to the Review tab for you to accept or decline.",
+ "companies": [
+  {
+   "company": "Investec",
+   "sector": "Banking"
+  },
+  {
+   "company": "Deutsche Numis",
+   "sector": "Banking"
+  },
+  {
+   "company": "Peel Hunt",
+   "sector": "Banking"
+  },
+  {
+   "company": "Stifel",
+   "sector": "Banking"
+  },
+  {
+   "company": "Cantor Fitzgerald",
+   "sector": "Banking"
+  },
+  {
+   "company": "Berenberg",
+   "sector": "Banking"
+  },
+  {
+   "company": "Panmure Liberum",
+   "sector": "Banking"
+  },
+  {
+   "company": "Close Brothers",
+   "sector": "Banking"
+  },
+  {
+   "company": "Virgin Money",
+   "sector": "Banking"
+  },
+  {
+   "company": "TSB",
+   "sector": "Banking"
+  },
+  {
+   "company": "OakNorth",
+   "sector": "Banking"
+  },
+  {
+   "company": "Zopa",
+   "sector": "Banking"
+  },
+  {
+   "company": "Tide",
+   "sector": "Banking"
+  },
+  {
+   "company": "Metro Bank",
+   "sector": "Banking"
+  },
+  {
+   "company": "PA Consulting",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Simon-Kucher",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "OC&C Strategy Consultants",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Newton Europe",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Elixirr",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Credera",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Moorhouse",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Crowe UK",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Kroll",
+   "sector": "Consulting & Accounting"
+  },
+  {
+   "company": "Isomorphic Labs",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Faculty AI",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "PolyAI",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Quantexa",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Tractable",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "PhysicsX",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Darktrace",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Improbable",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Deliveroo",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Ocado Technology",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Sage",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Skyscanner",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "GoCardless",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Checkout.com",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Cleo",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Marshmallow",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Monday.com",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Figma",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Notion",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Rippling",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Ramp",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Plaid",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Brex",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Anduril",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Helsing",
+   "sector": "AI & Tech"
+  },
+  {
+   "company": "Bridgepoint",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "ICG",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Pantheon",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "HarbourVest",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Coller Capital",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Inflexion",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Livingbridge",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Vitruvian Partners",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "LocalGlobe",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Seedcamp",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Northzone",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Creandum",
+   "sector": "Private Equity & VC"
+  },
+  {
+   "company": "Arrowstreet Capital",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Ninety One",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Liontrust",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Columbia Threadneedle",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Royal London Asset Management",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "HSBC Asset Management",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Janus Henderson",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Pictet",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Lombard Odier",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Rathbones",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "RBC Brewin Dolphin",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Quilter",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "St. James's Place",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Wellington (London)",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Millburn",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Old Mission",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Akuna Capital",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Five Rings",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Headlands Technologies",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Virtu Financial",
+   "sector": "Investment (HF / AM / ER)"
+  },
+  {
+   "company": "Osborne Clarke",
+   "sector": "Law"
+  },
+  {
+   "company": "Addleshaw Goddard",
+   "sector": "Law"
+  },
+  {
+   "company": "Burges Salmon",
+   "sector": "Law"
+  },
+  {
+   "company": "Shoosmiths",
+   "sector": "Law"
+  },
+  {
+   "company": "TLT",
+   "sector": "Law"
+  },
+  {
+   "company": "Freeths",
+   "sector": "Law"
+  },
+  {
+   "company": "Irwin Mitchell",
+   "sector": "Law"
+  },
+  {
+   "company": "Kennedys",
+   "sector": "Law"
+  },
+  {
+   "company": "Clyde & Co",
+   "sector": "Law"
+  },
+  {
+   "company": "Reed Smith",
+   "sector": "Law"
+  },
+  {
+   "company": "Dentons",
+   "sector": "Law"
+  },
+  {
+   "company": "Jones Day",
+   "sector": "Law"
+  },
+  {
+   "company": "Mayer Brown",
+   "sector": "Law"
+  },
+  {
+   "company": "Akin",
+   "sector": "Law"
+  },
+  {
+   "company": "Orrick",
+   "sector": "Law"
+  },
+  {
+   "company": "Withers",
+   "sector": "Law"
+  },
+  {
+   "company": "Farrer & Co",
+   "sector": "Law"
+  },
+  {
+   "company": "Charles Russell Speechlys",
+   "sector": "Law"
+  }
+ ]
+}
