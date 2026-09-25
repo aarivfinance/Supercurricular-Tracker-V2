@@ -674,3 +674,6 @@ pre.plain{white-space:pre-wrap;font-family:var(--mono);font-size:12px;line-heigh
 .msg.handoff{max-width:100%;white-space:normal;}
 .msg.handoff ol{margin:8px 0 10px;padding-left:20px;font-size:13px;line-height:1.7;}
 .msg.handoff kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:1px 5px;background:var(--surface);}
+.quick{display:grid;gap:7px;padding:10px;margin:0 -4px 12px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;}
+.quick .inp{font-size:12.5px;padding:7px 9px;}
+.quick .row2{grid-template-columns:1fr 1fr;}

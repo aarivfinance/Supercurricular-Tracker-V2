@@ -403,6 +403,15 @@ function drawSc(){
     </section>`).join('')
     : emptyBox('Nothing matches those filters', 'Try clearing the search or switching off “Eligible now” / “Saved only”.')) + `</div>${scRecord()}</div>`;
   $$('[data-rec]', body).forEach(a => a.onclick = () => openScDrawer(allSc().find(i => i.id === a.dataset.rec)));
+  const qa = $('#qAdd', body);
+  if(qa) qa.onsubmit = e => {
+    e.preventDefault();
+    const t = $('#qT', qa).value.trim(); if(!t) return;
+    const id = 'c:' + uid(), date = $('#qD', qa).value;
+    S.scCustom.push({ id, t, s:$('#qS', qa).value, year:scF.year, date, when:'', note:'' });
+    S.sc[id] = { status:'done', result:$('#qR', qa).value.trim(), doneOn:date };
+    save(); toast('Logged: ' + t); viewSuper($('#view'));
+  };
   $$('[data-gobooks]', body).forEach(a => a.onclick = () => { scF.tab = 'books'; viewSuper($('#view')); });
 
   $$('.sc-row', body).forEach(r => r.onclick = e => {
@@ -421,6 +430,11 @@ function scRecord(){
   const li = (i, sub) => `<a class="rec" data-rec="${esc(i.id)}"><span class="dot c-${i.s}"></span><span><b>${strip(i.t)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</span></a>`;
   return `<aside class="sc-aside"><div class="aside-card">
     <h3>Your record</h3>
+    <form class="quick" id="qAdd">
+      <input class="inp" id="qT" placeholder="What have you done? e.g. JLI Politics essay" aria-label="What you did" required>
+      <div class="row2"><input class="inp" id="qR" placeholder="Result (optional)" aria-label="Result"><input class="inp" type="date" id="qD" value="${isoToday()}" aria-label="Date"></div>
+      <div class="row2"><select class="inp" id="qS" aria-label="Subject">${SUBJ.map(x => `<option value="${x.k}" ${x.k === 'multi' ? 'selected' : ''}>${x.label}</option>`).join('')}</select><button class="btn primary sm" style="justify-content:center">${I(IC.plus,13)} Log as done</button></div>
+    </form>
     <div class="rec-stats"><div><b>${done.length}</b><span>done</span></div><div><b>${doing.length}</b><span>in progress</span></div><div><b>${plan.length}</b><span>planning</span></div><div><b>${books}</b><span>books read</span></div></div>
     <div class="rec-h">Completed</div>
     ${done.length ? done.map(i => li(i, [scState(i.id).result, scState(i.id).doneOn && fmtD(scState(i.id).doneOn, true)].filter(Boolean).join(' · ') || 'Add your result')).join('') : '<p class="faint rec-empty">Mark something as Done and it appears here with its result.</p>'}
@@ -529,10 +543,15 @@ function editScCustom(existing){
       { k:'yr', label:'Eligibility', ph:'e.g. Ages 16–18' },
       { k:'link', label:'Link', type:'url', ph:'https://' },
       { k:'note', label:'Description', type:'textarea' },
+      { k:'_status', label:'Status', type:'select', opts:SC_STATUS, def:existing ? (scState(existing.id).status || '') : '' },
+      { k:'_result', label:'Result', ph:'e.g. Commended, finalist', def:existing ? (scState(existing.id).result || '') : '' },
     ],
     onSave: out => {
-      if(existing) Object.assign(existing, out);
-      else S.scCustom.push(Object.assign({ id:'c:' + uid() }, out));
+      const st = out._status, res = out._result; delete out._status; delete out._result;
+      let id;
+      if(existing){ Object.assign(existing, out); id = existing.id; }
+      else { id = 'c:' + uid(); S.scCustom.push(Object.assign({ id }, out)); }
+      S.sc[id] = Object.assign({}, S.sc[id], { status:st, result:res }, st === 'done' && !(S.sc[id] || {}).doneOn ? { doneOn:out.date || isoToday() } : {});
       save(); scF.year = out.year; route();
     },
     onDelete: existing ? () => { S.scCustom = S.scCustom.filter(c => c !== existing); save(); route(); } : null
