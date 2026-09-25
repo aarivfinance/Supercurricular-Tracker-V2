@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T17:12:04.450Z",
+ "updated": "2026-09-25T21:40:46.430Z",
  "watchlist": [
   {
    "company": "J.P. Morgan",
@@ -2095,7 +2095,7 @@
   "SoFi": {
    "ok": true,
    "via": "greenhouse:sofi",
-   "total": 57,
+   "total": 58,
    "found": 0
   },
   "Bank of England": {
@@ -2422,13 +2422,13 @@
   "OpenAI": {
    "ok": true,
    "via": "ashby:openai",
-   "total": 831,
+   "total": 830,
    "found": 0
   },
   "Anthropic": {
    "ok": true,
    "via": "greenhouse:anthropic",
-   "total": 624,
+   "total": 623,
    "found": 0
   },
   "Google DeepMind": {
@@ -2441,7 +2441,7 @@
   "xAI": {
    "ok": true,
    "via": "greenhouse:xai",
-   "total": 277,
+   "total": 275,
    "found": 0
   },
   "Mistral AI": {
@@ -2465,7 +2465,7 @@
   "Scale AI": {
    "ok": true,
    "via": "greenhouse:scaleai",
-   "total": 206,
+   "total": 205,
    "found": 1
   },
   "Hugging Face": {
@@ -2477,7 +2477,7 @@
   "Wayve": {
    "ok": true,
    "via": "greenhouse:wayve",
-   "total": 198,
+   "total": 199,
    "found": 0
   },
   "ElevenLabs": {
@@ -2579,7 +2579,7 @@
   "Palantir": {
    "ok": true,
    "via": "lever:palantir",
-   "total": 324,
+   "total": 321,
    "found": 5
   },
   "Salesforce": {
@@ -2619,13 +2619,13 @@
   "Cloudflare": {
    "ok": true,
    "via": "greenhouse:cloudflare",
-   "total": 392,
+   "total": 394,
    "found": 0
   },
   "Databricks": {
    "ok": true,
    "via": "greenhouse:databricks",
-   "total": 889,
+   "total": 888,
    "found": 0
   },
   "Snowflake": {
@@ -2651,19 +2651,19 @@
   "Reddit": {
    "ok": true,
    "via": "greenhouse:reddit",
-   "total": 151,
+   "total": 152,
    "found": 0
   },
   "Discord": {
    "ok": true,
    "via": "greenhouse:discord",
-   "total": 49,
+   "total": 48,
    "found": 0
   },
   "Spotify": {
    "ok": true,
    "via": "lever:spotify",
-   "total": 79,
+   "total": 78,
    "found": 2
   },
   "Uber": {
@@ -2682,13 +2682,13 @@
   "Airbnb": {
    "ok": true,
    "via": "greenhouse:airbnb",
-   "total": 157,
+   "total": 159,
    "found": 0
   },
   "Stripe": {
    "ok": true,
    "via": "greenhouse:stripe",
-   "total": 698,
+   "total": 702,
    "found": 1
   },
   "Visa": {
@@ -2741,7 +2741,7 @@
   "SpaceX": {
    "ok": true,
    "via": "greenhouse:spacex",
-   "total": 2592,
+   "total": 2594,
    "found": 0
   },
   "BAE Systems": {
@@ -3127,7 +3127,7 @@
   "Hudson River Trading": {
    "ok": true,
    "via": "greenhouse:wehrtyou",
-   "total": 85,
+   "total": 86,
    "found": 4
   },
   "Jump Trading": {
@@ -3172,13 +3172,13 @@
   "Qube Research & Technologies": {
    "ok": true,
    "via": "greenhouse:quberesearchandtechnologies",
-   "total": 201,
+   "total": 200,
    "found": 6
   },
   "DRW": {
    "ok": true,
    "via": "greenhouse:drweng",
-   "total": 166,
+   "total": 165,
    "found": 5
   },
   "Flow Traders": {
@@ -3436,13 +3436,13 @@
   "Coinbase": {
    "ok": true,
    "via": "greenhouse:coinbase",
-   "total": 210,
+   "total": 208,
    "found": 0
   },
   "Robinhood": {
    "ok": true,
    "via": "greenhouse:robinhood",
-   "total": 161,
+   "total": 159,
    "found": 0
   },
   "Trading 212": {
@@ -3488,7 +3488,7 @@
   "Kraken": {
    "ok": true,
    "via": "ashby:kraken.com",
-   "total": 72,
+   "total": 74,
    "found": 0
   },
   "IG Group": {
@@ -3670,7 +3670,7 @@
   "Gibson Dunn": {
    "ok": true,
    "via": "greenhouse:gibsondunn",
-   "total": 99,
+   "total": 98,
    "found": 0
   },
   "Sidley Austin": {
