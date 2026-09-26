@@ -877,15 +877,22 @@ function drawOpenings(){
 }
 function refreshCounts(){ const v = $('#view'); const sc = window.scrollY; viewOpenings(v); window.scrollTo(0, sc); }
 
+/* same role at the same firm in other cities → "also Leeds, Manchester" */
+const opTitleKey = t => String(t || '').toLowerCase().replace(/\b20\d\d\b/g, ' ').replace(/programmes?|programs?/g, 'programme').replace(/\b(london|leeds|manchester|birmingham|edinburgh|glasgow|bristol|belfast|cardiff|uk)\b/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
+let _otherLocs = null;
+function otherLocs(o){
+  if(!_otherLocs){ _otherLocs = {}; OPS().forEach(x => { const k = x.company + '|' + opTitleKey(x.role); (_otherLocs[k] = _otherLocs[k] || new Set()).add(cityOf(x)); }); setTimeout(() => { _otherLocs = null; }, 0); }
+  return [...(_otherLocs[o.company + '|' + opTitleKey(o.role)] || [])].filter(c => c && c !== cityOf(o));
+}
 function opRow(o, ghost){
   const sub = [o.roleType, o.price].filter(Boolean).join(' · ');
   return `<div class="tr-row ${ghost ? 'ghost' : ''} ${o.live === 'closed' ? 'is-closed' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
     <div class="cell-main"><button class="co-link" data-co="${esc(o.company)}" title="See everything at ${esc(o.company)}">${esc(o.company)}</button><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
     <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew24(o) ? '<span class="badge-new">NEW</span>' : ''}${o.auto ? '<span class="badge-auto" title="The scanner found this firm by itself">New firm</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(sub)}</small></div>
     <div class="cell-txt">${esc(o.programme || '')}</div>
-    <div class="cell-main"><b style="font-weight:500">${esc(cityOf(o))}</b><small>${o.region && o.region !== cityOf(o) ? esc(o.region) : ''}</small></div>
+    <div class="cell-main"><b style="font-weight:500">${esc(cityOf(o))}</b><small>${(() => { const ol = otherLocs(o); return ol.length ? `<span title="Same programme also in ${esc(ol.join(', '))}">also ${esc(ol.slice(0, 2).join(', '))}${ol.length > 2 ? ' +' + (ol.length - 2) : ''}</span>` : o.region && o.region !== cityOf(o) ? esc(o.region) : ''; })()}</small></div>
     <div class="cell-age">${ageCell(o)}</div>
-    <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : o.deadline || o.opens || o.rolling ? countdown(o.deadline, o.opens, o.rolling) : o.live === 'open' ? '<span class="cd open">Open</span>' : '<span class="faint">·</span>'}</div>
+    <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : o.deadline || o.opens || o.rolling ? countdown(o.deadline, o.opens, o.rolling) : o.live === 'open' ? '<span class="cd open">Open</span>' : o.live === 'soon' ? '<span class="cd future">Opening soon</span>' : '<span class="faint">·</span>'}</div>
     <div class="cell-main posted">${postedCell(o)}</div>
     <div class="m-extra">${esc([o.programme, ageOf(o) && 'Age ' + AGE_TEXT[ageOf(o)], o.location, o.deadline ? 'closes ' + fmtD(o.deadline) : ''].filter(Boolean).join(' · '))}</div>
     <div class="acts">
@@ -899,7 +906,7 @@ function opRow(o, ghost){
 let hoverEl;
 function showHover(o, row){
   if(!hoverEl){ hoverEl = document.createElement('div'); hoverEl.className = 'hovercard'; hoverEl.setAttribute('role', 'tooltip'); document.body.appendChild(hoverEl); }
-  const badges = [o.programme, ageOf(o) && AGE_TEXT[ageOf(o)], o.visa, o.price, o.live === 'open' ? 'Applications open' : o.live === 'closed' ? 'Closed' : ''].filter(Boolean);
+  const badges = [o.programme, ageOf(o) && AGE_TEXT[ageOf(o)], o.visa, o.price, o.live === 'open' ? 'Applications open' : o.live === 'closed' ? 'Closed' : o.live === 'soon' ? 'Opening soon' : ''].filter(Boolean);
   const lines = [];
   if(o.deadline) lines.push(`<b>Deadline ${fmtD(o.deadline, true)}.</b>`);
   else if(o.opens) lines.push(`<b>Opens ${fmtD(o.opens, true)}.</b>`);
