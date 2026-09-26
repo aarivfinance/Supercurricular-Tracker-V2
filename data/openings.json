@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T21:40:46.430Z",
+ "updated": "2026-09-26T05:06:53.524Z",
  "watchlist": [
   {
    "company": "J.P. Morgan",
@@ -2428,7 +2428,7 @@
   "Anthropic": {
    "ok": true,
    "via": "greenhouse:anthropic",
-   "total": 623,
+   "total": 619,
    "found": 0
   },
   "Google DeepMind": {
@@ -2441,7 +2441,7 @@
   "xAI": {
    "ok": true,
    "via": "greenhouse:xai",
-   "total": 275,
+   "total": 276,
    "found": 0
   },
   "Mistral AI": {
@@ -2453,7 +2453,7 @@
   "Perplexity": {
    "ok": true,
    "via": "ashby:perplexity",
-   "total": 123,
+   "total": 122,
    "found": 1
   },
   "Cohere": {
@@ -2465,7 +2465,7 @@
   "Scale AI": {
    "ok": true,
    "via": "greenhouse:scaleai",
-   "total": 205,
+   "total": 203,
    "found": 1
   },
   "Hugging Face": {
@@ -2477,13 +2477,13 @@
   "Wayve": {
    "ok": true,
    "via": "greenhouse:wayve",
-   "total": 199,
+   "total": 202,
    "found": 0
   },
   "ElevenLabs": {
    "ok": true,
    "via": "ashby:elevenlabs",
-   "total": 208,
+   "total": 207,
    "found": 0
   },
   "Synthesia": {
@@ -2619,7 +2619,7 @@
   "Cloudflare": {
    "ok": true,
    "via": "greenhouse:cloudflare",
-   "total": 394,
+   "total": 395,
    "found": 0
   },
   "Databricks": {
@@ -2631,7 +2631,7 @@
   "Snowflake": {
    "ok": true,
    "via": "ashby:snowflake",
-   "total": 348,
+   "total": 349,
    "found": 1
   },
   "Atlassian": {
@@ -2651,19 +2651,19 @@
   "Reddit": {
    "ok": true,
    "via": "greenhouse:reddit",
-   "total": 152,
+   "total": 150,
    "found": 0
   },
   "Discord": {
    "ok": true,
    "via": "greenhouse:discord",
-   "total": 48,
+   "total": 49,
    "found": 0
   },
   "Spotify": {
    "ok": true,
    "via": "lever:spotify",
-   "total": 78,
+   "total": 79,
    "found": 2
   },
   "Uber": {
@@ -2682,13 +2682,13 @@
   "Airbnb": {
    "ok": true,
    "via": "greenhouse:airbnb",
-   "total": 159,
+   "total": 158,
    "found": 0
   },
   "Stripe": {
    "ok": true,
    "via": "greenhouse:stripe",
-   "total": 702,
+   "total": 703,
    "found": 1
   },
   "Visa": {
@@ -3127,7 +3127,7 @@
   "Hudson River Trading": {
    "ok": true,
    "via": "greenhouse:wehrtyou",
-   "total": 86,
+   "total": 87,
    "found": 4
   },
   "Jump Trading": {
@@ -3284,7 +3284,7 @@
   "Legal & General": {
    "ok": true,
    "via": "smartrecruiters:legalandgeneral",
-   "total": 97,
+   "total": 84,
    "found": 0
   },
   "Schroders": {
@@ -3436,7 +3436,7 @@
   "Coinbase": {
    "ok": true,
    "via": "greenhouse:coinbase",
-   "total": 208,
+   "total": 210,
    "found": 0
   },
   "Robinhood": {
@@ -3670,7 +3670,7 @@
   "Gibson Dunn": {
    "ok": true,
    "via": "greenhouse:gibsondunn",
-   "total": 98,
+   "total": 97,
    "found": 0
   },
   "Sidley Austin": {
