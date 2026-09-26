@@ -359,6 +359,31 @@ export function titleFromLink(href){
   if((m = href.match(/myworkday(?:jobs|site)\.com\/.*\/job\/(?:[^\/]+\/)?([^\/?#]+?)_[A-Za-z0-9-]+\/?(?:[?#]|$)/))) return deslug(m[1]); // Workday
   return '';
 }
+/* exact-page links: an ATS posting, a /job/… page, or a URL carrying a job id */
+export function isDeep(href){
+  if(!href) return false;
+  try{
+    const u = new URL(href), p = u.pathname + u.search;
+    if(/coursera\.org\/learn\//i.test(href)) return true;
+    if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|posting|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
+    if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
+    if(/greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
+  }catch(e){}
+  return false;
+}
+/* rows that are just a careers hub, not a programme */
+export const HUB_ROLE = /^(early[ -]careers?|students?( (&|and) graduates?)?|graduates?|careers?|join us|talent (network|community)|.*talent (network|community).*|opportunities|programmes?|internships?|vacancies|current vacancies|search jobs|all jobs|apply)( \(opens in new window\))?$/i;
+const APPLY_TXT = /^(apply( now| here| online| today| for (this|the) (role|programme|position))?|start (your )?application|begin application|register( now| here| your interest)?|submit (an )?application|apply via .*|view (the )?(role|job|vacancy|posting)|application form)$/i;
+/* on a programme page, find the button that goes to the actual application */
+export function applyLinkOf(links, pageUrl){
+  const cand = links.filter(l => l.h && /^https?:/i.test(l.h) && l.h.split('#')[0] !== pageUrl.split('#')[0]);
+  const score = l => (APPLY_TXT.test(l.t) ? 4 : /apply|application|register/i.test(l.t) ? 2 : 0) + (isDeep(l.h) ? 3 : 0) + (atsFromLink(l.h) ? 1 : 0);
+  const best = cand.map(l => [score(l), l]).filter(([s, l]) => s >= 4 && (isDeep(l.h) || APPLY_TXT.test(l.t))).sort((a, b) => b[0] - a[0])[0];
+  return best ? best[1].h : '';
+}
+/* same programme? (vacation scheme ↔ vacation scheme 2027 etc.) */
+const KIND = [/vacation|vac scheme/i, /training contract/i, /spring|insight|discovery|first[- ]year|open day/i, /summer (analyst|intern)|summer internship|\bsummer\b/i, /off[- ]cycle/i, /placement|industrial|year in industry/i, /apprentice/i, /graduate|analyst programme|trainee/i, /virtual/i];
+export const kindOf = t => { const i = KIND.findIndex(r => r.test(t)); return i; };
 const GENERIC = /^(apply( now| here| today)?|find out more|learn more|read more|more info(rmation)?|view( (role|job|details|programme|opportunity))?|details|register( (now|interest))?|click here|here|explore|discover more|see more|open|›|→|>)$/i;
 
 /* ---------------------------------------------------------------- firms' own pages (real browser) */
@@ -369,39 +394,85 @@ async function getBrowser(){
   catch(e){ console.warn('⚠ Playwright not installed — skipping firms’ own pages. Run: npm i playwright && npx playwright install chromium'); browser = false; }
   return browser;
 }
-export async function scanPage(src){
-  if(!(await allowed(src.url))) throw Object.assign(new Error('blocked by robots.txt'), { robots:true });
-  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
+const HUMAN = /verify (?:you are|you're) (?:a )?human|are you a robot|captcha|quick check needed|access denied|unusual traffic/i;
+const grabLinks = page => page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:a.href, ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
+async function openPage(b, url){
+  if(!(await allowed(url))) throw Object.assign(new Error('blocked by robots.txt'), { robots:true });
   const page = await b.newPage({ userAgent:UA_STRING });
+  const resp = await page.goto(url, { waitUntil:'domcontentloaded', timeout:35000 }).catch(e => { page.close().catch(() => {}); throw e; });
+  if(resp && resp.status() >= 400){ await page.close().catch(() => {}); throw new Error('HTTP ' + resp.status()); }
+  await page.waitForLoadState('networkidle', { timeout:12000 }).catch(() => {});
+  await page.waitForTimeout(1200);
+  const text = (await page.evaluate(() => document.body ? document.body.innerText : '')).replace(/\s+/g, ' ');
+  if(HUMAN.test(text.slice(0, 1500))){ await page.close().catch(() => {}); throw new Error('human check shown — skipped'); }
+  return { page, text };
+}
+/* visit a general programme page and return the exact application link on it (plus page details) */
+export async function resolveApply(url){
+  const b = await getBrowser(); if(!b) return null;
+  let pg;
   try{
-    const resp = await page.goto(src.url, { waitUntil:'domcontentloaded', timeout:35000 });
-    if(resp && resp.status() >= 400) throw new Error('HTTP ' + resp.status());
-    await page.waitForLoadState('networkidle', { timeout:12000 }).catch(() => {});
-    await page.waitForTimeout(1500);
-    const text = (await page.evaluate(() => document.body ? document.body.innerText : '')).replace(/\s+/g, ' ');
-    if(/verify (?:you are|you're) (?:a )?human|are you a robot|captcha|quick check needed|access denied|unusual traffic/i.test(text.slice(0, 1500))) throw new Error('human check shown — skipped');
-    if(src.type === 'programme'){
-      return { items:[{ role:src.title, link:src.url, live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' }], ats:[] };
-    }
-    const links = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:a.href, ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
-    const seen = new Set(), items = [], ats = new Map();
-    const pat = src.linkPattern ? new RegExp(src.linkPattern, 'i') : null, inc = src.include ? new RegExp(src.include, 'i') : null;
-    for(const l of links){
-      if(!l.h || !/^https?:/i.test(l.h)) continue;
-      const board = atsFromLink(l.h); if(board) ats.set(JSON.stringify(board), board);
-      if(seen.has(l.h)) continue;
-      let title = l.t;
-      if(!title || GENERIC.test(title) || title.length < 6) title = titleFromLink(l.h) || '';
-      if(src.titleFrom === 'url'){ const p = new URL(l.h).pathname.split('/').filter(Boolean); title = deslug(p[p.length - 1]) + (p.length > 1 ? ' — ' + deslug(p[p.length - 2]) : ''); }
-      if(!title || title.length > 160) continue;
-      if(pat ? !pat.test(l.h) : !(isEarly(title) || titleFromLink(l.h))) continue;
-      if(inc && !inc.test(title + ' ' + l.ctx)) continue;
-      if(NOT_UK.test(title + ' ' + l.ctx) && !/london|\buk\b|united kingdom|emea|england|scotland|wales/i.test(title + ' ' + l.ctx)) continue;
-      seen.add(l.h);
-      items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location:src.location || 'London, United Kingdom' });
-    }
-    return { items, ats:[...ats.values()], pageNotes:notesFrom(text) };
-  }finally{ await page.close().catch(() => {}); }
+    pg = await openPage(b, url);
+    const links = await grabLinks(pg.page);
+    return { link:applyLinkOf(links, url), text:pg.text, ats:links.map(l => atsFromLink(l.h)).filter(Boolean) };
+  }catch(e){ return null; }
+  finally{ if(pg) await pg.page.close().catch(() => {}); }
+}
+export async function scanPage(src){
+  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
+  const urls = [src.url];
+  for(let n = 2; n <= (src.pages || 1); n++) urls.push((src.pageUrl || '{url}/{n}').replace('{url}', src.url.replace(/\/$/, '')).replace('{n}', n));
+  const seen = new Set(), items = [], ats = new Map(); let pageNotes = [];
+  for(const [i, url] of urls.entries()){
+    let pg;
+    try{ pg = await openPage(b, url); }catch(e){ if(i === 0) throw e; break; }
+    try{
+      const { page, text } = pg;
+      if(i === 0) pageNotes = notesFrom(text);
+      if(src.type === 'programme'){
+        const links = await grabLinks(page);
+        const apply = applyLinkOf(links, url);
+        return { items:[{ role:src.title, link:apply || src.url, info:apply ? src.url : '', live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' }], ats:[] };
+      }
+      const links = await grabLinks(page);
+      const pat = src.linkPattern ? new RegExp(src.linkPattern, 'i') : null, inc = src.include ? new RegExp(src.include, 'i') : null;
+      const before = items.length;
+      for(const l of links){
+        if(!l.h || !/^https?:/i.test(l.h)) continue;
+        const board = atsFromLink(l.h); if(board) ats.set(JSON.stringify(board), board);
+        if(seen.has(l.h)) continue;
+        let title = l.t;
+        if(!title || GENERIC.test(title) || title.length < 6) title = titleFromLink(l.h) || '';
+        if(src.titleFrom === 'url'){ const p = new URL(l.h).pathname.split('/').filter(Boolean); title = deslug(p[p.length - 1]) + (p.length > 1 ? ' — ' + deslug(p[p.length - 2]) : ''); }
+        title = title.replace(/\s*\(opens in (a )?new (window|tab)\)\s*/i, ' ').trim();
+        if(!title || title.length > 160 || HUB_ROLE.test(title)) continue;
+        if(pat ? !pat.test(l.h) : !(isEarly(title) || titleFromLink(l.h))) continue;
+        if(inc && !inc.test(title + ' ' + l.ctx)) continue;
+        if(NOT_UK.test(title + ' ' + l.ctx) && !/london|\buk\b|united kingdom|emea|england|scotland|wales|belfast|edinburgh|glasgow|manchester|leeds|birmingham|bristol/i.test(title + ' ' + l.ctx)) continue;
+        seen.add(l.h);
+        const city = src.cityFromUrl ? (new URL(l.h).pathname.split('/').filter(Boolean)[src.cityFromUrl] || '') : '';
+        items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location:city ? deslug(city) + ', United Kingdom' : (src.location || 'London, United Kingdom') });
+      }
+      if(i > 0 && items.length === before) break;          // ran out of pages
+    }finally{ await pg.page.close().catch(() => {}); }
+    if(i < urls.length - 1) await sleep(800);
+  }
+  // general pages → follow them to the real application link
+  let followed = 0;
+  for(const it of items){
+    if(isDeep(it.link) || followed >= (src.maxFollow ?? 20)) continue;
+    followed++;
+    const r = await resolveApply(it.link);
+    if(!r) continue;
+    const d = detailsOf(r.text);
+    for(const f of ['deadline', 'opens', 'visa']) if(!it[f] && d[f]) it[f] = d[f];
+    if(!it.live) it.live = statusIn(r.text);
+    if((!it.notes || !it.notes.length) && d.notes.length) it.notes = d.notes.slice(0, 3);
+    if(r.link){ it.info = it.link; it.link = r.link; }
+    for(const bd of r.ats) ats.set(JSON.stringify(bd), bd);
+    await sleep(500);
+  }
+  return { items, ats:[...ats.values()], pageNotes };
 }
 
 /* ---------------------------------------------------------------- helpers */
@@ -426,7 +497,7 @@ const boardKey = s => [s.type, s.board || s.host || s.url, s.site || ''].join(':
 async function toOpenings(rows, co, src){
   const out = []; let details = 0;
   for(const j of rows || []){
-    const role = String(j.role || '').replace(/\s+/g, ' ').trim(); if(!role) continue;
+    const role = String(j.role || '').replace(/\s+/g, ' ').replace(/\s*\(opens in (a )?new (window|tab)\)\s*/i, ' ').trim(); if(!role || HUB_ROLE.test(role)) continue;
     if(!src.all && !isEarly(role)) continue;
     let location = j.location || src.location || '', text = j.text || '';
     let region = regionOf(location);
@@ -448,7 +519,7 @@ async function toOpenings(rows, co, src){
     const det = text ? detailsOf(text) : {};
     const o = {
       id:idOf(co.company, role, j.link), company:co.company, sector:co.sector || src.sector || 'Other', sub:co.sub || '',
-      role, programme, roleType:src.roleType || roleTypeOf(role) || roleTypeOf(co.sector), ageGroup, location, region, link:j.link || '',
+      role, programme, roleType:src.roleType || roleTypeOf(role) || roleTypeOf(co.sector), ageGroup, location, region, link:j.link || '', info:j.info || '',
       postedAt:(j.postedAt || '').replace('+', ''), postedApprox:/\+$/.test(j.postedAt || ''),
       deadline:j.deadline || det.deadline || '', opens:j.opens || det.opens || '', live:j.live || '',
       visa:j.visa || det.visa || '', notes:(j.notes && j.notes.length ? j.notes : det.notes || []).slice(0, 4),
@@ -489,7 +560,7 @@ async function main(){
         extra = r.ats.filter(b => !doneBoards.has(src.company + boardKey(b)));
       }else rows = await readBoard(src);
       if(rows == null) throw new Error('no job board here');
-      const list = await toOpenings(rows, co, { ...src, all:src.all || src.type === 'programme' || src.type === 'coursera' || !!src.linkPattern, label:src.label || ({ links:'firm’s own page', programme:'firm’s own page' }[src.type] || src.type) });
+      const list = await toOpenings(rows, co, { ...src, all:src.all ?? (src.type === 'programme' || src.type === 'coursera' || !!src.linkPattern), label:src.label || ({ links:'firm’s own page', programme:'firm’s own page' }[src.type] || src.type) });
       sink.push(...list); okCompanies.add(co.company);
       note(co.company, { ok:true, via:src.label || src.type, found:list.length });
       log({ company:co.company, type:src.type, target:src.url || src.host || src.board, ok:true, found:list.length, raw:rows.length });
@@ -537,7 +608,28 @@ async function main(){
     }
     return [...m.values()];
   };
-  let openings = merge(found), reviewList = merge(review);
+  /* a general programme page and the firm's exact posting for the same scheme → one row, exact link */
+  const toExact = list => {
+    const byCo = {};
+    for(const o of list) (byCo[o.company] = byCo[o.company] || []).push(o);
+    const drop = new Set();
+    for(const rows of Object.values(byCo)){
+      const exact = rows.filter(o => isDeep(o.link));
+      for(const g of rows.filter(o => !isDeep(o.link))){
+        const k = kindOf(g.role); if(k < 0) continue;
+        const twins = exact.filter(e => kindOf(e.role) === k && (g.region === e.region || !g.region || !e.region));
+        if(!twins.length) continue;
+        for(const e of twins){
+          for(const f of ['deadline', 'opens', 'visa', 'live']) if(!e[f] && g[f]) e[f] = g[f];
+          if((!e.notes || !e.notes.length) && g.notes && g.notes.length) e.notes = g.notes;
+          if(!e.info) e.info = g.link;
+        }
+        drop.add(g);
+      }
+    }
+    return list.filter(o => !drop.has(o));
+  };
+  let openings = toExact(merge(found)), reviewList = toExact(merge(review));
 
   // 4) first-seen times, and keep what we couldn't check this time
   const prevAll = [...(prev.openings || []), ...(prev.review || [])];

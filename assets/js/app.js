@@ -909,7 +909,7 @@ function showHover(o, row){
     <div class="hc-b">${badges.map(x => `<span>${esc(x)}</span>`).join('')}</div>
     ${lines.length || notes.length ? `<p>${lines.join(' ')} ${notes.map(esc).join(' ')}</p>` : '<p class="faint">No extra details were published with this listing — open it for the full description.</p>'}
     ${firm ? `<p class="hc-firm"><b>Your note on ${esc(o.company)}:</b> ${esc(firm)}</p>` : ''}
-    <div class="hc-f">${esc([o.company, o.location || o.region, o.postedAt ? 'posted ' + fmtD(o.postedAt, true) : '', o.source ? 'via ' + o.source : ''].filter(Boolean).join(' · '))}</div>`;
+    <div class="hc-f">${esc([o.company, o.location || o.region, o.postedAt ? 'posted ' + fmtD(o.postedAt, true) : '', o.source ? 'via ' + o.source : '', o.info ? 'programme page in details' : ''].filter(Boolean).join(' · '))}</div>`;
   const r = row.querySelector('.cell-main:nth-child(2)').getBoundingClientRect();
   hoverEl.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 400)) + 'px';
   const below = r.bottom + 8, h = hoverEl.offsetHeight || 180;
@@ -926,7 +926,7 @@ function openOpening(o){
     <div class="meta" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})"><span class="chip subj">${esc(o.sector || 'Other')}</span>${o.programme ? `<span class="chip soft">${esc(o.programme)}</span>` : ''}${ageOf(o) ? `<span class="chip soft">Age ${esc(AGE_TEXT[ageOf(o)])}</span>` : ''}${o.visa ? `<span class="chip ${/No/.test(o.visa) ? 'warn' : 'ok'}">${esc(o.visa)}</span>` : ''}${o.live === 'open' ? '<span class="chip ok">Applications open</span>' : o.live === 'closed' ? '<span class="chip soft">Closed</span>' : ''}</div>
     <h2>${esc(o.role || o.programme)}</h2>
     <div class="muted" style="font-size:15px;margin-bottom:12px"><a href="#" class="lnk" id="dCo" style="color:var(--ink);font-weight:600">${esc(o.company)}</a>${o.location ? ' · ' + esc(o.location) : ''}</div>
-    ${o.link ? `<div style="margin:4px 0 14px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a></div>` : ''}
+    ${o.link ? `<div style="margin:4px 0 14px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a>${o.info ? ` <a class="btn ghost sm" style="margin-left:6px" href="${esc(safeUrl(o.info))}" target="_blank" rel="noopener">Programme page ${I(IC.ext,12)}</a>` : ''}</div>` : ''}
     <dl class="kv">
       <dt>Deadline</dt><dd>${o.deadline ? fmtD(o.deadline, true) + ' ' + countdown(o.deadline, o.opens, o.rolling) : o.rolling ? 'Rolling' : 'Not published — apply early'}</dd>
       ${o.opens ? `<dt>Opens</dt><dd>${fmtD(o.opens, true)}</dd>` : ''}

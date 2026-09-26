@@ -297,6 +297,16 @@
    "url": "https://earlycareersuk.aoshearman.com/Events"
   },
   {
+   "company": "A&O Shearman",
+   "type": "links",
+   "url": "https://careers.aoshearman.com/en/location/united-kingdom-jobs/3392/2635167/2",
+   "pages": 5,
+   "linkPattern": "/en/job/",
+   "cityFromUrl": 2,
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
    "company": "Slaughter and May",
    "type": "links",
    "url": "https://slaughterandmay.com/careers/trainee-solicitors/apply"
