@@ -494,6 +494,48 @@ export async function scanPage(src){
   return { items, ats:[...ats.values()], pageNotes };
 }
 
+
+/* ---------------------------------------------------------------- discovering new firms */
+export function sectorGuess(name, roles = ''){
+  const t = (name + ' ' + roles).toLowerCase();
+  if(/\bllp\b|\blaw\b|legal|solicitor|training contract|vacation scheme|chambers/.test(t)) return 'Law';
+  if(/consult|advisory|accountan|audit|\btax\b|deloitte|kpmg|\bey\b|strategy&/.test(t)) return 'Consulting & Accounting';
+  if(/capital|asset|invest|fund|trading|quant|hedge|securities|markets|wealth|equity/.test(t)) return /private equity|ventures?\b|\bvc\b/.test(t) ? 'Private Equity & VC' : 'Investment (HF / AM / ER)';
+  if(/\bbank|banking|financial group/.test(t)) return 'Banking';
+  if(/tech|software|engineer|data|\bai\b|labs|cloud|cyber|digital|platform/.test(t)) return 'AI & Tech';
+  return 'Other';
+}
+const deslugName = s => String(s || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).trim();
+export async function boardName(b){
+  try{ if(b.type === 'greenhouse'){ for(const h of ['boards-api.greenhouse.io', 'boards-api.eu.greenhouse.io']){ try{ const d = await getJSON(`https://${h}/v1/boards/${b.board}`); if(d && d.name) return d.name; }catch(e){} } } }catch(e){}
+  return deslugName(b.board || b.tenant || '');
+}
+const NAME_JUNK = /^(logo|image|icon|photo|picture|banner|arrow|close|menu|search|home|linkedin|twitter|facebook|instagram|youtube|tiktok|x|click|read more|learn more|partner|partners|sponsor|client|clients)$/i;
+export function cleanName(s){
+  s = String(s || '').replace(/\s*(logo|brand ?mark|image|icon)s?\b\s*/ig, ' ').replace(/[_|]+/g, ' ').replace(/\s+/g, ' ').trim();
+  if(s.length < 2 || s.length > 45 || NAME_JUNK.test(s) || /^\d+$/.test(s) || /https?:|\.(png|jpe?g|svg|webp)$/i.test(s)) return '';
+  return s;
+}
+/* a page listing employers (logos / names) → firm names + any job boards it links to */
+export async function scanDiscover(src){
+  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
+  const pg = await openPage(b, src.url);
+  try{
+    const raw = await pg.page.evaluate(sel => {
+      const root = sel ? document.querySelectorAll(sel) : [document.body];
+      const out = { alts:[], texts:[], links:[] };
+      root.forEach(r => {
+        r.querySelectorAll('img[alt]').forEach(i => out.alts.push(i.getAttribute('alt')));
+        r.querySelectorAll('a[href]').forEach(a => { out.links.push(a.href); if(sel) out.texts.push((a.innerText || a.title || '').trim()); });
+      });
+      return out;
+    }, src.selector || '');
+    const names = [...new Set([...raw.alts, ...raw.texts].map(cleanName).filter(Boolean))];
+    const ats = raw.links.map(atsFromLink).filter(Boolean);
+    return { names, ats };
+  }finally{ await pg.page.close().catch(() => {}); }
+}
+
 /* ---------------------------------------------------------------- helpers */
 export async function pool(items, n, fn){ const out = []; let i = 0; await Promise.all(Array.from({ length:Math.min(n, items.length) }, async () => { while(i < items.length){ const k = i++; out[k] = await fn(items[k]); } })); return out; }
 const slugs = name => {
@@ -561,12 +603,15 @@ async function main(){
   const watch = (await read('data/watchlist.json', { companies:[] })).companies;
   const disc  = (await read('data/discovery.json', { companies:[] })).companies;
   const srcs  = (await read('data/sources.json', { sources:[] })).sources;
-  const byName = Object.fromEntries(watch.map(c => [c.company, c]));
+  const discovered = cache.__discovered || [];   // firms the scanner found on its own (kept in ats-cache.json, which the workflow commits)
+  const extraFirms = [...disc, ...discovered].filter((c, i, a) => a.findIndex(x => x.company === c.company) === i && !watch.some(w => w.company === c.company));
+  const byName = Object.fromEntries([...extraFirms, ...watch].map(c => [c.company, c]));
   const onList = new Set(watch.map(c => c.company));
   const companyOf = (name, src = {}) => byName[name] || { company:name, sector:src.sector || 'Access programmes', sub:src.sub || '' };
 
   const found = [];                // openings from the watchlist + sources
-  const review = [];               // openings from discovery firms
+  const review = [];               // (kept for compatibility — auto-found firms now go straight into the tracker)
+  const pageBoards = new Map();    // job boards spotted on pages we read (for discovering new firms)
   const okCompanies = new Set(), failedCompanies = new Set();
   const health = {};
   const note = (c, r) => { const h = health[c] || (health[c] = { ok:false, via:[], found:0, errors:[] }); if(r.ok){ h.ok = true; if(r.via && !h.via.includes(r.via)) h.via.push(r.via); h.found += r.found || 0; } else if(r.error) h.errors.push(r.error); };
@@ -581,6 +626,7 @@ async function main(){
         const r = await scanPage(src); rows = r.items;
         if(src.type === 'links' && r.pageNotes && r.pageNotes.length) rows.forEach(x => { if(!x.notes || !x.notes.length) x.notes = r.pageNotes.slice(0, 2); });
         extra = r.ats.filter(b => !doneBoards.has(src.company + boardKey(b)));
+        if(co.sector === 'Access programmes') for(const b of r.ats) pageBoards.set(boardKey(b), b);
       }else rows = await readBoard(src);
       if(rows == null) throw new Error('no job board here');
       const list = await toOpenings(rows, co, { ...src, all:src.all ?? (src.type === 'programme' || src.type === 'coursera' || !!src.linkPattern), label:src.label || ({ links:'firm’s own page', programme:'firm’s own page' }[src.type] || src.type) });
@@ -595,10 +641,10 @@ async function main(){
   }
 
   // 1) explicit feeds & pages from data/sources.json (job systems first, then browser pages)
-  const apiSrcs = srcs.filter(s => !['links', 'programme'].includes(s.type)), pageSrcs = srcs.filter(s => ['links', 'programme'].includes(s.type));
+  const apiSrcs = srcs.filter(s => !['links', 'programme', 'discover'].includes(s.type)), pageSrcs = srcs.filter(s => ['links', 'programme'].includes(s.type));
   await pool(apiSrcs, 4, s => runSource(s));
   for(const s of pageSrcs) await runSource(s);
-  if(browser) await browser.close();
+  if(browser){ await browser.close().catch(() => {}); browser = null; }
 
   // 2) watchlist firms with no explicit feed: remembered board → hints → guess the board name
   const covered = new Set(srcs.map(s => s.company));
@@ -617,7 +663,49 @@ async function main(){
     sink.push(...list); okCompanies.add(co.company); note(co.company, { ok:true, via:hit.via.split(':')[0], found:list.length });
   }
   await pool(watch.filter(c => !covered.has(c.company)), 8, c => guessFirm(c, found));
-  await pool(disc.filter(c => !onList.has(c.company)), 8, c => guessFirm(c, review));
+  await pool(extraFirms, 8, async c => { const before = found.length; await guessFirm(c, found); for(let i = before; i < found.length; i++) found[i].auto = true; });
+
+  // 2b) discover NEW firms: names on employer/partner pages + job boards linked from access-programme pages.
+  //     Any firm whose board has UK early-careers roles goes straight into the tracker and into data/discovered.json.
+  const known = new Set([...watch, ...extraFirms].map(c => norm(c.company)));
+  const knownBoards = new Set([...srcs.map(boardKey), ...Object.entries(cache).filter(([k]) => k !== '__discovered').map(([, c]) => c && c.via).filter(Boolean)]);
+  const cands = new Map();
+  for(const s of srcs.filter(s => s.type === 'discover')){
+    try{
+      const r = await scanDiscover(s);
+      for(const n of r.names) if(!known.has(norm(n))) cands.set(norm(n), { company:n, from:s.url });
+      for(const b of r.ats) pageBoards.set(boardKey(b), b);
+      log({ company:'(discovery)', type:'discover', target:s.url, ok:true, found:r.names.length + r.ats.length });
+    }catch(e){ log({ company:'(discovery)', type:'discover', target:s.url, ok:false, error:e.message, robots:!!e.robots }); }
+  }
+  for(const b of pageBoards.values()) if(!knownBoards.has(boardKey(b)) && !knownBoards.has(b.type + ':' + b.board)) cands.set('board:' + boardKey(b), { board:b });
+  if(browser){ await browser.close().catch(() => {}); browser = null; }
+  const newFirms = [];
+  let tries = 0;
+  for(const c of cands.values()){
+    if(tries >= 60) break;
+    const ck = 'disc:' + (c.company ? norm(c.company) : boardKey(c.board));
+    const prevTry = cache[ck];
+    if(prevTry && !prevTry.hit && (Date.now() - Date.parse(prevTry.checked || 0)) < 14 * 864e5) continue;   // re-check misses fortnightly
+    tries++;
+    try{
+      let rows = null, via = null, name = c.company;
+      if(c.board){ rows = await readBoard(c.board); via = c.board.type + ':' + (c.board.board || c.board.tenant || c.board.host); name = await boardName(c.board); }
+      else for(const b of slugs(c.company)){ for(const t of Object.keys(SIMPLE)){ if(rows && rows.length) break; try{ const r = await SIMPLE[t](b); if(r && r.length){ rows = r; via = t + ':' + b; } }catch(e){} } if(rows && rows.length) break; }
+      if(!name || known.has(norm(name))){ cache[ck] = { hit:false, checked:NOW_ISO }; continue; }
+      const co = { company:name, sector:sectorGuess(name, (rows || []).map(r => r.role).join(' ')), sub:'Found automatically', auto:true };
+      const list = rows ? await toOpenings(rows, co, { type:via.split(':')[0], label:via.split(':')[0] + ' (auto-found)' }) : [];
+      cache[ck] = { hit:list.length > 0, checked:NOW_ISO, via };
+      if(!list.length) continue;
+      list.forEach(o => o.auto = true);
+      found.push(...list); known.add(norm(name)); okCompanies.add(name);
+      cache[name] = { via, checked:NOW_ISO };
+      newFirms.push({ company:name, sector:co.sector, sub:co.sub, hints:[{ type:via.split(':')[0], board:via.split(':').slice(1).join(':') }], foundVia:c.from || 'job board linked from an access-programme page', firstSeen:TODAY });
+      note(name, { ok:true, via:'auto-found', found:list.length });
+      log({ company:name, type:'discover', target:via, ok:true, found:list.length, raw:rows.length });
+    }catch(e){ cache[ck] = { hit:false, checked:NOW_ISO }; }
+  }
+  if(newFirms.length) cache.__discovered = [...discovered, ...newFirms];
 
   // 3) merge: one row per programme (same firm + same title), keep the richest record
   const merge = list => {
@@ -671,7 +759,7 @@ async function main(){
 
   const out = {
     updated:NOW_ISO,
-    watchlist:watch.map(c => ({ company:c.company, sector:c.sector, sub:c.sub, addedByClaude:!!c.addedByClaude })),
+    watchlist:[...watch.map(c => ({ company:c.company, sector:c.sector, sub:c.sub, addedByClaude:!!c.addedByClaude })), ...extraFirms.map(c => ({ company:c.company, sector:c.sector, sub:c.sub || 'Found automatically', auto:true }))],
     health, openings, review:reviewList, closed, log:LOG,
   };
   await writeFile('data/openings.json', JSON.stringify(out, null, 1));
