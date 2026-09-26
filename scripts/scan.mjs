@@ -222,6 +222,25 @@ async function readSmartRecruiters(board){
   if(!d.totalFound) return null;
   return d.content.map(j => ({ role:j.name, location:[j.location?.city, j.location?.country === 'gb' ? 'United Kingdom' : j.location?.country].filter(Boolean).join(', '), link:`https://jobs.smartrecruiters.com/${board}/${j.id}`, postedAt:(j.releasedDate || '').slice(0, 10) }));
 }
+/* Eightfold (e.g. Millennium): JSON search API */
+export async function readEightfold(src){
+  const d = await getJSON(src.url);
+  const base = new URL(src.url).origin;
+  return (d.positions || []).map(j => ({ role:j.name, location:j.location || (j.locations || []).join('; '), link:j.canonicalPositionUrl || `${base}/careers/job/${j.id}`,
+    postedAt:j.t_create ? new Date(j.t_create * 1000).toISOString().slice(0, 10) : '' }));
+}
+/* Jibe over iCIMS (e.g. SIG): JSON API */
+export async function readJibe(src){
+  const d = await getJSON(src.url);
+  const site = src.jobBase || new URL(src.url).origin + '/jobs/';
+  return (d.jobs || []).map(x => x.data || x).map(j => ({ role:j.title, location:[j.city, j.country].filter(Boolean).join(', '), link:site + (j.slug || j.req_id),
+    postedAt:(j.posted_date || j.create_date || '').slice(0, 10), deadline:'' }));
+}
+/* Pinpoint (e.g. Oxford Economics): postings.json */
+export async function readPinpoint(src){
+  const d = await getJSON(src.url);
+  return (d.data || []).map(j => ({ role:j.title, location:j.location?.name || j.location?.city || '', link:j.url, deadline:(j.deadline_at || '').slice(0, 10) }));
+}
 function workdayPosted(s){
   if(!s) return '';
   const d = new Date(NOW);
@@ -365,7 +384,7 @@ export function isDeep(href){
   try{
     const u = new URL(href), p = u.pathname + u.search;
     if(/coursera\.org\/learn\//i.test(href)) return true;
-    if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|posting|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
+    if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|postings?|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
     if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
     if(/greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
   }catch(e){}
@@ -489,6 +508,10 @@ async function readBoard(src){
   if(src.type === 'oracle') return readOracle(src);
   if(src.type === 'sitemap') return readSitemap(src);
   if(src.type === 'coursera') return readCoursera(src);
+  if(src.type === 'eightfold') return readEightfold(src);
+  if(src.type === 'jibe') return readJibe(src);
+  if(src.type === 'pinpoint') return readPinpoint(src);
+  if(SIMPLE[src.type] && src.board) return SIMPLE[src.type](src.board);
   throw new Error('unknown source type ' + src.type);
 }
 const boardKey = s => [s.type, s.board || s.host || s.url, s.site || ''].join(':');
