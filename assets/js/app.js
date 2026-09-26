@@ -641,14 +641,18 @@ function editExtra(ex){
 }
 
 /* ============================================================
-   OPENINGS TRACKER
+   OPENINGS TRACKER — modelled on SimplyTK's live tracker
+   Data: data/openings.json (rewritten every 3 hours by scripts/scan.mjs)
    ============================================================ */
-const SECTORS = ['Banking','Consulting & Accounting','AI & Tech','Private Equity & VC','Investment (HF / AM / ER)','Law','Access programmes','Other'];
-const SEC_COL = { 'Banking':'teal', 'Consulting & Accounting':'multi', 'AI & Tech':'phil', 'Private Equity & VC':'pol', 'Investment (HF / AM / ER)':'econ', 'Law':'law', 'Access programmes':'accent', 'Other':'grey' };
-const PROGRAMMES = ['Work experience','Spring week','Insight day','Virtual programme','Talk / webinar','Open day','Vacation scheme','Fellowship','Accelerator','Pre-university programme','Competition'];
-/* same rules as scripts/scan.mjs: experiences, not jobs */
-const EXP_KEEP = /(work[- ]experience|spring (week|insight|programme|internship)|insight (day|week|programme|event|evening|series)|virtual (work|experience|insight|internship|programme|event)|open (day|evening|week)|taster|discovery (day|week|programme|event)|\btalks?\b|webinar|masterclass|workshop|school (students?|leavers? insight)|sixth[- ]form|year 1[0-3]\b|early insight|first[- ]year (programme|insight|event)|pre-?university|vacation scheme|fellowship|accelerator)/i, EXP_DROP = /(senior|principal|director|head of|\blead\b|manager\b|vice president|\bvp\b|graduate (programme|scheme|analyst)|analyst programme|full[- ]time|permanent|apprenticeship|industrial placement|placement year|year[- ]long|12[- ]month|engineer\b|developer\b|associate\b|summer (analyst|associate)|off[- ]cycle)/i;
-const isExperience = o => o.kind ? (o.kind === 'experience' || (opF.interns && o.kind === 'internship')) : (EXP_KEEP.test(o.role || '') && !EXP_DROP.test(o.role || ''));
+const SECTORS = ['Banking','Consulting & Accounting','AI & Tech','Private Equity & VC','Investment (HF / AM / ER)','Law','Access programmes','Online courses','Other'];
+const SEC_COL = { 'Banking':'teal', 'Consulting & Accounting':'multi', 'AI & Tech':'phil', 'Private Equity & VC':'pol', 'Investment (HF / AM / ER)':'econ', 'Law':'law', 'Access programmes':'accent', 'Online courses':'law', 'Other':'grey' };
+const PROGRAMMES = ['Spring week','Insight / work experience','Summer internship','Off-cycle internship','Industrial placement','Graduate programme','Apprenticeship','Vacation scheme','Training contract','Virtual programme','Pre-university programme','Summer school','Event / talk','Fellowship','Accelerator','Online course','Competition'];
+const TRACKS = [['uni','Internships & spring weeks'], ['preuni','Pre-uni'], ['opps','Opportunities']];
+const TRACK_SUB = {
+  uni:'Spring weeks, insight programmes, summer and off-cycle internships, placements and graduate schemes at UK firms.',
+  preuni:'Work experience, insight days, apprenticeships, summer schools and programmes open to school students (Years 10–13).',
+  opps:'Fellowships, accelerators, competitions and online courses — with prices where they cost something.',
+};
 const YEAR_GROUPS = ['Year 10','Year 11','Year 12','Year 13','Gap year','First year','Penultimate year','Any'];
 const AGE_GROUPS = [['14-16','School, 14–16 (Y10–11)'], ['16-18','School, 16–18 (Y12–13)'], ['18+','Gap year / school leaver, 18+'], ['uni1','University 1st year, 18–19'], ['uni2','Penultimate year, 19–21'], ['grad','Final year / graduate, 21+']];
 const AGE_TEXT = { '14-16':'14–16 · Y10–11', '16-18':'16–18 · Y12–13', '18+':'18+ · school leaver', 'uni1':'18–19 · uni 1st year', 'uni2':'19–21 · penultimate year', 'grad':'21+ · final year / grad' };
@@ -656,36 +660,62 @@ const YG_AGE = { 'Year 10':'14-16', 'Year 11':'14-16', 'Year 12':'16-18', 'Year 
 function guessAge(text){
   const t = String(text || '').toLowerCase();
   if(/year 1[01]\b|gcse|aged? 1[45]|14-16|15-16/.test(t)) return '14-16';
-  if(/year 1[23]\b|sixth[- ]form|a-?level|school students?|aged? 1[67]|16-18|16\+|pre-?university/.test(t)) return '16-18';
+  if(/year 1[23]\b|sixth[- ]form|a-?level|school students?|aged? 1[67]|16-18|16\+|pre-?university|pathways to/.test(t)) return '16-18';
   if(/school leaver|apprentice|gap year|18\+/.test(t)) return '18+';
   if(/spring|insight|first[- ]year|fresher|discovery|1st year/.test(t)) return 'uni1';
+  if(/graduate|final[- ]year|training contract|full[- ]time analyst/.test(t)) return 'grad';
   if(/penultimate|summer (analyst|associate|intern)|internship|\bintern\b|vacation scheme|placement|off-?cycle/.test(t)) return 'uni2';
-  if(/graduate|final[- ]year|training contract/.test(t)) return 'grad';
   return '';
 }
 const ageOf = o => o.ageGroup || YG_AGE[o.yearGroup] || (o.remote ? guessAge(o.role + ' ' + (o.programme || '')) : '');
+function trackOf(o){
+  if(o.track) return o.track;
+  if(['Online course','Fellowship','Accelerator','Competition'].includes(o.programme)) return 'opps';
+  if(['14-16','16-18','18+'].includes(ageOf(o)) || ['Pre-university programme','Summer school','Apprenticeship'].includes(o.programme)) return 'preuni';
+  return 'uni';
+}
+const cityOf = o => { const c = String(o.location || '').split(/[,;|]| - /)[0].trim(); return c && c.length < 30 && !/^\d+ locations$/i.test(c) ? c : (o.region || ''); };
 function ageCell(o){ const a = ageOf(o); if(!a) return '<span class="faint">Check</span>'; const mine = a === '14-16' || a === '16-18'; return `<span class="age ${mine ? 'fit' : ''}" title="${esc(AGE_TEXT[a] || a)}">${esc((AGE_TEXT[a] || a).split(' · ')[0])}<small>${esc((AGE_TEXT[a] || '').split(' · ')[1] || '')}</small></span>`; }
-const REGIONS = ['London','South East','South West','East of England','West Midlands','East Midlands','North West','Yorkshire','North East','Scotland','Wales','Northern Ireland','Remote (UK)','UK (region not stated)'];
+const REGIONS = ['London','South East','South West','East of England','West Midlands','East Midlands','North West','Yorkshire','North East','Scotland','Wales','Northern Ireland','Remote (UK)','Online','UK (region not stated)'];
 const APP_STATUS = ['', 'Planning', 'Applied', 'Online test', 'Interview', 'Assessment centre', 'Offer', 'Rejected'];
 const statusCls = s => ({ 'Offer':'s-offer', 'Rejected':'s-rejected', 'Applied':'s-applied', 'Online test':'s-online', 'Interview':'s-interview', 'Assessment centre':'s-ac' }[s] || '');
-const opF = { tab:'all', q:'', interns:false, openOnly:false, region:'', sector:'', area:'', prog:'', yg:'', isNew:false, soon:false, sort:'deadline', dir:1 };
+const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, sort:'posted', dir:1, page:0 };
+const PAGE_SIZE = 25;
 
-const GHOSTS = [
-  { company:'Example Bank', sector:'Banking', ageGroup:'uni1', role:'Spring Insight Programme', area:'Markets & Trading', programme:'Spring week', location:'London', region:'London', deadline:'', posted:isoToday(), isNew:true },
-  { company:'Example Consulting', sector:'Consulting & Accounting', ageGroup:'16-18', role:'Year 12 Insight Day', area:'Strategy', programme:'Insight day', location:'London', deadline:'' , posted:isoToday() },
-  { company:'Example Law LLP', sector:'Law', ageGroup:'14-16', role:'Work Experience Week', area:'Commercial law', programme:'Work experience', location:'London', region:'London', deadline:'', posted:isoToday() },
-  { company:'Example AI Lab', sector:'AI & Tech', ageGroup:'18+', role:'Pre-university Fellowship', area:'Research', programme:'Fellowship', location:'Remote', deadline:'', posted:isoToday() },
-];
+/* time helpers: "8 hours ago", "detected 2 days after posting" */
+function relTime(iso){
+  if(!iso) return '';
+  const t = /T/.test(iso) ? Date.parse(iso) : parseD(iso) && parseD(iso).getTime();
+  if(!t) return '';
+  const mins = Math.round((Date.now() - t) / 6e4);
+  if(!/T/.test(iso)){ const d = -daysUntil(iso); return d <= 0 ? 'Today' : d === 1 ? 'Yesterday' : d < 30 ? d + ' days ago' : d < 60 ? '1 month ago' : Math.floor(d / 30) + ' months ago'; }
+  if(mins < 2) return 'Just now'; if(mins < 60) return mins + ' min ago';
+  const h = Math.round(mins / 60); if(h < 24) return h + (h === 1 ? ' hour ago' : ' hours ago');
+  const d = Math.round(h / 24); return d === 1 ? '1 day ago' : d < 30 ? d + ' days ago' : Math.floor(d / 30) + (d < 60 ? ' month ago' : ' months ago');
+}
+const postedKey = o => Date.parse((o.postedAt || '') + 'T12:00:00Z') || Date.parse(o.detected || '') || Date.parse((o.posted || '') + 'T00:00:00Z') || 0;
+const isNew24 = o => o.detected ? (Date.now() - Date.parse(o.detected)) < 864e5 : (daysUntil(o.posted) ?? -99) >= 0;
+function postedCell(o){
+  if(o.postedAt){
+    const after = o.detected ? Math.round((Date.parse(o.detected) - Date.parse(o.postedAt + 'T00:00:00Z')) / 864e5) : null;
+    return `<b style="font-weight:500">${o.postedApprox ? '30+ days ago' : esc(relTime(o.postedAt))}</b>${after != null ? `<small class="det">${after <= 0 ? 'detected same day' : 'detected +' + after + 'd'}</small>` : ''}`;
+  }
+  return o.detected || o.posted ? `<b style="font-weight:500">${esc(relTime(o.detected || o.posted))}</b><small class="det">first detected</small>` : '<span class="faint">·</span>';
+}
 
-
-/* ---------- live feed: data/openings.json is rewritten by the scanner (GitHub Action) ---------- */
-const LIVE = { updated:null, openings:[], review:[], watchlist:[], health:{}, loaded:false, error:false };
+/* ---------- live feed ---------- */
+const LIVE = { updated:null, openings:[], review:[], closed:[], watchlist:[], health:{}, log:[], loaded:false, error:false };
 if(!S.opMeta) S.opMeta = {};
 if(!S.reviewDecisions) S.reviewDecisions = {};
+if(!S.firmNotes) S.firmNotes = {};
 function OPS(){
   const accepted = new Set(Object.keys(S.reviewDecisions).filter(k => S.reviewDecisions[k] === 'accept'));
-  const remote = LIVE.openings.concat(LIVE.review.filter(r => accepted.has(r.company))).filter(isExperience);
-  return remote.map(r => Object.assign({ remote:true }, r, S.opMeta[r.id] || {})).concat(S.openings);
+  const remote = LIVE.openings.concat(LIVE.review.filter(r => accepted.has(r.company)));
+  return remote.map(r => {
+    const meta = Object.assign({}, S.opMeta[r.id] || {});
+    if(typeof meta.notes === 'string'){ meta.myNotes = meta.myNotes || meta.notes; delete meta.notes; }   // older saves kept personal notes in "notes"
+    return Object.assign({ remote:true }, r, meta);
+  }).concat(S.openings.map(o => typeof o.notes === 'string' ? Object.assign(o, { myNotes:o.myNotes || o.notes, notes:[] }) : o));
 }
 function setOp(o, patch){
   Object.assign(o, patch);
@@ -695,7 +725,7 @@ function setOp(o, patch){
 function pendingReview(){
   const onList = new Set(LIVE.watchlist.map(w => w.company));
   const by = {};
-  LIVE.review.filter(isExperience).forEach(r => { if(onList.has(r.company) || S.reviewDecisions[r.company]) return; (by[r.company] = by[r.company] || { company:r.company, sector:r.sector, items:[] }).items.push(r); });
+  LIVE.review.forEach(r => { if(onList.has(r.company) || S.reviewDecisions[r.company]) return; (by[r.company] = by[r.company] || { company:r.company, sector:r.sector, items:[] }).items.push(r); });
   return Object.values(by);
 }
 async function loadLive(silent){
@@ -704,10 +734,10 @@ async function loadLive(silent){
     if(!res.ok) throw 0;
     const d = await res.json();
     const before = new Set(LIVE.openings.map(o => o.id));
-    const hadData = LIVE.loaded;
+    const hadData = LIVE.loaded && LIVE.updated;
     let wl = d.watchlist || [];
     if(!wl.length){ try{ const w = await (await fetch('data/watchlist.json?t=' + Date.now(), { cache:'no-store' })).json(); wl = w.companies || []; }catch(e){} }
-    Object.assign(LIVE, { updated:d.updated || null, openings:d.openings || [], review:d.review || [], watchlist:wl, health:d.health || {}, loaded:true, error:false });
+    Object.assign(LIVE, { updated:d.updated || null, openings:d.openings || [], review:d.review || [], closed:d.closed || [], watchlist:wl, health:d.health || {}, log:d.log || [], loaded:true, error:false });
     const fresh = LIVE.openings.filter(o => !before.has(o.id)).length;
     if(hadData && fresh && !silent) toast(fresh + ' new opening' + (fresh > 1 ? 's' : '') + ' found');
   }catch(e){ LIVE.error = true; LIVE.loaded = true; }
@@ -718,12 +748,12 @@ function liveLine(){
   if(!LIVE.loaded) return '<span class="live"><i></i>Checking for openings…</span>';
   if(LIVE.error) return '<span class="live off"><i></i>Live feed unavailable — showing your own entries</span>';
   if(!LIVE.updated) return '<span class="live wait"><i></i>Scanner set up · waiting for its first run</span>';
-  return `<span class="live"><i></i>Live · last scan ${ago(LIVE.updated.slice(0,10)).toLowerCase()} at ${LIVE.updated.slice(11,16)} · ${LIVE.watchlist.length} companies watched</span>`;
+  return `<span class="live"><i></i>Live · refreshes automatically · last check ${esc(relTime(LIVE.updated).toLowerCase())} · ${LIVE.watchlist.length} firms watched</span>`;
 }
 
 function drawReview(b){
   const list = pendingReview();
-  b.innerHTML = `<div class="info" style="margin-bottom:16px">The scanner also checks firms that aren’t on your watchlist. When it finds an opportunity at one of them, it lands here. <b>Accept</b> adds the firm to your watchlist and its openings to the tracker; <b>Decline</b> hides it.</div>`
+  b.innerHTML = `<div class="info" style="margin-bottom:16px">The scanner also checks firms that aren’t on your watchlist. When it finds an opening at one of them, it lands here. <b>Accept</b> adds the firm to your watchlist and its openings to the tracker; <b>Decline</b> hides it.</div>`
     + (list.length ? `<div class="grid">${list.map(g => `<div class="card" style="--sc:var(--${SEC_COL[g.sector] || 'grey'})">
         <div class="meta"><span class="chip subj">${esc(g.sector || 'Unsorted')}</span><span class="chip soft">${g.items.length} found</span></div>
         <h3>${esc(g.company)}</h3>
@@ -737,154 +767,240 @@ function drawReview(b){
 }
 
 function viewOpenings(v){
-  const live = OPS().filter(o => { const d = daysUntil(o.deadline); return (d === null || d >= 0); }).length;
+  const all = OPS();
+  const inTrack = t => all.filter(o => trackOf(o) === t);
+  const isTrackTab = TRACKS.some(t => t[0] === opF.tab);
+  const cur = isTrackTab ? inTrack(opF.tab) : all;
+  const open = cur.filter(o => o.live !== 'closed' && (daysUntil(o.deadline) ?? 0) >= 0);
+  const title = { uni:'Live internship & spring week tracker', preuni:'Live pre-uni tracker', opps:'Opportunities' }[opF.tab] || 'Openings tracker';
   v.innerHTML = head({
-    crumbs:crumbsFor('openings'), title:'Openings tracker',
-    sub:'UK work experience, spring weeks, insight days, virtual programmes, open days and talks — experiences, not jobs — across banking, consulting, tech, PE, investment and law.',
-    stats:[[OPS().length, 'openings'], [live, 'still open'], [OPS().filter(o => o.saved).length, 'saved'], [OPS().filter(o => o.status && o.status !== 'Planning').length, 'applied']],
+    crumbs:crumbsFor('openings'), title,
+    sub:(LIVE.updated && isTrackTab ? `<b>${open.length}</b> live UK openings. ` : '') + (TRACK_SUB[opF.tab] || 'Every UK opening across the firms you watch.') + ' Detected automatically, newest first.',
+    stats:[[open.length, 'live now'], [cur.filter(isNew24).length, 'new in 24h'], [cur.filter(o => { const d = daysUntil(o.deadline); return d !== null && d >= 0 && d <= 7; }).length, 'closing this week'], [all.filter(o => o.saved).length, 'starred']],
     actions:`<button class="btn" id="opRefresh">↻ Refresh</button><button class="btn primary" id="opAdd">${I(IC.plus,14)} Add opening</button>`
   }) + `<div style="margin:-8px 0 18px">${liveLine()}</div>
   <div class="subtabs" role="tablist">
-    ${[['all','All openings', OPS().length], ['saved','Saved', OPS().filter(o => o.saved).length], ['apps','My applications', OPS().filter(o => o.status).length], ['companies','Watchlist', new Set(LIVE.watchlist.map(w => w.company).concat(OPS().map(o => o.company))).size], ['review','Review', pendingReview().length]]
+    ${TRACKS.map(t => [t[0], t[1], inTrack(t[0]).length]).concat([['saved','Starred', all.filter(o => o.saved).length], ['apps','My applications', all.filter(o => o.status).length], ['companies','Watchlist', new Set(LIVE.watchlist.map(w => w.company)).size], ['review','Review', pendingReview().length]])
       .map(t => `<button role="tab" data-t="${t[0]}" aria-selected="${opF.tab === t[0]}">${t[1]} <span class="n">${t[2]}</span></button>`).join('')}
   </div>
   <div class="filterbar" id="opFilters">
     ${searchbar('opQ', 'Search by company, role, city…', opF.q)}
     <div class="row">
-      ${selectBox('opSec', 'All sectors', SECTORS, opF.sector)}
-      ${selectBox('opArea', 'All role types', [...new Set(OPS().map(o => o.area).filter(Boolean))].sort(), opF.area)}
-      ${selectBox('opProg', 'All programmes', PROGRAMMES, opF.prog)}
+      ${selectBox('opSec', 'All sectors', SECTORS.filter(x => cur.some(o => o.sector === x)), opF.sector)}
+      ${selectBox('opRole', 'All role types', [...new Set(cur.map(o => o.roleType).filter(Boolean))].sort(), opF.role)}
+      ${selectBox('opProg', 'All programmes', PROGRAMMES.filter(x => cur.some(o => o.programme === x)), opF.prog)}
       ${selectBox('opYg', 'Any age', AGE_GROUPS, opF.yg)}
-      ${selectBox('opReg', 'All UK regions', REGIONS, opF.region)}
-      <span class="row" style="gap:14px">${sw('opOpen', 'Open now', opF.openOnly)} ${sw('opNew', 'New (7 days)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opInt', 'Include internships', opF.interns)}</span>
+      ${selectBox('opReg', 'All UK regions', REGIONS.filter(x => cur.some(o => o.region === x)), opF.region)}
+      <span class="row" style="gap:14px">${sw('opNew', 'New (24h)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opOpen', 'Open now', opF.openOnly)}</span>
     </div>
   </div>
+  <div id="opStrip"></div>
   <div id="opBody"></div>`;
-  $$('.subtabs button', v).forEach(b => b.onclick = () => { opF.tab = b.dataset.t; viewOpenings(v); });
+  $$('.subtabs button', v).forEach(b => b.onclick = () => { opF.tab = b.dataset.t; opF.page = 0; opF.sector = opF.role = opF.prog = opF.region = ''; viewOpenings(v); });
   $('#opAdd').onclick = () => editOpening();
   $('#opRefresh').onclick = () => { toast('Checking…'); loadLive(false); };
-  bindSearch('opQ', q => { opF.q = q; drawOpenings(); });
-  [['opReg','region'], ['opSec','sector'], ['opArea','area'], ['opProg','prog'], ['opYg','yg']].forEach(([id, k]) => $('#' + id).onchange = e => { opF[k] = e.target.value; drawOpenings(); });
-  $('#opNew').onchange = e => { opF.isNew = e.target.checked; drawOpenings(); };
-  $('#opSoon').onchange = e => { opF.soon = e.target.checked; drawOpenings(); };
-  $('#opOpen').onchange = e => { opF.openOnly = e.target.checked; drawOpenings(); };
-  $('#opInt').onchange = e => { opF.interns = e.target.checked; viewOpenings($('#view')); };
+  bindSearch('opQ', q => { opF.q = q; opF.page = 0; drawOpenings(); });
+  [['opReg','region'], ['opSec','sector'], ['opRole','role'], ['opProg','prog'], ['opYg','yg']].forEach(([id, k]) => $('#' + id).onchange = e => { opF[k] = e.target.value; opF.page = 0; drawOpenings(); });
+  $('#opNew').onchange = e => { opF.isNew = e.target.checked; opF.page = 0; drawOpenings(); };
+  $('#opSoon').onchange = e => { opF.soon = e.target.checked; opF.page = 0; drawOpenings(); };
+  $('#opOpen').onchange = e => { opF.openOnly = e.target.checked; opF.page = 0; drawOpenings(); };
   drawOpenings();
 }
 
 function opFiltered(){
+  const isTrackTab = TRACKS.some(t => t[0] === opF.tab);
   let l = OPS().filter(o => {
+    if(isTrackTab && trackOf(o) !== opF.tab) return false;
     if(opF.tab === 'saved' && !o.saved) return false;
     if(opF.tab === 'apps' && !o.status) return false;
     if(opF.sector && o.sector !== opF.sector) return false;
     if(opF.region && o.region !== opF.region) return false;
-    if(opF.area && o.area !== opF.area) return false;
+    if(opF.role && o.roleType !== opF.role) return false;
     if(opF.prog && o.programme !== opF.prog) return false;
     if(opF.yg && ageOf(o) !== opF.yg && o.yearGroup !== 'Any') return false;
-    if(opF.isNew){ const d = daysUntil(o.posted); if(d === null || d < -7) return false; }
+    if(opF.isNew && !isNew24(o)) return false;
     if(opF.openOnly && (o.live === 'closed' || (daysUntil(o.deadline) ?? 0) < 0)) return false;
     if(opF.soon){ const d = daysUntil(o.deadline); if(d === null || d < 0 || d > 14) return false; }
-    if(opF.q && ![o.company, o.role, o.area, o.location, o.programme, o.sector, o.notes].join(' ').toLowerCase().includes(opF.q)) return false;
+    if(opF.q && ![o.company, o.role, o.roleType, o.location, o.region, o.programme, o.sector, (o.notes || []).join ? (o.notes || []).join(' ') : '', o.myNotes].join(' ').toLowerCase().includes(opF.q)) return false;
     return true;
   });
-  const key = { company:o => (o.company||'').toLowerCase(), role:o => (o.role||'').toLowerCase(), programme:o => o.programme || '', age:o => ['14-16','16-18','18+','uni1','uni2','grad'].indexOf(ageOf(o)) + 1 || 99, location:o => o.location || '',
-    deadline:o => { const d = daysUntil(o.deadline); return d === null ? 9e9 : d < 0 ? 1e9 - d : d; }, posted:o => -(daysUntil(o.posted) ?? -9e9) }[opF.sort];
+  const AG = ['14-16','16-18','18+','uni1','uni2','grad'];
+  const key = { company:o => (o.company||'').toLowerCase(), role:o => (o.role||'').toLowerCase(), programme:o => o.programme || '', age:o => AG.indexOf(ageOf(o)) + 1 || 99, location:o => o.location || '',
+    deadline:o => { const d = daysUntil(o.deadline); return d === null ? 9e9 : d < 0 ? 1e9 - d : d; }, posted:o => -postedKey(o) }[opF.sort];
   return l.sort((a, b) => { const x = key(a), y = key(b); return (x < y ? -1 : x > y ? 1 : 0) * opF.dir; });
 }
 
+const GHOSTS = [
+  { company:'Example Bank', sector:'Banking', ageGroup:'uni1', role:'Spring Insight Programme 2027', roleType:'Markets & trading', programme:'Spring week', location:'London', region:'London', detected:new Date().toISOString() },
+  { company:'Example Consulting', sector:'Consulting & Accounting', ageGroup:'uni2', role:'Summer Internship 2027', roleType:'Consulting & strategy', programme:'Summer internship', location:'Manchester', region:'North West', detected:new Date().toISOString() },
+];
+
 function drawOpenings(){
-  const b = $('#opBody');
-  $('#opFilters').classList.toggle('hidden', opF.tab === 'companies' || opF.tab === 'review');
+  const b = $('#opBody'), strip = $('#opStrip');
+  const listTab = !['companies','review','apps'].includes(opF.tab);
+  $('#opFilters').classList.toggle('hidden', !listTab && opF.tab !== 'apps');
+  strip.innerHTML = '';
   if(opF.tab === 'review') return drawReview(b);
   if(opF.tab === 'companies') return drawCompanies(b);
   if(opF.tab === 'apps') return drawBoard(b);
   const list = opFiltered();
   const ghost = !OPS().length && !LIVE.updated;
-  const rows = ghost ? GHOSTS : list;
-  const cols = [['company','Company'], ['role','Role'], ['programme','Programme'], ['age','Age'], ['location','Location'], ['deadline','Deadline'], ['posted','Posted']];
-  b.innerHTML = (ghost ? `<div class="caveat">${I(IC.warn,15)}<div><b>Preview rows.</b> These placeholders just show the layout — they’ll be replaced once we load your list of companies and their real programmes. You can also add openings yourself with <b>Add opening</b>.</div></div>` : '')
+  // closing soonest
+  const soon = list.filter(o => { const d = daysUntil(o.deadline); return d !== null && d >= 0 && o.live !== 'closed'; }).sort((x, y) => x.deadline < y.deadline ? -1 : 1).slice(0, 5);
+  if(soon.length) strip.innerHTML = `<div class="strip"><span class="strip-h">Closing soonest</span>${soon.map(o => `<button class="strip-i" data-open="${esc(o.id)}"><b>${esc(o.company)}</b><span>${esc(o.role)}</span>${countdown(o.deadline)}</button>`).join('')}</div>`;
+  $$('[data-open]', strip).forEach(x => x.onclick = () => openOpening(OPS().find(o => o.id === x.dataset.open)));
+  const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE)); if(opF.page >= pages) opF.page = pages - 1;
+  const rows = ghost ? GHOSTS : list.slice(opF.page * PAGE_SIZE, (opF.page + 1) * PAGE_SIZE);
+  const cols = [['company','Company'], ['role','Role'], ['programme','Programme'], ['location','Location'], ['age','Age'], ['deadline','Deadline'], ['posted','Posted']];
+  b.innerHTML = (ghost ? `<div class="caveat">${I(IC.warn,15)}<div><b>Preview rows.</b> Real openings appear here after the scanner’s first run.</div></div>` : '')
   + `<div class="tracker">
-    <div class="tr-head">${cols.map(c => `<span data-sort="${c[0]}" class="${opF.sort === c[0] ? 'sorted' : ''}">${c[1]}${opF.sort === c[0] ? (opF.dir > 0 ? ' ↑' : ' ↓') : ''}</span>`).join('')}<span></span></div>
+    <div class="tr-head">${cols.map(c => `<span data-sort="${c[0]}" class="${opF.sort === c[0] ? 'sorted' : ''}">${c[1]}${opF.sort === c[0] ? (opF.dir > 0 ? ' ↓' : ' ↑') : ''}</span>`).join('')}<span></span></div>
     ${rows.length ? rows.map(o => opRow(o, ghost)).join('') : `<div class="tr-empty"><b>No openings match</b>Try clearing a filter or the search box.</div>`}
-  </div>`;
+  </div>
+  ${!ghost && list.length > PAGE_SIZE ? `<div class="pager"><button class="btn sm" data-pg="-1" ${opF.page === 0 ? 'disabled' : ''}>← Previous</button><span>Page ${opF.page + 1} of ${pages} · ${list.length} openings</span><button class="btn sm" data-pg="1" ${opF.page >= pages - 1 ? 'disabled' : ''}>Next →</button></div>` : (!ghost && list.length ? `<div class="pager"><span>${list.length} opening${list.length === 1 ? '' : 's'}</span></div>` : '')}`;
   $$('[data-sort]', b).forEach(h => h.onclick = () => { opF.dir = opF.sort === h.dataset.sort ? -opF.dir : 1; opF.sort = h.dataset.sort; drawOpenings(); });
+  $$('[data-pg]', b).forEach(x => x.onclick = () => { opF.page += +x.dataset.pg; drawOpenings(); $('#opFilters').scrollIntoView({ behavior:'smooth', block:'start' }); });
   if(ghost) return;
-  $$('.tr-row', b).forEach(r => r.onclick = e => {
-    const o = OPS().find(x => x.id === r.dataset.id); if(!o) return;
-    if(e.target.closest('.apply')) return;
-    if(e.target.closest('[data-star]')){ setOp(o, { saved:!o.saved }); refreshCounts(); return; }
-    if(e.target.closest('[data-flag]')){ openOpening(o); return; }
-    openOpening(o);
+  $$('.tr-row', b).forEach(r => {
+    const o = () => OPS().find(x => x.id === r.dataset.id);
+    r.onclick = e => {
+      const it = o(); if(!it) return;
+      if(e.target.closest('.apply')) return;
+      if(e.target.closest('[data-star]')){ setOp(it, { saved:!it.saved }); e.target.closest('[data-star]').classList.toggle('on', it.saved); toast(it.saved ? 'Starred' : 'Removed from starred'); return; }
+      if(e.target.closest('[data-co]')){ openCompany(it.company); return; }
+      hideHover(); openOpening(it);
+    };
+    r.onmouseenter = e => { if(matchMedia('(hover:hover)').matches){ const it = o(); if(it) showHover(it, r); } };
+    r.onmouseleave = hideHover;
   });
 }
 function refreshCounts(){ const v = $('#view'); const sc = window.scrollY; viewOpenings(v); window.scrollTo(0, sc); }
 
 function opRow(o, ghost){
-  const isNew = ghost ? o.isNew : (daysUntil(o.posted) ?? -99) >= -7;
-  return `<div class="tr-row ${ghost ? 'ghost' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
-    <div class="cell-main"><b>${esc(o.company)}</b><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
-    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew ? '<span class="badge-new">NEW</span>' : ''}${o.live === 'open' ? '<span class="cd open">Open</span>' : ''}${o.kind === 'internship' ? '<span class="chip soft">Internship</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(o.area || '')}</small></div>
+  const sub = [o.roleType, o.price].filter(Boolean).join(' · ');
+  return `<div class="tr-row ${ghost ? 'ghost' : ''} ${o.live === 'closed' ? 'is-closed' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
+    <div class="cell-main"><button class="co-link" data-co="${esc(o.company)}" title="See everything at ${esc(o.company)}">${esc(o.company)}</button><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
+    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew24(o) ? '<span class="badge-new">NEW</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(sub)}</small></div>
     <div class="cell-txt">${esc(o.programme || '')}</div>
+    <div class="cell-main"><b style="font-weight:500">${esc(cityOf(o))}</b><small>${o.region && o.region !== cityOf(o) ? esc(o.region) : ''}</small></div>
     <div class="cell-age">${ageCell(o)}</div>
-    <div class="cell-main"><b style="font-weight:500">${esc(o.location || o.region || '')}</b><small>${o.region && o.region !== o.location ? esc(o.region) : ''}</small></div>
-    <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : countdown(o.deadline, o.opens, o.rolling)}</div>
-    <div class="cell-main posted"><b style="font-weight:500">${esc(ago(o.posted))}</b>${o.opens && daysUntil(o.opens) > 0 ? `<small>opens ${fmtD(o.opens)}</small>` : ''}</div>
-    <div class="m-extra">${esc([o.programme, ageOf(o) && 'Age ' + AGE_TEXT[ageOf(o)], o.location].filter(Boolean).join(' · '))}</div>
+    <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : o.deadline || o.opens || o.rolling ? countdown(o.deadline, o.opens, o.rolling) : o.live === 'open' ? '<span class="cd open">Open</span>' : '<span class="faint">·</span>'}</div>
+    <div class="cell-main posted">${postedCell(o)}</div>
+    <div class="m-extra">${esc([o.programme, ageOf(o) && 'Age ' + AGE_TEXT[ageOf(o)], o.location, o.deadline ? 'closes ' + fmtD(o.deadline) : ''].filter(Boolean).join(' · '))}</div>
     <div class="acts">
-      <button class="act ${o.saved ? 'on' : ''}" data-star title="Save" aria-label="Save">${I(IC.star,17)}</button>
-      <button class="act" data-flag title="Track application" aria-label="Track application">${I(IC.flag,17)}</button>
+      <button class="act ${o.saved ? 'on' : ''}" data-star title="Star" aria-label="Star">${I(IC.star,17)}</button>
       ${o.link ? `<a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a>` : `<span class="apply" style="opacity:.5">Apply ${I(IC.ext,14)}</span>`}
     </div>
   </div>`;
 }
 
+/* hover card with the key application details */
+let hoverEl;
+function showHover(o, row){
+  if(!hoverEl){ hoverEl = document.createElement('div'); hoverEl.className = 'hovercard'; hoverEl.setAttribute('role', 'tooltip'); document.body.appendChild(hoverEl); }
+  const badges = [o.programme, ageOf(o) && AGE_TEXT[ageOf(o)], o.visa, o.price, o.live === 'open' ? 'Applications open' : o.live === 'closed' ? 'Closed' : ''].filter(Boolean);
+  const lines = [];
+  if(o.deadline) lines.push(`<b>Deadline ${fmtD(o.deadline, true)}.</b>`);
+  else if(o.opens) lines.push(`<b>Opens ${fmtD(o.opens, true)}.</b>`);
+  else if(o.rolling) lines.push('<b>Rolling deadline — apply early.</b>');
+  const notes = Array.isArray(o.notes) ? o.notes : [];
+  const firm = S.firmNotes[o.company];
+  hoverEl.innerHTML = `<div class="hc-t">${esc(o.role)}</div>
+    <div class="hc-b">${badges.map(x => `<span>${esc(x)}</span>`).join('')}</div>
+    ${lines.length || notes.length ? `<p>${lines.join(' ')} ${notes.map(esc).join(' ')}</p>` : '<p class="faint">No extra details were published with this listing — open it for the full description.</p>'}
+    ${firm ? `<p class="hc-firm"><b>Your note on ${esc(o.company)}:</b> ${esc(firm)}</p>` : ''}
+    <div class="hc-f">${esc([o.company, o.location || o.region, o.postedAt ? 'posted ' + fmtD(o.postedAt, true) : '', o.source ? 'via ' + o.source : ''].filter(Boolean).join(' · '))}</div>`;
+  const r = row.querySelector('.cell-main:nth-child(2)').getBoundingClientRect();
+  hoverEl.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 400)) + 'px';
+  const below = r.bottom + 8, h = hoverEl.offsetHeight || 180;
+  hoverEl.style.top = (below + h > window.innerHeight ? r.top - h - 8 : below) + window.scrollY + 'px';
+  hoverEl.classList.add('on');
+}
+function hideHover(){ if(hoverEl) hoverEl.classList.remove('on'); }
+window.addEventListener('scroll', hideHover, { passive:true });
+
 function openOpening(o){
+  if(!o) return;
+  const notes = Array.isArray(o.notes) ? o.notes : [];
   const html = `
-    <div class="meta" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})"><span class="chip subj">${esc(o.sector || 'Other')}</span>${o.programme ? `<span class="chip soft">${esc(o.programme)}</span>` : ''}${ageOf(o) ? `<span class="chip soft">Age ${esc(AGE_TEXT[ageOf(o)])}</span>` : ''}</div>
+    <div class="meta" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})"><span class="chip subj">${esc(o.sector || 'Other')}</span>${o.programme ? `<span class="chip soft">${esc(o.programme)}</span>` : ''}${ageOf(o) ? `<span class="chip soft">Age ${esc(AGE_TEXT[ageOf(o)])}</span>` : ''}${o.visa ? `<span class="chip ${/No/.test(o.visa) ? 'warn' : 'ok'}">${esc(o.visa)}</span>` : ''}${o.live === 'open' ? '<span class="chip ok">Applications open</span>' : o.live === 'closed' ? '<span class="chip soft">Closed</span>' : ''}</div>
     <h2>${esc(o.role || o.programme)}</h2>
-    <div class="muted" style="font-size:15px;margin-bottom:12px"><b style="color:var(--ink)">${esc(o.company)}</b>${o.location ? ' · ' + esc(o.location) : ''}</div>
+    <div class="muted" style="font-size:15px;margin-bottom:12px"><a href="#" class="lnk" id="dCo" style="color:var(--ink);font-weight:600">${esc(o.company)}</a>${o.location ? ' · ' + esc(o.location) : ''}</div>
+    ${o.link ? `<div style="margin:4px 0 14px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a></div>` : ''}
     <dl class="kv">
-      <dt>Deadline</dt><dd>${o.deadline ? fmtD(o.deadline, true) + ' ' + countdown(o.deadline, o.opens, o.rolling) : o.rolling ? 'Rolling' : 'Not published yet'}</dd>
+      <dt>Deadline</dt><dd>${o.deadline ? fmtD(o.deadline, true) + ' ' + countdown(o.deadline, o.opens, o.rolling) : o.rolling ? 'Rolling' : 'Not published — apply early'}</dd>
       ${o.opens ? `<dt>Opens</dt><dd>${fmtD(o.opens, true)}</dd>` : ''}
-      ${o.area ? `<dt>Role type</dt><dd>${esc(o.area)}</dd>` : ''}
-      <dt>Added</dt><dd>${fmtD(o.posted, true) || '—'}</dd>
+      ${o.roleType ? `<dt>Role type</dt><dd>${esc(o.roleType)}</dd>` : ''}
+      ${o.region ? `<dt>Region</dt><dd>${esc(o.region)}</dd>` : ''}
+      ${o.price ? `<dt>Price</dt><dd>${esc(o.price)}</dd>` : ''}
+      <dt>Posted</dt><dd>${o.postedAt ? fmtD(o.postedAt, true) + (o.postedApprox ? ' or earlier' : '') + ' by ' + esc(o.company) : 'Not stated by the firm'}</dd>
+      ${o.detected ? `<dt>Detected</dt><dd>${new Date(o.detected).toLocaleString('en-GB', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })}${o.source ? ' · via ' + esc(o.source) : ''}</dd>` : ''}
     </dl>
-    ${o.link ? `<div style="margin-top:16px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a></div>` : ''}
+    ${notes.length ? `<div class="drawer-sec"><div class="lbl">Key details from the listing</div><ul class="notes">${notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : ''}
     <div class="drawer-sec"><div class="lbl">Application status</div>
       <select class="dd-sel" id="dSt">${APP_STATUS.map(s => `<option value="${s}" ${s === (o.status || '') ? 'selected' : ''}>${s || 'Not tracking'}</option>`).join('')}</select></div>
-    <div class="drawer-sec"><div class="lbl">Notes</div><textarea class="inp" id="dN" rows="5" placeholder="Cover letter angle, test dates, who you spoke to…">${esc(o.notes || '')}</textarea></div>
-    ${o.remote ? `<div class="drawer-sec faint" style="font-size:12.5px">Found automatically${o.source ? ' on ' + esc(o.source) : ''} · first seen ${fmtD(o.posted, true)}</div>` : '<div class="drawer-sec row"><button class="btn" id="dE">Edit details</button></div>'}`;
+    <div class="drawer-sec"><div class="lbl">Your notes</div><textarea class="inp" id="dN" rows="4" placeholder="Cover letter angle, test dates, who you spoke to…">${esc(o.myNotes || '')}</textarea></div>
+    ${o.remote ? '' : '<div class="drawer-sec row"><button class="btn" id="dE">Edit details</button></div>'}`;
   openDrawer(esc(o.company), html, b => {
     $('#dSt', b).onchange = e => { setOp(o, { status:e.target.value }); drawOpenings(); };
-    $('#dN', b).oninput = debounce(e => setOp(o, { notes:e.target.value }), 300);
+    $('#dN', b).oninput = debounce(e => setOp(o, { myNotes:e.target.value }), 300);
+    $('#dCo', b).onclick = e => { e.preventDefault(); openCompany(o.company); };
     if($('#dE', b)) $('#dE', b).onclick = () => { closeDrawer(); editOpening(o); };
+  });
+}
+
+/* company page (like SimplyTK's /companies/…): live openings, recently closed, your notes */
+function openCompany(name){
+  const live = OPS().filter(o => o.company === name).sort((a, b) => postedKey(b) - postedKey(a));
+  const closed = (LIVE.closed || []).filter(c => c.company === name).sort((a, b) => a.closedOn < b.closedOn ? 1 : -1);
+  const w = LIVE.watchlist.find(c => c.company === name) || live[0] || {};
+  const h = (LIVE.health || {})[name];
+  const via = h && h.ok ? (Array.isArray(h.via) ? h.via : [h.via]).filter(Boolean).join(', ') : '';
+  const html = `
+    <div class="meta" style="--sc:var(--${SEC_COL[w.sector] || 'grey'})"><span class="chip subj">${esc(w.sector || 'Other')}</span>${w.sub ? `<span class="chip soft">${esc(w.sub)}</span>` : ''}</div>
+    <h2>${esc(name)}</h2>
+    <p class="muted" style="margin:0 0 6px"><b style="color:var(--ink)">${live.length}</b> live opening${live.length === 1 ? '' : 's'} right now${via ? ' · checked via ' + esc(via) : ''}.</p>
+    ${h && !h.ok ? `<p class="faint" style="font-size:12.5px;margin:0">The scanner hasn’t found this firm’s job system yet.</p>` : ''}
+    <div class="drawer-sec"><div class="lbl">Live openings</div>
+      ${live.length ? `<div class="list">${live.map(o => `<div class="li"><span class="grow"><a href="#" class="lnk" data-op="${esc(o.id)}" style="color:var(--ink);font-weight:600">${esc(o.role)}</a><small>${esc([o.programme, o.location, o.postedAt ? relTime(o.postedAt) : ''].filter(Boolean).join(' · '))}</small></span>${o.deadline ? countdown(o.deadline) : ''}${o.link ? `<a class="apply sm" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply</a>` : ''}</div>`).join('')}</div>` : '<p class="faint" style="font-size:13px">Nothing open in the UK right now.</p>'}
+    </div>
+    <div class="drawer-sec"><div class="lbl">Recently closed</div>
+      ${closed.length ? `<div class="list">${closed.slice(0, 20).map(c => `<div class="li"><span class="grow">${esc(c.role)}<small>${esc(c.programme || '')}${c.detected ? ' · seen from ' + fmtD(c.detected.slice(0, 10), true) : ''}</small></span><span class="cd closed">Closed ${fmtD(c.closedOn)}</span></div>`).join('')}</div>` : '<p class="faint" style="font-size:13px">Nothing has closed since tracking began. Closed programmes are kept here for 4 months, so next year you can see when they opened.</p>'}
+    </div>
+    <div class="drawer-sec"><div class="lbl">Your notes on ${esc(name)} <span class="faint" style="text-transform:none;letter-spacing:0">— shown on every opening’s hover card</span></div>
+      <textarea class="inp" id="fN" rows="3" placeholder="e.g. Only one application per cycle · met Jane at the insight evening">${esc(S.firmNotes[name] || '')}</textarea></div>
+    <div class="drawer-sec row"><button class="btn sm" id="fFilter">Show only ${esc(name)} in the tracker</button></div>`;
+  openDrawer('Company', html, b => {
+    $$('[data-op]', b).forEach(a => a.onclick = e => { e.preventDefault(); openOpening(OPS().find(o => o.id === a.dataset.op)); });
+    $('#fN', b).oninput = debounce(e => { S.firmNotes[name] = e.target.value.trim(); save(); }, 300);
+    $('#fFilter', b).onclick = () => { closeDrawer(); opF.q = name.toLowerCase(); opF.page = 0; const t = live[0] ? trackOf(live[0]) : 'uni'; opF.tab = t; location.hash === '#openings' ? viewOpenings($('#view')) : (location.hash = '#openings'); };
   });
 }
 
 function editOpening(o, preset){
   const companies = [...new Set(OPS().map(x => x.company))].sort();
-  openForm({ title: o ? 'Edit opening' : 'Add opening', value: o || Object.assign({ sector:'Banking', programme:'Spring week', posted:isoToday() }, preset),
+  openForm({ title: o ? 'Edit opening' : 'Add opening', value: o || Object.assign({ sector:'Banking', programme:'Spring week', posted:isoToday(), detected:new Date().toISOString() }, preset),
     fields:[
       { k:'company', label:'Company', req:true, list:companies },
       { k:'sector', label:'Sector', type:'select', opts:SECTORS },
       { k:'role', label:'Role / programme name', req:true, full:true, ph:'e.g. Spring Insight Programme 2027' },
-      { k:'area', label:'Role type', ph:'e.g. Markets & Trading', list:[...new Set(OPS().map(x => x.area).filter(Boolean))] },
+      { k:'roleType', label:'Role type', ph:'e.g. Markets & trading', list:[...new Set(OPS().map(x => x.roleType).filter(Boolean))] },
       { k:'programme', label:'Programme', type:'select', opts:PROGRAMMES },
       { k:'ageGroup', label:'Age / eligibility', type:'select', opts:[['', 'Not stated'], ...AGE_GROUPS] },
       { k:'location', label:'City', ph:'London' }, { k:'region', label:'UK region', type:'select', opts:['', ...REGIONS] },
       { k:'opens', label:'Opens', type:'date' }, { k:'deadline', label:'Deadline', type:'date' },
       { k:'rolling', label:'Rolling deadline', type:'check' },
-      { k:'posted', label:'Date added', type:'date' },
+      { k:'price', label:'Price', ph:'e.g. Free · £49 certificate' },
       { k:'link', label:'Application link', type:'url', full:true, ph:'https://' },
     ],
-    onSave: out => { o ? Object.assign(o, out) : S.openings.push(Object.assign({ id:uid(), status:'' }, out)); save(); route(); },
+    onSave: out => { o ? Object.assign(o, out) : S.openings.push(Object.assign({ id:uid(), status:'', detected:new Date().toISOString(), posted:isoToday() }, out)); save(); route(); },
     onDelete: o ? () => { S.openings = S.openings.filter(x => x !== o); save(); route(); } : null });
 }
 
 function drawBoard(b){
   const cols = APP_STATUS.filter(Boolean);
-  const list = opFiltered();
-  if(!OPS().some(o => o.status)){ b.innerHTML = emptyBox('No applications yet', 'Open any opening and set its status — it’ll appear here as a card you can drag between stages.'); return; }
+  const list = OPS().filter(o => o.status);
+  if(!list.length){ b.innerHTML = emptyBox('No applications yet', 'Open any opening and set its status — it’ll appear here as a card you can drag between stages.'); return; }
   b.innerHTML = `<div class="board">${cols.map(c => `<div class="col" data-col="${c}"><h4>${c}<span>${list.filter(o => o.status === c).length}</span></h4>
     ${list.filter(o => o.status === c).map(o => `<div class="kcard" draggable="true" data-id="${o.id}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})"><b>${esc(o.company)}</b><small>${esc(o.role || o.programme)}</small>${countdown(o.deadline, o.opens, o.rolling)}</div>`).join('')}</div>`).join('')}</div>`;
   $$('.kcard', b).forEach(k => {
@@ -906,19 +1022,20 @@ function drawCompanies(b){
   LIVE.watchlist.concat(accepted, own).forEach(c => { if(!seen.has(c.company)){ seen.add(c.company); wl.push(c); } });
   const list = wlF.mine ? wl.filter(c => !c.addedByClaude) : wl;
   const H = LIVE.health || {};
-  const dot = c => { const h = H[c]; const n = OPS().filter(o => o.company === c).length;
-    return h ? (h.ok ? (n ? `<i class="hd on" title="${n} open now"></i>` : '<i class="hd idle" title="Job board found — nothing open in the UK right now"></i>') : '<i class="hd off" title="Job board not found yet"></i>') : '<i class="hd none" title="Not scanned yet"></i>'; };
+  const count = c => OPS().filter(o => o.company === c).length;
+  const dot = c => { const h = H[c]; const n = count(c);
+    return h ? (h.ok ? (n ? `<i class="hd on" title="${n} open now"></i>` : '<i class="hd idle" title="Job system found — nothing open in the UK right now"></i>') : '<i class="hd off" title="Job system not found yet"></i>') : '<i class="hd none" title="Not scanned yet"></i>'; };
   const secs = SECTORS.filter(sx => list.some(c => c.sector === sx));
-  const found = Object.values(H).filter(h => h.ok).length;
+  const found = wl.filter(c => H[c.company] && H[c.company].ok).length;
   b.innerHTML = `<div class="row" style="justify-content:space-between;margin-bottom:14px">
-      <p class="muted" style="margin:0;max-width:70ch;font-size:13.5px">${wl.length} firms the scanner checks every 3 hours, grouped like your mind-map. ${Object.keys(H).length ? `Job boards found for <b>${found}</b> of ${Object.keys(H).length}.` : 'Health appears after the first scan.'}</p>
+      <p class="muted" style="margin:0;max-width:70ch;font-size:13.5px">${wl.length} firms checked every 3 hours, grouped like your mind-map. ${Object.keys(H).length ? `Job systems found for <b>${found}</b> of ${wl.length}.` : 'Health appears after the first scan.'} Click a firm to see its page.</p>
       ${sw('wlMine', 'Only firms from my list', wlF.mine)}</div>
-    <div class="legend-row"><span><i class="hd on"></i>Openings now</span><span><i class="hd idle"></i>Board found, nothing open</span><span><i class="hd off"></i>Board not found yet</span><span><i class="hd none"></i>Not scanned yet</span><span><span class="co-chip claude" style="pointer-events:none;--sc:var(--faint);padding:1px 8px">Firm</span> added by Claude</span></div>
+    <div class="legend-row"><span><i class="hd on"></i>Openings now</span><span><i class="hd idle"></i>Found, nothing open</span><span><i class="hd off"></i>Not found yet</span><span><i class="hd none"></i>Not scanned yet</span><span><span class="co-chip claude" style="pointer-events:none;--sc:var(--faint);padding:1px 8px">Firm</span> added by Claude</span></div>
     <div class="mind">${secs.map(sx => { const cos = list.filter(c => c.sector === sx); const subs = [...new Set(cos.map(c => c.sub || 'Other'))];
       return `<div class="sector" style="--sc:var(--${SEC_COL[sx] || 'grey'})"><h3>${sx}<small>${cos.length} firms</small></h3>
-      ${subs.map(sb => `<div class="sub-h">${esc(sb)}</div><div class="cos">${cos.filter(c => (c.sub || 'Other') === sb).map(c => `<button class="co-chip ${c.addedByClaude ? 'claude' : ''}" data-co="${esc(c.company)}">${dot(c.company)}${esc(c.company)}${OPS().some(o => o.company === c.company) ? ` <i>${OPS().filter(o => o.company === c.company).length}</i>` : ''}</button>`).join('')}</div>`).join('')}</div>`; }).join('')}</div>`;
+      ${subs.map(sb => `<div class="sub-h">${esc(sb)}</div><div class="cos">${cos.filter(c => (c.sub || 'Other') === sb).map(c => `<button class="co-chip ${c.addedByClaude ? 'claude' : ''}" data-co="${esc(c.company)}">${dot(c.company)}${esc(c.company)}${count(c.company) ? ` <i>${count(c.company)}</i>` : ''}</button>`).join('')}</div>`).join('')}</div>`; }).join('')}</div>`;
   $('#wlMine', b).onchange = e => { wlF.mine = e.target.checked; drawCompanies(b); };
-  $$('[data-co]', b).forEach(c => c.onclick = () => { opF.tab = 'all'; opF.q = c.dataset.co.toLowerCase(); viewOpenings($('#view')); });
+  $$('[data-co]', b).forEach(c => c.onclick = () => openCompany(c.dataset.co));
 }
 
 /* ============================================================
@@ -1310,7 +1427,7 @@ const EDITABLE = {
   books:'My books {title, author, s (phil|pol|econ|law|multi), status (Want to read|Reading|Finished), finished, rating (1-5), learned, use}',
   scCustom:'Own supercurriculars {t, s, year (y11|y1213), date, when, yr, link, note}',
   sc:'Progress on a listed supercurricular — update only, by its id {status (planning|doing|done), result, doneOn, note, saved}',
-  openings:'Own openings {company, sector, role, area, programme, ageGroup (14-16|16-18|18+|uni1|uni2|grad), location, region, opens, deadline, rolling, link, status, notes}',
+  openings:'Own openings {company, sector, role, roleType, programme, ageGroup (14-16|16-18|18+|uni1|uni2|grad), location, region, opens, deadline, rolling, link, status, notes}',
   resCustom:'Own revision resources {t, u, subj, type (notes|papers|video|practice|flashcards|tests|reading), level (gcse|alevel|both), d}',
   uniCustom:'Own university courses {uni, course, area (ppe|law|econ|pol), ucas, offer, years, required, recommended, gcse, test, other, link}',
   uni:'Shortlist status of a listed course — update only, by its id {status}',

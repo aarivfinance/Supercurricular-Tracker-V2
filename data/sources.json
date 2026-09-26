@@ -1,36 +1,492 @@
 {
- "_help": "Firms' own programme pages, opened in a real browser by the scanner. type 'links' = a page listing programmes (every link that looks like work experience / spring week / insight / talk is collected). type 'programme' = one programme's own page (the scanner reads whether it's open or closed and any deadline). age: 14-16 | 16-18 | 18+ | uni1 | uni2 | grad.",
+ "_help": "Where the scanner looks, beyond each firm's auto-detected job board. Types: workday {host, tenant, site} · oracle {host, site} · greenhouse/lever/ashby {board} · sitemap {url, pattern} · links (a page listing programmes; opened in a real browser; Apply links to Workday/Oracle/Greenhouse/Oleeo/Avature are recognised) · programme (one programme's page: open/closed, deadline, key details) · coursera {courses:[slugs]}. Optional: age (14-16|16-18|18+|uni1|uni2|grad), price, programme, sector, track (uni|preuni|opps), online, linkPattern, include, titleFrom.",
  "sources": [
-  { "company":"Goldman Sachs", "type":"links", "url":"https://higher.gs.com/campus?LOCATION=London&page=1&sort=RELEVANCE" },
-  { "company":"Goldman Sachs", "type":"links", "url":"https://www.goldmansachs.com/careers/students/programs-and-internships" },
-  { "company":"J.P. Morgan", "type":"links", "url":"https://careers.jpmorgan.com/uk/en/students/programs" },
-  { "company":"Morgan Stanley", "type":"links", "url":"https://www.morganstanley.com/people-opportunities/students-graduates/programs" },
-  { "company":"Bank of America", "type":"links", "url":"https://careers.bankofamerica.com/en-us/students/programs" },
-  { "company":"Citi", "type":"links", "url":"https://jobs.citi.com/early-career-programs-pre-internships" },
-  { "company":"Citi", "type":"links", "url":"https://jobs.citi.com/events-preinternships" },
-  { "company":"Barclays", "type":"programme", "url":"https://search.jobs.barclays/insight-days", "title":"Insight Days", "age":"uni1" },
-  { "company":"Barclays", "type":"programme", "url":"https://search.jobs.barclays/discovery", "title":"Discovery Programme", "age":"uni1" },
-  { "company":"Deutsche Bank", "type":"programme", "url":"https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/spring-into-banking?language_id=1", "title":"Spring into Banking", "age":"uni1" },
-  { "company":"Deutsche Bank", "type":"programme", "url":"https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/rise", "title":"Rise (insight programme)" },
-  { "company":"Deutsche Bank", "type":"programme", "url":"https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/advance", "title":"Advance (insight programme)" },
-  { "company":"UBS", "type":"programme", "url":"https://www.ubs.com/global/en/careers/early-careers/tomorrows-talent-program.html", "title":"Tomorrow's Talent (Spring Insight) Program", "age":"uni1" },
-  { "company":"HSBC", "type":"links", "url":"https://www.hsbc.com/careers/students-and-graduates/insight-programmes" },
-  { "company":"BNP Paribas", "type":"programme", "url":"https://careers.bnpparibas.co.uk/spring-insights/", "title":"Spring Insights", "age":"uni1" },
-  { "company":"Rothschild & Co", "type":"links", "url":"https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/" },
-  { "company":"Lazard", "type":"links", "url":"https://www.lazard.com/about-lazard/locations/united-kingdom/careers-in-the-united-kingdom/early-career-programmes-in-the-uk/" },
-  { "company":"Evercore", "type":"links", "url":"https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/" },
-  { "company":"McKinsey & Company", "type":"links", "url":"https://www.mckinsey.com/uk/careers/upcoming-events" },
-  { "company":"Deloitte", "type":"links", "url":"https://www.deloitte.com/uk/en/careers/early-careers/early-careers-programmes.html" },
-  { "company":"EY", "type":"links", "url":"https://www.ey.com/en_uk/careers/students/schools", "age":"16-18" },
-  { "company":"KPMG", "type":"programme", "url":"https://www.kpmgcareers.co.uk/apprentice/work-experience/", "title":"Work Experience (school students)", "age":"16-18" },
-  { "company":"Freshfields", "type":"programme", "url":"https://www.freshfields.com/en/your-career/united-kingdom/early-careers/first-years-insight-scheme", "title":"UK First Years Insight Scheme", "age":"uni1" },
-  { "company":"Clifford Chance", "type":"links", "url":"https://jobs.cliffordchance.com/early-careers-london" },
-  { "company":"Clifford Chance", "type":"links", "url":"https://jobs.cliffordchance.com/meet-us-london" },
-  { "company":"A&O Shearman", "type":"programme", "url":"https://careers.aoshearman.com/en/london-first-year-programme", "title":"First Year Programme – London", "age":"uni1" },
-  { "company":"A&O Shearman", "type":"links", "url":"https://earlycareersuk.aoshearman.com/Events" },
-  { "company":"Slaughter and May", "type":"links", "url":"https://slaughterandmay.com/careers/trainee-solicitors/apply" },
-  { "company":"Sutton Trust", "type":"links", "url":"https://pathwaysprogrammes.suttontrust.com/career-pathways/banking-finance", "age":"16-18" },
-  { "company":"Sutton Trust", "type":"links", "url":"https://pathwaysprogrammes.suttontrust.com/", "age":"16-18" },
-  { "company":"LSE (Pathways to Banking & Finance)", "sector":"Access programmes", "type":"programme", "url":"https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/pathways-to-banking-and-finance-london-years-12-13", "title":"Pathways to Banking and Finance (Years 12–13)", "age":"16-18" }
+  {
+   "company": "J.P. Morgan",
+   "type": "oracle",
+   "host": "jpmc.fa.oraclecloud.com",
+   "site": "CX_1001",
+   "label": "Oracle"
+  },
+  {
+   "company": "BNY",
+   "type": "oracle",
+   "host": "eofe.fa.us2.oraclecloud.com",
+   "site": "BNY-Careers",
+   "label": "Oracle"
+  },
+  {
+   "company": "Barclays",
+   "type": "workday",
+   "host": "barclays.wd3.myworkdayjobs.com",
+   "tenant": "barclays",
+   "site": "External_Career_Site_Barclays",
+   "label": "Workday"
+  },
+  {
+   "company": "BlackRock",
+   "type": "workday",
+   "host": "blackrock.wd1.myworkdayjobs.com",
+   "tenant": "blackrock",
+   "site": "BlackRock_Professional",
+   "label": "Workday"
+  },
+  {
+   "company": "Blackstone",
+   "type": "workday",
+   "host": "blackstone.wd1.myworkdayjobs.com",
+   "tenant": "blackstone",
+   "site": "Blackstone_Campus_Careers",
+   "label": "Workday"
+  },
+  {
+   "company": "MUFG",
+   "type": "workday",
+   "host": "mufgub.wd3.myworkdayjobs.com",
+   "tenant": "mufgub",
+   "site": "MUFG-Careers",
+   "label": "Workday"
+  },
+  {
+   "company": "Mizuho",
+   "type": "workday",
+   "host": "mizuhogroup.wd102.myworkdayjobs.com",
+   "tenant": "mizuhogroup",
+   "site": "External",
+   "label": "Workday"
+  },
+  {
+   "company": "PwC",
+   "type": "workday",
+   "host": "pwc.wd3.myworkdayjobs.com",
+   "tenant": "pwc",
+   "site": "Global_Campus_Careers",
+   "label": "Workday"
+  },
+  {
+   "company": "Houlihan Lokey",
+   "type": "workday",
+   "host": "hl.wd1.myworkdayjobs.com",
+   "tenant": "hl",
+   "site": "Campus",
+   "label": "Workday"
+  },
+  {
+   "company": "PJT Partners",
+   "type": "workday",
+   "host": "pjtpartners.wd1.myworkdayjobs.com",
+   "tenant": "pjtpartners",
+   "site": "Students",
+   "label": "Workday"
+  },
+  {
+   "company": "Moelis & Company",
+   "type": "workday",
+   "host": "moelis.wd1.myworkdayjobs.com",
+   "tenant": "moelis",
+   "site": "University-Hires",
+   "label": "Workday"
+  },
+  {
+   "company": "Man Group",
+   "type": "workday",
+   "host": "mangroupplc.wd3.myworkdayjobs.com",
+   "tenant": "mangroupplc",
+   "site": "Man_Group_Careers",
+   "label": "Workday"
+  },
+  {
+   "company": "Wells Fargo",
+   "type": "workday",
+   "host": "wf.wd1.myworkdayjobs.com",
+   "tenant": "wf",
+   "site": "WellsFargoJobs",
+   "label": "Workday"
+  },
+  {
+   "company": "Citi",
+   "type": "sitemap",
+   "url": "https://jobs.citi.com/sitemap.xml",
+   "pattern": "/job/[^/]+/[^/]+/\\d+/\\d+",
+   "slugIndex": 2,
+   "cityIndex": 1,
+   "label": "Citi careers sitemap"
+  },
+  {
+   "company": "Man Group",
+   "type": "greenhouse",
+   "board": "mangroup",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Jane Street",
+   "type": "greenhouse",
+   "board": "janestreet",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "IMC Trading",
+   "type": "greenhouse",
+   "board": "imc",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Point72",
+   "type": "greenhouse",
+   "board": "point72",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Hudson River Trading",
+   "type": "greenhouse",
+   "board": "wehrtyou",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Goldman Sachs",
+   "type": "links",
+   "url": "https://higher.gs.com/campus?LOCATION=London&page=1&sort=RELEVANCE"
+  },
+  {
+   "company": "Goldman Sachs",
+   "type": "links",
+   "url": "https://www.goldmansachs.com/careers/students/programs-and-internships"
+  },
+  {
+   "company": "J.P. Morgan",
+   "type": "links",
+   "url": "https://careers.jpmorgan.com/uk/en/students/programs"
+  },
+  {
+   "company": "Morgan Stanley",
+   "type": "links",
+   "url": "https://www.morganstanley.com/people-opportunities/students-graduates/programs"
+  },
+  {
+   "company": "Bank of America",
+   "type": "links",
+   "url": "https://careers.bankofamerica.com/en-us/students/programs"
+  },
+  {
+   "company": "Citi",
+   "type": "links",
+   "url": "https://jobs.citi.com/early-career-programs-pre-internships"
+  },
+  {
+   "company": "Citi",
+   "type": "links",
+   "url": "https://jobs.citi.com/events-preinternships"
+  },
+  {
+   "company": "Barclays",
+   "type": "programme",
+   "url": "https://search.jobs.barclays/insight-days",
+   "title": "Insight Days",
+   "age": "uni1"
+  },
+  {
+   "company": "Barclays",
+   "type": "programme",
+   "url": "https://search.jobs.barclays/discovery",
+   "title": "Discovery Programme",
+   "age": "uni1"
+  },
+  {
+   "company": "Deutsche Bank",
+   "type": "programme",
+   "url": "https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/spring-into-banking?language_id=1",
+   "title": "Spring into Banking",
+   "age": "uni1"
+  },
+  {
+   "company": "Deutsche Bank",
+   "type": "programme",
+   "url": "https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/rise",
+   "title": "Rise (insight programme)"
+  },
+  {
+   "company": "Deutsche Bank",
+   "type": "programme",
+   "url": "https://careers.db.com/students-graduates/insight-programmes/uk-and-ireland/advance",
+   "title": "Advance (insight programme)"
+  },
+  {
+   "company": "UBS",
+   "type": "programme",
+   "url": "https://www.ubs.com/global/en/careers/early-careers/tomorrows-talent-program.html",
+   "title": "Tomorrow's Talent (Spring Insight) Program",
+   "age": "uni1"
+  },
+  {
+   "company": "HSBC",
+   "type": "links",
+   "url": "https://www.hsbc.com/careers/students-and-graduates/insight-programmes"
+  },
+  {
+   "company": "BNP Paribas",
+   "type": "programme",
+   "url": "https://careers.bnpparibas.co.uk/spring-insights/",
+   "title": "Spring Insights",
+   "age": "uni1"
+  },
+  {
+   "company": "Rothschild & Co",
+   "type": "links",
+   "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/"
+  },
+  {
+   "company": "Lazard",
+   "type": "links",
+   "url": "https://www.lazard.com/about-lazard/locations/united-kingdom/careers-in-the-united-kingdom/early-career-programmes-in-the-uk/"
+  },
+  {
+   "company": "Evercore",
+   "type": "links",
+   "url": "https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/"
+  },
+  {
+   "company": "McKinsey & Company",
+   "type": "links",
+   "url": "https://www.mckinsey.com/uk/careers/upcoming-events"
+  },
+  {
+   "company": "Deloitte",
+   "type": "links",
+   "url": "https://www.deloitte.com/uk/en/careers/early-careers/early-careers-programmes.html"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://www.ey.com/en_uk/careers/students/schools",
+   "age": "16-18"
+  },
+  {
+   "company": "KPMG",
+   "type": "programme",
+   "url": "https://www.kpmgcareers.co.uk/apprentice/work-experience/",
+   "title": "Work Experience (school students)",
+   "age": "16-18"
+  },
+  {
+   "company": "Freshfields",
+   "type": "programme",
+   "url": "https://www.freshfields.com/en/your-career/united-kingdom/early-careers/first-years-insight-scheme",
+   "title": "UK First Years Insight Scheme",
+   "age": "uni1"
+  },
+  {
+   "company": "Clifford Chance",
+   "type": "links",
+   "url": "https://jobs.cliffordchance.com/early-careers-london"
+  },
+  {
+   "company": "Clifford Chance",
+   "type": "links",
+   "url": "https://jobs.cliffordchance.com/meet-us-london"
+  },
+  {
+   "company": "A&O Shearman",
+   "type": "programme",
+   "url": "https://careers.aoshearman.com/en/london-first-year-programme",
+   "title": "First Year Programme – London",
+   "age": "uni1"
+  },
+  {
+   "company": "A&O Shearman",
+   "type": "links",
+   "url": "https://earlycareersuk.aoshearman.com/Events"
+  },
+  {
+   "company": "Slaughter and May",
+   "type": "links",
+   "url": "https://slaughterandmay.com/careers/trainee-solicitors/apply"
+  },
+  {
+   "company": "Bank of England",
+   "type": "links",
+   "url": "https://www.bankofengland.co.uk/careers/future-talent"
+  },
+  {
+   "company": "Oliver Wyman",
+   "type": "links",
+   "url": "https://www.oliverwyman.com/uk-ireland/careers/recruiting-events-uk-and-ireland.html"
+  },
+  {
+   "company": "Standard Chartered",
+   "type": "links",
+   "url": "https://www.sc.com/en/careers/students-and-graduates/"
+  },
+  {
+   "company": "Lloyds Banking Group",
+   "type": "links",
+   "url": "https://www.lloydsbankinggroup.com/careers/early-careers.html"
+  },
+  {
+   "company": "NatWest",
+   "type": "links",
+   "url": "https://jobs.natwestgroup.com/pages/early-careers"
+  },
+  {
+   "company": "Nomura",
+   "type": "links",
+   "url": "https://www.nomura.com/europe/careers/"
+  },
+  {
+   "company": "Jane Street",
+   "type": "links",
+   "url": "https://www.janestreet.com/join-jane-street/internships/"
+  },
+  {
+   "company": "Sutton Trust",
+   "type": "links",
+   "url": "https://pathwaysprogrammes.suttontrust.com/career-pathways/banking-finance",
+   "linkPattern": "/career-pathways/banking-finance/[^/?#]+$",
+   "age": "16-18",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Sutton Trust",
+   "type": "links",
+   "url": "https://pathwaysprogrammes.suttontrust.com/career-pathways/law",
+   "linkPattern": "/career-pathways/law/[^/?#]+$",
+   "age": "16-18",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Sutton Trust",
+   "type": "programme",
+   "url": "https://pathwaysprogrammes.suttontrust.com/career-pathways/banking-finance",
+   "title": "Pathways to Banking & Finance (Year 12)",
+   "age": "16-18",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Sutton Trust",
+   "type": "programme",
+   "url": "https://pathwaysprogrammes.suttontrust.com/career-pathways/law",
+   "title": "Pathways to Law (Year 12)",
+   "age": "16-18",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Sutton Trust",
+   "type": "links",
+   "url": "https://summerschools.suttontrust.com/browse-courses/",
+   "linkPattern": "/course/[^/]+/[^/]+/?$",
+   "titleFrom": "url",
+   "include": "econom|law|politic|philosoph|financ|account|business|management|history|mathemat|land economy|social|geograph|international|ppe",
+   "age": "16-18",
+   "price": "Free (incl. travel & accommodation)",
+   "programme": "Summer school",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "LSE (Pathways to Banking & Finance)",
+   "type": "programme",
+   "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/Sixth-form-college/pathways-to-banking-and-finance-london-years-12-13",
+   "title": "Pathways to Banking and Finance (Years 12–13)",
+   "age": "16-18",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Springpod",
+   "type": "sitemap",
+   "url": "https://www.springpod.com/sitemap.xml",
+   "pattern": "/(virtual-work-experience|subject-spotlights)/(?!search)[^/?#]+/?$",
+   "titleFrom": "page",
+   "maxPages": 150,
+   "all": true,
+   "online": true,
+   "age": "16-18",
+   "price": "Free",
+   "label": "Springpod",
+   "sector": "Access programmes"
+  },
+  {
+   "company": "Rare",
+   "type": "programme",
+   "url": "https://www.rarerecruitment.co.uk/foundations/law/programme.html",
+   "title": "Rare Foundations: Law (first-year students)",
+   "age": "uni1",
+   "price": "Free",
+   "programme": "Insight / work experience",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Rare",
+   "type": "programme",
+   "url": "https://www.rarerecruitment.co.uk/articles/",
+   "title": "Rare Articles (law)",
+   "age": "uni1",
+   "price": "Free",
+   "programme": "Insight / work experience",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Rare",
+   "type": "programme",
+   "url": "https://www.rarerecruitment.co.uk/slaughter-and-may/lead-in-to-law/",
+   "title": "Slaughter and May Lead in to Law (with Rare)",
+   "price": "Free",
+   "programme": "Insight / work experience",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "upReach",
+   "type": "programme",
+   "url": "https://upreach.org.uk/apply-now/",
+   "title": "upReach career support programme (undergraduates)",
+   "age": "uni1",
+   "price": "Free",
+   "programme": "Pre-university programme",
+   "track": "uni",
+   "sector": "Access programmes",
+   "location": "United Kingdom"
+  },
+  {
+   "company": "Coursera",
+   "type": "coursera",
+   "sector": "Online courses",
+   "online": true,
+   "track": "opps",
+   "programme": "Online course",
+   "label": "Coursera",
+   "courses": [
+    "financial-markets-global",
+    "moral-politics",
+    "game-theory-1",
+    "philosophy",
+    "money-banking",
+    "microeconomics",
+    "global-financial-crisis",
+    "the-power-of-macroeconomics",
+    "wharton-finance",
+    "behavioral-finance",
+    "erasmus-econometrics",
+    "international-criminal-law",
+    "negotiation",
+    "ai-for-everyone",
+    "machine-learning"
+   ]
+  }
  ]
 }
