@@ -231,7 +231,17 @@ export async function readEightfold(src){
 }
 /* Jibe over iCIMS (e.g. SIG): JSON API */
 export async function readJibe(src){
-  const d = await getJSON(src.url);
+  let d = await getJSON(src.url, { headers:{ accept:'application/json' } }).catch(() => ({}));
+  if(!(d.jobs || []).length){                        // some Jibe sites ignore the filter for bots — page through everything and filter to the UK
+    const all = [];
+    for(let page = 1; page <= 10; page++){
+      const u = new URL(src.url); u.searchParams.delete('location'); u.searchParams.set('page', page); u.searchParams.set('limit', 100);
+      let x; try{ x = await getJSON(u.href, { headers:{ accept:'application/json' } }); }catch(e){ break; }
+      const js = x.jobs || []; if(!js.length) break; all.push(...js); await sleep(300);
+      if(js.length < 5) break;
+    }
+    d = { jobs:all.filter(j => /united kingdom|london|\buk\b|england|scotland|wales/i.test(JSON.stringify(j.data || j).slice(0, 1500))) };
+  }
   const site = src.jobBase || new URL(src.url).origin + '/jobs/';
   return (d.jobs || []).map(x => x.data || x).map(j => ({ role:j.title, location:[j.city, j.country].filter(Boolean).join(', '), link:site + (j.slug || j.req_id),
     postedAt:(j.posted_date || j.create_date || '').slice(0, 10), deadline:'' }));
@@ -456,25 +466,9 @@ export async function resolveApply(url){
   }catch(e){ return null; }
   finally{ if(pg) await pg.page.close().catch(() => {}); }
 }
-export async function scanPage(src){
-  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
-  const urls = [src.url];
-  for(let n = 2; n <= (src.pages || 1); n++) urls.push((src.pageUrl || '{url}/{n}').replace('{url}', src.url.replace(/\/$/, '')).replace('{n}', n));
-  const seen = new Set(), items = [], ats = new Map(); let pageNotes = [];
-  for(const [i, url] of urls.entries()){
-    let pg;
-    try{ pg = await openPage(b, url); }catch(e){ if(i === 0) throw e; break; }
-    try{
-      const { page, text } = pg;
-      if(i === 0) pageNotes = notesFrom(text);
-      if(src.type === 'programme'){
-        const links = await grabLinks(page);
-        const apply = applyLinkOf(links, url);
-        return { items:[{ role:src.title, link:apply || src.url, info:apply ? src.url : '', live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' }], ats:[] };
-      }
-      const links = await grabLinks(page);
-      const pat = src.linkPattern ? new RegExp(src.linkPattern, 'i') : null, inc = src.include ? new RegExp(src.include, 'i') : null;
-      const before = items.length;
+/* keep the links on a page that are UK early-careers roles (shared by the browser and raw-HTML readers) */
+function collectLinks(links, src, seen, items, ats){
+  const pat = src.linkPattern ? new RegExp(src.linkPattern, 'i') : null, inc = src.include ? new RegExp(src.include, 'i') : null;
       for(const l of links){
         if(!l.h || !/^https?:/i.test(l.h)) continue;
         const board = atsFromLink(l.h); if(board) ats.set(JSON.stringify(board), board);
@@ -486,14 +480,61 @@ export async function scanPage(src){
         if(!title || title.length > 160 || HUB_ROLE.test(title)) continue;
         if(pat ? !pat.test(l.h) : !(isEarly(title) || titleFromLink(l.h))) continue;
         if(inc && !inc.test(title + ' ' + l.ctx)) continue;
-        if(NOT_UK.test(title + ' ' + l.ctx) && !UK_WORDS.test(title + ' ' + l.ctx)) continue;
+        if(NOT_UK.test(title) && !UK_WORDS.test(title)) continue;                         // the title names somewhere outside the UK
+        if(!UK_WORDS.test(title) && NOT_UK.test(l.ctx) && !UK_WORDS.test(l.ctx)) continue;
         seen.add(l.h);
         const city = src.cityFromUrl ? (new URL(l.h).pathname.split('/').filter(Boolean)[src.cityFromUrl] || '') : '';
         items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location:city ? deslug(city) + ', United Kingdom' : (src.location || 'London, United Kingdom') });
       }
+}
+/* raw HTML (no browser): used when a page shows no links in the browser, or the browser can't load it */
+export async function htmlLinks(url){
+  if(!(await allowed(url))) throw Object.assign(new Error('blocked by robots.txt'), { robots:true });
+  const r = await get(url); if(!r.ok) throw new Error('HTTP ' + r.status);
+  const html = await r.text();
+  if(HUMAN.test(html.slice(0, 4000).replace(/<[^>]+>/g, ' '))) throw new Error('human check shown — skipped');
+  const out = []; const re = /<a\b[^>]*?href\s*=\s*["']([^"'#][^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi; let m;
+  while((m = re.exec(html))){
+    let h; try{ h = new URL(m[1].replace(/&amp;/g, '&'), url).href; }catch(e){ continue; }
+    const t = m[2].replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#0?39;|&rsquo;/g, "'").replace(/&nbsp;/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();
+    const i = m.index, ctx = html.slice(Math.max(0, i - 300), i + 600).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+    out.push({ t, h, ctx });
+  }
+  return { links:out, text:html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ') };
+}
+export async function scanPage(src){
+  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
+  const urls = [src.url];
+  for(let n = 2; n <= (src.pages || 1); n++) urls.push((src.pageUrl || '{url}/{n}').replace('{url}', src.url.replace(/\/$/, '')).replace('{n}', n));
+  const seen = new Set(), items = [], ats = new Map(); let pageNotes = [];
+  for(const [i, url] of urls.entries()){
+    let pg;
+    try{ pg = await openPage(b, url); }
+    catch(e){
+      if(e.robots || /human check|HTTP 40[13]|HTTP 429/.test(e.message) || src.type !== 'links'){ if(i === 0) throw e; break; }
+      try{ const h = await htmlLinks(url); const before = items.length; if(i === 0) pageNotes = notesFrom(h.text); collectLinks(h.links, src, seen, items, ats); if(i > 0 && items.length === before) break; continue; }
+      catch(e2){ if(i === 0) throw e; break; }
+    }
+    try{
+      const { page, text } = pg;
+      if(i === 0) pageNotes = notesFrom(text);
+      if(src.type === 'programme'){
+        const links = await grabLinks(page);
+        const apply = applyLinkOf(links, url);
+        return { items:[{ role:src.title, link:apply || src.url, info:apply ? src.url : '', live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' }], ats:[] };
+      }
+      const links = await grabLinks(page);
+      const before = items.length;
+      collectLinks(links, src, seen, items, ats);
       if(i > 0 && items.length === before) break;          // ran out of pages
     }finally{ await pg.page.close().catch(() => {}); }
     if(i < urls.length - 1) await sleep(800);
+  }
+  if(src.type === 'links' && !items.length){        // browser saw nothing: try the raw HTML (many pages list roles server-side)
+    for(const [i, url] of urls.entries()){
+      try{ const h = await htmlLinks(url); const before = items.length; collectLinks(h.links, src, seen, items, ats); if(i > 0 && items.length === before) break; }catch(e){ break; }
+      await sleep(600);
+    }
   }
   // general pages → follow them: a page listing specific roles is replaced by those roles; otherwise use its Apply link;
   // if neither exists the general page stays (it's the best link there is)
@@ -505,7 +546,7 @@ export async function scanPage(src){
     if(!r){ out.push(it); continue; }
     const d = detailsOf(r.text);
     for(const bd of r.ats) ats.set(JSON.stringify(bd), bd);
-    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || CATEGORY.test(it.role)) && !(NOT_UK.test(j.t + ' ' + j.ctx) && !UK_WORDS.test(j.t + ' ' + j.ctx)));
+    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || CATEGORY.test(it.role)) && !(NOT_UK.test(j.t) && !UK_WORDS.test(j.t)) && !(!UK_WORDS.test(j.t) && NOT_UK.test(j.ctx) && !UK_WORDS.test(j.ctx)));
     if(specific.length >= 2 || (specific.length === 1 && !r.link)){
       for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx), deadline:deadlineIn(j.ctx) || d.deadline, opens:opensIn(j.ctx), notes:notesFrom(j.ctx).slice(0, 2), location:it.location }); }
     }else{

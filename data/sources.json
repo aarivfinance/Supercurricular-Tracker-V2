@@ -155,7 +155,7 @@
   {
    "company": "J.P. Morgan",
    "type": "links",
-   "url": "https://careers.jpmorgan.com/uk/en/students/programs"
+   "url": "https://careers.jpmorgan.com/global/en/students/programs"
   },
   {
    "company": "Morgan Stanley",
@@ -235,8 +235,8 @@
    "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/",
    "linkPattern": "/students-and-graduates/opportunities/[a-z0-9-]{12,}/?$",
    "all": true,
-   "pages": 3,
-   "pageUrl": "{url}?page={n}",
+   "pages": 2,
+   "pageUrl": "{url}/?page={n}",
    "label": "firm’s job board"
   },
   {
@@ -252,7 +252,9 @@
   {
    "company": "McKinsey & Company",
    "type": "links",
-   "url": "https://www.mckinsey.com/uk/careers/upcoming-events"
+   "url": "https://www.mckinsey.com/uk/careers/upcoming-events",
+   "linkPattern": "jobs\\.mckinsey\\.com/events/EventDetails\\?folderId=\\d+",
+   "all": true
   },
   {
    "company": "Deloitte",
@@ -329,7 +331,7 @@
   {
    "company": "Standard Chartered",
    "type": "links",
-   "url": "https://www.sc.com/en/careers/students-and-graduates/"
+   "url": "https://www.sc.com/en/global-careers/early-careers/local-programmes-for-students/uk-student-opportunities/"
   },
   {
    "company": "Lloyds Banking Group",
@@ -493,14 +495,13 @@
     "money-banking",
     "microeconomics",
     "global-financial-crisis",
-    "the-power-of-macroeconomics",
     "wharton-finance",
-    "behavioral-finance",
     "erasmus-econometrics",
     "international-criminal-law",
     "negotiation",
     "ai-for-everyone",
-    "machine-learning"
+    "machine-learning",
+    "principles-of-economics-macroeconomics"
    ]
   },
   {
@@ -758,6 +759,26 @@
    "company": "(discovery)",
    "type": "discover",
    "url": "https://pathwaysprogrammes.suttontrust.com/career-pathways"
+  },
+  {
+   "company": "Bank of America",
+   "type": "links",
+   "url": "https://careers.bankofamerica.com/en-us/students/job-search.html",
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Standard Chartered",
+   "type": "links",
+   "url": "https://jobs.standardchartered.com/content/Search-Result-Page/?employment_type=early_careers",
+   "linkPattern": "jobs\\.standardchartered\\.com/job/",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Morgan Stanley",
+   "type": "eightfold",
+   "url": "https://morganstanley.eightfold.ai/api/apply/v2/jobs?domain=morganstanley.com&location=London&num=100",
+   "label": "Eightfold"
   }
  ]
 }
