@@ -679,7 +679,11 @@ function ageCell(o){ const a = ageOf(o); if(!a) return '<span class="faint">Chec
 const REGIONS = ['London','South East','South West','East of England','West Midlands','East Midlands','North West','Yorkshire','North East','Scotland','Wales','Northern Ireland','Remote (UK)','Online','UK (region not stated)'];
 const APP_STATUS = ['', 'Planning', 'Applied', 'Online test', 'Interview', 'Assessment centre', 'Offer', 'Rejected'];
 const statusCls = s => ({ 'Offer':'s-offer', 'Rejected':'s-rejected', 'Applied':'s-applied', 'Online test':'s-online', 'Interview':'s-interview', 'Assessment centre':'s-ac' }[s] || '');
-const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, sort:'posted', dir:1, page:0 };
+/* macro trading & analysis: macro funds, markets desks, economics & research roles */
+const MACRO_FIRM = /brevan|rokos|caxton|tudor|bridgewater|element capital|graham capital|haidar|alphadyne|andurand|symmetry|kirkoswald|garda|lmr|florin|bluecrest|fulcrum|capstone|capital economics|oxford economics|pantheon|ts lombard|bca research|bank of england|treasury/i;
+const MACRO_ROLE = /macro|rates|\bfx\b|foreign exchange|currenc|commodit|fixed income|\bficc\b|global markets|\bmarkets\b|sales (&|and) trading|trading|trader|econom|strateg(y|ist)|research|treasury|derivativ|emerging market|\bcredit\b|bond/i;
+const isMacro = o => MACRO_FIRM.test(o.company) || MACRO_ROLE.test(o.role + ' ' + (o.programme || '') + ' ' + (o.sub || ''));
+const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, macro:false, sort:'posted', dir:1, page:0 };
 const PAGE_SIZE = 25;
 
 /* time helpers: "8 hours ago", "detected 2 days after posting" */
@@ -791,7 +795,7 @@ function viewOpenings(v){
       ${selectBox('opProg', 'All programmes', PROGRAMMES.filter(x => cur.some(o => o.programme === x)), opF.prog)}
       ${selectBox('opYg', 'Any age', AGE_GROUPS, opF.yg)}
       ${selectBox('opReg', 'All UK regions', REGIONS.filter(x => cur.some(o => o.region === x)), opF.region)}
-      <span class="row" style="gap:14px">${sw('opNew', 'New (24h)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opOpen', 'Open now', opF.openOnly)}</span>
+      <span class="row" style="gap:14px">${sw('opMacro', 'Macro & markets', opF.macro)} ${sw('opNew', 'New (24h)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opOpen', 'Open now', opF.openOnly)}</span>
     </div>
   </div>
   <div id="opStrip"></div>
@@ -802,6 +806,7 @@ function viewOpenings(v){
   bindSearch('opQ', q => { opF.q = q; opF.page = 0; drawOpenings(); });
   [['opReg','region'], ['opSec','sector'], ['opRole','role'], ['opProg','prog'], ['opYg','yg']].forEach(([id, k]) => $('#' + id).onchange = e => { opF[k] = e.target.value; opF.page = 0; drawOpenings(); });
   $('#opNew').onchange = e => { opF.isNew = e.target.checked; opF.page = 0; drawOpenings(); };
+  $('#opMacro').onchange = e => { opF.macro = e.target.checked; opF.page = 0; drawOpenings(); };
   $('#opSoon').onchange = e => { opF.soon = e.target.checked; opF.page = 0; drawOpenings(); };
   $('#opOpen').onchange = e => { opF.openOnly = e.target.checked; opF.page = 0; drawOpenings(); };
   drawOpenings();
@@ -820,6 +825,7 @@ function opFiltered(){
     if(opF.yg && ageOf(o) !== opF.yg && o.yearGroup !== 'Any') return false;
     if(opF.isNew && !isNew24(o)) return false;
     if(opF.openOnly && (o.live === 'closed' || (daysUntil(o.deadline) ?? 0) < 0)) return false;
+    if(opF.macro && !isMacro(o)) return false;
     if(opF.soon){ const d = daysUntil(o.deadline); if(d === null || d < 0 || d > 14) return false; }
     if(opF.q && ![o.company, o.role, o.roleType, o.location, o.region, o.programme, o.sector, (o.notes || []).join ? (o.notes || []).join(' ') : '', o.myNotes].join(' ').toLowerCase().includes(opF.q)) return false;
     return true;

@@ -497,6 +497,242 @@
     "ai-for-everyone",
     "machine-learning"
    ]
+  },
+  {
+   "company": "Brevan Howard",
+   "type": "workday",
+   "host": "wd3.myworkdaysite.com",
+   "tenant": "brevanhoward",
+   "site": "BH_ExternalCareers",
+   "ui": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers",
+   "label": "Workday"
+  },
+  {
+   "company": "Brevan Howard",
+   "type": "links",
+   "url": "https://careers.brevanhoward.com/gb/en/early-careers",
+   "label": "firm’s own page"
+  },
+  {
+   "company": "Millennium",
+   "type": "eightfold",
+   "url": "https://mlp.eightfold.ai/api/apply/v2/jobs?domain=mlp.com&microsite=campus-site&location=London&num=100",
+   "label": "Eightfold"
+  },
+  {
+   "company": "Citadel",
+   "type": "links",
+   "url": "https://www.citadel.com/careers/open-opportunities?experience-filter=internships&selected-job-sections=388,389,387,390&current_page=1&sort_order=DESC&per_page=10&action=careers_listing_filter",
+   "linkPattern": "citadel\\.com/careers/details/[a-z0-9-]*(europe|emea|london|uk)[a-z0-9-]*/",
+   "all": true,
+   "location": "London, United Kingdom",
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Citadel Securities",
+   "type": "links",
+   "url": "https://www.citadelsecurities.com/careers/open-opportunities?experience-filter=internships&selected-job-sections=323,325,324,326&current_page=1&sort_order=DESC&per_page=10&action=careers_listing_filter",
+   "linkPattern": "citadelsecurities\\.com/careers/details/[a-z0-9-]*(europe|emea|london|uk)[a-z0-9-]*/",
+   "all": true,
+   "location": "London, United Kingdom",
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Marshall Wace",
+   "type": "greenhouse",
+   "board": "mwinternshipprogram",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Marshall Wace",
+   "type": "greenhouse",
+   "board": "marshallwace",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Tudor Investment",
+   "type": "greenhouse",
+   "board": "tudorgroup",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Bridgewater Associates",
+   "type": "greenhouse",
+   "board": "bridgewatercampusrecruiting",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "G-Research",
+   "type": "links",
+   "url": "https://www.gresearch.com/vacancies/",
+   "linkPattern": "gresearch\\.com/vacancies/[a-z0-9-]+/?$",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Two Sigma",
+   "type": "links",
+   "url": "https://careers.twosigma.com/careers/OpenRoles",
+   "linkPattern": "careers\\.twosigma\\.com/careers/JobDetail/",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "D. E. Shaw",
+   "type": "links",
+   "url": "https://www.deshaw.com/careers/choose-your-path",
+   "linkPattern": "deshaw\\.com/careers/[a-z0-9-]+-\\d{4}$",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Susquehanna (SIG)",
+   "type": "jibe",
+   "url": "https://careers.sig.com/api/jobs?location=London&limit=100",
+   "jobBase": "https://careers.sig.com/jobs/",
+   "label": "iCIMS"
+  },
+  {
+   "company": "Jump Trading",
+   "type": "greenhouse",
+   "board": "jumptrading",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Tower Research Capital",
+   "type": "greenhouse",
+   "board": "towerresearchcapital",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "DRW",
+   "type": "greenhouse",
+   "board": "drweng",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Maven Securities",
+   "type": "greenhouse",
+   "board": "mavensecuritiesholdingltd",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Winton",
+   "type": "greenhouse",
+   "board": "winton",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Old Mission",
+   "type": "greenhouse",
+   "board": "oldmissioncapital",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Graham Capital Management",
+   "type": "greenhouse",
+   "board": "grahamcapitalmanagement",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "BlueCrest Capital",
+   "type": "greenhouse",
+   "board": "bluecrestcapitalmanagement",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Garda Capital Partners",
+   "type": "greenhouse",
+   "board": "gardacp",
+   "label": "Greenhouse"
+  },
+  {
+   "company": "Caxton Associates",
+   "type": "workable",
+   "board": "caxton",
+   "label": "Workable"
+  },
+  {
+   "company": "Symmetry Investments",
+   "type": "lever",
+   "board": "symmetryinvestments",
+   "label": "Lever"
+  },
+  {
+   "company": "Verition Fund Management",
+   "type": "links",
+   "url": "https://www.verition.com/open-positions",
+   "linkPattern": "verition\\.com/open-positions\\?gh_jid=\\d+",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Fulcrum Asset Management",
+   "type": "links",
+   "url": "https://www.fulcrumasset.com/global/en/careers/",
+   "linkPattern": "fulcrumasset\\.com/.*careers/[a-z0-9-]+/",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Capital Economics",
+   "type": "workable",
+   "board": "capital-economics",
+   "label": "Workable"
+  },
+  {
+   "company": "Oxford Economics",
+   "type": "pinpoint",
+   "url": "https://careers.oxfordeconomics.com/postings.json",
+   "label": "Pinpoint"
+  },
+  {
+   "company": "Janus Henderson",
+   "type": "links",
+   "url": "https://jobs.janushenderson.com/search",
+   "linkPattern": "jobs\\.janushenderson\\.com/job/",
+   "all": false,
+   "label": "firm’s job board"
+  },
+  {
+   "company": "Societe Generale",
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/SocieteGenerale4",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/SocieteGenerale4/\\d+",
+   "all": false,
+   "label": "SmartRecruiters"
+  },
+  {
+   "company": "Aspect Capital",
+   "type": "programme",
+   "url": "https://www.aspectcapital.com/about/team/summer-internships-with-aspect-capital/",
+   "title": "Summer Internship",
+   "age": "uni2"
+  },
+  {
+   "company": "Rokos Capital",
+   "type": "programme",
+   "url": "https://apptrkr.io/rokos-capital-management/rokos-capital-management-202526",
+   "title": "Early Careers Programme",
+   "label": "firm’s own page"
+  },
+  {
+   "company": "Balyasny",
+   "type": "programme",
+   "url": "https://www.bamfunds.com/careers/early-career",
+   "title": "Early Career Programmes"
+  },
+  {
+   "company": "Pictet",
+   "type": "programme",
+   "url": "https://www.pictet.com/uk/en/careers/students-graduates",
+   "title": "Students & Graduates Programmes"
+  },
+  {
+   "company": "Natixis",
+   "type": "programme",
+   "url": "https://home.cib.natixis.com/shape-your-career",
+   "title": "CIB Internships & Graduate Programme"
   }
  ]
 }
