@@ -232,7 +232,12 @@
   {
    "company": "Rothschild & Co",
    "type": "links",
-   "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/"
+   "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/",
+   "linkPattern": "/students-and-graduates/opportunities/[a-z0-9-]{12,}/?$",
+   "all": true,
+   "pages": 3,
+   "pageUrl": "{url}?page={n}",
+   "label": "firm’s job board"
   },
   {
    "company": "Lazard",

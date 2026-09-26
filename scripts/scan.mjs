@@ -134,7 +134,7 @@ const REGIONS = [
   ['Northern Ireland', /northern ireland|belfast/i],
 ];
 const UK = /united kingdom|\buk\b|england|scotland|wales|northern ireland|great britain|\bgb\b|britain/i;
-const NOT_UK = /united states|\busa?\b|, ?(al|ca|ct|ma|nc|nh|nj|ny|pa|ri|tx|wa|il|ga|fl|va|md|co)\b|new york|san francisco|seattle|chicago|boston|austin|palo alto|mountain view|hong kong|singapore|tokyo|paris|frankfurt|dubai|sydney|mumbai|bangalore|bengaluru|toronto|zurich|geneva|amsterdam|dublin|madrid|milan|luxembourg|warsaw|budapest|shanghai|beijing|seoul|sao paulo|mexico|canada|india|ireland|france|germany|spain|italy|poland|switzerland|netherlands|japan|china|australia|brazil|apac|americas|middle east/i;
+const NOT_UK = /united states|\busa?\b|, ?(al|ca|ct|ma|nc|nh|nj|ny|pa|ri|tx|wa|il|ga|fl|va|md|co)\b|new york|san francisco|seattle|chicago|boston|austin|palo alto|mountain view|hong kong|singapore|tokyo|paris|frankfurt|dubai|sydney|mumbai|bangalore|bengaluru|toronto|zurich|geneva|amsterdam|dublin|madrid|milan|luxembourg|warsaw|budapest|shanghai|beijing|seoul|sao paulo|mexico|canada|india|ireland|france|germany|spain|italy|poland|switzerland|netherlands|japan|china|australia|brazil|apac|americas|middle east|riyadh|saudi|\buae\b|abu dhabi|doha|munich|stockholm|oslo|copenhagen|brussels|vienna|lisbon|prague|istanbul|juillet|janvier|septembre|octobre|mars 20|alternance|\bstage (d|[-–])|stellen|praktikum/i;
 export function regionOf(loc){
   if(!loc) return null;
   const foreign = NOT_UK.test(loc);
@@ -379,11 +379,24 @@ export function titleFromLink(href){
   return '';
 }
 /* exact-page links: an ATS posting, a /job/… page, or a URL carrying a job id */
+export function cleanTitle(t){
+  let opens = '';
+  t = String(t || '').replace(/\s*\(opens in (a )?new (window|tab)\)\s*/i, ' ');
+  const m = t.match(/^\s*(?:coming|opening|opens)\s+((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+20\d\d|20\d\d|soon)\s*[-–:|]?\s*/i);
+  if(m){
+    const mm = m[1].match(/^([a-z]{3})[a-z]*\.?\s+(20\d\d)/i), mi = mm ? 'janfebmaraprmayjunjulaugsepoctnovdec'.indexOf(mm[1].toLowerCase()) / 3 + 1 : 0;
+    opens = mi ? `${mm[2]}-${String(mi).padStart(2, '0')}-01` : 'soon'; t = t.slice(m[0].length);
+  }
+  return { title:t.replace(/\s+/g, ' ').trim(), opens };
+}
 export function isDeep(href){
   if(!href) return false;
   try{
     const u = new URL(href), p = u.pathname + u.search;
-    if(/coursera\.org\/learn\//i.test(href)) return true;
+    if(/coursera\.org\/learn\/|\/course\/[^/]+\/[^/]+/i.test(href)) return true;
+    if(/\/(roles?|jobs?|vacanc(y|ies)|opportunit(y|ies)|positions?|programmes?|programs?|opp|postings?)\/\d{4,}(\/|$|\?)/i.test(p)) return true;
+    const last = u.pathname.split('/').filter(Boolean).pop() || '';
+    if(/\/(opportunit(y|ies)|vacanc(y|ies)|jobs?|roles?|careers?\/details)\//i.test(u.pathname) && last.split('-').length >= 4 && /20\d\d|intern|analyst|insight|graduate|programme|placement|scheme/i.test(last)) return true;
     if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|postings?|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
     if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
     if(/greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
@@ -391,7 +404,7 @@ export function isDeep(href){
   return false;
 }
 /* rows that are just a careers hub, not a programme */
-export const HUB_ROLE = /^(early[ -]careers?|students?( (&|and) graduates?)?|graduates?|careers?|join us|talent (network|community)|.*talent (network|community).*|opportunities|programmes?|internships?|vacancies|current vacancies|search jobs|all jobs|apply)( \(opens in new window\))?$/i;
+export const HUB_ROLE = /^(careers?|join us|talent (network|community)|.*talent (network|community).*|search jobs|all jobs|current vacancies|apply|learn about .*|.* overview|about us|why join us|meet our people|our people|faqs?|contact us|early careers? talent network)( \(opens in new window\))?$/i;
 const APPLY_TXT = /^(apply( now| here| online| today| for (this|the) (role|programme|position))?|start (your )?application|begin application|register( now| here| your interest)?|submit (an )?application|apply via .*|view (the )?(role|job|vacancy|posting)|application form)$/i;
 /* on a programme page, find the button that goes to the actual application */
 export function applyLinkOf(links, pageUrl){
@@ -401,7 +414,8 @@ export function applyLinkOf(links, pageUrl){
   return best ? best[1].h : '';
 }
 /* same programme? (vacation scheme ↔ vacation scheme 2027 etc.) */
-const KIND = [/vacation|vac scheme/i, /training contract/i, /spring|insight|discovery|first[- ]year|open day/i, /summer (analyst|intern)|summer internship|\bsummer\b/i, /off[- ]cycle/i, /placement|industrial|year in industry/i, /apprentice/i, /graduate|analyst programme|trainee/i, /virtual/i];
+const KIND = [/vacation|vac scheme/i, /training contract/i, /spring|insight|discovery|first[- ]year|open day/i, /summer (analyst|intern)|summer internship|\bsummer\b/i, /off[- ]cycle/i, /placement|industrial|year in industry/i, /apprentice/i, /graduate|analyst programme|trainee/i, /virtual/i, /intern/i];
+export const CATEGORY = /^(students?( (&|and) graduates?)?|graduates?( programmes?)?|internships?( programmes?)?|apprenticeships?( programmes?)?|placements?|industrial placements?|insight( programmes?| days?)?|early insight|spring (weeks?|insights?)|work experience|pre-?internships?|early careers?( overview)?|programmes?|opportunities|learn about .*|.* overview)$/i;
 export const kindOf = t => { const i = KIND.findIndex(r => r.test(t)); return i; };
 const GENERIC = /^(apply( now| here| today)?|find out more|learn more|read more|more info(rmation)?|view( (role|job|details|programme|opportunity))?|details|register( (now|interest))?|click here|here|explore|discover more|see more|open|›|→|>)$/i;
 
@@ -413,6 +427,7 @@ async function getBrowser(){
   catch(e){ console.warn('⚠ Playwright not installed — skipping firms’ own pages. Run: npm i playwright && npx playwright install chromium'); browser = false; }
   return browser;
 }
+const UK_WORDS = /london|\buk\b|united kingdom|emea|england|scotland|wales|belfast|edinburgh|glasgow|manchester|leeds|birmingham|bristol|cardiff|newcastle|nottingham|sheffield|liverpool/i;
 const HUMAN = /verify (?:you are|you're) (?:a )?human|are you a robot|captcha|quick check needed|access denied|unusual traffic/i;
 const grabLinks = page => page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:a.href, ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
 async function openPage(b, url){
@@ -433,7 +448,11 @@ export async function resolveApply(url){
   try{
     pg = await openPage(b, url);
     const links = await grabLinks(pg.page);
-    return { link:applyLinkOf(links, url), text:pg.text, ats:links.map(l => atsFromLink(l.h)).filter(Boolean) };
+    const seen = new Set();
+    const jobs = links.filter(l => isDeep(l.h) && l.h.split('#')[0] !== url.split('#')[0] && !seen.has(l.h) && seen.add(l.h))
+      .map(l => ({ ...l, t:(l.t && !GENERIC.test(l.t) && l.t.length >= 6 ? l.t : titleFromLink(l.h) || '').replace(/\s+/g, ' ').trim() }))
+      .filter(l => l.t && l.t.length <= 160 && !HUB_ROLE.test(l.t) && !APPLY_TXT.test(l.t));
+    return { link:applyLinkOf(links, url), jobs, text:pg.text, ats:links.map(l => atsFromLink(l.h)).filter(Boolean) };
   }catch(e){ return null; }
   finally{ if(pg) await pg.page.close().catch(() => {}); }
 }
@@ -467,7 +486,7 @@ export async function scanPage(src){
         if(!title || title.length > 160 || HUB_ROLE.test(title)) continue;
         if(pat ? !pat.test(l.h) : !(isEarly(title) || titleFromLink(l.h))) continue;
         if(inc && !inc.test(title + ' ' + l.ctx)) continue;
-        if(NOT_UK.test(title + ' ' + l.ctx) && !/london|\buk\b|united kingdom|emea|england|scotland|wales|belfast|edinburgh|glasgow|manchester|leeds|birmingham|bristol/i.test(title + ' ' + l.ctx)) continue;
+        if(NOT_UK.test(title + ' ' + l.ctx) && !UK_WORDS.test(title + ' ' + l.ctx)) continue;
         seen.add(l.h);
         const city = src.cityFromUrl ? (new URL(l.h).pathname.split('/').filter(Boolean)[src.cityFromUrl] || '') : '';
         items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location:city ? deslug(city) + ', United Kingdom' : (src.location || 'London, United Kingdom') });
@@ -476,21 +495,29 @@ export async function scanPage(src){
     }finally{ await pg.page.close().catch(() => {}); }
     if(i < urls.length - 1) await sleep(800);
   }
-  // general pages → follow them to the real application link
-  let followed = 0;
+  // general pages → follow them: a page listing specific roles is replaced by those roles; otherwise use its Apply link;
+  // if neither exists the general page stays (it's the best link there is)
+  let followed = 0; const out = [];
   for(const it of items){
-    if(isDeep(it.link) || followed >= (src.maxFollow ?? 20)) continue;
+    if(isDeep(it.link) || followed >= (src.maxFollow ?? 25)){ out.push(it); continue; }
     followed++;
     const r = await resolveApply(it.link);
-    if(!r) continue;
+    if(!r){ out.push(it); continue; }
     const d = detailsOf(r.text);
-    for(const f of ['deadline', 'opens', 'visa']) if(!it[f] && d[f]) it[f] = d[f];
-    if(!it.live) it.live = statusIn(r.text);
-    if((!it.notes || !it.notes.length) && d.notes.length) it.notes = d.notes.slice(0, 3);
-    if(r.link){ it.info = it.link; it.link = r.link; }
     for(const bd of r.ats) ats.set(JSON.stringify(bd), bd);
+    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || CATEGORY.test(it.role)) && !(NOT_UK.test(j.t + ' ' + j.ctx) && !UK_WORDS.test(j.t + ' ' + j.ctx)));
+    if(specific.length >= 2 || (specific.length === 1 && !r.link)){
+      for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx), deadline:deadlineIn(j.ctx) || d.deadline, opens:opensIn(j.ctx), notes:notesFrom(j.ctx).slice(0, 2), location:it.location }); }
+    }else{
+      for(const f of ['deadline', 'opens', 'visa']) if(!it[f] && d[f]) it[f] = d[f];
+      if(!it.live || it.live === 'check') it.live = statusIn(r.text);
+      if((!it.notes || !it.notes.length) && d.notes.length) it.notes = d.notes.slice(0, 3);
+      if(r.link){ it.info = it.link; it.link = r.link; }
+      out.push(it);
+    }
     await sleep(500);
   }
+  items.length = 0; items.push(...out);
   return { items, ats:[...ats.values()], pageNotes };
 }
 
@@ -562,9 +589,11 @@ const boardKey = s => [s.type, s.board || s.host || s.url, s.site || ''].join(':
 async function toOpenings(rows, co, src){
   const out = []; let details = 0;
   for(const j of rows || []){
-    const role = String(j.role || '').replace(/\s+/g, ' ').replace(/\s*\(opens in (a )?new (window|tab)\)\s*/i, ' ').trim(); if(!role || HUB_ROLE.test(role)) continue;
+    const ct = cleanTitle(j.role); const role = ct.title; if(ct.opens && !j.opens && ct.opens !== 'soon') j.opens = ct.opens; if(ct.opens && (!j.live || j.live === 'check')) j.live = 'soon'; if(!role || HUB_ROLE.test(role)) continue;
     if(!src.all && !isEarly(role)) continue;
     let location = j.location || src.location || '', text = j.text || '';
+    const tc = role.match(/\b(London|Leeds|Manchester|Birmingham|Edinburgh|Glasgow|Bristol|Belfast|Cardiff|Newcastle|Nottingham|Sheffield|Liverpool|Reading|Cambridge|Oxford|Bournemouth|Northampton|Knutsford|Chester|Milton Keynes|Canary Wharf)\b/i);
+    if(tc && (!j.location || !new RegExp(tc[1], 'i').test(j.location))) location = (tc[1] === 'Canary Wharf' ? 'Canary Wharf, London' : tc[1]) + ', United Kingdom';
     let region = regionOf(location);
     const needDetail = j.detail && details < (src.maxDetails || 40) && (!region || /\d+ locations/i.test(location) || !text);
     if(needDetail){
@@ -708,16 +737,26 @@ async function main(){
   if(newFirms.length) cache.__discovered = [...discovered, ...newFirms];
 
   // 3) merge: one row per programme (same firm + same title), keep the richest record
+  const titleKey = t => String(t).toLowerCase().replace(/\(opens in (a )?new (window|tab)\)/g, '').replace(/\b20\d\d(\/\d\d)?\b/g, ' ').replace(/programmes?|programs?/g, 'programme')
+    .replace(/[^a-z0-9]+/g, ' ').replace(/\b(the|and|of|uk|emea|europe)\b/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90);
+  const cityKey = o => (String(o.location || '').split(/[,;·|]/)[0].toLowerCase().replace(/[^a-z]/g, '') || o.region || '');
   const merge = list => {
     const m = new Map();
-    for(const o of list){
-      const k = o.company + '|' + norm(o.role).slice(0, 90);
-      const a = m.get(k);
+    for(let o of list){
+      const k = o.company + '|' + titleKey(o.role) + '|' + cityKey(o);
+      let a = m.get(k);
+      if(a && !isDeep(a.link) && isDeep(o.link)){ m.set(k, o); const g = a; a = o; o = g; if(!a.info) a.info = o.link; }   // keep the exact link
       if(!a) m.set(k, o);
       else for(const f of ['deadline', 'opens', 'live', 'visa', 'postedAt', 'price']) if(!a[f] && o[f]) a[f] = o[f];
       if(a && (!a.notes || !a.notes.length) && o.notes && o.notes.length) a.notes = o.notes;
     }
-    return [...m.values()];
+    const byLink = new Map();
+    for(const o of m.values()){
+      const k = o.company + '|' + String(o.link || o.id).split('#')[0] + '|' + cityKey(o);
+      const a = byLink.get(k);
+      if(!a) byLink.set(k, o); else for(const f of ['deadline', 'opens', 'live', 'visa', 'postedAt', 'price']) if(!a[f] && o[f]) a[f] = o[f];
+    }
+    return [...byLink.values()];
   };
   /* a general programme page and the firm's exact posting for the same scheme → one row, exact link */
   const toExact = list => {
@@ -727,6 +766,7 @@ async function main(){
     for(const rows of Object.values(byCo)){
       const exact = rows.filter(o => isDeep(o.link));
       for(const g of rows.filter(o => !isDeep(o.link))){
+        if(exact.length && CATEGORY.test(g.role.trim())){ drop.add(g); continue; }
         const k = kindOf(g.role); if(k < 0) continue;
         const twins = exact.filter(e => kindOf(e.role) === k && (g.region === e.region || !g.region || !e.region));
         if(!twins.length) continue;
