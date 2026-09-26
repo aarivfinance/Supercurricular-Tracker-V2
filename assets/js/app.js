@@ -713,8 +713,8 @@ if(!S.opMeta) S.opMeta = {};
 if(!S.reviewDecisions) S.reviewDecisions = {};
 if(!S.firmNotes) S.firmNotes = {};
 function OPS(){
-  const accepted = new Set(Object.keys(S.reviewDecisions).filter(k => S.reviewDecisions[k] === 'accept'));
-  const remote = LIVE.openings.concat(LIVE.review.filter(r => accepted.has(r.company)));
+  const ids = new Set(LIVE.openings.map(o => o.id));
+  const remote = LIVE.openings.concat((LIVE.review || []).filter(r => !ids.has(r.id)).map(r => Object.assign({ auto:true }, r)));   // older data files kept auto-found firms separately
   return remote.map(r => {
     const meta = Object.assign({}, S.opMeta[r.id] || {});
     if(typeof meta.notes === 'string'){ meta.myNotes = meta.myNotes || meta.notes; delete meta.notes; }   // older saves kept personal notes in "notes"
@@ -726,12 +726,7 @@ function setOp(o, patch){
   if(o.remote) S.opMeta[o.id] = Object.assign({}, S.opMeta[o.id], patch);
   save();
 }
-function pendingReview(){
-  const onList = new Set(LIVE.watchlist.map(w => w.company));
-  const by = {};
-  LIVE.review.forEach(r => { if(onList.has(r.company) || S.reviewDecisions[r.company]) return; (by[r.company] = by[r.company] || { company:r.company, sector:r.sector, items:[] }).items.push(r); });
-  return Object.values(by);
-}
+function pendingReview(){ return []; }   // Review tab retired: auto-found firms go straight into the tracker
 async function loadLive(silent){
   try{
     const res = await fetch('data/openings.json?t=' + Date.now(), { cache:'no-store' });
@@ -771,6 +766,7 @@ function drawReview(b){
 }
 
 function viewOpenings(v){
+  if(opF.tab === 'review') opF.tab = 'uni';
   const all = OPS();
   const inTrack = t => all.filter(o => trackOf(o) === t);
   const isTrackTab = TRACKS.some(t => t[0] === opF.tab);
@@ -784,7 +780,7 @@ function viewOpenings(v){
     actions:`<button class="btn" id="opRefresh">↻ Refresh</button><button class="btn primary" id="opAdd">${I(IC.plus,14)} Add opening</button>`
   }) + `<div style="margin:-8px 0 18px">${liveLine()}</div>
   <div class="subtabs" role="tablist">
-    ${TRACKS.map(t => [t[0], t[1], inTrack(t[0]).length]).concat([['saved','Starred', all.filter(o => o.saved).length], ['apps','My applications', all.filter(o => o.status).length], ['companies','Watchlist', new Set(LIVE.watchlist.map(w => w.company)).size], ['review','Review', pendingReview().length]])
+    ${TRACKS.map(t => [t[0], t[1], inTrack(t[0]).length]).concat([['saved','Starred', all.filter(o => o.saved).length], ['apps','My applications', all.filter(o => o.status).length], ['companies','Watchlist', new Set(LIVE.watchlist.map(w => w.company)).size]])
       .map(t => `<button role="tab" data-t="${t[0]}" aria-selected="${opF.tab === t[0]}">${t[1]} <span class="n">${t[2]}</span></button>`).join('')}
   </div>
   <div class="filterbar" id="opFilters">
@@ -846,7 +842,6 @@ function drawOpenings(){
   const listTab = !['companies','review','apps'].includes(opF.tab);
   $('#opFilters').classList.toggle('hidden', !listTab && opF.tab !== 'apps');
   strip.innerHTML = '';
-  if(opF.tab === 'review') return drawReview(b);
   if(opF.tab === 'companies') return drawCompanies(b);
   if(opF.tab === 'apps') return drawBoard(b);
   const list = opFiltered();
@@ -886,7 +881,7 @@ function opRow(o, ghost){
   const sub = [o.roleType, o.price].filter(Boolean).join(' · ');
   return `<div class="tr-row ${ghost ? 'ghost' : ''} ${o.live === 'closed' ? 'is-closed' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
     <div class="cell-main"><button class="co-link" data-co="${esc(o.company)}" title="See everything at ${esc(o.company)}">${esc(o.company)}</button><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
-    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew24(o) ? '<span class="badge-new">NEW</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(sub)}</small></div>
+    <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew24(o) ? '<span class="badge-new">NEW</span>' : ''}${o.auto ? '<span class="badge-auto" title="The scanner found this firm by itself">New firm</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(sub)}</small></div>
     <div class="cell-txt">${esc(o.programme || '')}</div>
     <div class="cell-main"><b style="font-weight:500">${esc(cityOf(o))}</b><small>${o.region && o.region !== cityOf(o) ? esc(o.region) : ''}</small></div>
     <div class="cell-age">${ageCell(o)}</div>
@@ -1022,7 +1017,7 @@ function drawBoard(b){
 
 const wlF = { mine:false };
 function drawCompanies(b){
-  const accepted = Object.keys(S.reviewDecisions).filter(k => S.reviewDecisions[k] === 'accept').map(c => ({ company:c, sector:(LIVE.review.find(r => r.company === c) || {}).sector || 'Other', sub:'Accepted from Review' }));
+  const accepted = Object.keys(S.reviewDecisions || {}).filter(k => S.reviewDecisions[k] === 'accept').map(c => ({ company:c, sector:'Other', sub:'Accepted earlier' }));
   const own = OPS().filter(o => !o.remote).map(o => ({ company:o.company, sector:o.sector, sub:'Added by you' }));
   const seen = new Set(), wl = [];
   LIVE.watchlist.concat(accepted, own).forEach(c => { if(!seen.has(c.company)){ seen.add(c.company); wl.push(c); } });
