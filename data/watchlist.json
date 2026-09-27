@@ -2058,6 +2058,1602 @@
    "sector": "Banking",
    "sub": "International & Japanese banks",
    "addedByClaude": true
+  },
+  {
+   "company": "Aluna Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Aurelia Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Jain Global",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Davidson Kempner",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sculptor Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Taula Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kedalion Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Pharo Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kirkoswald Capital Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Arini",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sona Asset Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Egerton Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "TT International",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Algebris Investments",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cheyne Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "King Street Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sand Grove Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Pelham Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kite Lake Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Quadrature Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "GSA Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "PDT Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Chicago Trading Company",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Capital Fund Management (CFM)",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "OxFORD Asset Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Systematica Investments",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tibra Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Mako",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "DV Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Wintermute",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "GSR",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "B2C2",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Keyrock",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Trafigura",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Vitol",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Glencore",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Gunvor",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Mercuria",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hartree Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Castleton Commodities International",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Onyx Capital Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Commodities & trading houses",
+   "addedByClaude": true
+  },
+  {
+   "company": "Marex",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Artemis Investment Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Federated Hermes",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Border to Coast Pensions Partnership",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "USS Investment Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Aegon Asset Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Allianz Global Investors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Amundi",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Polar Capital",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Barings",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Insight Investment",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Neuberger Berman",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Capital Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Evelyn Partners",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Wealth managers & private banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brown Shipley",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Wealth managers & private banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Pension Insurance Corporation",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Standard Life (Phoenix Group)",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Aviva",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Rothesay",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Canada Life UK",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Just Group",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lloyd's of London",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Beazley",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hiscox",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Munich Re",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Swiss Re",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brit Insurance",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Chubb",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "AIG",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tokio Marine Kiln",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Apax Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "BC Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "PAI Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Triton Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Nordic Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "IK Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ardian",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tikehau Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Partners Group",
+   "sector": "Private Equity & VC",
+   "sub": "Mega-cap PE",
+   "addedByClaude": true
+  },
+  {
+   "company": "BGF",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "GP Bullhound",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Oaktree Capital Management",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hayfin Capital Management",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Pemberton Asset Management",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "17Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lexington Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "StepStone Group",
+   "sector": "Private Equity & VC",
+   "sub": "Mid-market PE & private credit",
+   "addedByClaude": true
+  },
+  {
+   "company": "Stonepeak",
+   "sector": "Private Equity & VC",
+   "sub": "Infrastructure & real assets",
+   "addedByClaude": true
+  },
+  {
+   "company": "InfraRed Capital Partners",
+   "sector": "Private Equity & VC",
+   "sub": "Infrastructure & real assets",
+   "addedByClaude": true
+  },
+  {
+   "company": "Molten Ventures",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Octopus Ventures",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Notion Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kindred Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "MMC Ventures",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Dawn Capital",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Speedinvest",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "General Catalyst",
+   "sector": "Private Equity & VC",
+   "sub": "Venture capital & accelerators",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lincoln International",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "William Blair",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Raine Group",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ducera Partners",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Arma Partners",
+   "sector": "Banking",
+   "sub": "Elite boutiques & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "DC Advisory",
+   "sector": "Banking",
+   "sub": "Mid-market advisory & brokers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Canaccord Genuity",
+   "sector": "Banking",
+   "sub": "Mid-market advisory & brokers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cavendish",
+   "sector": "Banking",
+   "sub": "Mid-market advisory & brokers",
+   "addedByClaude": true
+  },
+  {
+   "company": "TP ICAP",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Commerzbank",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Intesa Sanpaolo",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "BBVA",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Scotiabank",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "TD Securities",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "CIBC",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "BMO Capital Markets",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "SEB",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "Danske Bank",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "First Abu Dhabi Bank",
+   "sector": "Banking",
+   "sub": "International & Japanese banks",
+   "addedByClaude": true
+  },
+  {
+   "company": "C. Hoare & Co",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Arbuthnot Latham",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Handelsbanken UK",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Atom bank",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Allica Bank",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kroo",
+   "sector": "Banking",
+   "sub": "UK retail & challengers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lendable",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Funding Circle",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "iwoca",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "ClearScore",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Zilch",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Paddle",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Primer",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ebury",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Nium",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Thought Machine",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "10x Banking",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Moneybox",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "PensionBee",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Plum",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Adyen",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "SumUp",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "TrueLayer",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "ION Group",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "LMAX Group",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Euroclear",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Euronext",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "MarketAxess",
+   "sector": "Banking",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "FactSet",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Morningstar",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "PitchBook",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Dow Jones",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Fieldfisher",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Hill Dickinson",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Browne Jacobson",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Womble Bond Dickinson",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Walker Morris",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Trowers & Hamlins",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Watson Farley & Williams",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "HFW",
+   "sector": "Law",
+   "sub": "Global & international",
+   "addedByClaude": true
+  },
+  {
+   "company": "RPC",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "DWF",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Gowling WLG",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Taylor Wessing",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Bryan Cave Leighton Paisner",
+   "sector": "Law",
+   "sub": "Silver Circle & UK leaders",
+   "addedByClaude": true
+  },
+  {
+   "company": "Mills & Reeve",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Foot Anstey",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brodies",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Burness Paull",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Shepherd and Wedderburn",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Morgan Lewis",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ropes & Gray",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cooley",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Willkie Farr & Gallagher",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Proskauer",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Vinson & Elkins",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "King & Spalding",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Fried Frank",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Paul Hastings",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Squire Patton Boggs",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Lewis Silkin",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Stewarts",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Leigh Day",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Dechert",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Greenberg Traurig",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "McDermott Will & Schulte",
+   "sector": "Law",
+   "sub": "US firms in London",
+   "addedByClaude": true
+  },
+  {
+   "company": "Bristows",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Penningtons Manches Cooper",
+   "sector": "Law",
+   "sub": "National & regional firms",
+   "addedByClaude": true
+  },
+  {
+   "company": "Arthur D. Little",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Marakon",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Advancy",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Capco",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sia Partners",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Huron",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Alpha FMC",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "PKF Littlejohn",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "PKF Francis Clark",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Moore Kingston Smith",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Menzies",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Buzzacott",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Haysmacintyre",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Saffery",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cornerstone Research",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Charles River Associates",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Analysis Group",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Berkeley Research Group",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Europe Economics",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "London Economics",
+   "sector": "Consulting & Accounting",
+   "sub": "Economic consulting",
+   "addedByClaude": true
+  },
+  {
+   "company": "Thoughtworks",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Slalom",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kubrick",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "addedByClaude": true
+  },
+  {
+   "company": "ZS Associates",
+   "sector": "Consulting & Accounting",
+   "sub": "Strategy (MBB & tier 2)",
+   "addedByClaude": true
+  },
+  {
+   "company": "Teneo",
+   "sector": "Consulting & Accounting",
+   "sub": "Communications & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brunswick Group",
+   "sector": "Consulting & Accounting",
+   "sub": "Communications & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "FGS Global",
+   "sector": "Consulting & Accounting",
+   "sub": "Communications & advisory",
+   "addedByClaude": true
+  },
+  {
+   "company": "Stability AI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "addedByClaude": true
+  },
+  {
+   "company": "Quantinuum",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Riverlane",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Graphcore",
+   "sector": "AI & Tech",
+   "sub": "Semiconductors & hardware",
+   "addedByClaude": true
+  },
+  {
+   "company": "Luminance",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Motorway",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Rightmove",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Trainline",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Just Eat Takeaway",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Octopus Energy",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "OVO",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Multiverse",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Gousto",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Depop",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sony Interactive Entertainment",
+   "sector": "AI & Tech",
+   "sub": "Gaming",
+   "addedByClaude": true
+  },
+  {
+   "company": "Rockstar Games",
+   "sector": "AI & Tech",
+   "sub": "Gaming",
+   "addedByClaude": true
+  },
+  {
+   "company": "Electronic Arts",
+   "sector": "AI & Tech",
+   "sub": "Gaming",
+   "addedByClaude": true
+  },
+  {
+   "company": "King",
+   "sector": "AI & Tech",
+   "sub": "Gaming",
+   "addedByClaude": true
+  },
+  {
+   "company": "Jagex",
+   "sector": "AI & Tech",
+   "sub": "Gaming",
+   "addedByClaude": true
+  },
+  {
+   "company": "Thomson Reuters",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "RELX",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "Experian",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sky",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "BBC",
+   "sector": "AI & Tech",
+   "sub": "Media & data",
+   "addedByClaude": true
+  },
+  {
+   "company": "BT Group",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": true
+  },
+  {
+   "company": "Vodafone",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": true
+  },
+  {
+   "company": "Virgin Media O2",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": true
+  },
+  {
+   "company": "Tesco Technology",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "Sainsbury's Tech",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
+  },
+  {
+   "company": "JLR",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Dyson",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "QinetiQ",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Thales UK",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Leonardo UK",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "MBDA",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Airbus UK",
+   "sector": "AI & Tech",
+   "sub": "Aerospace & defence",
+   "addedByClaude": true
+  },
+  {
+   "company": "Siemens UK",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "National Grid",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Shell",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "BP",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Unilever",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "GSK",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "AstraZeneca",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Cisco",
+   "sector": "AI & Tech",
+   "sub": "Big Tech",
+   "addedByClaude": true
+  },
+  {
+   "company": "Red Hat",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "MongoDB",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Elastic",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Datadog",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "GitLab",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Canonical",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Arup",
+   "sector": "AI & Tech",
+   "sub": "Energy & industrials",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kainos",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Softcat",
+   "sector": "AI & Tech",
+   "sub": "Enterprise software & security",
+   "addedByClaude": true
+  },
+  {
+   "company": "Flutter UK&I (Sky Betting & Gaming)",
+   "sector": "AI & Tech",
+   "sub": "Consumer internet",
+   "addedByClaude": true
   }
  ]
 }

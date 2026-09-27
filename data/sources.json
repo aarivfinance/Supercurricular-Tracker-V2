@@ -930,6 +930,1503 @@
    "url": "https://bambusdev.my.site.com/s/",
    "all": false,
    "label": "Balyasny open roles"
+  },
+  {
+   "type": "links",
+   "url": "https://alunapartners.recruit.charliehr.com/job-openings",
+   "linkPattern": "charliehr\\.com/job-openings/[\\w-]+",
+   "all": false,
+   "company": "Aluna Partners",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "jainglobal.wd5.myworkdayjobs.com",
+   "tenant": "jainglobal",
+   "site": "LinkedInCareerSite",
+   "company": "Jain Global"
+  },
+  {
+   "type": "greenhouse",
+   "board": "1456754456yhgbhfg",
+   "company": "Davidson Kempner"
+  },
+  {
+   "type": "workday",
+   "host": "sculptor.wd12.myworkdayjobs.com",
+   "tenant": "sculptor",
+   "site": "Sculptor_External_Career_Site",
+   "company": "Sculptor Capital"
+  },
+  {
+   "type": "greenhouse",
+   "board": "quadraturecapital",
+   "company": "Quadrature Capital"
+  },
+  {
+   "type": "greenhouse",
+   "board": "gsacapital",
+   "company": "GSA Capital"
+  },
+  {
+   "type": "greenhouse",
+   "board": "pdtpartners",
+   "company": "PDT Partners"
+  },
+  {
+   "type": "greenhouse",
+   "board": "chicagotrading",
+   "company": "Chicago Trading Company"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.cfm.com/",
+   "linkPattern": "jobs\\.cfm\\.com/job/[^\"]+/\\d+/",
+   "all": false,
+   "company": "Capital Fund Management (CFM)",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://www.oxam.com/join-us/",
+   "linkPattern": "oxam\\.com/portfolio/[\\w-]+/",
+   "all": false,
+   "company": "OxFORD Asset Management",
+   "maxFollow": 8
+  },
+  {
+   "type": "pinpoint",
+   "url": "https://systematica.pinpointhq.com/postings.json",
+   "company": "Systematica Investments"
+  },
+  {
+   "type": "workable",
+   "board": "tibra-capital-1",
+   "company": "Tibra Capital"
+  },
+  {
+   "type": "greenhouse",
+   "board": "mako",
+   "company": "Mako"
+  },
+  {
+   "type": "greenhouse",
+   "board": "dvtrading",
+   "company": "DV Trading"
+  },
+  {
+   "type": "lever",
+   "board": "wintermute-trading",
+   "company": "Wintermute"
+  },
+  {
+   "type": "greenhouse",
+   "board": "gsrmarkets",
+   "company": "GSR"
+  },
+  {
+   "type": "greenhouse",
+   "board": "b2c2",
+   "company": "B2C2"
+  },
+  {
+   "type": "ashby",
+   "board": "keyrock",
+   "company": "Keyrock"
+  },
+  {
+   "type": "workday",
+   "host": "trafigura.wd3.myworkdayjobs.com",
+   "tenant": "trafigura",
+   "site": "TrafiguraCareerSite",
+   "company": "Trafigura"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/Vitol",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/Vitol/\\d+",
+   "all": false,
+   "company": "Vitol",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "glencoreuk",
+   "company": "Glencore"
+  },
+  {
+   "type": "workday",
+   "host": "gunvor.wd3.myworkdayjobs.com",
+   "tenant": "gunvor",
+   "site": "Gunvor_Careers",
+   "company": "Gunvor"
+  },
+  {
+   "type": "links",
+   "url": "https://mercuria.com/careers/",
+   "linkPattern": "mercuria\\.com/job/[\\w-]+/",
+   "all": false,
+   "company": "Mercuria",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "osv-cci.wd1.myworkdayjobs.com",
+   "tenant": "osv-cci",
+   "site": "CCICareers",
+   "company": "Castleton Commodities International"
+  },
+  {
+   "type": "workable",
+   "board": "onyx-capital-group",
+   "company": "Onyx Capital Group"
+  },
+  {
+   "type": "links",
+   "url": "https://www.marex.com/careers/career-opportunities/",
+   "linkPattern": "/careers/career-opportunities/[0-9a-f]{10,}-[a-z0-9-]+",
+   "all": false,
+   "company": "Marex",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://careers.federatedhermes.com/",
+   "title": "Careers (London)",
+   "company": "Federated Hermes"
+  },
+  {
+   "type": "links",
+   "url": "https://www.bordertocoast.org.uk/current-vacancies/",
+   "linkPattern": "bordertocoast\\.org\\.uk/vacanc[^\"]+",
+   "all": false,
+   "company": "Border to Coast Pensions Partnership",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://uss.appellia.com/",
+   "linkPattern": "position\\.aspx\\?id=\\d+",
+   "all": false,
+   "company": "USS Investment Management",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "transamerica.wd5.myworkdayjobs.com",
+   "tenant": "transamerica",
+   "site": "AegonAM",
+   "company": "Aegon Asset Management"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.allianz.com/go/Allianz-Global-Investors/5123901/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "Allianz Global Investors",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.amundi.com/pages/offre/listeoffre.aspx?lcid=2057&facet_Country=162",
+   "linkPattern": "jobs\\.amundi\\.com/job/job-[^\"]+_\\d+\\.aspx",
+   "all": false,
+   "company": "Amundi",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "barings.wd1.myworkdayjobs.com",
+   "tenant": "barings",
+   "site": "Barings",
+   "company": "Barings"
+  },
+  {
+   "type": "workable",
+   "board": "insight-investment",
+   "company": "Insight Investment"
+  },
+  {
+   "type": "workday",
+   "host": "nb.wd1.myworkdayjobs.com",
+   "tenant": "nb",
+   "site": "NBCareers",
+   "company": "Neuberger Berman"
+  },
+  {
+   "type": "workday",
+   "host": "capgroup.wd1.myworkdayjobs.com",
+   "tenant": "capgroup",
+   "site": "capitalgroupcareers",
+   "company": "Capital Group"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/EvelynPartners",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/EvelynPartners/\\d+",
+   "all": false,
+   "company": "Evelyn Partners",
+   "maxFollow": 8
+  },
+  {
+   "type": "workable",
+   "board": "pension-services-corporation-limited",
+   "company": "Pension Insurance Corporation"
+  },
+  {
+   "type": "links",
+   "url": "https://aviva.apply.cappats.com/Jobs",
+   "linkPattern": "cappats\\.com/Jobs/[^\"]+",
+   "all": false,
+   "company": "Aviva",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "rothesaygraduates",
+   "company": "Rothesay"
+  },
+  {
+   "type": "links",
+   "url": "https://life-careers.com/canadalife/go/search-for-jobs/4578001/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "Canada Life UK",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "lloyds.wd3.myworkdayjobs.com",
+   "tenant": "lloyds",
+   "site": "Lloyds-of-London",
+   "company": "Lloyd's of London"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.beazley.com/jobs",
+   "linkPattern": "careers\\.beazley\\.com/jobs/\\d+",
+   "all": false,
+   "company": "Beazley",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "hiscox.wd3.myworkdayjobs.com",
+   "tenant": "hiscox",
+   "site": "Hiscox_External_Site",
+   "company": "Hiscox"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.munichre.com/en/location/london-jobs/3167/2635167-6269131-2643743/4",
+   "linkPattern": "careers\\.munichre\\.com/en/job/london/[^/]+/\\d+/\\d+",
+   "all": false,
+   "company": "Munich Re",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://careers.swissre.com/go/Graduates/2744301/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "Swiss Re",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "aig.wd1.myworkdayjobs.com",
+   "tenant": "aig",
+   "site": "early_careers",
+   "company": "AIG"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.tmkiln.com/careers/vacancies/",
+   "title": "Graduate, internship & apprenticeship programmes",
+   "company": "Tokio Marine Kiln"
+  },
+  {
+   "type": "lever",
+   "board": "apax",
+   "company": "Apax Partners"
+  },
+  {
+   "type": "recruitee",
+   "board": "bcpartners",
+   "company": "BC Partners"
+  },
+  {
+   "type": "recruitee",
+   "host": "careers.paipartners.com",
+   "company": "PAI Partners"
+  },
+  {
+   "type": "workday",
+   "host": "tritonpartners.wd3.myworkdayjobs.com",
+   "tenant": "tritonpartners",
+   "site": "External",
+   "company": "Triton Partners"
+  },
+  {
+   "type": "links",
+   "url": "https://career.nordiccapital.com/jobs",
+   "linkPattern": "/jobs/\\d+-[a-z0-9-]+",
+   "all": false,
+   "company": "Nordic Capital",
+   "maxFollow": 8
+  },
+  {
+   "type": "recruitee",
+   "board": "ikpartners",
+   "company": "IK Partners"
+  },
+  {
+   "type": "workday",
+   "host": "ardian.wd103.myworkdayjobs.com",
+   "tenant": "ardian",
+   "site": "ArdianCareers",
+   "company": "Ardian"
+  },
+  {
+   "type": "links",
+   "url": "https://tikehau-capital-career.talentview.io/en",
+   "linkPattern": "talentview\\.io/[a-z]{2}/[^\"']*job",
+   "all": false,
+   "company": "Tikehau Capital",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.partnersgroup.com/go/Our-Global-Analyst-Program/1322001/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "Partners Group",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.bgf.co.uk/careers/",
+   "title": "Graduate programme & summer internship",
+   "company": "BGF"
+  },
+  {
+   "type": "workday",
+   "host": "oaktree.wd1.myworkdayjobs.com",
+   "tenant": "oaktree",
+   "site": "Oaktree",
+   "company": "Oaktree Capital Management"
+  },
+  {
+   "type": "workable",
+   "board": "hayfin-capital-management",
+   "company": "Hayfin Capital Management"
+  },
+  {
+   "type": "ashby",
+   "board": "Pemberton",
+   "company": "Pemberton Asset Management"
+  },
+  {
+   "type": "bamboohr",
+   "board": "17capital",
+   "company": "17Capital"
+  },
+  {
+   "type": "greenhouse",
+   "board": "lexingtonpartners",
+   "company": "Lexington Partners"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.ircp.com/talent/job-vacancies/",
+   "title": "Summer internships & analyst programme",
+   "company": "InfraRed Capital Partners"
+  },
+  {
+   "type": "links",
+   "url": "https://octopusgroup.com/careers/listings/",
+   "linkPattern": "octopusgroup\\.com/careers/listings/[a-z0-9-]+/",
+   "all": false,
+   "company": "Octopus Ventures",
+   "maxFollow": 8
+  },
+  {
+   "type": "workable",
+   "board": "notion-vc",
+   "company": "Notion Capital"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.speedinvest.com/companies/speedinvest",
+   "linkPattern": "/companies/speedinvest/jobs/[\\w-]+",
+   "all": false,
+   "company": "Speedinvest",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "generalcatalyst",
+   "company": "General Catalyst"
+  },
+  {
+   "type": "greenhouse",
+   "board": "lincolninternational",
+   "company": "Lincoln International"
+  },
+  {
+   "type": "greenhouse",
+   "board": "williamblair",
+   "company": "William Blair"
+  },
+  {
+   "type": "lever",
+   "board": "raine",
+   "company": "Raine Group"
+  },
+  {
+   "type": "greenhouse",
+   "board": "ducerapartnerscampus",
+   "company": "Ducera Partners"
+  },
+  {
+   "type": "links",
+   "url": "https://www.armapartners.com/careers/",
+   "linkPattern": "armapartners\\.com/careers/(?!why-work|life-at|career-profiles|open-vacancies)[a-z0-9-]+/?$",
+   "all": false,
+   "company": "Arma Partners",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "cgf.wd10.myworkdayjobs.com",
+   "tenant": "cgf",
+   "site": "CG",
+   "company": "Canaccord Genuity"
+  },
+  {
+   "type": "links",
+   "url": "https://www.cavendish.com/current-vacancies/",
+   "linkPattern": "cavendish\\.com/[a-z0-9-]*(analyst|associate|intern|graduate)[a-z0-9-]*/?$",
+   "all": false,
+   "company": "Cavendish",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "tp.wd107.myworkdayjobs.com",
+   "tenant": "tp",
+   "site": "TP-ICAP",
+   "company": "TP ICAP"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.commerzbank.com/?ac=search_result&language=2",
+   "linkPattern": "ac=jobad&id=\\d+",
+   "all": false,
+   "company": "Commerzbank",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.intesasanpaolo.com/search/?q=&locationsearch=London",
+   "linkPattern": "/job/London-[^/]+/\\d+/",
+   "all": false,
+   "company": "Intesa Sanpaolo",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "bbva.wd3.myworkdayjobs.com",
+   "tenant": "bbva",
+   "site": "BBVA",
+   "company": "BBVA"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.scotiabank.com/search/?q=&locationsearch=London%2C+UK",
+   "linkPattern": "/job/London-[^/]+/\\d+/",
+   "all": false,
+   "company": "Scotiabank",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "td.wd3.myworkdayjobs.com",
+   "tenant": "td",
+   "site": "TD_Bank_Careers",
+   "company": "TD Securities"
+  },
+  {
+   "type": "workday",
+   "host": "cibc.wd3.myworkdayjobs.com",
+   "tenant": "cibc",
+   "site": "campus",
+   "company": "CIBC"
+  },
+  {
+   "type": "workday",
+   "host": "bmo.wd3.myworkdayjobs.com",
+   "tenant": "bmo",
+   "site": "campus",
+   "company": "BMO Capital Markets"
+  },
+  {
+   "type": "lever",
+   "board": "seb",
+   "company": "SEB"
+  },
+  {
+   "type": "oracle",
+   "host": "ejqi.fa.ocs.oraclecloud.eu",
+   "site": "CX_1001",
+   "company": "Danske Bank"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/FirstAbuDhabiBank",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/FirstAbuDhabiBank/\\d+",
+   "all": false,
+   "company": "First Abu Dhabi Bank",
+   "maxFollow": 8
+  },
+  {
+   "type": "workable",
+   "board": "hoares-bank",
+   "company": "C. Hoare & Co"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.arbuthnotlatham.co.uk/vacancies/vacancy-search-results.aspx",
+   "linkPattern": "/vacancies/\\d+/[a-z0-9-]+\\.html",
+   "all": false,
+   "company": "Arbuthnot Latham",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.handelsbanken.co.uk/",
+   "linkPattern": "job/detail\\.php\\?record=\\d+",
+   "all": false,
+   "company": "Handelsbanken UK",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://www.atombank.co.uk/careers/starting-your-career/",
+   "linkPattern": "atombank\\.co\\.uk/careers/[a-z-]+/[a-z0-9-]+/$",
+   "all": false,
+   "company": "Atom bank",
+   "maxFollow": 8
+  },
+  {
+   "type": "ashby",
+   "board": "allica-bank",
+   "company": "Allica Bank"
+  },
+  {
+   "type": "workable",
+   "board": "kroo",
+   "company": "Kroo"
+  },
+  {
+   "type": "ashby",
+   "board": "lendable",
+   "company": "Lendable"
+  },
+  {
+   "type": "ashby",
+   "board": "fundingcircle",
+   "company": "Funding Circle"
+  },
+  {
+   "type": "ashby",
+   "board": "iwoca.co.uk",
+   "company": "iwoca"
+  },
+  {
+   "type": "greenhouse",
+   "board": "clearscoretechnologylimited",
+   "company": "ClearScore"
+  },
+  {
+   "type": "ashby",
+   "board": "zilch",
+   "company": "Zilch"
+  },
+  {
+   "type": "ashby",
+   "board": "paddle",
+   "company": "Paddle"
+  },
+  {
+   "type": "ashby",
+   "board": "primer.io",
+   "company": "Primer"
+  },
+  {
+   "type": "greenhouse",
+   "board": "ebury",
+   "company": "Ebury"
+  },
+  {
+   "type": "lever",
+   "board": "nium",
+   "company": "Nium"
+  },
+  {
+   "type": "ashby",
+   "board": "thought-machine",
+   "company": "Thought Machine"
+  },
+  {
+   "type": "workable",
+   "board": "10xbanking",
+   "company": "10x Banking"
+  },
+  {
+   "type": "lever",
+   "board": "moneyboxapp",
+   "company": "Moneybox"
+  },
+  {
+   "type": "links",
+   "url": "https://pensionbeelimited-1750950714.teamtailor.com/jobs",
+   "linkPattern": "/jobs/\\d+-[a-z0-9-]+",
+   "all": false,
+   "company": "PensionBee",
+   "maxFollow": 8
+  },
+  {
+   "type": "workable",
+   "board": "withplum",
+   "company": "Plum"
+  },
+  {
+   "type": "greenhouse",
+   "board": "adyen",
+   "company": "Adyen"
+  },
+  {
+   "type": "greenhouse",
+   "board": "sumup",
+   "company": "SumUp"
+  },
+  {
+   "type": "greenhouse",
+   "board": "truelayer",
+   "company": "TrueLayer"
+  },
+  {
+   "type": "lever",
+   "board": "ion",
+   "company": "ION Group"
+  },
+  {
+   "type": "workable",
+   "board": "lmax",
+   "company": "LMAX Group"
+  },
+  {
+   "type": "oracle",
+   "host": "don.fa.em2.oraclecloud.com",
+   "site": "CX_1003",
+   "company": "Euroclear"
+  },
+  {
+   "type": "workday",
+   "host": "hrhub.wd3.myworkdayjobs.com",
+   "tenant": "hrhub",
+   "site": "Euronext_Career_Page",
+   "company": "Euronext"
+  },
+  {
+   "type": "greenhouse",
+   "board": "marketaxesscorporation",
+   "company": "MarketAxess"
+  },
+  {
+   "type": "workday",
+   "host": "factset.wd108.myworkdayjobs.com",
+   "tenant": "factset",
+   "site": "FactSetCareers",
+   "company": "FactSet"
+  },
+  {
+   "type": "workday",
+   "host": "morningstar.wd5.myworkdayjobs.com",
+   "tenant": "morningstar",
+   "site": "morningstar",
+   "company": "Morningstar"
+  },
+  {
+   "type": "greenhouse",
+   "board": "pitchbookdata",
+   "company": "PitchBook"
+  },
+  {
+   "type": "workday",
+   "host": "dowjones.wd1.myworkdayjobs.com",
+   "tenant": "dowjones",
+   "site": "Dow_Jones_Career",
+   "company": "Dow Jones"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.fieldfisher.com/en/careers/earlycareers/training-contracts",
+   "title": "Vacation Scheme & Training Contract",
+   "company": "Fieldfisher"
+  },
+  {
+   "type": "programme",
+   "url": "https://careers.hilldickinson.com/early-careers",
+   "title": "Summer Insight & Training Contract",
+   "company": "Hill Dickinson"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.brownejacobson.com/careers/future-lawyers/summer-vacation-scheme",
+   "title": "Summer Vacation Scheme",
+   "company": "Browne Jacobson"
+  },
+  {
+   "type": "links",
+   "url": "https://www.womblebonddickinson.com/uk/careers/early-careers",
+   "linkPattern": "apply\\.candidats\\.io/[0-9a-f-]{36}",
+   "all": true,
+   "company": "Womble Bond Dickinson",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://graduates.walkermorris.co.uk/training-contracts/vacation-scheme/",
+   "title": "Vacation Scheme",
+   "company": "Walker Morris"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.trowers.com/careers/trainee-solicitors/summer-vacation-scheme-and-insight-events",
+   "title": "Summer Vacation Scheme & Insight Events",
+   "company": "Trowers & Hamlins"
+  },
+  {
+   "type": "programme",
+   "url": "https://earlycareers.wfw.com/what-we-offer/vacation-schemes/",
+   "title": "Vacation Scheme",
+   "company": "Watson Farley & Williams"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.hfw.com/careers/early-careers/early-careers-london/early-careers-vacation-schemes/",
+   "title": "Vacation Scheme",
+   "company": "HFW"
+  },
+  {
+   "type": "links",
+   "url": "https://www.rpclegal.com/careers/early-talent/uk/uk-summer-schemes/",
+   "linkPattern": "cvmailuk\\.com/rpc/main\\.cfm\\?page=job[^\"']*",
+   "all": true,
+   "company": "RPC",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://dwfgroup.com/en/careers/join-us/early-careers/vacation-scheme",
+   "title": "Vacation Scheme",
+   "company": "DWF"
+  },
+  {
+   "type": "programme",
+   "url": "https://gowlingwlg.com/en-gb/careers/uk/early-talent/vacation-schemes",
+   "title": "Vacation Scheme",
+   "company": "Gowling WLG"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.taylorwessing.com/Earlycareeropportunities/go/Early-career-opportunities/9053855/",
+   "linkPattern": "/Earlycareeropportunities/job/[^\"'/]+/\\d+/",
+   "all": true,
+   "company": "Taylor Wessing",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://trainee.bclplaw.com/opportunities/london/",
+   "linkPattern": "apply\\.candidats\\.io/[0-9a-f-]{36}",
+   "all": true,
+   "company": "Bryan Cave Leighton Paisner",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.mills-reeve.com/careers/emerging-talent-be-part-of-it/placement-schemes-and-training-contracts/",
+   "title": "Summer Vacation Scheme",
+   "company": "Mills & Reeve"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.footanstey.com/careers/early-careers/vacation-schemes/",
+   "title": "Vacation Scheme",
+   "company": "Foot Anstey"
+  },
+  {
+   "type": "programme",
+   "url": "https://brodies.com/careers/careers-at-brodies/summer-placements/",
+   "title": "Summer Placement",
+   "company": "Brodies"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.burnesspaull.com/careers/graduates/summer-vacation-scheme/",
+   "title": "Summer Vacation Scheme",
+   "company": "Burness Paull"
+  },
+  {
+   "type": "programme",
+   "url": "https://shepwedd.com/careers/early-careers/legal-summer-placements/",
+   "title": "Legal Summer Placement",
+   "company": "Shepherd and Wedderburn"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.morganlewis.com/careers/students-trainees-judicial-clerks",
+   "title": "Summer Vacation Scheme",
+   "company": "Morgan Lewis"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.ropesgrayrecruiting.com/en/UK/Students-Graduates",
+   "title": "Vacation Scheme",
+   "company": "Ropes & Gray"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.cooley.com/careers/uk-trainees",
+   "title": "Spring & Summer Programme",
+   "company": "Cooley"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.willkie.com/careers/legal-professional/early-careers/discover-more-and-apply/united-kingdom",
+   "title": "Vacation Scheme",
+   "company": "Willkie Farr & Gallagher"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.proskauer.com/careers/lawyers/london-trainee-solicitors",
+   "title": "Training Contract",
+   "company": "Proskauer"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.velaw.com/careers/london-graduate-recruitment/",
+   "title": "Vacation Scheme & Training Contract",
+   "company": "Vinson & Elkins"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.kslaw.com/careers/early-careers/uk-training-contracts",
+   "title": "Training Contract",
+   "company": "King & Spalding"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.friedfrank.com/careers/law-students-recent-graduates-and-london-training-applicants/training-contracts-london",
+   "title": "Training Contract",
+   "company": "Fried Frank"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.paulhastings.com/en-GB/careers",
+   "title": "Training Contract & Insight Day",
+   "company": "Paul Hastings"
+  },
+  {
+   "type": "links",
+   "url": "https://www.squirepattonboggs.com/join-us/student-and-graduate-opportunities/trainee-solicitor-program/",
+   "linkPattern": "cvmailuk\\.com/spb/main\\.cfm\\?page=jobSpecific&(amp;)?jobId=\\d+",
+   "all": true,
+   "company": "Squire Patton Boggs",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.lewissilkin.com/en/life-at-ls/careers/trainees",
+   "title": "Training Contract",
+   "company": "Lewis Silkin"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.stewartslaw.com/careers/trainee-solicitors/",
+   "title": "Training Contract",
+   "company": "Stewarts"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.leighday.co.uk/about-us/leigh-day-careers/early-careers/",
+   "title": "Early careers programmes",
+   "company": "Leigh Day"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.dechert.com/careers/london-training-programme.html",
+   "title": "Vacation Scheme",
+   "company": "Dechert"
+  },
+  {
+   "type": "workday",
+   "host": "gtlaw.wd1.myworkdayjobs.com",
+   "tenant": "gtlaw",
+   "site": "GTLAW",
+   "company": "Greenberg Traurig"
+  },
+  {
+   "type": "workday",
+   "host": "mwe.wd5.myworkdayjobs.com",
+   "tenant": "mwe",
+   "site": "mwe_careers",
+   "company": "McDermott Will & Schulte"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.bristows.com/careers/trainees/want-some-advice/apply-now/",
+   "title": "Training Contract",
+   "company": "Bristows"
+  },
+  {
+   "type": "links",
+   "url": "https://careers-penningtonslaw.icims.com/jobs/search?ss=1&in_iframe=1",
+   "linkPattern": "icims\\.com/jobs/\\d+/[^\"'?]+/job",
+   "all": false,
+   "company": "Penningtons Manches Cooper",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.adlittle.com/en/careers",
+   "title": "Business Analyst Internship",
+   "company": "Arthur D. Little"
+  },
+  {
+   "type": "greenhouse",
+   "board": "marakon",
+   "company": "Marakon"
+  },
+  {
+   "type": "links",
+   "url": "https://advancy.recruitee.com/",
+   "linkPattern": "advancy\\.recruitee\\.com/o/london-[a-z0-9-]+",
+   "all": true,
+   "company": "Advancy",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "capco",
+   "company": "Capco"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/SiaPartners",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/SiaPartners/\\d+",
+   "all": false,
+   "company": "Sia Partners",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "huron.wd1.myworkdayjobs.com",
+   "tenant": "huron",
+   "site": "huroncareers",
+   "company": "Huron"
+  },
+  {
+   "type": "greenhouse",
+   "board": "alphafmcrolesearlycareers",
+   "company": "Alpha FMC"
+  },
+  {
+   "type": "programme",
+   "url": "https://www.pkf-l.com/careers/early-careers/graduates/",
+   "title": "Graduate Programme",
+   "company": "PKF Littlejohn"
+  },
+  {
+   "type": "programme",
+   "url": "https://careers.pkf-francisclark.co.uk/early-careers/graduate-accounting-jobs/",
+   "title": "Graduate Scheme",
+   "company": "PKF Francis Clark"
+  },
+  {
+   "type": "pinpoint",
+   "url": "https://mooreks.pinpointhq.com/postings.json",
+   "company": "Moore Kingston Smith"
+  },
+  {
+   "type": "pinpoint",
+   "url": "https://menzies.pinpointhq.com/postings.json",
+   "company": "Menzies"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.buzzacott.co.uk/jobs",
+   "linkPattern": "careers\\.buzzacott\\.co\\.uk/jobs/\\d+-[a-z0-9-]+",
+   "all": false,
+   "company": "Buzzacott",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://haysmac.com/vacancies/",
+   "linkPattern": "haysmac\\.com/vacancies/[a-z0-9-]+/",
+   "all": false,
+   "company": "Haysmacintyre",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://saffery.kallidusrecruit.com/Search.aspx",
+   "linkPattern": "VacancyInformation\\.aspx\\?VId=\\d+",
+   "all": false,
+   "company": "Saffery",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://uguk-chire.icims.com/jobs/search?ss=1&in_iframe=1",
+   "linkPattern": "icims\\.com/jobs/\\d+/[^\"'?]+/job",
+   "all": false,
+   "company": "Cornerstone Research",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "charlesriverassociates",
+   "company": "Charles River Associates"
+  },
+  {
+   "type": "links",
+   "url": "https://analystcareers-analysisgroup.icims.com/jobs/search?ss=1&in_iframe=1",
+   "linkPattern": "icims\\.com/jobs/\\d+/[^\"'?]+/job",
+   "all": false,
+   "company": "Analysis Group",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.jobvite.com/brg/jobs",
+   "linkPattern": "jobs\\.jobvite\\.com/brg/job/[A-Za-z0-9]+",
+   "all": false,
+   "company": "Berkeley Research Group",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.europe-economics.com/careers/",
+   "title": "Graduate Economist",
+   "company": "Europe Economics"
+  },
+  {
+   "type": "programme",
+   "url": "https://londoneconomics.co.uk/recruitment/",
+   "title": "Summer Internship & Economic Analyst",
+   "company": "London Economics"
+  },
+  {
+   "type": "greenhouse",
+   "board": "thoughtworks",
+   "company": "Thoughtworks"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.slalom.com/en_US/careersmarketplace/SearchJobs",
+   "linkPattern": "careersmarketplace/JobDetail/[^\"']+",
+   "all": false,
+   "company": "Slalom",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://kubrickcareers.kubrickgroup.com/jobs",
+   "linkPattern": "/jobs/\\d+-[a-z0-9-]+",
+   "all": false,
+   "company": "Kubrick",
+   "maxFollow": 8
+  },
+  {
+   "type": "programme",
+   "url": "https://www.zs.com/careers/find-your-path/internships",
+   "title": "Internship",
+   "company": "ZS Associates"
+  },
+  {
+   "type": "links",
+   "url": "https://www.teneo.com/careers/open-positions/office/london/",
+   "linkPattern": "teneo\\.com/careers/open-positions/\\d+/",
+   "all": false,
+   "company": "Teneo",
+   "maxFollow": 8
+  },
+  {
+   "type": "greenhouse",
+   "board": "brunswickgroup",
+   "company": "Brunswick Group"
+  },
+  {
+   "type": "greenhouse",
+   "board": "fgsglobal",
+   "company": "FGS Global"
+  },
+  {
+   "type": "greenhouse",
+   "board": "stabilityai",
+   "company": "Stability AI"
+  },
+  {
+   "type": "lever",
+   "board": "quantinuum",
+   "company": "Quantinuum"
+  },
+  {
+   "type": "greenhouse",
+   "board": "riverlane",
+   "company": "Riverlane"
+  },
+  {
+   "type": "greenhouse",
+   "board": "graphcore-early-careers",
+   "company": "Graphcore"
+  },
+  {
+   "type": "workable",
+   "board": "luminance-1",
+   "company": "Luminance"
+  },
+  {
+   "type": "ashby",
+   "board": "motorway",
+   "company": "Motorway"
+  },
+  {
+   "type": "greenhouse",
+   "board": "rightmovecareers",
+   "company": "Rightmove"
+  },
+  {
+   "type": "ashby",
+   "board": "trainline",
+   "company": "Trainline"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.justeattakeaway.com/global/en/search-results",
+   "linkPattern": "/global/en/job/",
+   "all": false,
+   "company": "Just Eat Takeaway",
+   "maxFollow": 8
+  },
+  {
+   "type": "lever",
+   "board": "octoenergy",
+   "company": "Octopus Energy"
+  },
+  {
+   "type": "greenhouse",
+   "board": "ovoenergy",
+   "company": "OVO"
+  },
+  {
+   "type": "ashby",
+   "board": "multiverse",
+   "company": "Multiverse"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/Gousto1",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/Gousto1/\\d+",
+   "all": false,
+   "company": "Gousto",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "etsy.wd5.myworkdayjobs.com",
+   "tenant": "etsy",
+   "site": "Depop_Careers",
+   "company": "Depop"
+  },
+  {
+   "type": "greenhouse",
+   "board": "sonyinteractiveentertainmentglobal",
+   "company": "Sony Interactive Entertainment"
+  },
+  {
+   "type": "greenhouse",
+   "board": "rockstargames",
+   "company": "Rockstar Games"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.ea.com/en_US/careers/SearchJobs",
+   "linkPattern": "/careers/JobDetail/[^/]+/\\d+",
+   "all": false,
+   "company": "Electronic Arts",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://careers.king.com/us/en/search-results",
+   "linkPattern": "/job/",
+   "all": false,
+   "company": "King",
+   "maxFollow": 8
+  },
+  {
+   "type": "workable",
+   "board": "jagex-limited",
+   "company": "Jagex"
+  },
+  {
+   "type": "workday",
+   "host": "thomsonreuters.wd5.myworkdayjobs.com",
+   "tenant": "thomsonreuters",
+   "site": "External_Career_Site",
+   "company": "Thomson Reuters"
+  },
+  {
+   "type": "workday",
+   "host": "relx.wd3.myworkdayjobs.com",
+   "tenant": "relx",
+   "site": "relx",
+   "company": "RELX"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.smartrecruiters.com/Experian",
+   "linkPattern": "jobs\\.smartrecruiters\\.com/Experian/\\d+",
+   "all": false,
+   "company": "Experian",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "sky.wd3.myworkdayjobs.com",
+   "tenant": "sky",
+   "site": "TUX",
+   "company": "Sky"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.bt.com/BTGroup/go/Graduates/8737802/",
+   "linkPattern": "/BTGroup/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "BT Group",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://opportunities.vodafone.com/go/Early-Careers/4183401/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "Vodafone",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://virginmediao2.avature.net/en_US/careersmarketplace/SearchJobs/?708=%5B8342%5D&708_format=846&listFilterMode=1",
+   "linkPattern": "/careersmarketplace/JobDetail/",
+   "all": false,
+   "company": "Virgin Media O2",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://careers.tesco.com/en_GB/careers/SearchJobs",
+   "linkPattern": "/careers/JobDetail/[^/]+/\\d+",
+   "all": false,
+   "company": "Tesco Technology",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://www.sainsburys.jobs/teams/early-careers/",
+   "linkPattern": "/jobs/description/\\d+",
+   "all": false,
+   "company": "Sainsbury's Tech",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://www.jaguarlandrovercareers.com/search/?q=",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "JLR",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "dyson.wd3.myworkdayjobs.com",
+   "tenant": "dyson",
+   "site": "dyson_careers",
+   "company": "Dyson"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.qinetiq.com/go/Early-Careers/9385801/",
+   "linkPattern": "/job/[^/]+/\\d+/",
+   "all": false,
+   "company": "QinetiQ",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "thales.wd3.myworkdayjobs.com",
+   "tenant": "thales",
+   "site": "Careers",
+   "company": "Thales UK"
+  },
+  {
+   "type": "links",
+   "url": "https://careers.uk.leonardo.com/gb/en/search-results",
+   "linkPattern": "/gb/en/job/",
+   "all": false,
+   "company": "Leonardo UK",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://www.mbdacareers.co.uk/job-search",
+   "linkPattern": "/job/[^/]+/[^/]+/R\\d+",
+   "all": false,
+   "company": "MBDA",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "ag.wd3.myworkdayjobs.com",
+   "tenant": "ag",
+   "site": "Airbus",
+   "company": "Airbus UK"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.siemens.com/en_US/externaljobs/SearchJobs",
+   "linkPattern": "/externaljobs/JobDetail/",
+   "all": false,
+   "company": "Siemens UK",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.nationalgrid.com/uk/jobs",
+   "linkPattern": "/uk/jobs/[^\"]+",
+   "all": false,
+   "company": "National Grid",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "shell.wd3.myworkdayjobs.com",
+   "tenant": "shell",
+   "site": "ShellCareers",
+   "company": "Shell"
+  },
+  {
+   "type": "workday",
+   "host": "bpinternational.wd3.myworkdayjobs.com",
+   "tenant": "bpinternational",
+   "site": "bpCareers",
+   "company": "BP"
+  },
+  {
+   "type": "workday",
+   "host": "unilever.wd3.myworkdayjobs.com",
+   "tenant": "unilever",
+   "site": "Unilever_Early_Careers",
+   "company": "Unilever"
+  },
+  {
+   "type": "workday",
+   "host": "gsk.wd5.myworkdayjobs.com",
+   "tenant": "gsk",
+   "site": "GSKCareers",
+   "company": "GSK"
+  },
+  {
+   "type": "workday",
+   "host": "astrazeneca.wd3.myworkdayjobs.com",
+   "tenant": "astrazeneca",
+   "site": "Careers",
+   "company": "AstraZeneca"
+  },
+  {
+   "type": "workday",
+   "host": "cisco.wd5.myworkdayjobs.com",
+   "tenant": "cisco",
+   "site": "Cisco_Careers",
+   "company": "Cisco"
+  },
+  {
+   "type": "workday",
+   "host": "redhat.wd5.myworkdayjobs.com",
+   "tenant": "redhat",
+   "site": "jobs",
+   "company": "Red Hat"
+  },
+  {
+   "type": "greenhouse",
+   "board": "mongodb",
+   "company": "MongoDB"
+  },
+  {
+   "type": "greenhouse",
+   "board": "elastic",
+   "company": "Elastic"
+  },
+  {
+   "type": "greenhouse",
+   "board": "datadog",
+   "company": "Datadog"
+  },
+  {
+   "type": "greenhouse",
+   "board": "gitlab",
+   "company": "GitLab"
+  },
+  {
+   "type": "greenhouse",
+   "board": "canonical",
+   "company": "Canonical"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.arup.com/",
+   "linkPattern": "/jobs/[a-z0-9-]+-\\d+",
+   "all": false,
+   "company": "Arup",
+   "maxFollow": 8
+  },
+  {
+   "type": "workday",
+   "host": "kainos.wd3.myworkdayjobs.com",
+   "tenant": "kainos",
+   "site": "Kainos",
+   "company": "Kainos"
+  },
+  {
+   "type": "links",
+   "url": "https://jobs.softcat.com/jobs/vacancy/find/results/",
+   "linkPattern": "/jobs/vacancy/[^\"]+",
+   "all": false,
+   "company": "Softcat",
+   "maxFollow": 8
+  },
+  {
+   "type": "links",
+   "url": "https://careers.flutteruki.com/search-jobs/",
+   "linkPattern": "/job/",
+   "all": false,
+   "company": "Flutter UK&I (Sky Betting & Gaming)",
+   "maxFollow": 8
   }
  ]
 }

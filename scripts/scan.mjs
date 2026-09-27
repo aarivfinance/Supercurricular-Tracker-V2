@@ -283,6 +283,17 @@ export async function readGreenhouseContent(src){
       location:j.location?.name || '', link:j.absolute_url, postedAt:(j.first_published || j.updated_at || '').slice(0, 10), text };
   });
 }
+/* Recruitee (e.g. BC Partners, PAI, IK Partners): public offers API */
+export async function readRecruitee(src){
+  const host = src.host || `${src.board}.recruitee.com`;
+  const d = await getJSON(`https://${host}/api/offers/`);
+  return (d.offers || []).map(j => ({ role:j.title, location:[j.city, j.country].filter(Boolean).join(', ') || j.location || '', link:j.careers_url || `https://${host}/o/${j.slug}`, postedAt:(j.published_at || j.created_at || '').slice(0, 10) }));
+}
+/* BambooHR careers list (e.g. 17Capital) */
+export async function readBamboo(src){
+  const d = await getJSON(`https://${src.board}.bamboohr.com/careers/list`);
+  return (d.result || []).map(j => ({ role:j.jobOpeningName, location:[j.location?.city, j.location?.country].filter(Boolean).join(', '), link:`https://${src.board}.bamboohr.com/careers/${j.id}` }));
+}
 function workdayPosted(s){
   if(!s) return '';
   const d = new Date(NOW);
@@ -447,7 +458,7 @@ export function isDeep(href){
     if(/\/(opportunit(y|ies)|vacanc(y|ies)|jobs?|roles?|careers?\/details)\//i.test(u.pathname) && last.split('-').length >= 4 && /20\d\d|intern|analyst|insight|graduate|programme|placement|scheme/i.test(last)) return true;
     if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|postings?|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
     if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
-    if(/smartrecruiters\.com\/.+\/[0-9a-f]{8}-[0-9a-f-]{20,}|smartrecruiters\.com\/[^/]+\/\d{9,}|smrtr\.io\/[\w-]{4,}|apply\.candidats\.io\/[0-9a-f-]{36}|apply\.candidx\.io\/[0-9a-f-]{36}|\.app\.candidx\.io\/|ambertrack\.global\/.+LAYER1=|workable\.com\/(.+\/)?j\/[0-9A-F]{6,}|recsolu\.com\/jobs\/[\w-]{16,}|tfaforms\.net\/\d+|job-offer\/[a-z0-9-]{8,}|\/emergingtalent\/job\/|janestreet\.com\/join-jane-street\/(position|apply)\/\d+|greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
+    if(/recruitee\.com\/o\/[\w-]+|bamboohr\.com\/careers\/\d+|teamtailor\.com\/jobs\/\d+|\/jobs\/\d{4,}-[a-z0-9-]+|charliehr\.com\/job-openings\/[\w-]+|pinpointhq\.com\/(en\/)?postings\/[0-9a-f-]{20,}|icims\.com\/jobs\/\d+|jobvite\.com\/[^/]+\/job\/\w+|kallidusrecruit\.com\/VacancyInformation|VacancyInformation\.aspx\?VId=\d+|cvmailuk\.com\/.+jobId=\d+|viRecruitSelfApply|job\/detail\.php\?record=\d+|smartrecruiters\.com\/.+\/[0-9a-f]{8}-[0-9a-f-]{20,}|smartrecruiters\.com\/[^/]+\/\d{9,}|smrtr\.io\/[\w-]{4,}|apply\.candidats\.io\/[0-9a-f-]{36}|apply\.candidx\.io\/[0-9a-f-]{36}|\.app\.candidx\.io\/|ambertrack\.global\/.+LAYER1=|workable\.com\/(.+\/)?j\/[0-9A-F]{6,}|recsolu\.com\/jobs\/[\w-]{16,}|tfaforms\.net\/\d+|job-offer\/[a-z0-9-]{8,}|\/emergingtalent\/job\/|janestreet\.com\/join-jane-street\/(position|apply)\/\d+|greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
   }catch(e){}
   return false;
 }
@@ -696,6 +707,8 @@ async function readBoard(src){
   if(src.type === 'coursera') return readCoursera(src);
   if(src.type === 'eightfold') return readEightfold(src);
   if(src.type === 'wpjson') return readWpJson(src);
+  if(src.type === 'recruitee') return readRecruitee(src);
+  if(src.type === 'bamboohr') return readBamboo(src);
   if(src.type === 'recsolu') return readRecsolu(src);
   if(src.type === 'greenhouse' && src.content) return readGreenhouseContent(src);
   if(src.type === 'jibe') return readJibe(src);
@@ -792,7 +805,15 @@ async function main(){
   // 1) explicit feeds & pages from data/sources.json (job systems first, then browser pages)
   const apiSrcs = srcs.filter(s => !['links', 'programme', 'discover'].includes(s.type)), pageSrcs = srcs.filter(s => ['links', 'programme'].includes(s.type));
   await pool(apiSrcs, 4, s => runSource(s));
-  for(const s of pageSrcs) await runSource(s);
+  // browser pages: 3 at a time, within a time budget so the whole scan fits GitHub's limit; anything skipped keeps its last results
+  const PAGE_BUDGET_MS = +(process.env.PAGE_BUDGET_MIN || 24) * 60e3, pagesStart = Date.now();
+  // rotate the starting point each run so a budget cut never starves the same firms
+  const rot = Math.floor(Date.now() / 36e5) % Math.max(1, pageSrcs.length);
+  const ordered = pageSrcs.slice(rot).concat(pageSrcs.slice(0, rot));
+  await pool(ordered, 3, async s => {
+    if(Date.now() - pagesStart > PAGE_BUDGET_MS){ failedCompanies.add(s.company); log({ company:s.company, type:s.type, target:s.url, ok:false, error:'skipped this run (time budget) — kept last results' }); return; }
+    await runSource(s);
+  });
   if(browser){ await browser.close().catch(() => {}); browser = null; }
 
   // 2) watchlist firms with no explicit feed: remembered board → hints → guess the board name
@@ -948,4 +969,9 @@ async function main(){
   console.log(`  firms with openings found: ${new Set(openings.map(o => o.company)).size} · sources failing: ${LOG.filter(l => !l.ok).length}`);
 }
 
-if(import.meta.url === pathToFileURL(process.argv[1] || '').href) await main();
+if(import.meta.url === pathToFileURL(process.argv[1] || '').href){
+  const hardStop = setTimeout(() => { console.error('✗ scan took too long — stopping'); process.exit(1); }, +(process.env.SCAN_LIMIT_MIN || 34) * 60e3);
+  try{ await main(); }
+  finally{ clearTimeout(hardStop); if(browser) await browser.close().catch(() => {}); }
+  process.exit(0);   // don't let a stray browser handle keep the job alive
+}
