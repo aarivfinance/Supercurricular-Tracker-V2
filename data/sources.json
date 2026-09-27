@@ -741,14 +741,6 @@
    "label": "BNP Paribas UK careers"
   },
   {
-   "company": "BNP Paribas",
-   "type": "links",
-   "url": "https://group.bnpparibas/en/careers/all-job-offers/trainee-internship/united-kingdom",
-   "linkPattern": "group\\.bnpparibas/en/careers/job-offer/[a-z0-9-]+",
-   "all": true,
-   "label": "BNP Paribas job offers"
-  },
-  {
    "company": "Barclays",
    "type": "links",
    "url": "https://search.jobs.barclays/category/early-careers-jobs/13015/8736272/1",
@@ -899,7 +891,7 @@
   {
    "company": "Freshfields",
    "type": "programme",
-   "url": "https://www.freshfields.com/en/your-career/united-kingdom/early-careers/training-contract",
+   "url": "https://www.freshfields.com/en/your-career/united-kingdom/early-careers/trainee-associate-program",
    "title": "Trainee Associate Programme (Training Contract)"
   },
   {
