@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26T21:14:15.150Z",
+ "updated": "2026-09-26T23:40:01.142Z",
  "watchlist": [
   {
    "company": "J.P. Morgan",
@@ -2556,14 +2556,6 @@
    "found": 35,
    "errors": []
   },
-  "Mizuho": {
-   "ok": true,
-   "via": [
-    "Workday"
-   ],
-   "found": 0,
-   "errors": []
-  },
   "Barclays": {
    "ok": true,
    "via": [
@@ -2573,12 +2565,12 @@
    "found": 73,
    "errors": []
   },
-  "PJT Partners": {
+  "Mizuho": {
    "ok": true,
    "via": [
     "Workday"
    ],
-   "found": 5,
+   "found": 0,
    "errors": []
   },
   "Houlihan Lokey": {
@@ -2597,21 +2589,20 @@
    "found": 0,
    "errors": []
   },
+  "PJT Partners": {
+   "ok": true,
+   "via": [
+    "Workday"
+   ],
+   "found": 3,
+   "errors": []
+  },
   "MUFG": {
    "ok": true,
    "via": [
     "Workday"
    ],
    "found": 8,
-   "errors": []
-  },
-  "Man Group": {
-   "ok": true,
-   "via": [
-    "Workday",
-    "Greenhouse"
-   ],
-   "found": 3,
    "errors": []
   },
   "Citi": {
@@ -2621,7 +2612,16 @@
     "links",
     "workday (found on firm’s page)"
    ],
-   "found": 23,
+   "found": 26,
+   "errors": []
+  },
+  "Man Group": {
+   "ok": true,
+   "via": [
+    "Greenhouse",
+    "Workday"
+   ],
+   "found": 3,
    "errors": []
   },
   "Jane Street": {
@@ -2641,22 +2641,6 @@
    "found": 2,
    "errors": []
   },
-  "Hudson River Trading": {
-   "ok": true,
-   "via": [
-    "Greenhouse"
-   ],
-   "found": 4,
-   "errors": []
-  },
-  "Wells Fargo": {
-   "ok": true,
-   "via": [
-    "Workday"
-   ],
-   "found": 4,
-   "errors": []
-  },
   "IMC Trading": {
    "ok": true,
    "via": [
@@ -2665,12 +2649,37 @@
    "found": 1,
    "errors": []
   },
+  "Hudson River Trading": {
+   "ok": true,
+   "via": [
+    "Greenhouse"
+   ],
+   "found": 4,
+   "errors": []
+  },
   "Springpod": {
    "ok": true,
    "via": [
     "Springpod"
    ],
    "found": 0,
+   "errors": []
+  },
+  "Brevan Howard": {
+   "ok": true,
+   "via": [
+    "Workday",
+    "firm’s own page"
+   ],
+   "found": 5,
+   "errors": []
+  },
+  "Coursera": {
+   "ok": true,
+   "via": [
+    "Coursera"
+   ],
+   "found": 14,
    "errors": []
   },
   "Millennium": {
@@ -2713,14 +2722,6 @@
    "found": 0,
    "errors": []
   },
-  "PwC": {
-   "ok": true,
-   "via": [
-    "Workday"
-   ],
-   "found": 0,
-   "errors": []
-  },
   "Tower Research Capital": {
    "ok": true,
    "via": [
@@ -2729,12 +2730,20 @@
    "found": 3,
    "errors": []
   },
-  "Jump Trading": {
+  "Wells Fargo": {
    "ok": true,
    "via": [
-    "Greenhouse"
+    "Workday"
    ],
-   "found": 12,
+   "found": 4,
+   "errors": []
+  },
+  "PwC": {
+   "ok": true,
+   "via": [
+    "Workday"
+   ],
+   "found": 0,
    "errors": []
   },
   "Maven Securities": {
@@ -2753,20 +2762,12 @@
    "found": 1,
    "errors": []
   },
-  "Coursera": {
-   "ok": true,
-   "via": [
-    "Coursera"
-   ],
-   "found": 14,
-   "errors": []
-  },
-  "Graham Capital Management": {
+  "Jump Trading": {
    "ok": true,
    "via": [
     "Greenhouse"
    ],
-   "found": 1,
+   "found": 12,
    "errors": []
   },
   "BlueCrest Capital": {
@@ -2777,27 +2778,26 @@
    "found": 0,
    "errors": []
   },
-  "DRW": {
+  "Graham Capital Management": {
    "ok": true,
    "via": [
     "Greenhouse"
    ],
-   "found": 5,
-   "errors": []
-  },
-  "Brevan Howard": {
-   "ok": true,
-   "via": [
-    "Workday",
-    "firm’s own page"
-   ],
-   "found": 5,
+   "found": 1,
    "errors": []
   },
   "Caxton Associates": {
    "ok": true,
    "via": [
     "Workable"
+   ],
+   "found": 0,
+   "errors": []
+  },
+  "Symmetry Investments": {
+   "ok": true,
+   "via": [
+    "Lever"
    ],
    "found": 0,
    "errors": []
@@ -2810,10 +2810,18 @@
    "found": 1,
    "errors": []
   },
-  "Symmetry Investments": {
+  "DRW": {
    "ok": true,
    "via": [
-    "Lever"
+    "Greenhouse"
+   ],
+   "found": 5,
+   "errors": []
+  },
+  "Garda Capital Partners": {
+   "ok": true,
+   "via": [
+    "Greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -2824,14 +2832,6 @@
     "Greenhouse"
    ],
    "found": 1,
-   "errors": []
-  },
-  "Garda Capital Partners": {
-   "ok": true,
-   "via": [
-    "Greenhouse"
-   ],
-   "found": 0,
    "errors": []
   },
   "Morgan Stanley": {
@@ -3575,7 +3575,7 @@
     "no job board found yet"
    ]
   },
-  "Forvis Mazars": {
+  "SoFi": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -3583,7 +3583,7 @@
    "found": 0,
    "errors": []
   },
-  "SoFi": {
+  "Forvis Mazars": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -3623,26 +3623,18 @@
    "found": 0,
    "errors": []
   },
-  "Mistral AI": {
+  "Perplexity": {
    "ok": true,
    "via": [
-    "lever"
+    "ashby"
    ],
-   "found": 0,
+   "found": 1,
    "errors": []
   },
   "Monzo": {
    "ok": true,
    "via": [
     "greenhouse"
-   ],
-   "found": 1,
-   "errors": []
-  },
-  "Perplexity": {
-   "ok": true,
-   "via": [
-    "ashby"
    ],
    "found": 1,
    "errors": []
@@ -3655,10 +3647,10 @@
    "found": 3,
    "errors": []
   },
-  "Wayve": {
+  "Mistral AI": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "lever"
    ],
    "found": 0,
    "errors": []
@@ -3667,6 +3659,14 @@
    "ok": true,
    "via": [
     "workable"
+   ],
+   "found": 0,
+   "errors": []
+  },
+  "Synthesia": {
+   "ok": true,
+   "via": [
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -3767,10 +3767,10 @@
     "no job board found yet"
    ]
   },
-  "Synthesia": {
+  "Wayve": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -3815,7 +3815,7 @@
     "no job board found yet"
    ]
   },
-  "OpenAI": {
+  "ElevenLabs": {
    "ok": true,
    "via": [
     "ashby"
@@ -3831,7 +3831,7 @@
    "found": 0,
    "errors": []
   },
-  "ElevenLabs": {
+  "OpenAI": {
    "ok": true,
    "via": [
     "ashby"
@@ -3855,6 +3855,14 @@
     "no job board found yet"
    ]
   },
+  "Snowflake": {
+   "ok": true,
+   "via": [
+    "ashby"
+   ],
+   "found": 1,
+   "errors": []
+  },
   "Reddit": {
    "ok": true,
    "via": [
@@ -3869,14 +3877,6 @@
     "greenhouse"
    ],
    "found": 0,
-   "errors": []
-  },
-  "Snowflake": {
-   "ok": true,
-   "via": [
-    "ashby"
-   ],
-   "found": 1,
    "errors": []
   },
   "Uber": {
@@ -3903,13 +3903,13 @@
    "found": 0,
    "errors": []
   },
-  "Spotify": {
-   "ok": true,
-   "via": [
-    "lever"
-   ],
-   "found": 2,
-   "errors": []
+  "Revolut": {
+   "ok": false,
+   "via": [],
+   "found": 0,
+   "errors": [
+    "no job board found yet"
+   ]
   },
   "Visa": {
    "ok": false,
@@ -3935,21 +3935,21 @@
     "no job board found yet"
    ]
   },
-  "Palantir": {
+  "Spotify": {
    "ok": true,
    "via": [
     "lever"
    ],
-   "found": 5,
+   "found": 2,
    "errors": []
   },
-  "Revolut": {
-   "ok": false,
-   "via": [],
-   "found": 0,
-   "errors": [
-    "no job board found yet"
-   ]
+  "Scale AI": {
+   "ok": true,
+   "via": [
+    "greenhouse"
+   ],
+   "found": 1,
+   "errors": []
   },
   "Klarna": {
    "ok": false,
@@ -4127,10 +4127,10 @@
     "no job board found yet"
    ]
   },
-  "General Atlantic": {
+  "Silver Lake": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -4207,10 +4207,10 @@
     "no job board found yet"
    ]
   },
-  "Frontier Economics": {
+  "Sequoia Capital": {
    "ok": true,
    "via": [
-    "lever"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -4223,10 +4223,10 @@
     "no job board found yet"
    ]
   },
-  "Silver Lake": {
+  "General Atlantic": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -4247,7 +4247,7 @@
     "no job board found yet"
    ]
   },
-  "Sequoia Capital": {
+  "Y Combinator": {
    "ok": true,
    "via": [
     "ashby"
@@ -4263,10 +4263,10 @@
     "no job board found yet"
    ]
   },
-  "Y Combinator": {
+  "ExodusPoint": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -4295,10 +4295,18 @@
     "no job board found yet"
    ]
   },
-  "ExodusPoint": {
+  "Capstone Investment Advisors": {
    "ok": true,
    "via": [
     "greenhouse"
+   ],
+   "found": 1,
+   "errors": []
+  },
+  "Frontier Economics": {
+   "ok": true,
+   "via": [
+    "lever"
    ],
    "found": 0,
    "errors": []
@@ -4311,31 +4319,23 @@
    "found": 0,
    "errors": []
   },
-  "Capstone Investment Advisors": {
+  "Palantir": {
+   "ok": true,
+   "via": [
+    "lever"
+   ],
+   "found": 5,
+   "errors": []
+  },
+  "Baringa": {
    "ok": true,
    "via": [
     "greenhouse"
    ],
-   "found": 1,
+   "found": 5,
    "errors": []
   },
   "Squarepoint": {
-   "ok": true,
-   "via": [
-    "greenhouse"
-   ],
-   "found": 6,
-   "errors": []
-  },
-  "Stripe": {
-   "ok": true,
-   "via": [
-    "greenhouse"
-   ],
-   "found": 1,
-   "errors": []
-  },
-  "Qube Research & Technologies": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -4583,7 +4583,7 @@
     "no job board found yet"
    ]
   },
-  "Scale AI": {
+  "Stripe": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -4591,12 +4591,12 @@
    "found": 1,
    "errors": []
   },
-  "Baringa": {
+  "Flow Traders": {
    "ok": true,
    "via": [
     "greenhouse"
    ],
-   "found": 5,
+   "found": 0,
    "errors": []
   },
   "Trading 212": {
@@ -4647,10 +4647,10 @@
     "no job board found yet"
    ]
   },
-  "AQR": {
+  "Kraken": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -4687,13 +4687,13 @@
     "no job board found yet"
    ]
   },
-  "Kraken": {
-   "ok": true,
-   "via": [
-    "ashby"
-   ],
+  "eToro": {
+   "ok": false,
+   "via": [],
    "found": 0,
-   "errors": []
+   "errors": [
+    "no job board found yet"
+   ]
   },
   "AJ Bell": {
    "ok": false,
@@ -4783,13 +4783,13 @@
     "no job board found yet"
    ]
   },
-  "eToro": {
-   "ok": false,
-   "via": [],
+  "Paul Weiss": {
+   "ok": true,
+   "via": [
+    "greenhouse"
+   ],
    "found": 0,
-   "errors": [
-    "no job board found yet"
-   ]
+   "errors": []
   },
   "Cleary Gottlieb": {
    "ok": false,
@@ -4823,7 +4823,7 @@
     "no job board found yet"
    ]
   },
-  "Paul Weiss": {
+  "Gibson Dunn": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -4839,7 +4839,7 @@
     "no job board found yet"
    ]
   },
-  "Gibson Dunn": {
+  "Goodwin": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -4983,7 +4983,7 @@
     "no job board found yet"
    ]
   },
-  "Goodwin": {
+  "Bird & Bird": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5023,7 +5023,7 @@
     "no job board found yet"
    ]
   },
-  "Bird & Bird": {
+  "Bright Network": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5047,7 +5047,7 @@
     "no job board found yet"
    ]
   },
-  "Bright Network": {
+  "AQR": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5103,7 +5103,7 @@
     "no job board found yet"
    ]
   },
-  "LMR Partners": {
+  "Pantheon Macroeconomics": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5111,7 +5111,7 @@
    "found": 0,
    "errors": []
   },
-  "Pantheon Macroeconomics": {
+  "LMR Partners": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5127,6 +5127,14 @@
    "found": 4,
    "errors": []
   },
+  "Qube Research & Technologies": {
+   "ok": true,
+   "via": [
+    "greenhouse"
+   ],
+   "found": 6,
+   "errors": []
+  },
   "SpaceX": {
    "ok": true,
    "via": [
@@ -5135,15 +5143,7 @@
    "found": 0,
    "errors": []
   },
-  "Robinhood": {
-   "ok": true,
-   "via": [
-    "greenhouse"
-   ],
-   "found": 0,
-   "errors": []
-  },
-  "Flow Traders": {
+  "Coinbase": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5159,7 +5159,7 @@
    "found": 3,
    "errors": []
   },
-  "Coinbase": {
+  "Robinhood": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5319,18 +5319,18 @@
    "found": 0,
    "errors": []
   },
-  "Isomorphic Labs": {
+  "Close Brothers": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
   },
-  "PolyAI": {
+  "OakNorth": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -5351,7 +5351,7 @@
     "no job board found yet"
    ]
   },
-  "OakNorth": {
+  "Faculty AI": {
    "ok": true,
    "via": [
     "ashby"
@@ -5359,10 +5359,10 @@
    "found": 0,
    "errors": []
   },
-  "Close Brothers": {
+  "Isomorphic Labs": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -5391,10 +5391,10 @@
     "no job board found yet"
    ]
   },
-  "Quantexa": {
+  "PolyAI": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
@@ -5407,7 +5407,7 @@
     "no job board found yet"
    ]
   },
-  "Faculty AI": {
+  "Tractable": {
    "ok": true,
    "via": [
     "ashby"
@@ -5415,10 +5415,10 @@
    "found": 0,
    "errors": []
   },
-  "GoCardless": {
+  "Improbable": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -5431,7 +5431,7 @@
     "no job board found yet"
    ]
   },
-  "Improbable": {
+  "Marshmallow": {
    "ok": true,
    "via": [
     "ashby"
@@ -5439,7 +5439,7 @@
    "found": 0,
    "errors": []
   },
-  "Deliveroo": {
+  "Cleo": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5455,7 +5455,7 @@
     "no job board found yet"
    ]
   },
-  "Cleo": {
+  "GoCardless": {
    "ok": true,
    "via": [
     "greenhouse"
@@ -5463,15 +5463,15 @@
    "found": 0,
    "errors": []
   },
-  "Tractable": {
+  "Deliveroo": {
    "ok": true,
    "via": [
-    "ashby"
+    "greenhouse"
    ],
    "found": 0,
    "errors": []
   },
-  "Marshmallow": {
+  "Quantexa": {
    "ok": true,
    "via": [
     "ashby"
@@ -5663,7 +5663,7 @@
     "no job board found yet"
    ]
   },
-  "Ramp": {
+  "Plaid": {
    "ok": true,
    "via": [
     "ashby"
@@ -5695,7 +5695,7 @@
     "no job board found yet"
    ]
   },
-  "Plaid": {
+  "Quilter": {
    "ok": true,
    "via": [
     "ashby"
@@ -5719,10 +5719,10 @@
     "no job board found yet"
    ]
   },
-  "Pantheon": {
+  "Ramp": {
    "ok": true,
    "via": [
-    "greenhouse"
+    "ashby"
    ],
    "found": 0,
    "errors": []
@@ -5863,28 +5863,12 @@
     "no job board found yet"
    ]
   },
-  "Zopa": {
-   "ok": true,
-   "via": [
-    "lever"
-   ],
-   "found": 1,
-   "errors": []
-  },
-  "Quilter": {
-   "ok": true,
-   "via": [
-    "ashby"
-   ],
-   "found": 0,
-   "errors": []
-  },
-  "Elixirr": {
+  "Pantheon": {
    "ok": true,
    "via": [
     "greenhouse"
    ],
-   "found": 1,
+   "found": 0,
    "errors": []
   },
   "Charles Russell Speechlys": {
@@ -5893,6 +5877,22 @@
     "greenhouse"
    ],
    "found": 0,
+   "errors": []
+  },
+  "Zopa": {
+   "ok": true,
+   "via": [
+    "lever"
+   ],
+   "found": 1,
+   "errors": []
+  },
+  "Elixirr": {
+   "ok": true,
+   "via": [
+    "greenhouse"
+   ],
+   "found": 1,
    "errors": []
   },
   "Helsing": {
@@ -9778,53 +9778,28 @@
    "posted": "2026-09-26"
   },
   {
-   "id": "pjt-partners|2027-january-off-cycle-analyst-strategic-advisory-restructuring-london|https-pjtpartners-wd1-myworkdayjobs-com-en-us-students-job-london-xmlname-2027-january-off-cycle",
-   "company": "PJT Partners",
+   "id": "houlihan-lokey|2027-graduate-financial-analyst-corporate-finance-m-a-|https-hl-wd1-myworkdayjobs-com-en-us-campus-job-london-uk-xmlname-2027-graduate-financial-analyst-corporate-fi",
+   "company": "Houlihan Lokey",
    "sector": "Banking",
    "sub": "Elite boutiques & advisory",
-   "role": "2027 January Off-Cycle Analyst (Strategic Advisory & Restructuring) London",
-   "programme": "Off-cycle internship",
+   "role": "2027 Graduate Financial Analyst - Corporate Finance (M&A)",
+   "programme": "Graduate programme",
    "roleType": "Investment banking",
-   "ageGroup": "uni2",
-   "location": "London",
+   "ageGroup": "grad",
+   "location": "London, UK",
    "region": "London",
-   "link": "https://pjtpartners.wd1.myworkdayjobs.com/en-US/Students/job/London/XMLNAME-2027-January-Off-Cycle-Analyst--Strategic-Advisory---Restructuring--London_R0003508",
+   "link": "https://hl.wd1.myworkdayjobs.com/en-US/Campus/job/London-UK/XMLNAME-2027-Graduate-Financial-Analyst---Corporate-Finance--M-A-_R3599",
    "info": "",
-   "postedAt": "2026-09-24",
+   "postedAt": "2026-09-23",
    "postedApprox": false,
-   "deadline": "2026-09-27",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "pjt-partners|2027-january-off-cycle-analyst-pjt-park-hill-private-capital-solutions-london|https-pjtpartners-wd1-myworkdayjobs-com-en-us-students-job-london-xmlname-2027-january-of",
-   "company": "PJT Partners",
-   "sector": "Banking",
-   "sub": "Elite boutiques & advisory",
-   "role": "2027 January Off-Cycle Analyst (PJT Park Hill - Private Capital Solutions) London",
-   "programme": "Off-cycle internship",
-   "roleType": "",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://pjtpartners.wd1.myworkdayjobs.com/en-US/Students/job/London/XMLNAME-2027-January-Off-Cycle-Analyst--PJT-Park-Hill---Private-Capital-Solutions--London_R0003509",
-   "info": "",
-   "postedAt": "2026-09-24",
-   "postedApprox": false,
-   "deadline": "2026-09-27",
+   "deadline": "2026-10-18",
    "opens": "",
    "live": "",
    "visa": "",
    "notes": [
-    "Our highly specialized team focuses on delivering independent advisory and execution services to financial sponsors and institutional investors across a broad spectrum of strategic transactions including:.",
-    "&gt; Financial Sponsor Solutions: fund recapitalizations, fund restructurings, tender offers, preferred equity / other debt oriented solutions, management team spinouts and portfolio asset sales."
+    "(NYSE:HLI) is a leading global investment bank recognized for delivering independent strategic and financial advice to corporations, financial sponsors, and governments.",
+    "Minimum 3 months internship experience in M&A or another similar role.",
+    "Please note that our Graduate Financial Analyst Training commences on in July 2027, so you must be available to start full-time work by this date to be eligible for this position."
    ],
    "price": "",
    "source": "Workday",
@@ -9906,36 +9881,6 @@
    "notes": [
     "Our highly specialized team focuses on delivering independent advisory and execution services to financial sponsors and institutional investors across a broad spectrum of strategic transactions including:.",
     "Financial Sponsor Solutions: fund recapitalizations, fund restructurings, tender offers, preferred equity / other debt oriented solutions, management team spinouts and portfolio asset sales."
-   ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "houlihan-lokey|2027-graduate-financial-analyst-corporate-finance-m-a-|https-hl-wd1-myworkdayjobs-com-en-us-campus-job-london-uk-xmlname-2027-graduate-financial-analyst-corporate-fi",
-   "company": "Houlihan Lokey",
-   "sector": "Banking",
-   "sub": "Elite boutiques & advisory",
-   "role": "2027 Graduate Financial Analyst - Corporate Finance (M&A)",
-   "programme": "Graduate programme",
-   "roleType": "Investment banking",
-   "ageGroup": "grad",
-   "location": "London, UK",
-   "region": "London",
-   "link": "https://hl.wd1.myworkdayjobs.com/en-US/Campus/job/London-UK/XMLNAME-2027-Graduate-Financial-Analyst---Corporate-Finance--M-A-_R3599",
-   "info": "",
-   "postedAt": "2026-09-23",
-   "postedApprox": false,
-   "deadline": "2026-10-18",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "(NYSE:HLI) is a leading global investment bank recognized for delivering independent strategic and financial advice to corporations, financial sponsors, and governments.",
-    "Minimum 3 months internship experience in M&A or another similar role.",
-    "Please note that our Graduate Financial Analyst Training commences on in July 2027, so you must be available to start full-time work by this date to be eligible for this position."
    ],
    "price": "",
    "source": "Workday",
@@ -10282,6 +10227,32 @@
    "posted": "2026-09-26"
   },
   {
+   "id": "citi|banking-corporate-banking-placement-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-corporate-banking-placement-analyst-london-united-kingdom-2027-28",
+   "company": "Citi",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "Banking Corporate Banking Placement Analyst London United Kingdom 2027",
+   "programme": "Industrial placement",
+   "roleType": "Corporate & commercial banking",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.citi.com/job/london/banking-corporate-banking-placement-analyst-london-united-kingdom-2027/287/100709896912",
+   "info": "",
+   "postedAt": "2026-09-26",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Citi careers sitemap",
+   "track": "uni",
+   "detected": "2026-09-26T23:40:01.142Z",
+   "posted": "2026-09-26"
+  },
+  {
    "id": "citi|banking-commercial-banking-summer-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-commercial-banking-summer-analyst-london-united-kingdom-2027-287-10",
    "company": "Citi",
    "sector": "Banking",
@@ -10305,6 +10276,58 @@
    "source": "Citi careers sitemap",
    "track": "uni",
    "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "citi|banking-financing-equity-capital-markets-placement-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-financing-equity-capital-markets-placement-analyst",
+   "company": "Citi",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "Banking Financing Equity Capital Markets Placement Analyst London United Kingdom 2027",
+   "programme": "Industrial placement",
+   "roleType": "Investment banking",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.citi.com/job/london/banking-financing-equity-capital-markets-placement-analyst-london-united-kingdom-2027/287/100479480576",
+   "info": "",
+   "postedAt": "2026-09-26",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Citi careers sitemap",
+   "track": "uni",
+   "detected": "2026-09-26T23:40:01.142Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "citi|banking-financing-summer-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-financing-summer-analyst-london-united-kingdom-2027-287-100386484336",
+   "company": "Citi",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "Banking Financing Summer Analyst London United Kingdom 2027",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.citi.com/job/london/banking-financing-summer-analyst-london-united-kingdom-2027/287/100386484336",
+   "info": "",
+   "postedAt": "2026-09-26",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Citi careers sitemap",
+   "track": "uni",
+   "detected": "2026-09-26T23:40:01.142Z",
    "posted": "2026-09-26"
   },
   {
@@ -10527,6 +10550,37 @@
    "posted": "2026-09-25"
   },
   {
+   "id": "imc-trading|graduate-machine-learning-researcher-london|https-job-boards-eu-greenhouse-io-imc-jobs-4914883101",
+   "company": "IMC Trading",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Graduate Machine Learning Researcher - London",
+   "programme": "Graduate programme",
+   "roleType": "Quant & research",
+   "ageGroup": "grad",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/imc/jobs/4914883101",
+   "info": "",
+   "postedAt": "2026-07-06",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Currently in your final year of study, graduating in 2027.",
+    "A minimum of an MSc (PhD preferred) in Machine Learning, Statistics, Deep Learning, Probabilistic Programming, or a related quantitative field.",
+    "You may submit one application per role each year.",
+    "If you have citizenship from Ukraine, you will need to confirm that you currently hold a biometric passport so that IMC can obtain the correct immigration sponsorship for you."
+   ],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
    "id": "hudson-river-trading|algorithm-development-quant-research-trading-internship-summer-2027|https-www-hudsonrivertrading-com-careers-job-gh-jid-7964062",
    "company": "Hudson River Trading",
    "sector": "Investment (HF / AM / ER)",
@@ -10648,48 +10702,107 @@
    "posted": "2026-09-25"
   },
   {
-   "id": "wells-fargo|emea-banking-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-banking-summer-analyst-r-570654-1",
-   "company": "Wells Fargo",
-   "sector": "Banking",
-   "sub": "Bulge bracket",
-   "role": "EMEA Banking Summer Analyst",
-   "programme": "Summer internship",
+   "id": "brevan-howard|3-6-month-off-cycle-internship|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-geneva-xmlname-3-6-month-off-cycle-internship-jr101609",
+   "company": "Brevan Howard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "3 – 6 Month Off Cycle Internship",
+   "programme": "Off-cycle internship",
    "roleType": "",
    "ageGroup": "uni2",
-   "location": "CITY OF LONDON,",
+   "location": "Geneva, London",
    "region": "London",
-   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Banking-Summer-Analyst_R-570654-1",
+   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/Geneva/XMLNAME-3---6-Month-Off-Cycle-Internship_JR101609",
    "info": "",
-   "postedAt": "2026-08-27",
-   "postedApprox": true,
+   "postedAt": "2026-09-15",
+   "postedApprox": false,
    "deadline": "",
    "opens": "",
    "live": "",
    "visa": "",
    "notes": [
-    "Required Penultimate year undergraduate with an expected graduation date of June 2028."
+    "Qualifications & Requirements A penultimate year student or PhD student at a recognized University — completed and awarded before July 2028.",
+    "Please note that you may only submit one application to the Internship Program s globally."
    ],
    "price": "",
    "source": "Workday",
    "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
+   "detected": "2026-09-26T15:48:49.124Z",
    "posted": "2026-09-26"
   },
   {
-   "id": "wells-fargo|emea-markets-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-markets-summer-analyst-r-570663",
-   "company": "Wells Fargo",
-   "sector": "Banking",
-   "sub": "Bulge bracket",
-   "role": "EMEA Markets Summer Analyst",
+   "id": "brevan-howard|2027-summer-internship-program-trading-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-xmlname-2027-summer-internship-p",
+   "company": "Brevan Howard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Summer Internship Program – Trading, London",
    "programme": "Summer internship",
    "roleType": "Markets & trading",
    "ageGroup": "uni2",
-   "location": "CITY OF LONDON,",
+   "location": "London",
    "region": "London",
-   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Markets-Summer-Analyst_R-570663",
+   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/XMLNAME-2027-Summer-Internship-Program---Trading--London_JR101584",
    "info": "",
-   "postedAt": "2026-08-27",
-   "postedApprox": true,
+   "postedAt": "2026-09-07",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Qualifications & Requirements A penultimate year undergraduate/junior or 1st year master's or PhD student at a recognized University — completed and awarded before July 2028.",
+    "Please note that you may only submit one application to the Summer Internship Program globally."
+   ],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "brevan-howard|2027-summer-internship-program-ai-quantitative-analyst-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-ai-quantitative-",
+   "company": "Brevan Howard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Summer Internship Program - AI & Quantitative Analyst, London",
+   "programme": "Summer internship",
+   "roleType": "Quant & research",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/AI---Quantitative-Analyst--London_JR101605",
+   "info": "",
+   "postedAt": "2026-09-22",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Qualifications & Requirements A penultimate year undergraduate/junior or 1st year master's or PhD student at a recognized University — completed and awarded before July 2028.",
+    "Please note that you may only submit one application to the Summer Internship Program globally."
+   ],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "brevan-howard|2027-summer-internship-program-systematic-trading-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-xmlname-2027-summer-i",
+   "company": "Brevan Howard",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Summer Internship Program – Systematic Trading, London",
+   "programme": "Summer internship",
+   "roleType": "Markets & trading",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/XMLNAME-2027-Summer-Internship-Program---Systematic-Trading--London_JR101619",
+   "info": "",
+   "postedAt": "2026-09-24",
+   "postedApprox": false,
    "deadline": "",
    "opens": "",
    "live": "",
@@ -10698,95 +10811,401 @@
    "price": "",
    "source": "Workday",
    "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
+   "detected": "2026-09-26T15:48:49.124Z",
    "posted": "2026-09-26"
   },
   {
-   "id": "wells-fargo|emea-commercial-real-estate-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-commercial-real-estate-analyst-r-571086-1",
-   "company": "Wells Fargo",
-   "sector": "Banking",
-   "sub": "Bulge bracket",
-   "role": "EMEA Commercial Real Estate Summer Analyst",
-   "programme": "Summer internship",
-   "roleType": "",
-   "ageGroup": "uni2",
-   "location": "CITY OF LONDON,",
-   "region": "London",
-   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Commercial-Real-Estate-Analyst_R-571086-1",
+   "id": "coursera|financial-markets-yale-university-|https-www-coursera-org-learn-financial-markets-global",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Financial Markets (Yale University)",
+   "programme": "Online course",
+   "roleType": "Markets & trading",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/financial-markets-global",
    "info": "",
-   "postedAt": "2026-08-27",
-   "postedApprox": true,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Required Penultimate year undergraduate with an expected graduation date of June 2028."
-   ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "wells-fargo|commercial-real-estate-early-career-program|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-commercial-real-estate-early-career-program-r-577361",
-   "company": "Wells Fargo",
-   "sector": "Banking",
-   "sub": "Bulge bracket",
-   "role": "Commercial Real Estate Early Career Program",
-   "programme": "Summer internship",
-   "roleType": "",
-   "ageGroup": "",
-   "location": "CITY OF LONDON,",
-   "region": "London",
-   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/Commercial-Real-Estate-Early-Career-Program_R-577361",
-   "info": "",
-   "postedAt": "2026-09-23",
+   "postedAt": "",
    "postedApprox": false,
    "deadline": "",
    "opens": "",
    "live": "",
    "visa": "",
    "notes": [
-    "Final year undergraduate with the ability to start the role in June 2027.",
-    "Minimum 2.1 (or equivalent) degree level qualification."
+    "Eligible learners may also have the option to start with a Free Trial."
    ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
    "detected": "2026-09-26T12:55:41.643Z",
    "posted": "2026-09-26"
   },
   {
-   "id": "imc-trading|graduate-machine-learning-researcher-london|https-job-boards-eu-greenhouse-io-imc-jobs-4914883101",
-   "company": "IMC Trading",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "Graduate Machine Learning Researcher - London",
-   "programme": "Graduate programme",
-   "roleType": "Quant & research",
-   "ageGroup": "grad",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/imc/jobs/4914883101",
+   "id": "coursera|moral-foundations-of-politics-yale-university-|https-www-coursera-org-learn-moral-politics",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Moral Foundations of Politics (Yale University)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/moral-politics",
    "info": "",
-   "postedAt": "2026-07-06",
+   "postedAt": "",
    "postedApprox": false,
    "deadline": "",
    "opens": "",
    "live": "",
    "visa": "",
    "notes": [
-    "Currently in your final year of study, graduating in 2027.",
-    "A minimum of an MSc (PhD preferred) in Machine Learning, Statistics, Deep Learning, Probabilistic Programming, or a related quantitative field.",
-    "You may submit one application per role each year.",
-    "If you have citizenship from Ukraine, you will need to confirm that you currently hold a biometric passport so that IMC can obtain the correct immigration sponsorship for you."
+    "Eligible learners may also have the option to start with a Free Trial."
    ],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
    "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|game-theory-stanford-online-|https-www-coursera-org-learn-game-theory-1",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Game Theory (Stanford Online)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/game-theory-1",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|introduction-to-philosophy-the-university-of-edinburgh-|https-www-coursera-org-learn-philosophy",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Introduction to Philosophy (The University of Edinburgh)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Edinburgh, United Kingdom",
+   "region": "Scotland",
+   "link": "https://www.coursera.org/learn/philosophy",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|economics-of-money-and-banking-columbia-university-|https-www-coursera-org-learn-money-banking",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Economics of Money and Banking (Columbia University)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/money-banking",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Produced and sponsored by the Institute for New Economic Thinking, this course is an attempt to begin the process of new economic thinking by reviving and updating some forgotten traditions in monetary thought that have become newly relevant.",
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|microeconomics-principles-university-of-illinois-urbana-champaign-|https-www-coursera-org-learn-microeconomics",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Microeconomics Principles (University of Illinois Urbana-Champaign)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/microeconomics",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|the-global-financial-crisis-yale-university-|https-www-coursera-org-learn-global-financial-crisis",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "The Global Financial Crisis (Yale University)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/global-financial-crisis",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|introduction-to-corporate-finance-university-of-pennsylvania-|https-www-coursera-org-learn-wharton-finance",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Introduction to Corporate Finance (University of Pennsylvania)",
+   "programme": "Online course",
+   "roleType": "Investment banking",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/wharton-finance",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|econometrics-methods-and-applications-erasmus-university-rotterdam-|https-www-coursera-org-learn-erasmus-econometrics",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Econometrics: Methods and Applications (Erasmus University Rotterdam)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/erasmus-econometrics",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|introduction-to-international-criminal-law-case-western-reserve-university-|https-www-coursera-org-learn-international-criminal-law",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Introduction to International Criminal Law (Case Western Reserve University)",
+   "programme": "Online course",
+   "roleType": "Law",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/international-criminal-law",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|introduction-to-negotiation-a-strategic-playbook-for-becoming-a-principled-and-persuasive-negotiator-yale-university-|https-www-coursera-org-learn-negotiation",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Introduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator (Yale University)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/negotiation",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "\"Start By Asking\" shares a salary negotiation done by one of my students and provides a chance to introduce the idea of one&#x27;s reservation value, or BATNA.",
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · $1 · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|ai-for-everyone-deeplearning-ai-|https-www-coursera-org-learn-ai-for-everyone",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "AI For Everyone (DeepLearning.AI)",
+   "programme": "Online course",
+   "roleType": "Technology & data",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/ai-for-everyone",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · paid certificate · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|supervised-machine-learning-regression-and-classification-deeplearning-ai-|https-www-coursera-org-learn-machine-learning",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Supervised Machine Learning: Regression and Classification (DeepLearning.AI)",
+   "programme": "Online course",
+   "roleType": "Technology & data",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/machine-learning",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · paid certificate · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "coursera|principles-of-economics-macroeconomics-the-big-picture-rice-university-|https-www-coursera-org-learn-principles-of-economics-macroeconomics",
+   "company": "Coursera",
+   "sector": "Online courses",
+   "sub": "",
+   "role": "Principles of Economics: Macroeconomics - The Big Picture (Rice University)",
+   "programme": "Online course",
+   "roleType": "",
+   "ageGroup": "uni1",
+   "location": "Online",
+   "region": "Online",
+   "link": "https://www.coursera.org/learn/principles-of-economics-macroeconomics",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Eligible learners may also have the option to start with a Free Trial."
+   ],
+   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
+   "source": "Coursera",
+   "track": "opps",
+   "detected": "2026-09-26T21:14:15.150Z",
    "posted": "2026-09-26"
   },
   {
@@ -11221,6 +11640,265 @@
    "posted": "2026-09-25"
   },
   {
+   "id": "wells-fargo|emea-banking-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-banking-summer-analyst-r-570654-1",
+   "company": "Wells Fargo",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "EMEA Banking Summer Analyst",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "uni2",
+   "location": "CITY OF LONDON,",
+   "region": "London",
+   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Banking-Summer-Analyst_R-570654-1",
+   "info": "",
+   "postedAt": "2026-08-27",
+   "postedApprox": true,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Required Penultimate year undergraduate with an expected graduation date of June 2028."
+   ],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "wells-fargo|emea-markets-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-markets-summer-analyst-r-570663",
+   "company": "Wells Fargo",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "EMEA Markets Summer Analyst",
+   "programme": "Summer internship",
+   "roleType": "Markets & trading",
+   "ageGroup": "uni2",
+   "location": "CITY OF LONDON,",
+   "region": "London",
+   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Markets-Summer-Analyst_R-570663",
+   "info": "",
+   "postedAt": "2026-08-27",
+   "postedApprox": true,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "wells-fargo|emea-commercial-real-estate-summer-analyst|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-emea-commercial-real-estate-analyst-r-571086-1",
+   "company": "Wells Fargo",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "EMEA Commercial Real Estate Summer Analyst",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "uni2",
+   "location": "CITY OF LONDON,",
+   "region": "London",
+   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Commercial-Real-Estate-Analyst_R-571086-1",
+   "info": "",
+   "postedAt": "2026-08-27",
+   "postedApprox": true,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Required Penultimate year undergraduate with an expected graduation date of June 2028."
+   ],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "wells-fargo|commercial-real-estate-early-career-program|https-wf-wd1-myworkdayjobs-com-en-us-wellsfargojobs-job-city-of-london-commercial-real-estate-early-career-program-r-577361",
+   "company": "Wells Fargo",
+   "sector": "Banking",
+   "sub": "Bulge bracket",
+   "role": "Commercial Real Estate Early Career Program",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "",
+   "location": "CITY OF LONDON,",
+   "region": "London",
+   "link": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/CITY-OF-LONDON/Commercial-Real-Estate-Early-Career-Program_R-577361",
+   "info": "",
+   "postedAt": "2026-09-23",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Final year undergraduate with the ability to start the role in June 2027.",
+    "Minimum 2.1 (or equivalent) degree level qualification."
+   ],
+   "price": "",
+   "source": "Workday",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "maven-securities|graduate-infrastructure-engineer-programme|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-8105020",
+   "company": "Maven Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Graduate Infrastructure Engineer Programme",
+   "programme": "Graduate programme",
+   "roleType": "Technology & data",
+   "ageGroup": "grad",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8105020",
+   "info": "",
+   "postedAt": "2026-09-13",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "Visa sponsorship",
+   "notes": [
+    "Who you are: Key criteria: A final-year undergraduate or master’s student from one of the following degree backgrounds, or similar: Networking, Network Security, Computer Science, Software Engineering.",
+    "Please note: We accept one application per candidate, per recruitment cycle.",
+    "Visa sponsorship is available for selected roles, please see our FAQ page for details.",
+    "Benefits at Maven As a graduate joining Maven, you’ll be eligible for a range of benefits, including:."
+   ],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "maven-securities|london-trader-summer-internship-2027|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-7806970",
+   "company": "Maven Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "London Trader Summer Internship 2027",
+   "programme": "Summer internship",
+   "roleType": "Markets & trading",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806970",
+   "info": "",
+   "postedAt": "2026-09-07",
+   "postedApprox": false,
+   "deadline": "2026-10-21",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Key requirements: You must have the right to work in the region you are applying for at the time of application.",
+    "You must be a penultimate-year undergraduate or master’s student.",
+    "Benefits at Maven As an intern, you’ll be eligible for benefits including:."
+   ],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "maven-securities|quant-trader-internship-2027-6-months-|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-8043552",
+   "company": "Maven Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quant Trader Internship 2027 (6 months)",
+   "programme": "Summer internship",
+   "roleType": "Markets & trading",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8043552",
+   "info": "",
+   "postedAt": "2026-07-31",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "2027-09-07",
+   "live": "",
+   "visa": "Visa sponsorship",
+   "notes": [
+    "We can only accept one application per candidate per recruitment cycle, so please ensure you apply to the role you are most interested in.&nbsp; THE ROLE As a Quantitative Trader Intern, you’ll engage in an intensive 6-month training programme focused on options market making.",
+    "Upon successfully completing the internship, you will be eligible for consideration for a full time position.",
+    "PLEASE NOTE We only accept one application per candidate per recruitment cycle.",
+    "Visa sponsorship is available for this role and will be discussed with eligible candidates at later stages of the process."
+   ],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "maven-securities|software-developer-summer-internship-london-2027|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-7806987",
+   "company": "Maven Securities",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Software Developer Summer Internship London 2027",
+   "programme": "Summer internship",
+   "roleType": "Technology & data",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806987",
+   "info": "",
+   "postedAt": "2026-09-01",
+   "postedApprox": false,
+   "deadline": "2026-10-21",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Key requirements: You must have the right to work in the region you are applying for at the time of application.",
+    "You must be a penultimate-year undergraduate or master’s student.",
+    "Benefits at Maven As an intern joining Maven, you’ll be eligible for a range of benefits, including:."
+   ],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "winton|quantitative-developer-graduate|https-job-boards-eu-greenhouse-io-winton-jobs-4986765101",
+   "company": "Winton",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Quant funds & trading firms",
+   "role": "Quantitative Developer, Graduate",
+   "programme": "Graduate programme",
+   "roleType": "Quant & research",
+   "ageGroup": "grad",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/winton/jobs/4986765101",
+   "info": "",
+   "postedAt": "2026-09-25",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "posted": "2026-09-26"
+  },
+  {
    "id": "jump-trading|campus-ai-researcher-phd-postdoc-intern-|https-www-jumptrading-com-hr-job-gh-jid-7976964",
    "company": "Jump Trading",
    "sector": "Investment (HF / AM / ER)",
@@ -11535,548 +12213,6 @@
    "posted": "2026-09-25"
   },
   {
-   "id": "maven-securities|graduate-infrastructure-engineer-programme|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-8105020",
-   "company": "Maven Securities",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "Graduate Infrastructure Engineer Programme",
-   "programme": "Graduate programme",
-   "roleType": "Technology & data",
-   "ageGroup": "grad",
-   "location": "London",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8105020",
-   "info": "",
-   "postedAt": "2026-09-13",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "Visa sponsorship",
-   "notes": [
-    "Who you are: Key criteria: A final-year undergraduate or master’s student from one of the following degree backgrounds, or similar: Networking, Network Security, Computer Science, Software Engineering.",
-    "Please note: We accept one application per candidate, per recruitment cycle.",
-    "Visa sponsorship is available for selected roles, please see our FAQ page for details.",
-    "Benefits at Maven As a graduate joining Maven, you’ll be eligible for a range of benefits, including:."
-   ],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "maven-securities|london-trader-summer-internship-2027|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-7806970",
-   "company": "Maven Securities",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "London Trader Summer Internship 2027",
-   "programme": "Summer internship",
-   "roleType": "Markets & trading",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806970",
-   "info": "",
-   "postedAt": "2026-09-07",
-   "postedApprox": false,
-   "deadline": "2026-10-21",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Key requirements: You must have the right to work in the region you are applying for at the time of application.",
-    "You must be a penultimate-year undergraduate or master’s student.",
-    "Benefits at Maven As an intern, you’ll be eligible for benefits including:."
-   ],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "maven-securities|quant-trader-internship-2027-6-months-|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-8043552",
-   "company": "Maven Securities",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "Quant Trader Internship 2027 (6 months)",
-   "programme": "Summer internship",
-   "roleType": "Markets & trading",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8043552",
-   "info": "",
-   "postedAt": "2026-07-31",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "2027-09-07",
-   "live": "",
-   "visa": "Visa sponsorship",
-   "notes": [
-    "We can only accept one application per candidate per recruitment cycle, so please ensure you apply to the role you are most interested in.&nbsp; THE ROLE As a Quantitative Trader Intern, you’ll engage in an intensive 6-month training programme focused on options market making.",
-    "Upon successfully completing the internship, you will be eligible for consideration for a full time position.",
-    "PLEASE NOTE We only accept one application per candidate per recruitment cycle.",
-    "Visa sponsorship is available for this role and will be discussed with eligible candidates at later stages of the process."
-   ],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "maven-securities|software-developer-summer-internship-london-2027|https-job-boards-greenhouse-io-mavensecuritiesholdingltd-jobs-7806987",
-   "company": "Maven Securities",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "Software Developer Summer Internship London 2027",
-   "programme": "Summer internship",
-   "roleType": "Technology & data",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806987",
-   "info": "",
-   "postedAt": "2026-09-01",
-   "postedApprox": false,
-   "deadline": "2026-10-21",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Key requirements: You must have the right to work in the region you are applying for at the time of application.",
-    "You must be a penultimate-year undergraduate or master’s student.",
-    "Benefits at Maven As an intern joining Maven, you’ll be eligible for a range of benefits, including:."
-   ],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "winton|quantitative-developer-graduate|https-job-boards-eu-greenhouse-io-winton-jobs-4986765101",
-   "company": "Winton",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Quant funds & trading firms",
-   "role": "Quantitative Developer, Graduate",
-   "programme": "Graduate programme",
-   "roleType": "Quant & research",
-   "ageGroup": "grad",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/winton/jobs/4986765101",
-   "info": "",
-   "postedAt": "2026-09-25",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "Greenhouse",
-   "track": "uni",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|financial-markets-yale-university-|https-www-coursera-org-learn-financial-markets-global",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Financial Markets (Yale University)",
-   "programme": "Online course",
-   "roleType": "Markets & trading",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/financial-markets-global",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|moral-foundations-of-politics-yale-university-|https-www-coursera-org-learn-moral-politics",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Moral Foundations of Politics (Yale University)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/moral-politics",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|game-theory-stanford-online-|https-www-coursera-org-learn-game-theory-1",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Game Theory (Stanford Online)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/game-theory-1",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|introduction-to-philosophy-the-university-of-edinburgh-|https-www-coursera-org-learn-philosophy",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Introduction to Philosophy (The University of Edinburgh)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Edinburgh, United Kingdom",
-   "region": "Scotland",
-   "link": "https://www.coursera.org/learn/philosophy",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|economics-of-money-and-banking-columbia-university-|https-www-coursera-org-learn-money-banking",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Economics of Money and Banking (Columbia University)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/money-banking",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Produced and sponsored by the Institute for New Economic Thinking, this course is an attempt to begin the process of new economic thinking by reviving and updating some forgotten traditions in monetary thought that have become newly relevant.",
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|microeconomics-principles-university-of-illinois-urbana-champaign-|https-www-coursera-org-learn-microeconomics",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Microeconomics Principles (University of Illinois Urbana-Champaign)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/microeconomics",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|the-global-financial-crisis-yale-university-|https-www-coursera-org-learn-global-financial-crisis",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "The Global Financial Crisis (Yale University)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/global-financial-crisis",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|introduction-to-corporate-finance-university-of-pennsylvania-|https-www-coursera-org-learn-wharton-finance",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Introduction to Corporate Finance (University of Pennsylvania)",
-   "programme": "Online course",
-   "roleType": "Investment banking",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/wharton-finance",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|econometrics-methods-and-applications-erasmus-university-rotterdam-|https-www-coursera-org-learn-erasmus-econometrics",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Econometrics: Methods and Applications (Erasmus University Rotterdam)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/erasmus-econometrics",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|introduction-to-international-criminal-law-case-western-reserve-university-|https-www-coursera-org-learn-international-criminal-law",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Introduction to International Criminal Law (Case Western Reserve University)",
-   "programme": "Online course",
-   "roleType": "Law",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/international-criminal-law",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|introduction-to-negotiation-a-strategic-playbook-for-becoming-a-principled-and-persuasive-negotiator-yale-university-|https-www-coursera-org-learn-negotiation",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Introduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator (Yale University)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/negotiation",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "\"Start By Asking\" shares a salary negotiation done by one of my students and provides a chance to introduce the idea of one&#x27;s reservation value, or BATNA.",
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · $1 · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|ai-for-everyone-deeplearning-ai-|https-www-coursera-org-learn-ai-for-everyone",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "AI For Everyone (DeepLearning.AI)",
-   "programme": "Online course",
-   "roleType": "Technology & data",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/ai-for-everyone",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · paid certificate · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|supervised-machine-learning-regression-and-classification-deeplearning-ai-|https-www-coursera-org-learn-machine-learning",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Supervised Machine Learning: Regression and Classification (DeepLearning.AI)",
-   "programme": "Online course",
-   "roleType": "Technology & data",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/machine-learning",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · paid certificate · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "coursera|principles-of-economics-macroeconomics-the-big-picture-rice-university-|https-www-coursera-org-learn-principles-of-economics-macroeconomics",
-   "company": "Coursera",
-   "sector": "Online courses",
-   "sub": "",
-   "role": "Principles of Economics: Macroeconomics - The Big Picture (Rice University)",
-   "programme": "Online course",
-   "roleType": "",
-   "ageGroup": "uni1",
-   "location": "Online",
-   "region": "Online",
-   "link": "https://www.coursera.org/learn/principles-of-economics-macroeconomics",
-   "info": "",
-   "postedAt": "",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Eligible learners may also have the option to start with a Free Trial."
-   ],
-   "price": "Free to enrol · certificate via Coursera Plus · financial aid available",
-   "source": "Coursera",
-   "track": "opps",
-   "detected": "2026-09-26T21:14:15.150Z",
-   "posted": "2026-09-26"
-  },
-  {
    "id": "graham-capital-management|2027-graham-capital-summer-internship-london|https-boards-greenhouse-io-grahamcapitalmanagement-jobs-4733835005-gh-jid-4733835005",
    "company": "Graham Capital Management",
    "sector": "Investment (HF / AM / ER)",
@@ -12101,6 +12237,32 @@
    ],
    "price": "",
    "source": "Greenhouse",
+   "track": "uni",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "capital-economics|assistant-economist-graduate-training-scheme|https-apply-workable-com-j-7ca67fcd5a",
+   "company": "Capital Economics",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "role": "Assistant Economist - Graduate Training Scheme",
+   "programme": "Graduate programme",
+   "roleType": "Quant & research",
+   "ageGroup": "grad",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://apply.workable.com/j/7CA67FCD5A",
+   "info": "",
+   "postedAt": "2026-09-22",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "Workable",
    "track": "uni",
    "detected": "2026-09-26T15:48:49.124Z",
    "posted": "2026-09-26"
@@ -12236,145 +12398,6 @@
    "track": "uni",
    "detected": "2026-09-25T00:00:00Z",
    "posted": "2026-09-25"
-  },
-  {
-   "id": "brevan-howard|3-6-month-off-cycle-internship|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-geneva-xmlname-3-6-month-off-cycle-internship-jr101609",
-   "company": "Brevan Howard",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "3 – 6 Month Off Cycle Internship",
-   "programme": "Off-cycle internship",
-   "roleType": "",
-   "ageGroup": "uni2",
-   "location": "Geneva, London",
-   "region": "London",
-   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/Geneva/XMLNAME-3---6-Month-Off-Cycle-Internship_JR101609",
-   "info": "",
-   "postedAt": "2026-09-15",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Qualifications & Requirements A penultimate year student or PhD student at a recognized University — completed and awarded before July 2028.",
-    "Please note that you may only submit one application to the Internship Program s globally."
-   ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "brevan-howard|2027-summer-internship-program-trading-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-xmlname-2027-summer-internship-p",
-   "company": "Brevan Howard",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 Summer Internship Program – Trading, London",
-   "programme": "Summer internship",
-   "roleType": "Markets & trading",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/XMLNAME-2027-Summer-Internship-Program---Trading--London_JR101584",
-   "info": "",
-   "postedAt": "2026-09-07",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Qualifications & Requirements A penultimate year undergraduate/junior or 1st year master's or PhD student at a recognized University — completed and awarded before July 2028.",
-    "Please note that you may only submit one application to the Summer Internship Program globally."
-   ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "brevan-howard|2027-summer-internship-program-ai-quantitative-analyst-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-ai-quantitative-",
-   "company": "Brevan Howard",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 Summer Internship Program - AI & Quantitative Analyst, London",
-   "programme": "Summer internship",
-   "roleType": "Quant & research",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/AI---Quantitative-Analyst--London_JR101605",
-   "info": "",
-   "postedAt": "2026-09-22",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Qualifications & Requirements A penultimate year undergraduate/junior or 1st year master's or PhD student at a recognized University — completed and awarded before July 2028.",
-    "Please note that you may only submit one application to the Summer Internship Program globally."
-   ],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "brevan-howard|2027-summer-internship-program-systematic-trading-london|https-wd3-myworkdaysite-com-en-us-recruiting-brevanhoward-bh-externalcareers-job-london-xmlname-2027-summer-i",
-   "company": "Brevan Howard",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 Summer Internship Program – Systematic Trading, London",
-   "programme": "Summer internship",
-   "roleType": "Markets & trading",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://wd3.myworkdaysite.com/en-US/recruiting/brevanhoward/BH_ExternalCareers/job/London/XMLNAME-2027-Summer-Internship-Program---Systematic-Trading--London_JR101619",
-   "info": "",
-   "postedAt": "2026-09-24",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "Workday",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
-  },
-  {
-   "id": "capital-economics|assistant-economist-graduate-training-scheme|https-apply-workable-com-j-7ca67fcd5a",
-   "company": "Capital Economics",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Research & ratings",
-   "role": "Assistant Economist - Graduate Training Scheme",
-   "programme": "Graduate programme",
-   "roleType": "Quant & research",
-   "ageGroup": "grad",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://apply.workable.com/j/7CA67FCD5A",
-   "info": "",
-   "postedAt": "2026-09-22",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "Workable",
-   "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
-   "posted": "2026-09-26"
   },
   {
    "id": "old-mission|quantitative-trader-2027-graduate-program-august-start-|https-www-oldmissioncapital-com-careers-gh-jid-7796058003",
@@ -13539,7 +13562,7 @@
    "posted": "2026-09-26"
   },
   {
-   "id": "deloitte|early-careers|https-apply-deloitte-co-uk-ukearlycareers",
+   "id": "deloitte|early-careers|https-www-deloitte-com-uk-en-careers-early-careers-html-icid-top-early-careers",
    "company": "Deloitte",
    "sector": "Consulting & Accounting",
    "sub": "Big Four & accounting",
@@ -13549,23 +13572,51 @@
    "ageGroup": "",
    "location": "London, United Kingdom",
    "region": "London",
-   "link": "https://apply.deloitte.co.uk/UKEarlyCareers",
-   "info": "https://www.deloitte.com/uk/en/careers/early-careers.html?icid=top_early-careers",
+   "link": "https://www.deloitte.com/uk/en/careers/early-careers.html?icid=top_early-careers",
+   "info": "",
    "postedAt": "",
    "postedApprox": false,
    "deadline": "",
    "opens": "",
-   "live": "open",
+   "live": "check",
    "visa": "Visa sponsorship",
    "notes": [
-    "Apply now Careers Home Discover Deloitte Early Careers Professional Careers Life at Deloitte Apply now Our Programmes Whether you’re leaving school after your GCSEs or you’ve got a postgraduate degree, we have a wide range of career options for you to choose from.",
-    "Explore more Work Permits and Sponsorship Can you work with us?",
-    "We welcome applications from all candidates but there are some UK Government restrictions on who we can sponsor..."
+    "ASPIRE If you’re in year 12 (or year 13 in NI or S5 in Scotland), ASPIRE is your opportunity to explore what a future career in finance could look like.",
+    "You’ll need to attend a state school and be in one of the following year groups: Year 12 in England or Wales Year 13 in Northern Ireland S5 in Scotland."
    ],
    "price": "",
    "source": "firm’s own page",
    "track": "uni",
-   "detected": "2026-09-26T15:48:49.124Z",
+   "detected": "2026-09-26T23:40:01.142Z",
+   "posted": "2026-09-26"
+  },
+  {
+   "id": "deloitte|search-for-early-careers-opportunities|https-apply-deloitte-co-uk-ukearlycareers",
+   "company": "Deloitte",
+   "sector": "Consulting & Accounting",
+   "sub": "Big Four & accounting",
+   "role": "Search for Early Careers Opportunities",
+   "programme": "Summer internship",
+   "roleType": "Consulting & strategy",
+   "ageGroup": "",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://apply.deloitte.co.uk/UKEarlyCareers",
+   "info": "",
+   "postedAt": "",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "check",
+   "visa": "",
+   "notes": [
+    "ASPIRE If you’re in year 12 (or year 13 in NI or S5 in Scotland), ASPIRE is your opportunity to explore what a future career in finance could look like.",
+    "You’ll need to attend a state school and be in one of the following year groups: Year 12 in England or Wales Year 13 in Northern Ireland S5 in Scotland."
+   ],
+   "price": "",
+   "source": "firm’s own page",
+   "track": "uni",
+   "detected": "2026-09-26T23:40:01.142Z",
    "posted": "2026-09-26"
   },
   {
@@ -17331,6 +17382,32 @@
    "posted": "2026-09-26"
   },
   {
+   "id": "perplexity|internship-search-machine-learning-engineer|https-jobs-ashbyhq-com-perplexity-71168628-1998-47d3-87a9-be7bc56a430d",
+   "company": "Perplexity",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Internship - Search Machine Learning Engineer",
+   "programme": "Summer internship",
+   "roleType": "Technology & data",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://jobs.ashbyhq.com/perplexity/71168628-1998-47d3-87a9-be7bc56a430d",
+   "info": "",
+   "postedAt": "2026-04-08",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "ashby",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
    "id": "monzo|graduate-credit-analyst|https-job-boards-greenhouse-io-monzo-jobs-8173733",
    "company": "Monzo",
    "sector": "Banking",
@@ -17360,32 +17437,6 @@
    "track": "uni",
    "detected": "2026-09-26T12:55:41.643Z",
    "posted": "2026-09-26"
-  },
-  {
-   "id": "perplexity|internship-search-machine-learning-engineer|https-jobs-ashbyhq-com-perplexity-71168628-1998-47d3-87a9-be7bc56a430d",
-   "company": "Perplexity",
-   "sector": "AI & Tech",
-   "sub": "AI labs",
-   "role": "Internship - Search Machine Learning Engineer",
-   "programme": "Summer internship",
-   "roleType": "Technology & data",
-   "ageGroup": "uni2",
-   "location": "London",
-   "region": "London",
-   "link": "https://jobs.ashbyhq.com/perplexity/71168628-1998-47d3-87a9-be7bc56a430d",
-   "info": "",
-   "postedAt": "2026-04-08",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "ashby",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
   },
   {
    "id": "cohere|software-engineer-intern-winter-2027-|https-jobs-ashbyhq-com-cohere-8c035d3d-081d-4c8a-914a-72f4efaad254",
@@ -17560,6 +17611,60 @@
    "posted": "2026-09-25"
   },
   {
+   "id": "scale-ai|software-engineering-intern-summer-2027-|https-job-boards-greenhouse-io-scaleai-jobs-4730846005",
+   "company": "Scale AI",
+   "sector": "AI & Tech",
+   "sub": "AI labs",
+   "role": "Software Engineering Intern (Summer 2027)",
+   "programme": "Summer internship",
+   "roleType": "Technology & data",
+   "ageGroup": "uni2",
+   "location": "London, UK",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/scaleai/jobs/4730846005",
+   "info": "",
+   "postedAt": "2026-09-14",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "capstone-investment-advisors|summer-2027-investment-internship-ldn|https-job-boards-greenhouse-io-capstoneinvestmentadvisors-jobs-8828058002",
+   "company": "Capstone Investment Advisors",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "Summer 2027 - Investment Internship LDN",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "uni2",
+   "location": "London",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/capstoneinvestmentadvisors/jobs/8828058002",
+   "info": "",
+   "postedAt": "2026-09-21",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "The hourly pay offered will be determined on factors such as experience, skills, training, location, certifications, education, and any applicable minimum wage requirements."
+   ],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
    "id": "palantir|forward-deployed-software-engineer-internship-commercial|https-jobs-lever-co-palantir-599b1907-aba1-4303-837b-66e69a521636",
    "company": "Palantir",
    "sector": "AI & Tech",
@@ -17690,26 +17795,153 @@
    "posted": "2026-09-25"
   },
   {
-   "id": "capstone-investment-advisors|summer-2027-investment-internship-ldn|https-job-boards-greenhouse-io-capstoneinvestmentadvisors-jobs-8828058002",
-   "company": "Capstone Investment Advisors",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "Summer 2027 - Investment Internship LDN",
+   "id": "baringa|uk-summer-internship-2027-capabilities|https-job-boards-eu-greenhouse-io-baringa-jobs-4972189101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Capabilities",
    "programme": "Summer internship",
-   "roleType": "",
+   "roleType": "Consulting & strategy",
    "ageGroup": "uni2",
-   "location": "London",
+   "location": "London, United Kingdom",
    "region": "London",
-   "link": "https://job-boards.greenhouse.io/capstoneinvestmentadvisors/jobs/8828058002",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972189101",
    "info": "",
-   "postedAt": "2026-09-21",
+   "postedAt": "2026-09-11",
    "postedApprox": false,
    "deadline": "",
    "opens": "",
    "live": "",
    "visa": "",
    "notes": [
-    "The hourly pay offered will be determined on factors such as experience, skills, training, location, certifications, education, and any applicable minimum wage requirements."
+    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
+    "Applicants must have the permanent right to work in the UK now and in the future.",
+    "Please note we’re unable to sponsor individuals for this opportunity.",
+    "This is a paid full-time internship."
+   ],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-energy-resources|https-job-boards-eu-greenhouse-io-baringa-jobs-4972870101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Energy & Resources",
+   "programme": "Summer internship",
+   "roleType": "Consulting & strategy",
+   "ageGroup": "uni2",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972870101",
+   "info": "",
+   "postedAt": "2026-09-11",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
+    "Applicants must have the permanent right to work in the UK now and in the future.",
+    "Please note we’re unable to sponsor individuals for this opportunity.",
+    "This is a paid full-time internship."
+   ],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-financial-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972694101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Financial Services",
+   "programme": "Summer internship",
+   "roleType": "Consulting & strategy",
+   "ageGroup": "uni2",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972694101",
+   "info": "",
+   "postedAt": "2026-09-11",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
+    "Applicants must have the permanent right to work in the UK now and in the future.",
+    "Please note we’re unable to sponsor individuals for this opportunity.",
+    "This is a paid full-time internship."
+   ],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-products-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972789101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Products & Services",
+   "programme": "Summer internship",
+   "roleType": "Technology & data",
+   "ageGroup": "uni2",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972789101",
+   "info": "",
+   "postedAt": "2026-09-11",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
+    "Applicants must have the permanent right to work in the UK now and in the future.",
+    "Please note we’re unable to sponsor individuals for this opportunity.",
+    "This is a paid full-time internship."
+   ],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "baringa|uk-summer-internship-2027-public-sector-consulting|https-job-boards-eu-greenhouse-io-baringa-jobs-4972723101",
+   "company": "Baringa",
+   "sector": "Consulting & Accounting",
+   "sub": "Technology & operations",
+   "role": "UK Summer Internship 2027 - Public Sector Consulting",
+   "programme": "Summer internship",
+   "roleType": "Consulting & strategy",
+   "ageGroup": "uni2",
+   "location": "London, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972723101",
+   "info": "",
+   "postedAt": "2026-09-11",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [
+    "This is an 8-week paid internship where you get real project experience alongside structured coaching and training with an opportunity to build your analytical, communication and problem-solving skills.",
+    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
+    "Applicants must have the permanent right to work in the UK now and in the future and be eligible for a UK Security Check (SC) clearance.",
+    "Please note we’re unable to sponsor individuals for this opportunity."
    ],
    "price": "",
    "source": "greenhouse",
@@ -17918,6 +18150,110 @@
    "posted": "2026-09-25"
   },
   {
+   "id": "schonfeld|2027-dmfi-quant-developer-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8207942",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Quant Developer Intern",
+   "programme": "Summer internship",
+   "roleType": "Quant & research",
+   "ageGroup": "uni2",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8207942",
+   "info": "",
+   "postedAt": "2026-09-16",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-dmfi-quant-research-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8187178",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 DMFI Quant Research Intern",
+   "programme": "Summer internship",
+   "roleType": "Quant & research",
+   "ageGroup": "uni2",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8187178",
+   "info": "",
+   "postedAt": "2026-09-08",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-equity-middle-office-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172072",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Equity Middle Office Intern",
+   "programme": "Summer internship",
+   "roleType": "",
+   "ageGroup": "uni2",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172072",
+   "info": "",
+   "postedAt": "2026-09-11",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
+   "id": "schonfeld|2027-risk-analyst-dmfi-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172053",
+   "company": "Schonfeld",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Hedge funds (multi-strategy & macro)",
+   "role": "2027 Risk Analyst (DMFI) Intern",
+   "programme": "Summer internship",
+   "roleType": "Risk & compliance",
+   "ageGroup": "uni2",
+   "location": "London, England, United Kingdom",
+   "region": "London",
+   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172053",
+   "info": "",
+   "postedAt": "2026-09-04",
+   "postedApprox": false,
+   "deadline": "",
+   "opens": "",
+   "live": "",
+   "visa": "",
+   "notes": [],
+   "price": "",
+   "source": "greenhouse",
+   "track": "uni",
+   "detected": "2026-09-25T00:00:00Z",
+   "posted": "2026-09-25"
+  },
+  {
    "id": "qube-research-technologies|2027-graduate-or-internship-infrastructure-engineer|https-job-boards-greenhouse-io-quberesearchandtechnologies-jobs-8773447002",
    "company": "Qube Research & Technologies",
    "sector": "Investment (HF / AM / ER)",
@@ -18088,291 +18424,6 @@
    "track": "uni",
    "detected": "2026-09-26T12:55:41.643Z",
    "posted": "2026-09-26"
-  },
-  {
-   "id": "scale-ai|software-engineering-intern-summer-2027-|https-job-boards-greenhouse-io-scaleai-jobs-4730846005",
-   "company": "Scale AI",
-   "sector": "AI & Tech",
-   "sub": "AI labs",
-   "role": "Software Engineering Intern (Summer 2027)",
-   "programme": "Summer internship",
-   "roleType": "Technology & data",
-   "ageGroup": "uni2",
-   "location": "London, UK",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/scaleai/jobs/4730846005",
-   "info": "",
-   "postedAt": "2026-09-14",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "baringa|uk-summer-internship-2027-capabilities|https-job-boards-eu-greenhouse-io-baringa-jobs-4972189101",
-   "company": "Baringa",
-   "sector": "Consulting & Accounting",
-   "sub": "Technology & operations",
-   "role": "UK Summer Internship 2027 - Capabilities",
-   "programme": "Summer internship",
-   "roleType": "Consulting & strategy",
-   "ageGroup": "uni2",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972189101",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
-    "Applicants must have the permanent right to work in the UK now and in the future.",
-    "Please note we’re unable to sponsor individuals for this opportunity.",
-    "This is a paid full-time internship."
-   ],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "baringa|uk-summer-internship-2027-energy-resources|https-job-boards-eu-greenhouse-io-baringa-jobs-4972870101",
-   "company": "Baringa",
-   "sector": "Consulting & Accounting",
-   "sub": "Technology & operations",
-   "role": "UK Summer Internship 2027 - Energy & Resources",
-   "programme": "Summer internship",
-   "roleType": "Consulting & strategy",
-   "ageGroup": "uni2",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972870101",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
-    "Applicants must have the permanent right to work in the UK now and in the future.",
-    "Please note we’re unable to sponsor individuals for this opportunity.",
-    "This is a paid full-time internship."
-   ],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "baringa|uk-summer-internship-2027-financial-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972694101",
-   "company": "Baringa",
-   "sector": "Consulting & Accounting",
-   "sub": "Technology & operations",
-   "role": "UK Summer Internship 2027 - Financial Services",
-   "programme": "Summer internship",
-   "roleType": "Consulting & strategy",
-   "ageGroup": "uni2",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972694101",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
-    "Applicants must have the permanent right to work in the UK now and in the future.",
-    "Please note we’re unable to sponsor individuals for this opportunity.",
-    "This is a paid full-time internship."
-   ],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "baringa|uk-summer-internship-2027-products-services|https-job-boards-eu-greenhouse-io-baringa-jobs-4972789101",
-   "company": "Baringa",
-   "sector": "Consulting & Accounting",
-   "sub": "Technology & operations",
-   "role": "UK Summer Internship 2027 - Products & Services",
-   "programme": "Summer internship",
-   "roleType": "Technology & data",
-   "ageGroup": "uni2",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972789101",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
-    "Applicants must have the permanent right to work in the UK now and in the future.",
-    "Please note we’re unable to sponsor individuals for this opportunity.",
-    "This is a paid full-time internship."
-   ],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "baringa|uk-summer-internship-2027-public-sector-consulting|https-job-boards-eu-greenhouse-io-baringa-jobs-4972723101",
-   "company": "Baringa",
-   "sector": "Consulting & Accounting",
-   "sub": "Technology & operations",
-   "role": "UK Summer Internship 2027 - Public Sector Consulting",
-   "programme": "Summer internship",
-   "roleType": "Consulting & strategy",
-   "ageGroup": "uni2",
-   "location": "London, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.eu.greenhouse.io/baringa/jobs/4972723101",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [
-    "This is an 8-week paid internship where you get real project experience alongside structured coaching and training with an opportunity to build your analytical, communication and problem-solving skills.",
-    "Requirements Applicants should be in their penultimate year of their bachelor’s or master’s Degree studies.",
-    "Applicants must have the permanent right to work in the UK now and in the future and be eligible for a UK Security Check (SC) clearance.",
-    "Please note we’re unable to sponsor individuals for this opportunity."
-   ],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "schonfeld|2027-dmfi-quant-developer-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8207942",
-   "company": "Schonfeld",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 DMFI Quant Developer Intern",
-   "programme": "Summer internship",
-   "roleType": "Quant & research",
-   "ageGroup": "uni2",
-   "location": "London, England, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8207942",
-   "info": "",
-   "postedAt": "2026-09-16",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "schonfeld|2027-dmfi-quant-research-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8187178",
-   "company": "Schonfeld",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 DMFI Quant Research Intern",
-   "programme": "Summer internship",
-   "roleType": "Quant & research",
-   "ageGroup": "uni2",
-   "location": "London, England, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8187178",
-   "info": "",
-   "postedAt": "2026-09-08",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "schonfeld|2027-equity-middle-office-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172072",
-   "company": "Schonfeld",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 Equity Middle Office Intern",
-   "programme": "Summer internship",
-   "roleType": "",
-   "ageGroup": "uni2",
-   "location": "London, England, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172072",
-   "info": "",
-   "postedAt": "2026-09-11",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
-  },
-  {
-   "id": "schonfeld|2027-risk-analyst-dmfi-intern|https-job-boards-greenhouse-io-schonfeld-jobs-8172053",
-   "company": "Schonfeld",
-   "sector": "Investment (HF / AM / ER)",
-   "sub": "Hedge funds (multi-strategy & macro)",
-   "role": "2027 Risk Analyst (DMFI) Intern",
-   "programme": "Summer internship",
-   "roleType": "Risk & compliance",
-   "ageGroup": "uni2",
-   "location": "London, England, United Kingdom",
-   "region": "London",
-   "link": "https://job-boards.greenhouse.io/schonfeld/jobs/8172053",
-   "info": "",
-   "postedAt": "2026-09-04",
-   "postedApprox": false,
-   "deadline": "",
-   "opens": "",
-   "live": "",
-   "visa": "",
-   "notes": [],
-   "price": "",
-   "source": "greenhouse",
-   "track": "uni",
-   "detected": "2026-09-25T00:00:00Z",
-   "posted": "2026-09-25"
   },
   {
    "id": "optiver|graduate-quantitative-researcher-2027-start-|https-www-optiver-com-join-us-jobs-8585609002-gh-jid-8585609002",
@@ -18673,6 +18724,33 @@
  "review": [],
  "closed": [
   {
+   "id": "pjt-partners|2027-january-off-cycle-analyst-strategic-advisory-restructuring-london|https-pjtpartners-wd1-myworkdayjobs-com-en-us-students-job-london-xmlname-2027-january-off-cycle",
+   "company": "PJT Partners",
+   "role": "2027 January Off-Cycle Analyst (Strategic Advisory & Restructuring) London",
+   "programme": "Off-cycle internship",
+   "link": "https://pjtpartners.wd1.myworkdayjobs.com/en-US/Students/job/London/XMLNAME-2027-January-Off-Cycle-Analyst--Strategic-Advisory---Restructuring--London_R0003508",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "closedOn": "2026-09-26"
+  },
+  {
+   "id": "pjt-partners|2027-january-off-cycle-analyst-pjt-park-hill-private-capital-solutions-london|https-pjtpartners-wd1-myworkdayjobs-com-en-us-students-job-london-xmlname-2027-january-of",
+   "company": "PJT Partners",
+   "role": "2027 January Off-Cycle Analyst (PJT Park Hill - Private Capital Solutions) London",
+   "programme": "Off-cycle internship",
+   "link": "https://pjtpartners.wd1.myworkdayjobs.com/en-US/Students/job/London/XMLNAME-2027-January-Off-Cycle-Analyst--PJT-Park-Hill---Private-Capital-Solutions--London_R0003509",
+   "detected": "2026-09-26T12:55:41.643Z",
+   "closedOn": "2026-09-26"
+  },
+  {
+   "id": "deloitte|early-careers|https-apply-deloitte-co-uk-ukearlycareers",
+   "company": "Deloitte",
+   "role": "Early careers",
+   "programme": "Summer internship",
+   "link": "https://apply.deloitte.co.uk/UKEarlyCareers",
+   "detected": "2026-09-26T15:48:49.124Z",
+   "closedOn": "2026-09-26"
+  },
+  {
    "id": "millennium|2027-finance-intern-london|https-mlp-eightfold-ai-careers-job-755957778827",
    "company": "Millennium",
    "role": "2027 Finance Intern, London",
@@ -18706,33 +18784,6 @@
    "programme": "Summer internship",
    "link": "https://mlp.eightfold.ai/careers/job/755957819921",
    "detected": "2026-09-26T15:48:49.124Z",
-   "closedOn": "2026-09-26"
-  },
-  {
-   "id": "citi|banking-corporate-banking-placement-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-corporate-banking-placement-analyst-london-united-kingdom-2027-28",
-   "company": "Citi",
-   "role": "Banking Corporate Banking Placement Analyst London United Kingdom 2027",
-   "programme": "Industrial placement",
-   "link": "https://jobs.citi.com/job/london/banking-corporate-banking-placement-analyst-london-united-kingdom-2027/287/100709896912",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "closedOn": "2026-09-26"
-  },
-  {
-   "id": "citi|banking-financing-equity-capital-markets-placement-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-financing-equity-capital-markets-placement-analyst",
-   "company": "Citi",
-   "role": "Banking Financing Equity Capital Markets Placement Analyst London United Kingdom 2027",
-   "programme": "Industrial placement",
-   "link": "https://jobs.citi.com/job/london/banking-financing-equity-capital-markets-placement-analyst-london-united-kingdom-2027/287/100479480576",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "closedOn": "2026-09-26"
-  },
-  {
-   "id": "citi|banking-financing-summer-analyst-london-united-kingdom-2027|https-jobs-citi-com-job-london-banking-financing-summer-analyst-london-united-kingdom-2027-287-100386484336",
-   "company": "Citi",
-   "role": "Banking Financing Summer Analyst London United Kingdom 2027",
-   "programme": "Summer internship",
-   "link": "https://jobs.citi.com/job/london/banking-financing-summer-analyst-london-united-kingdom-2027/287/100386484336",
-   "detected": "2026-09-26T12:55:41.643Z",
    "closedOn": "2026-09-26"
   },
   {
@@ -18985,24 +19036,6 @@
    "programme": "Summer internship",
    "link": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/?taxonomy_1155=725",
    "detected": "2026-09-25T00:00:00Z",
-   "closedOn": "2026-09-26"
-  },
-  {
-   "id": "deloitte|early-careers|https-www-deloitte-com-uk-en-careers-early-careers-html-icid-top-early-careers",
-   "company": "Deloitte",
-   "role": "Early careers",
-   "programme": "Summer internship",
-   "link": "https://www.deloitte.com/uk/en/careers/early-careers.html?icid=top_early-careers",
-   "detected": "2026-09-26T12:55:41.643Z",
-   "closedOn": "2026-09-26"
-  },
-  {
-   "id": "deloitte|search-for-early-careers-opportunities|https-apply-deloitte-co-uk-ukearlycareers",
-   "company": "Deloitte",
-   "role": "Search for Early Careers Opportunities",
-   "programme": "Summer internship",
-   "link": "https://apply.deloitte.co.uk/UKEarlyCareers",
-   "detected": "2026-09-26T12:55:41.643Z",
    "closedOn": "2026-09-26"
   },
   {
@@ -19390,7 +19423,7 @@
    "target": "blackrock.wd1.myworkdayjobs.com",
    "ok": true,
    "found": 3,
-   "raw": 244
+   "raw": 242
   },
   {
    "company": "BNY",
@@ -19417,28 +19450,20 @@
    "raw": 1300
   },
   {
+   "company": "Barclays",
+   "type": "workday",
+   "target": "barclays.wd3.myworkdayjobs.com",
+   "ok": true,
+   "found": 71,
+   "raw": 387
+  },
+  {
    "company": "Mizuho",
    "type": "workday",
    "target": "mizuhogroup.wd102.myworkdayjobs.com",
    "ok": true,
    "found": 0,
    "raw": 3
-  },
-  {
-   "company": "Barclays",
-   "type": "workday",
-   "target": "barclays.wd3.myworkdayjobs.com",
-   "ok": true,
-   "found": 71,
-   "raw": 386
-  },
-  {
-   "company": "PJT Partners",
-   "type": "workday",
-   "target": "pjtpartners.wd1.myworkdayjobs.com",
-   "ok": true,
-   "found": 5,
-   "raw": 18
   },
   {
    "company": "Houlihan Lokey",
@@ -19457,6 +19482,14 @@
    "raw": 1
   },
   {
+   "company": "PJT Partners",
+   "type": "workday",
+   "target": "pjtpartners.wd1.myworkdayjobs.com",
+   "ok": true,
+   "found": 3,
+   "raw": 15
+  },
+  {
    "company": "MUFG",
    "type": "workday",
    "target": "mufgub.wd3.myworkdayjobs.com",
@@ -19465,20 +19498,20 @@
    "raw": 212
   },
   {
-   "company": "Man Group",
-   "type": "workday",
-   "target": "mangroupplc.wd3.myworkdayjobs.com",
-   "ok": true,
-   "found": 0,
-   "raw": 1
-  },
-  {
    "company": "Citi",
    "type": "sitemap",
    "target": "https://jobs.citi.com/sitemap.xml",
    "ok": true,
-   "found": 8,
-   "raw": 3310
+   "found": 11,
+   "raw": 3350
+  },
+  {
+   "company": "Man Group",
+   "type": "greenhouse",
+   "target": "mangroup",
+   "ok": true,
+   "found": 3,
+   "raw": 59
   },
   {
    "company": "Jane Street",
@@ -19490,11 +19523,11 @@
   },
   {
    "company": "Man Group",
-   "type": "greenhouse",
-   "target": "mangroup",
+   "type": "workday",
+   "target": "mangroupplc.wd3.myworkdayjobs.com",
    "ok": true,
-   "found": 3,
-   "raw": 59
+   "found": 0,
+   "raw": 1
   },
   {
    "company": "Point72",
@@ -19505,28 +19538,20 @@
    "raw": 220
   },
   {
-   "company": "Hudson River Trading",
-   "type": "greenhouse",
-   "target": "wehrtyou",
-   "ok": true,
-   "found": 4,
-   "raw": 87
-  },
-  {
-   "company": "Wells Fargo",
-   "type": "workday",
-   "target": "wf.wd1.myworkdayjobs.com",
-   "ok": true,
-   "found": 4,
-   "raw": 238
-  },
-  {
    "company": "IMC Trading",
    "type": "greenhouse",
    "target": "imc",
    "ok": true,
    "found": 1,
    "raw": 175
+  },
+  {
+   "company": "Hudson River Trading",
+   "type": "greenhouse",
+   "target": "wehrtyou",
+   "ok": true,
+   "found": 4,
+   "raw": 87
   },
   {
    "company": "Springpod",
@@ -19537,20 +19562,27 @@
    "raw": 0
   },
   {
+   "company": "Brevan Howard",
+   "type": "workday",
+   "target": "wd3.myworkdaysite.com",
+   "ok": true,
+   "found": 4,
+   "raw": 28
+  },
+  {
+   "company": "Coursera",
+   "type": "coursera",
+   "ok": true,
+   "found": 14,
+   "raw": 14
+  },
+  {
    "company": "Millennium",
    "type": "eightfold",
    "target": "https://mlp.eightfold.ai/api/apply/v2/jobs?domain=mlp.com&microsite=campus-site&location=London&num=100",
    "ok": true,
    "found": 9,
    "raw": 10
-  },
-  {
-   "company": "Marshall Wace",
-   "type": "greenhouse",
-   "target": "mwinternshipprogram",
-   "ok": true,
-   "found": 4,
-   "raw": 7
   },
   {
    "company": "Marshall Wace",
@@ -19585,12 +19617,12 @@
    "raw": 0
   },
   {
-   "company": "PwC",
-   "type": "workday",
-   "target": "pwc.wd3.myworkdayjobs.com",
+   "company": "Marshall Wace",
+   "type": "greenhouse",
+   "target": "mwinternshipprogram",
    "ok": true,
-   "found": 0,
-   "raw": 484
+   "found": 4,
+   "raw": 7
   },
   {
    "company": "Tower Research Capital",
@@ -19601,12 +19633,20 @@
    "raw": 91
   },
   {
-   "company": "Jump Trading",
-   "type": "greenhouse",
-   "target": "jumptrading",
+   "company": "Wells Fargo",
+   "type": "workday",
+   "target": "wf.wd1.myworkdayjobs.com",
    "ok": true,
-   "found": 12,
-   "raw": 113
+   "found": 4,
+   "raw": 238
+  },
+  {
+   "company": "PwC",
+   "type": "workday",
+   "target": "pwc.wd3.myworkdayjobs.com",
+   "ok": true,
+   "found": 0,
+   "raw": 484
   },
   {
    "company": "Maven Securities",
@@ -19625,19 +19665,12 @@
    "raw": 9
   },
   {
-   "company": "Coursera",
-   "type": "coursera",
-   "ok": true,
-   "found": 14,
-   "raw": 14
-  },
-  {
-   "company": "Graham Capital Management",
+   "company": "Jump Trading",
    "type": "greenhouse",
-   "target": "grahamcapitalmanagement",
+   "target": "jumptrading",
    "ok": true,
-   "found": 1,
-   "raw": 9
+   "found": 12,
+   "raw": 113
   },
   {
    "company": "BlueCrest Capital",
@@ -19648,20 +19681,12 @@
    "raw": 7
   },
   {
-   "company": "DRW",
+   "company": "Graham Capital Management",
    "type": "greenhouse",
-   "target": "drweng",
+   "target": "grahamcapitalmanagement",
    "ok": true,
-   "found": 5,
-   "raw": 165
-  },
-  {
-   "company": "Brevan Howard",
-   "type": "workday",
-   "target": "wd3.myworkdaysite.com",
-   "ok": true,
-   "found": 4,
-   "raw": 28
+   "found": 1,
+   "raw": 9
   },
   {
    "company": "Caxton Associates",
@@ -19672,14 +19697,6 @@
    "raw": 22
   },
   {
-   "company": "Capital Economics",
-   "type": "workable",
-   "target": "capital-economics",
-   "ok": true,
-   "found": 1,
-   "raw": 3
-  },
-  {
    "company": "Symmetry Investments",
    "type": "lever",
    "target": "symmetryinvestments",
@@ -19688,12 +19705,20 @@
    "raw": 0
   },
   {
-   "company": "Old Mission",
-   "type": "greenhouse",
-   "target": "oldmissioncapital",
+   "company": "Capital Economics",
+   "type": "workable",
+   "target": "capital-economics",
    "ok": true,
    "found": 1,
-   "raw": 37
+   "raw": 3
+  },
+  {
+   "company": "DRW",
+   "type": "greenhouse",
+   "target": "drweng",
+   "ok": true,
+   "found": 5,
+   "raw": 165
   },
   {
    "company": "Garda Capital Partners",
@@ -19702,6 +19727,14 @@
    "ok": true,
    "found": 0,
    "raw": 14
+  },
+  {
+   "company": "Old Mission",
+   "type": "greenhouse",
+   "target": "oldmissioncapital",
+   "ok": true,
+   "found": 1,
+   "raw": 37
   },
   {
    "company": "Morgan Stanley",
@@ -19973,7 +20006,7 @@
    "target": "https://careers.aoshearman.com/en/location/united-kingdom-jobs/3392/2635167/2",
    "ok": true,
    "found": 3,
-   "raw": 57
+   "raw": 56
   },
   {
    "company": "Slaughter and May",
@@ -20037,7 +20070,7 @@
    "target": "lbg.wd3.myworkdayjobs.com",
    "ok": true,
    "found": 0,
-   "raw": 61
+   "raw": 60
   },
   {
    "company": "NatWest",
