@@ -185,7 +185,7 @@ export function visaFrom(text){
   if(/visa sponsorship (?:is |may be )?(?:available|provided|offered)|(?:we|will|can) (?:can |will |may )?(?:offer |provide )?(?:visa )?sponsor(?:ship)?\b/i.test(t)) return 'Visa sponsorship';
   return '';
 }
-const htmlText = h => String(h || '').replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<br\s*\/?>|<\/p>|<\/li>|<\/h\d>/gi, '. ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').replace(/([.!?])\s*(?:\.\s*)+/g, '$1 ').replace(/(^|\s)\.\s/g, '$1').trim();
+const htmlText = h => String(h || '').replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCharCode(parseInt(n, 16))).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<br\s*\/?>|<\/p>|<\/li>|<\/h\d>/gi, '. ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').replace(/([.!?])\s*(?:\.\s*)+/g, '$1 ').replace(/(^|\s)\.\s/g, '$1').trim();
 export const deslug = s => decodeURIComponent(String(s || '')).replace(/^XMLNAME-/i, '').replace(/---/g, ' – ').replace(/--/g, ' ').replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b([a-z])/g, (m, c, i, str) => (i === 0 || str[i - 1] === ' ') ? c.toUpperCase() : c);
 function detailsOf(text){ return { notes:notesFrom(text), visa:visaFrom(text), deadline:deadlineIn(text), opens:opensIn(text) }; }
 
@@ -215,7 +215,7 @@ async function readAshby(board){
 }
 async function readWorkable(board){
   let d; try{ d = await getJSON(`https://apply.workable.com/api/v1/widget/accounts/${board}`); }catch(e){ return null; }
-  return (d.jobs || []).map(j => ({ role:j.title, location:[j.city, j.country].filter(Boolean).join(', '), link:j.url, postedAt:(j.published_on || '').slice(0, 10) }));
+  return (d.jobs || []).map(j => ({ role:j.title, location:[j.city, j.country].filter(Boolean).join(', '), link:j.shortcode ? `https://apply.workable.com/${board}/j/${j.shortcode}/` : j.url, postedAt:(j.published_on || '').slice(0, 10) }));
 }
 async function readSmartRecruiters(board){
   let d; try{ d = await getJSON(`https://api.smartrecruiters.com/v1/companies/${board}/postings?limit=100`); }catch(e){ return null; }
@@ -250,6 +250,35 @@ export async function readJibe(src){
 export async function readPinpoint(src){
   const d = await getJSON(src.url);
   return (d.data || []).map(j => ({ role:j.title, location:j.location?.name || j.location?.city || '', link:j.url, deadline:(j.deadline_at || '').slice(0, 10) }));
+}
+/* WordPress job posts (e.g. BNP Paribas UK): /wp-json/wp/v2/<type> */
+export async function readWpJson(src){
+  const d = await getJSON(src.url);
+  return (Array.isArray(d) ? d : []).map(j => ({ role:htmlText(j.title?.rendered || j.title || ''), link:j.link, postedAt:(j.date || '').slice(0, 10),
+    location:src.location || '', text:htmlText(j.content?.rendered || j.excerpt?.rendered || '') }));
+}
+/* Yello / recsolu job boards (e.g. Deutsche Bank campus): search JSON with the results' HTML inside */
+export async function readRecsolu(src){
+  const r = await get(src.url, { headers:{ accept:'application/json, text/html' } }); if(!r.ok) throw new Error('HTTP ' + r.status);
+  const raw = (await r.text()).replace(/\\u003c/g, '<').replace(/\\u003e/g, '>').replace(/\\u0026/g, '&').replace(/\\"/g, '"').replace(/\\\//g, '/');
+  const base = new URL(src.url).origin, seen = new Set(), out = [];
+  for(const m of raw.matchAll(/href="(\/jobs\/[\w-]{16,})"[^>]*>([\s\S]*?)<\/a>/g)){
+    if(seen.has(m[1])) continue; seen.add(m[1]);
+    const t = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); if(!t) continue;
+    const city = (t.match(/\b(London|Birmingham|Edinburgh|Glasgow|Manchester|Leeds|Belfast|Cardiff|Bristol)\b/i) || [])[1];
+    out.push({ role:t, link:base + m[1], location:city ? city + ', United Kingdom' : (src.location || '') });
+  }
+  return out;
+}
+/* Greenhouse boards whose titles omit "intern" (e.g. Jane Street): keep UK roles whose description says internship / graduate */
+export async function readGreenhouseContent(src){
+  const d = await getJSON(`https://boards-api.greenhouse.io/v1/boards/${src.board}/jobs?content=true`);
+  return (d.jobs || []).filter(j => /london|united kingdom|\buk\b/i.test(j.location?.name || '')).map(j => {
+    const text = htmlText(String(j.content || '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'));
+    const kind = (text.match(/\b(summer internship|internship|intern|graduate|insight|placement)\b/i) || [])[1] || '';
+    return { role:kind && !isEarly(j.title) ? `${j.title} (${/intern/i.test(kind) ? 'Internship' : kind[0].toUpperCase() + kind.slice(1)})` : j.title,
+      location:j.location?.name || '', link:j.absolute_url, postedAt:(j.first_published || j.updated_at || '').slice(0, 10), text };
+  });
 }
 function workdayPosted(s){
   if(!s) return '';
@@ -330,6 +359,7 @@ export async function readSitemap(src){
     const slug = src.slugIndex != null ? seg(u.loc, src.slugIndex) : path.reduce((a, b) => (b.length > a.length && !/^\d+$/.test(b) ? b : a), '');
     return { role:deslug(slug), link:u.loc, location:src.location || (src.cityIndex != null ? deslug(seg(u.loc, src.cityIndex)) : ''), postedAt:(u.lastmod || '').slice(0, 10) };
   });
+  if(src.include){ const inc = new RegExp(src.include, 'i'); for(let i = out.length - 1; i >= 0; i--) if(!inc.test(out[i].role + ' ' + out[i].link)) out.splice(i, 1); }
   if(src.titleFrom === 'page'){
     const pick = out.slice(0, src.maxPages || 150);
     await pool(pick, 4, async o => {
@@ -383,6 +413,10 @@ export function atsFromLink(href){
 }
 export function titleFromLink(href){
   let m;
+  if(/ambertrack\.global\/.+LAYER1=/i.test(href)){
+    try{ const q = new URL(href.replace(/&amp;/g, '&')).searchParams; const L = i => (q.get('LAYER' + i) || '').replace(/\+/g, ' ');
+      return [L(1), L(2), L(3)].filter(Boolean).join(' – ') + (L(4) || L(5) ? ` (${[L(4), L(5)].filter(Boolean).join(', ')})` : ''); }catch(e){}
+  }
   if((m = href.match(/\/opp\/\d+-([^\/?#]+)/))) return deslug(m[1]);                                      // Oleeo (tal.net)
   if((m = href.match(/\/JobDetail\/([^\/?#]+)\/\d+/))) return deslug(m[1]);                                // Avature
   if((m = href.match(/myworkday(?:jobs|site)\.com\/.*\/job\/(?:[^\/]+\/)?([^\/?#]+?)_[A-Za-z0-9-]+\/?(?:[?#]|$)/))) return deslug(m[1]); // Workday
@@ -409,12 +443,14 @@ export function isDeep(href){
     if(/\/(opportunit(y|ies)|vacanc(y|ies)|jobs?|roles?|careers?\/details)\//i.test(u.pathname) && last.split('-').length >= 4 && /20\d\d|intern|analyst|insight|graduate|programme|placement|scheme/i.test(last)) return true;
     if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|postings?|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
     if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
-    if(/greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
+    if(/smrtr\.io\/[\w-]{4,}|apply\.candidats\.io\/[0-9a-f-]{36}|apply\.candidx\.io\/[0-9a-f-]{36}|\.app\.candidx\.io\/|ambertrack\.global\/.+LAYER1=|workable\.com\/(.+\/)?j\/[0-9A-F]{6,}|recsolu\.com\/jobs\/[\w-]{16,}|tfaforms\.net\/\d+|job-offer\/[a-z0-9-]{8,}|\/emergingtalent\/job\/|janestreet\.com\/join-jane-street\/(position|apply)\/\d+|greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
   }catch(e){}
   return false;
 }
 /* rows that are just a careers hub, not a programme */
 export const HUB_ROLE = /^(careers?|join us|talent (network|community)|.*talent (network|community).*|search jobs|all jobs|current vacancies|apply|learn about .*|.* overview|about us|why join us|meet our people|our people|faqs?|contact us|early careers? talent network)( \(opens in new window\))?$/i;
+export const JUNK_TITLE = /shares? (her|his|their) (journey|story)|my (experience|journey|story)|find out more|learn more|read (more|about)|^find |^join (our |the )?.*(network|community)|^meet |stories|story:|blog|podcast|faqs?\b|how to apply|hints? (and|&) tips|^our (early careers? )?programmes?$|students? (&|and) graduates?|university students|schools? (and|&) apprenticeships|^students?$|^graduates?$|^early careers?$|^explore |^discover (our|more)|^why |^life at |^about |^contact |privacy|cookie|terms (&|and)|sign ?in|log ?in|register your interest$/i;
+const LISTING_TXT = /\b(view|see|browse|explore|search|find)\b.{0,20}\b(opportunit|vacanc|roles?|jobs?|programmes?|positions?|openings?)|current (opportunit|vacanc)|open (roles|positions)|job search|all opportunities|apply now|apply here|start (your )?application/i;
 const APPLY_TXT = /^(apply( now| here| online| today| for (this|the) (role|programme|position))?|start (your )?application|begin application|register( now| here| your interest)?|submit (an )?application|apply via .*|view (the )?(role|job|vacancy|posting)|application form)$/i;
 /* on a programme page, find the button that goes to the actual application */
 export function applyLinkOf(links, pageUrl){
@@ -439,7 +475,8 @@ async function getBrowser(){
 }
 const UK_WORDS = /london|\buk\b|united kingdom|emea|england|scotland|wales|belfast|edinburgh|glasgow|manchester|leeds|birmingham|bristol|cardiff|newcastle|nottingham|sheffield|liverpool/i;
 const HUMAN = /verify (?:you are|you're) (?:a )?human|are you a robot|captcha|quick check needed|access denied|unusual traffic/i;
-const grabLinks = page => page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:a.href, ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
+export const cleanHref = h => String(h || '').replace(/\/xf-[0-9a-f]{6,}(?=\/)/i, '').replace(/&amp;/g, '&');
+const grabLinks = page => page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:String(a.href).replace(/\/xf-[0-9a-f]{6,}(?=\/)/i, ''), ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
 async function openPage(b, url){
   if(!(await allowed(url))) throw Object.assign(new Error('blocked by robots.txt'), { robots:true });
   const page = await b.newPage({ userAgent:UA_STRING });
@@ -452,19 +489,48 @@ async function openPage(b, url){
   return { page, text };
 }
 /* visit a general programme page and return the exact application link on it (plus page details) */
-export async function resolveApply(url){
-  const b = await getBrowser(); if(!b) return null;
-  let pg;
-  try{
-    pg = await openPage(b, url);
-    const links = await grabLinks(pg.page);
-    const seen = new Set();
-    const jobs = links.filter(l => isDeep(l.h) && l.h.split('#')[0] !== url.split('#')[0] && !seen.has(l.h) && seen.add(l.h))
-      .map(l => ({ ...l, t:(l.t && !GENERIC.test(l.t) && l.t.length >= 6 ? l.t : titleFromLink(l.h) || '').replace(/\s+/g, ' ').trim() }))
-      .filter(l => l.t && l.t.length <= 160 && !HUB_ROLE.test(l.t) && !APPLY_TXT.test(l.t));
-    return { link:applyLinkOf(links, url), jobs, text:pg.text, ats:links.map(l => atsFromLink(l.h)).filter(Boolean) };
-  }catch(e){ return null; }
-  finally{ if(pg) await pg.page.close().catch(() => {}); }
+function pickJobs(links, url){
+  const seen = new Set();
+  return links.filter(l => isDeep(l.h) && l.h.split('#')[0] !== url.split('#')[0])
+    .map(l => ({ ...l, t:cleanTitle((l.t && !GENERIC.test(l.t) && !APPLY_TXT.test(l.t) && l.t.length >= 6 ? l.t : titleFromLink(l.h) || '')).title }))
+    .filter(l => l.t && l.t.length <= 160 && !HUB_ROLE.test(l.t) && !JUNK_TITLE.test(l.t) && !seen.has(l.h) && seen.add(l.h));
+}
+async function readAny(url){
+  const b = await getBrowser();
+  let pg = null, links = [], text = '';
+  if(b){
+    try{ pg = await openPage(b, url); links = await grabLinks(pg.page); text = pg.text; }
+    catch(e){ if(e.robots || /human check|HTTP 40[13]|HTTP 429/.test(e.message)) return null; }
+    finally{ if(pg) await pg.page.close().catch(() => {}); }
+  }
+  if(!links.some(l => isDeep(l.h))){ try{ const h = await htmlLinks(url); links = links.concat(h.links); text = text || h.text; }catch(e){ if(!links.length) return null; } }
+  return { links, text };
+}
+/* visit a general page and dig for the specific application pages behind it:
+   1) roles linked on the page itself; 2) otherwise follow its Apply / "view opportunities" link (≤2 hops) and look there.
+   Never swaps one general page for another — if nothing specific is found, the caller keeps the original page. */
+export async function resolveApply(url, depth = 2, visited = new Set()){
+  const key = url.split('#')[0];
+  if(visited.has(key)) return null; visited.add(key);
+  const r = await readAny(url); if(!r) return null;
+  const { links, text } = r;
+  const jobs = pickJobs(links, url);
+  const ats = links.map(l => atsFromLink(l.h)).filter(Boolean);
+  let link = applyLinkOf(links, url);
+  if(!jobs.length && depth > 0){
+    const host = h => { try{ return new URL(h).hostname.replace(/^www\./, ''); }catch(e){ return ''; } };
+    const nexts = [link, ...links.filter(l => LISTING_TXT.test(l.t)).map(l => l.h)]
+      .filter((h, i, a) => h && !isDeep(h) && a.indexOf(h) === i && h.split('#')[0] !== key && !/linkedin|facebook|twitter|instagram|youtube|mailto:/i.test(h)
+        && (host(h) === host(url) || atsFromLink(h) || /careers?|jobs?|apply|recruit|tal\.net|candid|ambertrack|smartrecruiters|workable|eightfold|oraclecloud|successfactors|recsolu/i.test(host(h))))
+      .slice(0, 3);
+    for(const n of nexts){
+      const deeper = await resolveApply(n, depth - 1, visited);
+      if(deeper && (deeper.jobs.length || deeper.link)){ return { ...deeper, text:text + ' ' + deeper.text, ats:ats.concat(deeper.ats), via:n }; }
+      await sleep(400);
+    }
+  }
+  if(link && !isDeep(link)) link = '';
+  return { link, jobs, text, ats };
 }
 /* keep the links on a page that are UK early-careers roles (shared by the browser and raw-HTML readers) */
 function collectLinks(links, src, seen, items, ats){
@@ -477,7 +543,7 @@ function collectLinks(links, src, seen, items, ats){
         if(!title || GENERIC.test(title) || title.length < 6) title = titleFromLink(l.h) || '';
         if(src.titleFrom === 'url'){ const p = new URL(l.h).pathname.split('/').filter(Boolean); title = deslug(p[p.length - 1]) + (p.length > 1 ? ' — ' + deslug(p[p.length - 2]) : ''); }
         title = title.replace(/\s*\(opens in (a )?new (window|tab)\)\s*/i, ' ').trim();
-        if(!title || title.length > 160 || HUB_ROLE.test(title)) continue;
+        if(!title || title.length > 160 || HUB_ROLE.test(title) || JUNK_TITLE.test(title)) continue;
         if(pat ? !pat.test(l.h) : !(isEarly(title) || titleFromLink(l.h))) continue;
         if(inc && !inc.test(title + ' ' + l.ctx)) continue;
         if(NOT_UK.test(title) && !UK_WORDS.test(title)) continue;                         // the title names somewhere outside the UK
@@ -495,8 +561,8 @@ export async function htmlLinks(url){
   if(HUMAN.test(html.slice(0, 4000).replace(/<[^>]+>/g, ' '))) throw new Error('human check shown — skipped');
   const out = []; const re = /<a\b[^>]*?href\s*=\s*["']([^"'#][^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi; let m;
   while((m = re.exec(html))){
-    let h; try{ h = new URL(m[1].replace(/&amp;/g, '&'), url).href; }catch(e){ continue; }
-    const t = m[2].replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#0?39;|&rsquo;/g, "'").replace(/&nbsp;/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();
+    let h; try{ h = cleanHref(new URL(m[1].replace(/&amp;/g, '&'), url).href); }catch(e){ continue; }
+    const t = m[2].replace(/<[^>]+>/g, ' ').replace(/&#(\d+);/g, (x, n) => String.fromCharCode(+n)).replace(/&amp;/g, '&').replace(/&#0?39;|&rsquo;/g, "'").replace(/&nbsp;/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();
     const i = m.index, ctx = html.slice(Math.max(0, i - 300), i + 600).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
     out.push({ t, h, ctx });
   }
@@ -505,7 +571,7 @@ export async function htmlLinks(url){
 export async function scanPage(src){
   const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
   const urls = [src.url];
-  for(let n = 2; n <= (src.pages || 1); n++) urls.push((src.pageUrl || '{url}/{n}').replace('{url}', src.url.replace(/\/$/, '')).replace('{n}', n));
+  for(let n = 2; n <= (src.pages || 1); n++) urls.push((src.pageUrl || '{url}/{n}').replace('{url}', src.url.replace(/\/$/, '')).replace('{n}', n).replace('{o}', (n - 1) * (src.pageSize || 25)));
   const seen = new Set(), items = [], ats = new Map(); let pageNotes = [];
   for(const [i, url] of urls.entries()){
     let pg;
@@ -519,9 +585,9 @@ export async function scanPage(src){
       const { page, text } = pg;
       if(i === 0) pageNotes = notesFrom(text);
       if(src.type === 'programme'){
-        const links = await grabLinks(page);
-        const apply = applyLinkOf(links, url);
-        return { items:[{ role:src.title, link:apply || src.url, info:apply ? src.url : '', live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' }], ats:[] };
+        items.push({ role:src.title, link:src.url, progPage:true, live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' });
+        if(src.exactPage) items[items.length - 1].exact = true;       // a page dedicated to this one programme
+        break;
       }
       const links = await grabLinks(page);
       const before = items.length;
@@ -540,20 +606,23 @@ export async function scanPage(src){
   // if neither exists the general page stays (it's the best link there is)
   let followed = 0; const out = [];
   for(const it of items){
-    if(isDeep(it.link) || followed >= (src.maxFollow ?? 25)){ out.push(it); continue; }
+    if(it.exact || isDeep(it.link) || followed >= (src.maxFollow ?? 30)){ out.push(it); continue; }
     followed++;
     const r = await resolveApply(it.link);
     if(!r){ out.push(it); continue; }
     const d = detailsOf(r.text);
     for(const bd of r.ats) ats.set(JSON.stringify(bd), bd);
-    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || CATEGORY.test(it.role)) && !(NOT_UK.test(j.t) && !UK_WORDS.test(j.t)) && !(!UK_WORDS.test(j.t) && NOT_UK.test(j.ctx) && !UK_WORDS.test(j.ctx)));
-    if(specific.length >= 2 || (specific.length === 1 && !r.link)){
-      for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx), deadline:deadlineIn(j.ctx) || d.deadline, opens:opensIn(j.ctx), notes:notesFrom(j.ctx).slice(0, 2), location:it.location }); }
-    }else{
+    const ukOk = j => !(NOT_UK.test(j.t) && !UK_WORDS.test(j.t)) && !(!UK_WORDS.test(j.t) && NOT_UK.test(j.ctx || '') && !UK_WORDS.test(j.ctx || ''));
+    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || src.all || CATEGORY.test(it.role)) && ukOk(j));
+    const k = kindOf(it.role);
+    const same = specific.filter(j => k >= 0 && kindOf(j.t) === k);
+    for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx || ''), deadline:deadlineIn(j.ctx || '') || (specific.length === 1 ? d.deadline : ''), opens:opensIn(j.ctx || ''), notes:notesFrom(j.ctx || '').slice(0, 2), location:it.location }); }
+    const replaced = same.length || (specific.length && ((CATEGORY.test(it.role) && !it.progPage) || JUNK_TITLE.test(it.role)));
+    if(!replaced){
       for(const f of ['deadline', 'opens', 'visa']) if(!it[f] && d[f]) it[f] = d[f];
       if(!it.live || it.live === 'check') it.live = statusIn(r.text);
       if((!it.notes || !it.notes.length) && d.notes.length) it.notes = d.notes.slice(0, 3);
-      if(r.link){ it.info = it.link; it.link = r.link; }
+      if(r.link && isDeep(r.link)){ it.info = it.link; it.link = r.link; }
       out.push(it);
     }
     await sleep(500);
@@ -613,12 +682,16 @@ const slugs = name => {
 };
 const SIMPLE = { greenhouse:readGreenhouse, lever:readLever, ashby:readAshby, workable:readWorkable, smartrecruiters:readSmartRecruiters };
 async function readBoard(src){
+  if(src.type === 'greenhouse' && src.content) return readGreenhouseContent(src);
   if(SIMPLE[src.type]) return SIMPLE[src.type](src.board);
   if(src.type === 'workday') return readWorkday(src);
   if(src.type === 'oracle') return readOracle(src);
   if(src.type === 'sitemap') return readSitemap(src);
   if(src.type === 'coursera') return readCoursera(src);
   if(src.type === 'eightfold') return readEightfold(src);
+  if(src.type === 'wpjson') return readWpJson(src);
+  if(src.type === 'recsolu') return readRecsolu(src);
+  if(src.type === 'greenhouse' && src.content) return readGreenhouseContent(src);
   if(src.type === 'jibe') return readJibe(src);
   if(src.type === 'pinpoint') return readPinpoint(src);
   if(SIMPLE[src.type] && src.board) return SIMPLE[src.type](src.board);
@@ -630,7 +703,7 @@ const boardKey = s => [s.type, s.board || s.host || s.url, s.site || ''].join(':
 async function toOpenings(rows, co, src){
   const out = []; let details = 0;
   for(const j of rows || []){
-    const ct = cleanTitle(j.role); const role = ct.title; if(ct.opens && !j.opens && ct.opens !== 'soon') j.opens = ct.opens; if(ct.opens && (!j.live || j.live === 'check')) j.live = 'soon'; if(!role || HUB_ROLE.test(role)) continue;
+    const ct = cleanTitle(j.role); const role = ct.title; if(ct.opens && !j.opens && ct.opens !== 'soon') j.opens = ct.opens; if(ct.opens && (!j.live || j.live === 'check')) j.live = 'soon'; if(!role || HUB_ROLE.test(role) || JUNK_TITLE.test(role)) continue;
     if(!src.all && !isEarly(role)) continue;
     let location = j.location || src.location || '', text = j.text || '';
     const tc = role.match(/\b(London|Leeds|Manchester|Birmingham|Edinburgh|Glasgow|Bristol|Belfast|Cardiff|Newcastle|Nottingham|Sheffield|Liverpool|Reading|Cambridge|Oxford|Bournemouth|Northampton|Knutsford|Chester|Milton Keynes|Canary Wharf)\b/i);
@@ -654,7 +727,7 @@ async function toOpenings(rows, co, src){
     const det = text ? detailsOf(text) : {};
     const o = {
       id:idOf(co.company, role, j.link), company:co.company, sector:co.sector || src.sector || 'Other', sub:co.sub || '',
-      role, programme, roleType:src.roleType || roleTypeOf(role) || roleTypeOf(co.sector), ageGroup, location, region, link:j.link || '', info:j.info || '',
+      role, programme, roleType:src.roleType || roleTypeOf(role) || roleTypeOf(co.sector), ageGroup, location, region, link:j.link || '', info:j.info || '', exact:!!(j.exact || isDeep(j.link)), _prog:!!j.progPage,
       postedAt:(j.postedAt || '').replace('+', ''), postedApprox:/\+$/.test(j.postedAt || ''),
       deadline:j.deadline || det.deadline || '', opens:j.opens || det.opens || '', live:j.live || '',
       visa:j.visa || det.visa || '', notes:(j.notes && j.notes.length ? j.notes : det.notes || []).slice(0, 4),
@@ -800,6 +873,7 @@ async function main(){
     return [...byLink.values()];
   };
   /* a general programme page and the firm's exact posting for the same scheme → one row, exact link */
+  const STOP_WORDS = /^(the|and|for|with|our|programme|programmes|program|programs|scheme|schemes|week|weeks|day|days|insight|insights|spring|summer|winter|internship|internships|intern|interns|placement|placements|graduate|graduates|analyst|analysts|london|uk|emea|europe|early|careers|career|student|students|year|first|work|experience|virtual|apprenticeship|apprenticeships|vacation|training|contract|off|cycle|industrial|opportunit(y|ies)|\d+)$/;
   const toExact = list => {
     const byCo = {};
     for(const o of list) (byCo[o.company] = byCo[o.company] || []).push(o);
@@ -807,9 +881,11 @@ async function main(){
     for(const rows of Object.values(byCo)){
       const exact = rows.filter(o => isDeep(o.link));
       for(const g of rows.filter(o => !isDeep(o.link))){
-        if(exact.length && CATEGORY.test(g.role.trim())){ drop.add(g); continue; }
+        if(exact.length && CATEGORY.test(g.role.trim()) && !g._prog){ drop.add(g); continue; }
         const k = kindOf(g.role); if(k < 0) continue;
-        const twins = exact.filter(e => kindOf(e.role) === k && (g.region === e.region || !g.region || !e.region));
+        const words = t => new Set(String(t).toLowerCase().replace(/[^a-z ]+/g, ' ').split(' ').filter(w => w.length > 2 && !STOP_WORDS.test(w)));
+        const gw = words(g.role);
+        const twins = exact.filter(e => kindOf(e.role) === k && (!gw.size || [...gw].some(w => words(e.role).has(w))));   // same scheme (by name) anywhere in the UK
         if(!twins.length) continue;
         for(const e of twins){
           for(const f of ['deadline', 'opens', 'visa', 'live']) if(!e[f] && g[f]) e[f] = g[f];
@@ -822,6 +898,7 @@ async function main(){
     return list.filter(o => !drop.has(o));
   };
   let openings = toExact(merge(found)), reviewList = toExact(merge(review));
+  for(const o of [...openings, ...reviewList]) delete o._prog;
 
   // 4) first-seen times, and keep what we couldn't check this time
   const prevAll = [...(prev.openings || []), ...(prev.review || [])];
@@ -842,10 +919,12 @@ async function main(){
     updated:NOW_ISO,
     watchlist:[...watch.map(c => ({ company:c.company, sector:c.sector, sub:c.sub, addedByClaude:!!c.addedByClaude })), ...extraFirms.map(c => ({ company:c.company, sector:c.sector, sub:c.sub || 'Found automatically', auto:true }))],
     health, openings, review:reviewList, closed, log:LOG,
+    audit:{ specific:openings.filter(o => o.exact).length, general:openings.filter(o => !o.exact).map(o => ({ company:o.company, role:o.role, link:o.link })) },
   };
   await writeFile('data/openings.json', JSON.stringify(out, null, 1));
   await writeFile('data/ats-cache.json', JSON.stringify(cache, null, 1));
   const byTrack = t => openings.filter(o => o.track === t).length;
+  console.log(`  specific application links: ${openings.filter(o => o.exact).length} · programme/general pages: ${openings.filter(o => !o.exact).length}`);
   console.log(`\n✓ ${openings.length} UK openings (${byTrack('uni')} internships & spring weeks · ${byTrack('preuni')} pre-uni · ${byTrack('opps')} opportunities) · ${reviewList.length} for review · ${closedNow.length} closed since last scan`);
   console.log(`  firms with openings found: ${new Set(openings.map(o => o.company)).size} · sources failing: ${LOG.filter(l => !l.ok).length}`);
 }

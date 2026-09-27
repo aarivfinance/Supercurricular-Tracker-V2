@@ -897,7 +897,9 @@ function opRow(o, ghost){
     <div class="m-extra">${esc([o.programme, ageOf(o) && 'Age ' + AGE_TEXT[ageOf(o)], o.location, o.deadline ? 'closes ' + fmtD(o.deadline) : ''].filter(Boolean).join(' · '))}</div>
     <div class="acts">
       <button class="act ${o.saved ? 'on' : ''}" data-star title="Star" aria-label="Star">${I(IC.star,17)}</button>
-      ${o.link ? `<a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a>` : `<span class="apply" style="opacity:.5">Apply ${I(IC.ext,14)}</span>`}
+      ${o.link ? (o.exact === false
+        ? `<a class="apply ghosted" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener" title="This programme has no individual application page yet — this is the firm's page for it">Details ${I(IC.ext,14)}</a>`
+        : `<a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a>`) : `<span class="apply" style="opacity:.5">Apply ${I(IC.ext,14)}</span>`}
     </div>
   </div>`;
 }
@@ -934,7 +936,7 @@ function openOpening(o){
     <div class="meta" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})"><span class="chip subj">${esc(o.sector || 'Other')}</span>${o.programme ? `<span class="chip soft">${esc(o.programme)}</span>` : ''}${ageOf(o) ? `<span class="chip soft">Age ${esc(AGE_TEXT[ageOf(o)])}</span>` : ''}${o.visa ? `<span class="chip ${/No/.test(o.visa) ? 'warn' : 'ok'}">${esc(o.visa)}</span>` : ''}${o.live === 'open' ? '<span class="chip ok">Applications open</span>' : o.live === 'closed' ? '<span class="chip soft">Closed</span>' : ''}</div>
     <h2>${esc(o.role || o.programme)}</h2>
     <div class="muted" style="font-size:15px;margin-bottom:12px"><a href="#" class="lnk" id="dCo" style="color:var(--ink);font-weight:600">${esc(o.company)}</a>${o.location ? ' · ' + esc(o.location) : ''}</div>
-    ${o.link ? `<div style="margin:4px 0 14px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">Apply ${I(IC.ext,14)}</a>${o.info ? ` <a class="btn ghost sm" style="margin-left:6px" href="${esc(safeUrl(o.info))}" target="_blank" rel="noopener">Programme page ${I(IC.ext,12)}</a>` : ''}</div>` : ''}
+    ${o.link ? `<div style="margin:4px 0 14px"><a class="apply" href="${esc(safeUrl(o.link))}" target="_blank" rel="noopener">${o.exact === false ? 'Programme page' : 'Apply'} ${I(IC.ext,14)}</a>${o.exact === false ? '<span class="faint" style="font-size:12.5px;margin-left:8px">No individual application page yet</span>' : ''}${o.info ? ` <a class="btn ghost sm" style="margin-left:6px" href="${esc(safeUrl(o.info))}" target="_blank" rel="noopener">Programme page ${I(IC.ext,12)}</a>` : ''}</div>` : ''}
     <dl class="kv">
       <dt>Deadline</dt><dd>${o.deadline ? fmtD(o.deadline, true) + ' ' + countdown(o.deadline, o.opens, o.rolling) : o.rolling ? 'Rolling' : 'Not published — apply early'}</dd>
       ${o.opens ? `<dt>Opens</dt><dd>${fmtD(o.opens, true)}</dd>` : ''}

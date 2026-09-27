@@ -122,7 +122,8 @@
    "company": "Jane Street",
    "type": "greenhouse",
    "board": "janestreet",
-   "label": "Greenhouse"
+   "label": "Greenhouse",
+   "content": true
   },
   {
    "company": "IMC Trading",
@@ -158,24 +159,9 @@
    "url": "https://careers.jpmorgan.com/global/en/students/programs"
   },
   {
-   "company": "Morgan Stanley",
-   "type": "links",
-   "url": "https://www.morganstanley.com/people-opportunities/students-graduates/programs"
-  },
-  {
    "company": "Bank of America",
    "type": "links",
    "url": "https://careers.bankofamerica.com/en-us/students/programs"
-  },
-  {
-   "company": "Citi",
-   "type": "links",
-   "url": "https://jobs.citi.com/early-career-programs-pre-internships"
-  },
-  {
-   "company": "Citi",
-   "type": "links",
-   "url": "https://jobs.citi.com/events-preinternships"
   },
   {
    "company": "Barclays",
@@ -218,11 +204,6 @@
    "age": "uni1"
   },
   {
-   "company": "HSBC",
-   "type": "links",
-   "url": "https://www.hsbc.com/careers/students-and-graduates/insight-programmes"
-  },
-  {
    "company": "BNP Paribas",
    "type": "programme",
    "url": "https://careers.bnpparibas.co.uk/spring-insights/",
@@ -245,11 +226,6 @@
    "url": "https://www.lazard.com/about-lazard/locations/united-kingdom/careers-in-the-united-kingdom/early-career-programmes-in-the-uk/"
   },
   {
-   "company": "Evercore",
-   "type": "links",
-   "url": "https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/"
-  },
-  {
    "company": "McKinsey & Company",
    "type": "links",
    "url": "https://www.mckinsey.com/uk/careers/upcoming-events",
@@ -260,12 +236,6 @@
    "company": "Deloitte",
    "type": "links",
    "url": "https://www.deloitte.com/uk/en/careers/early-careers/early-careers-programmes.html"
-  },
-  {
-   "company": "EY",
-   "type": "links",
-   "url": "https://www.ey.com/en_uk/careers/students/schools",
-   "age": "16-18"
   },
   {
    "company": "KPMG",
@@ -329,11 +299,6 @@
    "url": "https://www.oliverwyman.com/uk-ireland/careers/recruiting-events-uk-and-ireland.html"
   },
   {
-   "company": "Standard Chartered",
-   "type": "links",
-   "url": "https://www.sc.com/en/global-careers/early-careers/local-programmes-for-students/uk-student-opportunities/"
-  },
-  {
    "company": "Lloyds Banking Group",
    "type": "links",
    "url": "https://www.lloydsbankinggroup.com/careers/early-careers.html"
@@ -342,16 +307,6 @@
    "company": "NatWest",
    "type": "links",
    "url": "https://jobs.natwestgroup.com/pages/early-careers"
-  },
-  {
-   "company": "Nomura",
-   "type": "links",
-   "url": "https://www.nomura.com/europe/careers/"
-  },
-  {
-   "company": "Jane Street",
-   "type": "links",
-   "url": "https://www.janestreet.com/join-jane-street/internships/"
   },
   {
    "company": "Sutton Trust",
@@ -384,7 +339,8 @@
    "price": "Free",
    "programme": "Pre-university programme",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Sutton Trust",
@@ -395,7 +351,8 @@
    "price": "Free",
    "programme": "Pre-university programme",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Sutton Trust",
@@ -419,7 +376,8 @@
    "price": "Free",
    "programme": "Pre-university programme",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Springpod",
@@ -444,7 +402,8 @@
    "price": "Free",
    "programme": "Insight / work experience",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Rare",
@@ -455,7 +414,8 @@
    "price": "Free",
    "programme": "Insight / work experience",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Rare",
@@ -465,7 +425,8 @@
    "price": "Free",
    "programme": "Insight / work experience",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "upReach",
@@ -477,7 +438,8 @@
    "programme": "Pre-university programme",
    "track": "uni",
    "sector": "Access programmes",
-   "location": "United Kingdom"
+   "location": "United Kingdom",
+   "exactPage": true
   },
   {
    "company": "Coursera",
@@ -713,32 +675,37 @@
    "type": "programme",
    "url": "https://www.aspectcapital.com/about/team/summer-internships-with-aspect-capital/",
    "title": "Summer Internship",
-   "age": "uni2"
+   "age": "uni2",
+   "exactPage": true
   },
   {
    "company": "Rokos Capital",
    "type": "programme",
    "url": "https://apptrkr.io/rokos-capital-management/rokos-capital-management-202526",
    "title": "Early Careers Programme",
-   "label": "firm’s own page"
+   "label": "firm’s own page",
+   "exactPage": true
   },
   {
    "company": "Balyasny",
    "type": "programme",
    "url": "https://www.bamfunds.com/careers/early-career",
-   "title": "Early Career Programmes"
+   "title": "Early Career Programmes",
+   "exactPage": true
   },
   {
    "company": "Pictet",
    "type": "programme",
    "url": "https://www.pictet.com/uk/en/careers/students-graduates",
-   "title": "Students & Graduates Programmes"
+   "title": "Students & Graduates Programmes",
+   "exactPage": true
   },
   {
    "company": "Natixis",
    "type": "programme",
    "url": "https://home.cib.natixis.com/shape-your-career",
-   "title": "CIB Internships & Graduate Programme"
+   "title": "CIB Internships & Graduate Programme",
+   "exactPage": true
   },
   {
    "company": "(discovery)",
@@ -767,18 +734,210 @@
    "label": "firm’s job board"
   },
   {
-   "company": "Standard Chartered",
+   "company": "BNP Paribas",
+   "type": "wpjson",
+   "url": "https://careers.bnpparibas.co.uk/wp-json/wp/v2/gbjf_job_post?per_page=100",
+   "location": "London, United Kingdom",
+   "label": "BNP Paribas UK careers"
+  },
+  {
+   "company": "BNP Paribas",
    "type": "links",
-   "url": "https://jobs.standardchartered.com/content/Search-Result-Page/?employment_type=early_careers",
-   "linkPattern": "jobs\\.standardchartered\\.com/job/",
+   "url": "https://group.bnpparibas/en/careers/all-job-offers/trainee-internship/united-kingdom",
+   "linkPattern": "group\\.bnpparibas/en/careers/job-offer/[a-z0-9-]+",
+   "all": true,
+   "label": "BNP Paribas job offers"
+  },
+  {
+   "company": "Barclays",
+   "type": "links",
+   "url": "https://search.jobs.barclays/category/early-careers-jobs/13015/8736272/1",
+   "pages": 10,
+   "pageUrl": "{url}/{n}",
+   "linkPattern": "search\\.jobs\\.barclays/(en/)?job/[a-z0-9-]+/[a-z0-9-]+/13015/\\d+",
+   "cityFromUrl": 1,
+   "all": true,
+   "label": "Barclays job board"
+  },
+  {
+   "company": "Citi",
+   "type": "links",
+   "url": "https://jobs.citi.com/location/london-england-united-kingdom-jobs/287/2635167-6269131-2643743/4",
+   "pages": 9,
+   "pageUrl": "{url}/{n}",
+   "linkPattern": "jobs\\.citi\\.com/job/[a-z0-9-]+/[a-z0-9-]+/287/\\d+",
+   "cityFromUrl": 1,
    "all": false,
-   "label": "firm’s job board"
+   "label": "Citi job board"
+  },
+  {
+   "company": "Deutsche Bank",
+   "type": "recsolu",
+   "url": "https://db.recsolu.com/job_boards/DT5zqeU-qZM-ltrVsIvR9Q/search?query=London",
+   "location": "London, United Kingdom",
+   "label": "Deutsche Bank campus board"
+  },
+  {
+   "company": "HSBC",
+   "type": "links",
+   "url": "https://apply.careers.hsbc.com/emergingtalent/search/?q=&sortColumn=referencedate&sortDirection=desc&startrow=0",
+   "pages": 4,
+   "pageUrl": "https://apply.careers.hsbc.com/emergingtalent/search/?q=&sortColumn=referencedate&sortDirection=desc&startrow={o}",
+   "pageSize": 25,
+   "linkPattern": "apply\\.careers\\.hsbc\\.com/emergingtalent/job/[^\"'?]+/\\d+/",
+   "all": true,
+   "label": "HSBC emerging talent"
+  },
+  {
+   "company": "Evercore",
+   "type": "links",
+   "url": "https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/",
+   "linkPattern": "smrtr\\.io/|smartrecruiters\\.com/|tal\\.net/.+/opp/",
+   "all": true,
+   "label": "Evercore students (Europe)"
+  },
+  {
+   "company": "Nomura",
+   "type": "links",
+   "url": "https://nomuracampus.tal.net/candidate/jobboard/vacancy/1/adv/",
+   "linkPattern": "nomuracampus\\.tal\\.net/.+/opp/\\d+-",
+   "all": true,
+   "maxFollow": 0,
+   "label": "Nomura campus board"
   },
   {
    "company": "Morgan Stanley",
-   "type": "eightfold",
-   "url": "https://morganstanley.eightfold.ai/api/apply/v2/jobs?domain=morganstanley.com&location=London&num=100",
-   "label": "Eightfold"
+   "type": "links",
+   "url": "https://morganstanley.tal.net/candidate/jobboard/vacancy/1/adv/?start=0",
+   "pages": 3,
+   "pageUrl": "https://morganstanley.tal.net/candidate/jobboard/vacancy/1/adv/?start={o}",
+   "pageSize": 50,
+   "linkPattern": "morganstanley\\.tal\\.net/.+/opp/\\d+-",
+   "all": true,
+   "maxFollow": 0,
+   "label": "Morgan Stanley campus board"
+  },
+  {
+   "company": "Standard Chartered",
+   "type": "sitemap",
+   "url": "https://jobs.standardchartered.com/sitemap.xml",
+   "pattern": "/job/[^/]+/\\d+(-en_GB)?/",
+   "slugIndex": 1,
+   "include": "\\b(UK|London|United Kingdom)\\b",
+   "location": "London, United Kingdom",
+   "label": "Standard Chartered jobs sitemap"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/summer-internship/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/industrial-placement/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/graduate/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/degree-apprenticeship/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/business-apprenticeship/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "EY",
+   "type": "links",
+   "url": "https://ukstudents.ey.com/program/discover-ey/",
+   "linkPattern": "ambertrack\\.global/.+LAYER1=",
+   "all": true,
+   "maxFollow": 0,
+   "label": "EY UK students"
+  },
+  {
+   "company": "Freshfields",
+   "type": "programme",
+   "url": "https://www.freshfields.com/en/your-career/united-kingdom/early-careers/vacation-schemes",
+   "title": "Vacation Schemes"
+  },
+  {
+   "company": "Freshfields",
+   "type": "programme",
+   "url": "https://www.freshfields.com/en/your-career/united-kingdom/early-careers/training-contract",
+   "title": "Trainee Associate Programme (Training Contract)"
+  },
+  {
+   "company": "Bank of England",
+   "type": "oracle",
+   "host": "eoff.fa.em1.ukg.oraclecloud.com",
+   "site": "CX_1001",
+   "label": "Bank of England job board"
+  },
+  {
+   "company": "Natixis",
+   "type": "links",
+   "url": "https://recrutement.natixis.com/en/our-job-offers?tax_brands=natixis-cib",
+   "linkPattern": "recrutement\\.natixis\\.com/en/job/[a-z0-9-]+",
+   "all": false,
+   "label": "Natixis job offers"
+  },
+  {
+   "company": "Aspect Capital",
+   "type": "links",
+   "url": "https://aspectcapital-94a5ce.careers.hibob.com/",
+   "linkPattern": "careers\\.hibob\\.com/jobs/[0-9a-f-]{36}",
+   "all": false,
+   "label": "Aspect Capital careers"
+  },
+  {
+   "company": "Rokos Capital",
+   "type": "links",
+   "url": "https://apptrkr.io/rokos-capital-management/rokos-capital-management-202526",
+   "all": false,
+   "label": "Rokos careers"
+  },
+  {
+   "company": "Balyasny",
+   "type": "links",
+   "url": "https://bambusdev.my.site.com/s/",
+   "all": false,
+   "label": "Balyasny open roles"
   }
  ]
 }
