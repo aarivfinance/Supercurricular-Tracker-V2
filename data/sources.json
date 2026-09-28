@@ -937,7 +937,8 @@
    "linkPattern": "charliehr\\.com/job-openings/[\\w-]+",
    "all": false,
    "company": "Aluna Partners",
-   "maxFollow": 8
+   "maxFollow": 0,
+   "textList": true
   },
   {
    "type": "workday",
@@ -1070,13 +1071,6 @@
    "maxFollow": 8
   },
   {
-   "type": "workday",
-   "host": "osv-cci.wd1.myworkdayjobs.com",
-   "tenant": "osv-cci",
-   "site": "CCICareers",
-   "company": "Castleton Commodities International"
-  },
-  {
    "type": "workable",
    "board": "onyx-capital-group",
    "company": "Onyx Capital Group"
@@ -1101,14 +1095,6 @@
    "linkPattern": "bordertocoast\\.org\\.uk/vacanc[^\"]+",
    "all": false,
    "company": "Border to Coast Pensions Partnership",
-   "maxFollow": 8
-  },
-  {
-   "type": "links",
-   "url": "https://uss.appellia.com/",
-   "linkPattern": "position\\.aspx\\?id=\\d+",
-   "all": false,
-   "company": "USS Investment Management",
    "maxFollow": 8
   },
   {
@@ -1302,12 +1288,6 @@
    "all": false,
    "company": "Partners Group",
    "maxFollow": 8
-  },
-  {
-   "type": "programme",
-   "url": "https://www.bgf.co.uk/careers/",
-   "title": "Graduate programme & summer internship",
-   "company": "BGF"
   },
   {
    "type": "workday",
@@ -1672,12 +1652,6 @@
   },
   {
    "type": "programme",
-   "url": "https://www.fieldfisher.com/en/careers/earlycareers/training-contracts",
-   "title": "Vacation Scheme & Training Contract",
-   "company": "Fieldfisher"
-  },
-  {
-   "type": "programme",
    "url": "https://careers.hilldickinson.com/early-careers",
    "title": "Summer Insight & Training Contract",
    "company": "Hill Dickinson"
@@ -1742,14 +1716,6 @@
   },
   {
    "type": "links",
-   "url": "https://careers.taylorwessing.com/Earlycareeropportunities/go/Early-career-opportunities/9053855/",
-   "linkPattern": "/Earlycareeropportunities/job/[^\"'/]+/\\d+/",
-   "all": true,
-   "company": "Taylor Wessing",
-   "maxFollow": 8
-  },
-  {
-   "type": "links",
    "url": "https://trainee.bclplaw.com/opportunities/london/",
    "linkPattern": "apply\\.candidats\\.io/[0-9a-f-]{36}",
    "all": true,
@@ -1791,12 +1757,6 @@
    "url": "https://www.morganlewis.com/careers/students-trainees-judicial-clerks",
    "title": "Summer Vacation Scheme",
    "company": "Morgan Lewis"
-  },
-  {
-   "type": "programme",
-   "url": "https://www.ropesgrayrecruiting.com/en/UK/Students-Graduates",
-   "title": "Vacation Scheme",
-   "company": "Ropes & Gray"
   },
   {
    "type": "programme",
@@ -1988,14 +1948,6 @@
    "linkPattern": "VacancyInformation\\.aspx\\?VId=\\d+",
    "all": false,
    "company": "Saffery",
-   "maxFollow": 8
-  },
-  {
-   "type": "links",
-   "url": "https://uguk-chire.icims.com/jobs/search?ss=1&in_iframe=1",
-   "linkPattern": "icims\\.com/jobs/\\d+/[^\"'?]+/job",
-   "all": false,
-   "company": "Cornerstone Research",
    "maxFollow": 8
   },
   {
@@ -2427,6 +2379,12 @@
    "all": false,
    "company": "Flutter UK&I (Sky Betting & Gaming)",
    "maxFollow": 8
+  },
+  {
+   "company": "Ropes & Gray",
+   "type": "programme",
+   "url": "https://www.ropesgray.com/en/careers/london",
+   "title": "Vacation Scheme & Training Contract"
   }
  ]
 }

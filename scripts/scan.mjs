@@ -550,6 +550,13 @@ export async function resolveApply(url, depth = 2, visited = new Set()){
 }
 /* keep the links on a page that are UK early-careers roles (shared by the browser and raw-HTML readers) */
 function collectLinks(links, src, seen, items, ats){
+  const before = items.length;
+  collectLinks1(links, src, seen, items, ats);
+  if(src.linkPattern && items.length === before && !src.strictPattern){
+    collectLinks1(links.filter(l => l.h && isDeep(l.h)), { ...src, linkPattern:null }, seen, items, ats);   // pattern out of date → any specific role links on the page
+  }
+}
+function collectLinks1(links, src, seen, items, ats){
   const pat = src.linkPattern ? new RegExp(src.linkPattern, 'i') : null, inc = src.include ? new RegExp(src.include, 'i') : null;
       for(const l of links){
         if(!l.h || !/^https?:/i.test(l.h)) continue;
@@ -609,6 +616,10 @@ export async function scanPage(src){
       const links = await grabLinks(page);
       const before = items.length;
       collectLinks(links, src, seen, items, ats);
+      if(src.textList && items.length === before){
+        const lines = await page.evaluate(() => (document.body ? document.body.innerText : '').split('\n').map(t => t.trim()).filter(Boolean));
+        for(const t of [...new Set(lines)]) if(t.length >= 6 && t.length <= 120 && isEarly(t) && !JUNK_TITLE.test(t) && !HUB_ROLE.test(t)) items.push({ role:t, link:url, live:'open', location:src.location || 'London, United Kingdom', exact:false });
+      }
       if(i > 0 && items.length === before) break;          // ran out of pages
     }finally{ await pg.page.close().catch(() => {}); }
     if(i < urls.length - 1) await sleep(800);
@@ -623,7 +634,7 @@ export async function scanPage(src){
   // if neither exists the general page stays (it's the best link there is)
   let followed = 0; const out = [];
   for(const it of items){
-    if(it.exact || isDeep(it.link) || followed >= (src.maxFollow ?? 30)){ out.push(it); continue; }
+    if(it.exact || isDeep(it.link) || src.textList || followed >= (src.maxFollow ?? 30)){ out.push(it); continue; }
     followed++;
     const r = await resolveApply(it.link);
     if(!r){ out.push(it); continue; }
@@ -905,7 +916,7 @@ async function main(){
     }
     const byLink = new Map();
     for(const o of m.values()){
-      const k = o.company + '|' + String(o.link || o.id).split('#')[0] + '|' + cityKey(o);
+      const k = isDeep(o.link) ? o.company + '|' + String(o.link).split('#')[0] + '|' + cityKey(o) : 'id|' + o.id + '|' + titleKey(o.role);   // only rows on the same specific page are the same opening
       const a = byLink.get(k);
       if(!a) byLink.set(k, o); else for(const f of ['deadline', 'opens', 'live', 'visa', 'postedAt', 'price']) if(!a[f] && o[f]) a[f] = o[f];
     }
