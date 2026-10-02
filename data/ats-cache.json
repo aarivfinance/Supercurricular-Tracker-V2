@@ -37,7 +37,7 @@
  },
  "Jefferies": {
   "via": null,
-  "checked": "2026-09-25T16:01:57.879Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Evercore": {
   "via": null,
@@ -53,7 +53,7 @@
  },
  "Centerview Partners": {
   "via": null,
-  "checked": "2026-09-25T16:01:59.299Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "BNP Paribas": {
   "via": null,
@@ -77,7 +77,7 @@
  },
  "SMBC": {
   "via": null,
-  "checked": "2026-09-25T16:02:01.555Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Houlihan Lokey": {
   "via": null,
@@ -85,23 +85,23 @@
  },
  "Santander": {
   "via": null,
-  "checked": "2026-09-25T16:02:02.817Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Société Générale": {
   "via": null,
-  "checked": "2026-09-25T16:02:03.826Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Macquarie": {
   "via": null,
-  "checked": "2026-09-25T16:02:04.646Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Perella Weinberg": {
   "via": null,
-  "checked": "2026-09-25T16:02:05.578Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Crédit Agricole CIB": {
   "via": null,
-  "checked": "2026-09-25T16:02:06.107Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Wells Fargo": {
   "via": null,
@@ -113,7 +113,7 @@
  },
  "RBC Capital Markets": {
   "via": null,
-  "checked": "2026-09-25T16:02:08.007Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "NatWest": {
   "via": null,
@@ -121,19 +121,19 @@
  },
  "Revolut": {
   "via": null,
-  "checked": "2026-09-25T16:02:09.962Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SoFi": {
   "via": "greenhouse:sofi",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Starling Bank": {
   "via": "workable:starling-bank",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Nationwide": {
   "via": null,
-  "checked": "2026-09-25T16:02:11.337Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Lloyds Banking Group": {
   "via": null,
@@ -141,11 +141,11 @@
  },
  "HMRC": {
   "via": null,
-  "checked": "2026-09-25T16:02:12.104Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "HM Treasury": {
   "via": null,
-  "checked": "2026-09-25T16:02:12.114Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bank of England": {
   "via": null,
@@ -153,15 +153,15 @@
  },
  "ING": {
   "via": null,
-  "checked": "2026-09-25T16:02:12.316Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Monzo": {
   "via": "greenhouse:monzo",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "IMF": {
   "via": null,
-  "checked": "2026-09-25T16:02:12.837Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "McKinsey & Company": {
   "via": null,
@@ -169,11 +169,11 @@
  },
  "Government Economic Service": {
   "via": null,
-  "checked": "2026-09-25T16:02:14.213Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "World Bank": {
   "via": null,
-  "checked": "2026-09-25T16:02:14.363Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Oliver Wyman": {
   "via": "lever:oliverwyman",
@@ -181,7 +181,7 @@
  },
  "Guggenheim Partners": {
   "via": null,
-  "checked": "2026-09-25T16:02:14.598Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Nomura": {
   "via": null,
@@ -189,7 +189,7 @@
  },
  "Kearney": {
   "via": null,
-  "checked": "2026-09-25T16:02:15.202Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Roland Berger": {
   "via": null,
@@ -197,7 +197,7 @@
  },
  "Strategy&": {
   "via": null,
-  "checked": "2026-09-25T16:02:15.320Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "EY": {
   "via": null,
@@ -205,7 +205,7 @@
  },
  "European Central Bank": {
   "via": null,
-  "checked": "2026-09-25T16:02:15.382Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "KPMG": {
   "via": null,
@@ -217,7 +217,7 @@
  },
  "Forvis Mazars": {
   "via": "greenhouse:forvismazars",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "PwC": {
   "via": null,
@@ -225,147 +225,147 @@
  },
  "L.E.K. Consulting": {
   "via": null,
-  "checked": "2026-09-25T16:02:16.446Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "BDO": {
   "via": null,
-  "checked": "2026-09-25T16:02:16.625Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Baringa": {
   "via": "greenhouse:baringa",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Capgemini": {
   "via": null,
-  "checked": "2026-09-25T16:02:17.734Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Grant Thornton": {
   "via": null,
-  "checked": "2026-09-25T16:02:18.228Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Oxera": {
   "via": null,
-  "checked": "2026-09-25T16:02:18.861Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "RSM UK": {
   "via": null,
-  "checked": "2026-09-25T16:02:19.032Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Financial Conduct Authority": {
   "via": null,
-  "checked": "2026-09-25T16:02:20.040Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Compass Lexecon": {
   "via": null,
-  "checked": "2026-09-25T16:02:20.889Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Frontier Economics": {
   "via": "lever:frontier",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "FTI Consulting": {
   "via": null,
-  "checked": "2026-09-25T16:02:21.314Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Apple": {
   "via": null,
-  "checked": "2026-09-25T16:02:21.552Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Alvarez & Marsal": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.151Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Google": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.168Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "NERA Economic Consulting": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.658Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Microsoft": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.807Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Amazon": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.808Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Meta": {
   "via": null,
-  "checked": "2026-09-25T16:02:22.984Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Accenture": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.138Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Economic Insight": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.149Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Oracle": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.287Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TikTok (ByteDance)": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.433Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "IBM": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.586Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Alibaba": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.631Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Anthropic": {
   "via": "greenhouse:anthropic",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Netflix": {
   "via": null,
-  "checked": "2026-09-25T16:02:23.808Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "OpenAI": {
   "via": "ashby:openai",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "xAI": {
   "via": "greenhouse:xai",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Perplexity": {
   "via": "ashby:perplexity",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Mistral AI": {
   "via": "lever:mistral",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cohere": {
   "via": "ashby:cohere",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Tesla": {
   "via": null,
-  "checked": "2026-09-25T16:02:24.056Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Scale AI": {
   "via": "greenhouse:scaleai",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Samsung": {
   "via": null,
-  "checked": "2026-09-25T16:02:24.096Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Synthesia": {
   "via": "ashby:synthesia",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "ElevenLabs": {
   "via": "ashby:elevenlabs",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Wayve": {
   "via": null,
@@ -373,59 +373,59 @@
  },
  "TSMC": {
   "via": null,
-  "checked": "2026-09-25T16:02:24.857Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Broadcom": {
   "via": null,
-  "checked": "2026-09-25T16:02:24.882Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Micron": {
   "via": null,
-  "checked": "2026-09-25T16:02:24.997Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Arm": {
   "via": null,
-  "checked": "2026-09-25T16:02:25.981Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Google DeepMind": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.125Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "AMD": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.250Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SanDisk": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.323Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Hugging Face": {
-  "via": "workable:huggingface",
+  "via": null,
   "checked": "2026-10-02T09:50:49.066Z"
  },
  "HP": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.415Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "NVIDIA": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.592Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Intel": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.620Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Qualcomm": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.820Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "ASML": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.882Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Dell": {
   "via": null,
-  "checked": "2026-09-25T16:02:26.931Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "ServiceNow": {
   "via": null,
@@ -433,59 +433,59 @@
  },
  "Salesforce": {
   "via": null,
-  "checked": "2026-09-25T16:02:27.345Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Adobe": {
   "via": null,
-  "checked": "2026-09-25T16:02:27.432Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "CrowdStrike": {
   "via": null,
-  "checked": "2026-09-25T16:02:27.539Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Databricks": {
   "via": "greenhouse:databricks",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cloudflare": {
   "via": "greenhouse:cloudflare",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Reddit": {
   "via": "greenhouse:reddit",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Snowflake": {
   "via": "ashby:snowflake",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Discord": {
   "via": "greenhouse:discord",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Palantir": {
   "via": "lever:palantir",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SAP": {
   "via": null,
-  "checked": "2026-09-25T16:02:28.252Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Airbnb": {
   "via": "greenhouse:airbnb",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Stripe": {
   "via": "greenhouse:stripe",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Shopify": {
   "via": null,
-  "checked": "2026-09-25T16:02:28.734Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Atlassian": {
   "via": null,
-  "checked": "2026-09-25T16:02:28.825Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Uber": {
   "via": null,
@@ -493,47 +493,47 @@
  },
  "Spotify": {
   "via": "lever:spotify",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Wise": {
   "via": "greenhouse:wise",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Visa": {
   "via": null,
-  "checked": "2026-09-25T16:02:29.234Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Palo Alto Networks": {
   "via": null,
-  "checked": "2026-09-25T16:02:29.234Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Mastercard": {
   "via": null,
-  "checked": "2026-09-25T16:02:29.373Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SpaceX": {
   "via": "greenhouse:spacex",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Klarna": {
   "via": null,
-  "checked": "2026-09-25T16:02:29.782Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Rolls-Royce": {
   "via": null,
-  "checked": "2026-09-25T16:02:30.053Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bloomberg": {
   "via": null,
-  "checked": "2026-09-25T16:02:30.715Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Boston Consulting Group": {
   "via": null,
-  "checked": "2026-09-25T16:02:30.764Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "American Express": {
   "via": null,
-  "checked": "2026-09-25T16:02:31.155Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Blackstone": {
   "via": null,
@@ -541,111 +541,111 @@
  },
  "Apollo": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.012Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "BAE Systems": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.155Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "The Economist": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.157Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "KKR": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.247Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Financial Times": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.292Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Carlyle": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.696Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Lockheed Martin": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.736Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "EQT": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.784Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TPG": {
   "via": null,
-  "checked": "2026-09-25T16:02:32.789Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Permira": {
   "via": null,
-  "checked": "2026-09-25T16:02:33.478Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cinven": {
   "via": null,
-  "checked": "2026-09-25T16:02:33.505Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "General Atlantic": {
   "via": "greenhouse:generalatlantic",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Hg": {
   "via": null,
-  "checked": "2026-09-25T16:02:33.663Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Advent International": {
   "via": null,
-  "checked": "2026-09-25T16:02:35.360Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "3i": {
   "via": null,
-  "checked": "2026-09-25T16:02:35.360Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Capital One": {
   "via": "lever:capital",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Brookfield": {
   "via": null,
-  "checked": "2026-09-25T16:02:36.436Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Warburg Pincus": {
   "via": null,
-  "checked": "2026-09-25T16:02:36.438Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Thoma Bravo": {
   "via": null,
-  "checked": "2026-09-25T16:02:36.920Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Silver Lake": {
   "via": "ashby:silver",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bain & Company": {
   "via": null,
-  "checked": "2026-09-25T16:02:37.338Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Accel": {
   "via": null,
-  "checked": "2026-09-25T16:02:37.992Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sequoia Capital": {
   "via": "ashby:sequoia",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bain Capital": {
   "via": null,
-  "checked": "2026-09-25T16:02:38.620Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Atomico": {
   "via": null,
-  "checked": "2026-09-25T16:02:38.695Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Y Combinator": {
   "via": "ashby:ycombinator",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Ares Management": {
   "via": null,
-  "checked": "2026-09-25T16:02:38.770Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Point72": {
   "via": "greenhouse:point72",
@@ -653,11 +653,11 @@
  },
  "CVC Capital Partners": {
   "via": null,
-  "checked": "2026-09-25T16:02:39.052Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "ExodusPoint": {
   "via": "greenhouse:exoduspoint",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Millennium": {
   "via": null,
@@ -673,15 +673,15 @@
  },
  "Balderton Capital": {
   "via": null,
-  "checked": "2026-09-25T16:02:39.809Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Andreessen Horowitz": {
   "via": null,
-  "checked": "2026-09-25T16:02:40.275Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Capula": {
   "via": null,
-  "checked": "2026-09-25T16:02:40.386Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Man Group": {
   "via": "greenhouse:mangroup",
@@ -689,15 +689,15 @@
  },
  "Capstone Investment Advisors": {
   "via": "greenhouse:capstoneinvestmentadvisors",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Index Ventures": {
   "via": null,
-  "checked": "2026-09-25T16:02:40.942Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Entrepreneur First": {
   "via": null,
-  "checked": "2026-09-25T16:02:41.125Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Brevan Howard": {
   "via": null,
@@ -717,7 +717,7 @@
  },
  "Elliott Management": {
   "via": null,
-  "checked": "2026-09-25T16:02:42.265Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Jane Street": {
   "via": "greenhouse:janestreet",
@@ -725,7 +725,7 @@
  },
  "Optiver": {
   "via": "greenhouse:optiverus",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "IMC Trading": {
   "via": "greenhouse:imc",
@@ -733,11 +733,11 @@
  },
  "Schonfeld": {
   "via": "greenhouse:schonfeld",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Situational Awareness": {
   "via": null,
-  "checked": "2026-09-25T16:02:43.062Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Jump Trading": {
   "via": "greenhouse:jumptrading",
@@ -757,19 +757,19 @@
  },
  "XTX Markets": {
   "via": "greenhouse:xtxmarketstechnologies",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Squarepoint": {
   "via": "greenhouse:squarepointcapital",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Lansdowne Partners": {
   "via": null,
-  "checked": "2026-09-25T16:02:44.081Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Qube Research & Technologies": {
   "via": "greenhouse:quberesearchandtechnologies",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "DRW": {
   "via": "greenhouse:drweng",
@@ -781,7 +781,7 @@
  },
  "Flow Traders": {
   "via": "greenhouse:flowtraders",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Winton": {
   "via": "greenhouse:winton",
@@ -789,11 +789,11 @@
  },
  "AQR": {
   "via": "greenhouse:aqr",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TCI Fund Management": {
   "via": null,
-  "checked": "2026-09-25T16:02:44.570Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "D. E. Shaw": {
   "via": null,
@@ -813,7 +813,7 @@
  },
  "Vanguard": {
   "via": null,
-  "checked": "2026-09-25T16:02:45.414Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Two Sigma": {
   "via": null,
@@ -821,11 +821,11 @@
  },
  "Da Vinci Trading": {
   "via": null,
-  "checked": "2026-09-25T16:02:45.795Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "PIMCO": {
   "via": null,
-  "checked": "2026-09-25T16:02:46.109Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Maven Securities": {
   "via": "ashby:maven",
@@ -833,43 +833,43 @@
  },
  "Renaissance Technologies": {
   "via": null,
-  "checked": "2026-09-25T16:02:46.265Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "AllianceBernstein": {
   "via": null,
-  "checked": "2026-09-25T16:02:46.413Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Ruffer": {
   "via": null,
-  "checked": "2026-09-25T16:02:46.769Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Schroders": {
   "via": null,
-  "checked": "2026-09-25T16:02:46.911Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Fidelity International": {
   "via": null,
-  "checked": "2026-09-25T16:02:47.132Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "State Street": {
   "via": null,
-  "checked": "2026-09-25T16:02:47.390Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "abrdn": {
   "via": null,
-  "checked": "2026-09-25T16:02:47.693Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Invesco": {
   "via": null,
-  "checked": "2026-09-25T16:02:47.983Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Jupiter": {
   "via": null,
-  "checked": "2026-09-25T16:02:48.183Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "M&G": {
   "via": null,
-  "checked": "2026-09-25T16:02:48.267Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Legal & General": {
   "via": null,
@@ -877,23 +877,23 @@
  },
  "Baillie Gifford": {
   "via": null,
-  "checked": "2026-09-25T16:02:48.979Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Nuveen": {
   "via": null,
-  "checked": "2026-09-25T16:02:49.150Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "T. Rowe Price": {
   "via": null,
-  "checked": "2026-09-25T16:02:49.479Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SemiAnalysis": {
   "via": null,
-  "checked": "2026-09-25T16:02:49.659Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Franklin Templeton": {
   "via": null,
-  "checked": "2026-09-25T16:02:50.132Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "BNY": {
   "via": null,
@@ -901,99 +901,99 @@
  },
  "Moody's": {
   "via": null,
-  "checked": "2026-09-25T16:02:50.305Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Wellington Management": {
   "via": null,
-  "checked": "2026-09-25T16:02:50.751Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "MSCI": {
   "via": null,
-  "checked": "2026-09-25T16:02:50.933Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Nasdaq": {
   "via": null,
-  "checked": "2026-09-25T16:02:50.936Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Aviva Investors": {
   "via": null,
-  "checked": "2026-09-25T16:02:51.883Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Coinbase": {
   "via": "greenhouse:coinbase",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "S&P Global": {
   "via": null,
-  "checked": "2026-09-25T16:02:52.182Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "NYSE (ICE)": {
   "via": null,
-  "checked": "2026-09-25T16:02:52.222Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Robinhood": {
   "via": "greenhouse:robinhood",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Fitch Ratings": {
   "via": null,
-  "checked": "2026-09-25T16:02:52.590Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Trading 212": {
   "via": "ashby:trading212",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Webull": {
   "via": null,
-  "checked": "2026-09-25T16:02:53.028Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TMX Group (TSX)": {
   "via": null,
-  "checked": "2026-09-25T16:02:53.228Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Pump.fun": {
   "via": null,
-  "checked": "2026-09-25T16:02:53.268Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Kraken": {
   "via": "ashby:kraken.com",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Rothschild & Co Redburn": {
   "via": null,
-  "checked": "2026-09-25T16:02:54.220Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "IG Group": {
   "via": null,
-  "checked": "2026-09-25T16:02:54.276Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Interactive Brokers": {
   "via": null,
-  "checked": "2026-09-25T16:02:54.420Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "London Stock Exchange Group": {
   "via": "greenhouse:london",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Axiom Trade": {
   "via": "ashby:axiom-trade",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Freetrade": {
   "via": "ashby:freetrade",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cboe": {
   "via": null,
-  "checked": "2026-09-25T16:02:54.965Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Hargreaves Lansdown": {
   "via": null,
-  "checked": "2026-09-25T16:02:55.159Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Tradeweb": {
   "via": null,
-  "checked": "2026-09-25T16:02:55.367Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Clifford Chance": {
   "via": "smartrecruiters:cliffordchance",
@@ -1001,19 +1001,19 @@
  },
  "AJ Bell": {
   "via": null,
-  "checked": "2026-09-25T16:02:55.789Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "CME Group": {
   "via": null,
-  "checked": "2026-09-25T16:02:55.899Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Linklaters": {
   "via": null,
-  "checked": "2026-09-25T16:02:56.132Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Skadden": {
   "via": null,
-  "checked": "2026-09-25T16:02:56.786Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Freshfields": {
   "via": null,
@@ -1025,19 +1025,19 @@
  },
  "Cravath": {
   "via": null,
-  "checked": "2026-09-25T16:02:57.829Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Latham & Watkins": {
   "via": null,
-  "checked": "2026-09-25T16:02:58.527Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Kirkland & Ellis": {
   "via": null,
-  "checked": "2026-09-25T16:02:58.542Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Paul Weiss": {
   "via": "greenhouse:paulweiss",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Slaughter and May": {
   "via": null,
@@ -1045,27 +1045,27 @@
  },
  "Wachtell Lipton": {
   "via": null,
-  "checked": "2026-09-25T16:03:00.340Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sullivan & Cromwell": {
   "via": null,
-  "checked": "2026-09-25T16:03:00.498Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Milbank": {
   "via": null,
-  "checked": "2026-09-25T16:03:00.838Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Gibson Dunn": {
   "via": "greenhouse:gibsondunn",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Davis Polk": {
   "via": null,
-  "checked": "2026-09-25T16:03:01.035Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Partridge, Muir & Warren": {
   "via": null,
-  "checked": "2026-09-25T16:03:01.042Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Goodwin": {
   "via": null,
@@ -1073,83 +1073,83 @@
  },
  "Weil": {
   "via": null,
-  "checked": "2026-09-25T16:03:01.208Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Simpson Thacher": {
   "via": null,
-  "checked": "2026-09-25T16:03:01.741Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Debevoise": {
   "via": null,
-  "checked": "2026-09-25T16:03:01.872Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Macfarlanes": {
   "via": null,
-  "checked": "2026-09-25T16:03:02.835Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sidley Austin": {
   "via": null,
-  "checked": "2026-09-25T16:03:02.924Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "White & Case": {
   "via": null,
-  "checked": "2026-09-25T16:03:03.014Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Covington": {
   "via": null,
-  "checked": "2026-09-25T16:03:03.185Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Quinn Emanuel": {
   "via": null,
-  "checked": "2026-09-25T16:03:03.255Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Ashurst": {
   "via": null,
-  "checked": "2026-09-25T16:03:03.594Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Herbert Smith Freehills Kramer": {
   "via": null,
-  "checked": "2026-09-25T16:03:03.730Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cleary Gottlieb": {
   "via": null,
-  "checked": "2026-09-25T16:03:04.455Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Travers Smith": {
   "via": null,
-  "checked": "2026-09-25T16:03:05.003Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Norton Rose Fulbright": {
   "via": null,
-  "checked": "2026-09-25T16:03:05.328Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Stephenson Harwood": {
   "via": null,
-  "checked": "2026-09-25T16:03:05.662Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "CMS": {
   "via": null,
-  "checked": "2026-09-25T16:03:05.961Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Hogan Lovells": {
   "via": null,
-  "checked": "2026-09-25T16:03:06.265Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "eToro": {
   "via": null,
-  "checked": "2026-09-25T16:03:06.398Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "DLA Piper": {
   "via": null,
-  "checked": "2026-09-25T16:03:06.462Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Mishcon de Reya": {
   "via": null,
-  "checked": "2026-09-25T16:03:07.164Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Baker McKenzie": {
   "via": null,
-  "checked": "2026-09-25T16:03:07.221Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "upReach": {
   "via": null,
@@ -1157,7 +1157,7 @@
  },
  "Bird & Bird": {
   "via": "greenhouse:bird",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Springpod": {
   "via": null,
@@ -1165,43 +1165,43 @@
  },
  "Uptree": {
   "via": null,
-  "checked": "2026-09-25T16:03:09.455Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bright Network": {
   "via": "greenhouse:brightnetwork",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Rare Recruitment": {
   "via": null,
-  "checked": "2026-09-25T16:03:09.623Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Simmons & Simmons": {
   "via": null,
-  "checked": "2026-09-25T16:03:11.065Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Forage": {
   "via": null,
-  "checked": "2026-09-25T16:03:11.125Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Amazing Apprenticeships": {
   "via": null,
-  "checked": "2026-09-25T16:03:11.544Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Pinsent Masons": {
   "via": null,
-  "checked": "2026-09-25T16:03:20.451Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "SEO London": {
   "via": null,
-  "checked": "2026-09-25T16:03:21.102Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Social Mobility Foundation": {
   "via": null,
-  "checked": "2026-09-25T16:03:21.550Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Eversheds Sutherland": {
   "via": null,
-  "checked": "2026-09-25T16:03:22.595Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sutton Trust": {
   "via": null,
@@ -1209,7 +1209,7 @@
  },
  "Investec": {
   "via": null,
-  "checked": "2026-09-25T16:03:23.321Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Stifel": {
   "via": null,
@@ -1217,47 +1217,47 @@
  },
  "Berenberg": {
   "via": null,
-  "checked": "2026-09-25T16:03:24.006Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TSB": {
   "via": null,
-  "checked": "2026-09-25T16:03:24.569Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Deutsche Numis": {
   "via": null,
-  "checked": "2026-09-25T16:03:24.740Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Tide": {
   "via": "greenhouse:tide",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "OakNorth": {
   "via": "ashby:oaknorth",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Zopa": {
   "via": "lever:zopa",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cantor Fitzgerald": {
   "via": null,
-  "checked": "2026-09-25T16:03:24.891Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Virgin Money": {
   "via": null,
-  "checked": "2026-09-25T16:03:25.122Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Peel Hunt": {
   "via": null,
-  "checked": "2026-09-25T16:03:25.147Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Panmure Liberum": {
   "via": null,
-  "checked": "2026-09-25T16:03:25.169Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Elixirr": {
   "via": "greenhouse:elixirr",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "PA Consulting": {
   "via": null,
@@ -1265,203 +1265,203 @@
  },
  "Credera": {
   "via": null,
-  "checked": "2026-09-25T16:03:26.401Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Close Brothers": {
   "via": "ashby:close",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Moorhouse": {
   "via": null,
-  "checked": "2026-09-25T16:03:26.538Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Isomorphic Labs": {
   "via": "greenhouse:isomorphiclabs",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "PolyAI": {
   "via": "greenhouse:polyai",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Kroll": {
   "via": null,
-  "checked": "2026-09-25T16:03:26.900Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Tractable": {
   "via": "ashby:tractable",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "OC&C Strategy Consultants": {
   "via": null,
-  "checked": "2026-09-25T16:03:27.363Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Simon-Kucher": {
   "via": null,
-  "checked": "2026-09-25T16:03:27.673Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Darktrace": {
   "via": null,
-  "checked": "2026-09-25T16:03:27.985Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Improbable": {
   "via": "ashby:improbable",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Quantexa": {
   "via": "ashby:quantexa",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "PhysicsX": {
-  "via": null,
-  "checked": "2026-09-25T16:03:28.825Z"
+  "via": "greenhouse:physicsx",
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Deliveroo": {
   "via": "greenhouse:deliveroo",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "GoCardless": {
   "via": "greenhouse:gocardless",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sage": {
   "via": null,
-  "checked": "2026-09-25T16:03:29.365Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cleo": {
   "via": "greenhouse:cleo",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Crowe UK": {
   "via": null,
-  "checked": "2026-09-25T16:03:29.549Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Checkout.com": {
   "via": null,
-  "checked": "2026-09-25T16:03:29.716Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Figma": {
   "via": "greenhouse:figma",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Ocado Technology": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.007Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Monday.com": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.204Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Notion": {
   "via": "ashby:notion",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Metro Bank": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.238Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Brex": {
   "via": "greenhouse:brex",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Skyscanner": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.611Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Rippling": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.657Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Helsing": {
   "via": "greenhouse:helsing",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Faculty AI": {
   "via": "ashby:faculty",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Anduril": {
   "via": null,
-  "checked": "2026-09-25T16:03:30.961Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Pantheon": {
   "via": "greenhouse:pantheon",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Bridgepoint": {
   "via": null,
-  "checked": "2026-09-25T16:03:31.272Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "ICG": {
   "via": null,
-  "checked": "2026-09-25T16:03:31.334Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Plaid": {
   "via": "ashby:plaid",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "HarbourVest": {
   "via": null,
-  "checked": "2026-09-25T16:03:31.909Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Inflexion": {
   "via": null,
-  "checked": "2026-09-25T16:03:31.925Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Livingbridge": {
   "via": null,
-  "checked": "2026-09-25T16:03:32.061Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Seedcamp": {
   "via": null,
-  "checked": "2026-09-25T16:03:32.508Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Northzone": {
   "via": null,
-  "checked": "2026-09-25T16:03:32.647Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Creandum": {
   "via": null,
-  "checked": "2026-09-25T16:03:33.125Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "LocalGlobe": {
   "via": null,
-  "checked": "2026-09-25T16:03:33.277Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Marshmallow": {
   "via": "ashby:marshmallow",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Liontrust": {
   "via": null,
-  "checked": "2026-09-25T16:03:34.449Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Vitruvian Partners": {
   "via": null,
-  "checked": "2026-09-25T16:03:34.978Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Arrowstreet Capital": {
   "via": null,
-  "checked": "2026-09-25T16:03:35.134Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Ninety One": {
   "via": null,
-  "checked": "2026-09-25T16:03:35.860Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Newton Europe": {
   "via": "greenhouse:newton",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Columbia Threadneedle": {
   "via": null,
-  "checked": "2026-09-25T16:03:36.058Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Coller Capital": {
   "via": null,
-  "checked": "2026-09-25T16:03:36.625Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Royal London Asset Management": {
   "via": null,
-  "checked": "2026-09-25T16:03:36.644Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Pictet": {
   "via": null,
@@ -1469,39 +1469,39 @@
  },
  "Rathbones": {
   "via": null,
-  "checked": "2026-09-25T16:03:36.735Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "HSBC Asset Management": {
   "via": null,
-  "checked": "2026-09-25T16:03:36.871Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Quilter": {
   "via": "ashby:quilter",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Wellington (London)": {
   "via": null,
-  "checked": "2026-09-25T16:03:37.333Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Akuna Capital": {
   "via": "greenhouse:akunacapital",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Millburn": {
   "via": null,
-  "checked": "2026-09-25T16:03:37.499Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "St. James's Place": {
   "via": null,
-  "checked": "2026-09-25T16:03:37.995Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "RBC Brewin Dolphin": {
   "via": null,
-  "checked": "2026-09-25T16:03:38.496Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Lombard Odier": {
   "via": null,
-  "checked": "2026-09-25T16:03:38.502Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Old Mission": {
   "via": null,
@@ -1509,23 +1509,23 @@
  },
  "Ramp": {
   "via": "ashby:ramp",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Virtu Financial": {
   "via": "greenhouse:virtu",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Headlands Technologies": {
   "via": null,
-  "checked": "2026-09-25T16:03:39.749Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Shoosmiths": {
   "via": null,
-  "checked": "2026-09-25T16:03:39.879Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TLT": {
   "via": null,
-  "checked": "2026-09-25T16:03:39.978Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Janus Henderson": {
   "via": null,
@@ -1533,75 +1533,75 @@
  },
  "Freeths": {
   "via": null,
-  "checked": "2026-09-25T16:03:40.322Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Kennedys": {
   "via": null,
-  "checked": "2026-09-25T16:03:40.588Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Five Rings": {
   "via": null,
-  "checked": "2026-09-25T16:03:40.816Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Dentons": {
   "via": null,
-  "checked": "2026-09-25T16:03:41.244Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Jones Day": {
   "via": null,
-  "checked": "2026-09-25T16:03:43.385Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Addleshaw Goddard": {
   "via": null,
-  "checked": "2026-09-25T16:03:43.467Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Mayer Brown": {
   "via": null,
-  "checked": "2026-09-25T16:03:43.700Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Reed Smith": {
   "via": null,
-  "checked": "2026-09-25T16:03:43.715Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Akin": {
   "via": null,
-  "checked": "2026-09-25T16:03:44.099Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Orrick": {
   "via": null,
-  "checked": "2026-09-25T16:03:44.105Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Clyde & Co": {
   "via": null,
-  "checked": "2026-09-25T16:03:44.159Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Withers": {
   "via": null,
-  "checked": "2026-09-25T16:03:44.617Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Burges Salmon": {
   "via": null,
-  "checked": "2026-09-25T16:03:44.619Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Farrer & Co": {
   "via": null,
-  "checked": "2026-09-25T16:03:45.075Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Osborne Clarke": {
   "via": null,
-  "checked": "2026-09-25T16:03:45.683Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Charles Russell Speechlys": {
   "via": "greenhouse:charles",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Irwin Mitchell": {
   "via": null,
-  "checked": "2026-09-25T16:03:48.643Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "LMR Partners": {
   "via": "greenhouse:lmr",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Alphadyne": {
   "via": null,
@@ -1625,7 +1625,7 @@
  },
  "Pantheon Macroeconomics": {
   "via": "greenhouse:pantheon",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Hudson Bay Capital": {
   "via": null,
@@ -1677,7 +1677,7 @@
  },
  "Pharo Management": {
   "via": "greenhouse:pharomanagement",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Kedalion Capital": {
   "via": null,
@@ -1689,11 +1689,11 @@
  },
  "Arini": {
   "via": "ashby:arini",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Sona Asset Management": {
   "via": "ashby:sona",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "TT International": {
   "via": null,
@@ -1721,7 +1721,7 @@
  },
  "Kite Lake Capital": {
   "via": "greenhouse:kite",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Cheyne Capital": {
   "via": null,
@@ -1745,7 +1745,7 @@
  },
  "Polar Capital": {
   "via": "ashby:polar",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Brown Shipley": {
   "via": null,
@@ -1753,11 +1753,11 @@
  },
  "Artemis Investment Management": {
   "via": "ashby:artemis",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "StepStone Group": {
   "via": "greenhouse:stepstone",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Stonepeak": {
   "via": null,
@@ -1772,12 +1772,12 @@
   "checked": "2026-09-27T21:24:14.146Z"
  },
  "DC Advisory": {
-  "via": "workable:dcadvisory",
+  "via": null,
   "checked": "2026-10-02T09:50:49.066Z"
  },
  "Kindred Capital": {
   "via": "ashby:kindred",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  },
  "Molten Ventures": {
   "via": null,
@@ -1821,6 +1821,6 @@
  },
  "Cornerstone Research": {
   "via": "greenhouse:cornerstone",
-  "checked": "2026-10-02T09:50:49.066Z"
+  "checked": "2026-10-02T17:54:14.928Z"
  }
 }
