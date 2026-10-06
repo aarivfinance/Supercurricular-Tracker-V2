@@ -3654,6 +3654,230 @@
    "sector": "AI & Tech",
    "sub": "Consumer internet",
    "addedByClaude": true
+  },
+  {
+   "company": "Massive (Polygon.io)",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true,
+   "hints": [
+    {
+     "type": "ashby",
+     "board": "massive"
+    },
+    {
+     "type": "greenhouse",
+     "board": "massive"
+    },
+    {
+     "type": "ashby",
+     "board": "polygon"
+    },
+    {
+     "type": "greenhouse",
+     "board": "polygonio"
+    },
+    {
+     "type": "lever",
+     "board": "polygon"
+    },
+    {
+     "type": "ashby",
+     "board": "polygon.io"
+    }
+   ]
+  },
+  {
+   "company": "Chainalysis",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Broadridge",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "PSP Investments",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Northern Trust",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "Brown Brothers Harriman",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "PGIM",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "MFS Investment Management",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Asset managers & insurers",
+   "addedByClaude": true
+  },
+  {
+   "company": "SS&C Technologies",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "FIS",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Fiserv",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Finastra",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "SimCorp",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Clearwater Analytics",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "FNZ",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Addepar",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Symphony",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "OpenFin",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Trading Technologies",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Databento",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Alpaca",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Kpler",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "AlphaSense",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Research & ratings",
+   "addedByClaude": true
+  },
+  {
+   "company": "Clear Street",
+   "sector": "Investment (HF / AM / ER)",
+   "sub": "Brokers & exchanges",
+   "addedByClaude": true
+  },
+  {
+   "company": "Fireblocks",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Elliptic",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Blockchain.com",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Copper",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "ComplyAdvantage",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Ripple",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Plaid",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "GoCardless",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
+  },
+  {
+   "company": "Airwallex",
+   "sector": "AI & Tech",
+   "sub": "Fintech & payments",
+   "addedByClaude": true
   }
  ]
 }

@@ -294,6 +294,18 @@ export async function readBamboo(src){
   const d = await getJSON(`https://${src.board}.bamboohr.com/careers/list`);
   return (d.result || []).map(j => ({ role:j.jobOpeningName, location:[j.location?.city, j.location?.country].filter(Boolean).join(', '), link:`https://${src.board}.bamboohr.com/careers/${j.id}` }));
 }
+/* any public JSON job feed: {type:'json', url, items:'path.to.array', title, link, linkBase, location, posted} (dot paths allowed) */
+export async function readJsonFeed(src){
+  const d = await getJSON(src.url, { headers:{ accept:'application/json' } });
+  const pick = (o, path) => String(path || '').split('.').filter(Boolean).reduce((a, k) => (a == null ? a : a[k]), o);
+  const arr = src.items ? pick(d, src.items) : d;
+  const day = v => { if(!v) return ''; const t = new Date(typeof v === 'number' ? (v < 1e11 ? v * 1000 : v) : (/\d{4}-\d{2}-\d{2}|GMT|UTC|Z$/.test(String(v)) ? v : v + ' UTC')); return isNaN(t) ? '' : t.toISOString().slice(0, 10); };
+  return (Array.isArray(arr) ? arr : []).map(j => {
+    const l = pick(j, src.link), loc = pick(j, src.location);
+    return { role:String(pick(j, src.title) || '').trim(), link:l == null ? '' : (/^https?:/i.test(String(l)) ? String(l) : (src.linkBase || '') + l),
+      location:Array.isArray(loc) ? loc.map(x => (typeof x === 'string' ? x : x?.name || x?.city || '')).filter(Boolean).join('; ') : (loc || src.location || ''), postedAt:day(pick(j, src.posted)) };
+  }).filter(x => x.role && x.link);
+}
 function workdayPosted(s){
   if(!s) return '';
   const d = new Date(NOW);
@@ -718,6 +730,7 @@ async function readBoard(src){
   if(src.type === 'coursera') return readCoursera(src);
   if(src.type === 'eightfold') return readEightfold(src);
   if(src.type === 'wpjson') return readWpJson(src);
+  if(src.type === 'json') return readJsonFeed(src);
   if(src.type === 'recruitee') return readRecruitee(src);
   if(src.type === 'bamboohr') return readBamboo(src);
   if(src.type === 'recsolu') return readRecsolu(src);
@@ -770,6 +783,8 @@ async function toOpenings(rows, co, src){
 }
 
 /* ================================================================ main */
+const T0 = Date.now(), minutesIn = () => (Date.now() - T0) / 60e3;
+const LIMITS = { api:+(process.env.API_MIN || 11), pages:+(process.env.PAGES_MIN || 26), guess:+(process.env.GUESS_MIN || 30) };
 async function main(){
   const prev  = await read('data/openings.json', { openings:[], review:[], closed:[] });
   const cache = await read('data/ats-cache.json', {});
@@ -815,14 +830,16 @@ async function main(){
 
   // 1) explicit feeds & pages from data/sources.json (job systems first, then browser pages)
   const apiSrcs = srcs.filter(s => !['links', 'programme', 'discover'].includes(s.type)), pageSrcs = srcs.filter(s => ['links', 'programme'].includes(s.type));
-  await pool(apiSrcs, 4, s => runSource(s));
+  const rotA = Math.floor(Date.now() / 36e5) % Math.max(1, apiSrcs.length);
+  await pool(apiSrcs.slice(rotA).concat(apiSrcs.slice(0, rotA)), 6, async s => {
+    if(minutesIn() > LIMITS.api){ failedCompanies.add(s.company); log({ company:s.company, type:s.type, target:s.url || s.host || s.board, ok:false, error:'skipped this run (time budget) — kept last results' }); return; }
+    await runSource(s);
+  });
   // browser pages: 3 at a time, within a time budget so the whole scan fits GitHub's limit; anything skipped keeps its last results
-  const PAGE_BUDGET_MS = +(process.env.PAGE_BUDGET_MIN || 24) * 60e3, pagesStart = Date.now();
-  // rotate the starting point each run so a budget cut never starves the same firms
   const rot = Math.floor(Date.now() / 36e5) % Math.max(1, pageSrcs.length);
   const ordered = pageSrcs.slice(rot).concat(pageSrcs.slice(0, rot));
-  await pool(ordered, 3, async s => {
-    if(Date.now() - pagesStart > PAGE_BUDGET_MS){ failedCompanies.add(s.company); log({ company:s.company, type:s.type, target:s.url, ok:false, error:'skipped this run (time budget) — kept last results' }); return; }
+  await pool(ordered, 5, async s => {
+    if(minutesIn() > LIMITS.pages){ failedCompanies.add(s.company); log({ company:s.company, type:s.type, target:s.url, ok:false, error:'skipped this run (time budget) — kept last results' }); return; }
     await runSource(s);
   });
   if(browser){ await browser.close().catch(() => {}); browser = null; }
@@ -830,6 +847,7 @@ async function main(){
   // 2) watchlist firms with no explicit feed: remembered board → hints → guess the board name
   const covered = new Set(srcs.map(s => s.company));
   async function guessFirm(co, sink){
+    if(minutesIn() > LIMITS.guess){ failedCompanies.add(co.company); return; }   // out of time: keep this firm's last results
     const tried = [], cached = cache[co.company];
     const tryOne = async (type, board) => { tried.push(type + ':' + board); try{ const rows = await SIMPLE[type](board); return rows ? { rows, via:type + ':' + board } : null; }catch(e){ return null; } };
     let hit = null;
@@ -864,7 +882,7 @@ async function main(){
   const newFirms = [];
   let tries = 0;
   for(const c of cands.values()){
-    if(tries >= 60) break;
+    if(tries >= 60 || minutesIn() > LIMITS.guess) break;
     const ck = 'disc:' + (c.company ? norm(c.company) : boardKey(c.board));
     const prevTry = cache[ck];
     if(prevTry && !prevTry.hit && (Date.now() - Date.parse(prevTry.checked || 0)) < 14 * 864e5) continue;   // re-check misses fortnightly
@@ -969,6 +987,7 @@ async function main(){
   const out = {
     updated:NOW_ISO,
     watchlist:[...watch.map(c => ({ company:c.company, sector:c.sector, sub:c.sub, addedByClaude:!!c.addedByClaude })), ...extraFirms.map(c => ({ company:c.company, sector:c.sector, sub:c.sub || 'Found automatically', auto:true }))],
+    took:Math.round(minutesIn() * 10) / 10,
     health, openings, review:reviewList, closed, log:LOG,
     audit:{ specific:openings.filter(o => o.exact).length, general:openings.filter(o => !o.exact).map(o => ({ company:o.company, role:o.role, link:o.link })) },
   };
