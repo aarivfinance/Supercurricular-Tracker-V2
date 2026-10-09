@@ -238,9 +238,11 @@ function bindSearch(id, fn){ const el = $('#' + id); if(el) el.addEventListener(
 function viewHome(v){
   const h = new Date().getHours();
   v.innerHTML = `<section class="welcome">
-    <div class="crumb">${new Date().toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' })}</div>
-    <h1>${h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'}. Welcome.</h1>
-    <p class="sub">Pick a section from <b>Academics</b>, <b>Co-curriculars</b> or <b>Professional</b> above.</p>
+    <p class="w-date">${new Date().toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' })}</p>
+    <h1>${h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'}.<br>Welcome.</h1>
+    <nav class="w-index" aria-label="Sections">
+      ${NAV.map(g => `<div class="w-col"><h2>${esc(g.label)}</h2>${g.items.map(i => `<a href="#${i.k}"><b>${esc(i.label)}</b><span>${esc(i.desc)}</span></a>`).join('')}</div>`).join('')}
+    </nav>
   </section>`;
 }
 function countdown(deadline, opens, rolling){
