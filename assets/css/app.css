@@ -1079,3 +1079,6 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
 
 .sc-aside{top:calc(var(--nav-h) + 132px);}
 .aside-card{max-height:calc(100vh - var(--nav-h) - 150px);}
+
+/* menu icon tiles: keep the icon centred (".dd-item span" would otherwise make the tile a plain block) */
+.dd-item .dd-ico{display:grid;place-items:center;}
