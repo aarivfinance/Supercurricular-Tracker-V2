@@ -1252,8 +1252,11 @@ const LEC = { updated:null, items:[], loaded:false, error:false };
 const lcF = { tab:'up', q:'', subjects:new Set(), host:'', online:false, saved:false };
 async function loadLectures(){
   try{
-    const r = await fetch('data/lectures.json?t=' + Date.now(), { cache:'no-store' }); if(!r.ok) throw 0;
-    const d = await r.json(); Object.assign(LEC, { updated:d.updated || null, items:d.items || [], loaded:true, error:false });
+    // listings live in data/lectures.json, and a copy rides along in supercurriculars-live.json; use whichever is newer
+    const grab = async (f, pick) => { try{ const r = await fetch(f + '?t=' + Date.now(), { cache:'no-store' }); return r.ok ? pick(await r.json()) : null; }catch(e){ return null; } };
+    const [a, b] = await Promise.all([grab('data/lectures.json', d => d), grab('data/supercurriculars-live.json', d => d.lectures)]);
+    const d = [a, b].filter(x => x && x.updated).sort((x, y) => y.updated.localeCompare(x.updated))[0] || a || b; if(!d) throw 0;
+    Object.assign(LEC, { updated:d.updated || null, items:d.items || [], loaded:true, error:false });
   }catch(e){ Object.assign(LEC, { loaded:true, error:true }); }
   if(location.hash.startsWith('#lectures') && lcF.tab === 'up') drawLectures();
 }

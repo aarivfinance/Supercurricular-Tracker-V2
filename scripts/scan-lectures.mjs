@@ -12,7 +12,8 @@ import { allowed } from './scan.mjs';
 const UA = 'Mozilla/5.0 (compatible; AdmissionsHomeBot/1.0; +https://aarivfinance.github.io/Supercurricular-Tracker-V2/)';
 const HEADERS = { 'user-agent':UA, 'accept-language':'en-GB,en;q=0.9' };
 const T0 = Date.now(), LIMIT_MS = +(process.env.LECTURE_LIMIT_MIN || 9) * 60e3;
-const timeLeft = () => LIMIT_MS - (Date.now() - T0);
+let deadline = T0 + LIMIT_MS;
+const timeLeft = () => deadline - Date.now();
 const read = async (f, d) => { try{ return JSON.parse(await readFile(f, 'utf8')); }catch(e){ return d; } };
 
 /* ---------------------------------------------------------------- dates */
@@ -316,10 +317,21 @@ async function scanOxTalks(src, today){
 }
 
 /* ---------------------------------------------------------------- main */
-export async function main(){
+/* When run inside the supercurricular step, stay inside the 40-minute job: scan.mjs stamps its start time in openings.json. */
+async function jobBudget(){
+  const op = await read('data/openings.json', {});
+  const started = Date.parse(op.updated || '');
+  if(!started || Date.now() - started > 60 * 60e3) return LIMIT_MS;
+  const used = Date.now() - (started - 3 * 60e3);   // ~3 min of setup before scan.mjs starts
+  return Math.min(LIMIT_MS, 40 * 60e3 - used - 3 * 60e3);
+}
+export async function main({ embed } = {}){
   const today = londonToday();
+  if(embed) deadline = Date.now() + await jobBudget();
   const cfg = await read('data/lecture-sources.json', { sources:[] });
-  const prev = await read('data/lectures.json', { items:[] });
+  let prev = await read('data/lectures.json', { items:[] });
+  if(embed){ const e = (await read(embed, {})).lectures; if(e && (!prev.updated || (e.updated || '') > prev.updated)) prev = e; }
+  if(timeLeft() < 90e3){ console.log('· lectures: not enough time left in this run, keeping the last listings'); return; }
   const all = [], report = [], failed = new Set();
   for(const src of cfg.sources){
     if(timeLeft() < 45e3){ report.push({ name:src.name, url:src.url, ok:false, error:'skipped: out of time' }); failed.add(src.name); continue; }
@@ -347,7 +359,15 @@ export async function main(){
   }
   const doc = { updated:new Date().toISOString(), took:+((Date.now() - T0) / 60e3).toFixed(1), items:out, sources:report };
   await writeFile('data/lectures.json', JSON.stringify(doc, null, 1) + '\n');
+  if(embed){ const host = await read(embed, null); if(host){ host.lectures = doc; await writeFile(embed, JSON.stringify(host, null, 1)); } }
   console.log(`→ ${out.length} lectures written (${report.filter(r => r.ok).length}/${report.length} hosts read) in ${doc.took} min`);
+}
+
+/* called from scan-supers.mjs: never throws, never exits the process, always closes the browser */
+export async function run(opts = {}){
+  try{ await Promise.race([main(opts), new Promise(r => setTimeout(r, Math.max(30e3, timeLeft() + 60e3)).unref())]); }
+  catch(e){ console.warn('✗ lectures:', e.message); }
+  finally{ if(browser) await browser.close().catch(() => {}); browser = null; }
 }
 
 if(import.meta.url === pathToFileURL(process.argv[1] || '').href){

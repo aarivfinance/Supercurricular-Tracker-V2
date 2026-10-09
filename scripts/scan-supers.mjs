@@ -56,3 +56,8 @@ for(const s of srcs){
 await writeFile('data/supercurriculars-live.json', JSON.stringify(out, null, 1));
 const ch = Object.values(out.items).filter(i => i.changedOn === today).length;
 console.log(`✓ ${items.length} pages checked, ${ch} changed today, ${out.discovered.length} new finds`);
+
+// Academic lectures: scanned here and stored inside supercurriculars-live.json as well, so the existing workflow commits them
+try{ const { run } = await import('./scan-lectures.mjs'); await run({ embed:'data/supercurriculars-live.json' }); }
+catch(e){ console.warn('✗ lectures:', e.message); }
+process.exit(0);
