@@ -192,6 +192,7 @@ function openForm({ title, fields, value = {}, onSave, onDelete, saveLabel = 'Sa
     let inp;
     if(fld.type === 'textarea') inp = `<textarea class="inp" id="${id}" name="${fld.k}" rows="${fld.rows||3}" placeholder="${esc(fld.ph||'')}">${esc(v)}</textarea>`;
     else if(fld.type === 'select') inp = `<select class="inp" id="${id}" name="${fld.k}">${fld.opts.map(o => { const [ov, ol] = Array.isArray(o) ? o : [o, o || '—']; return `<option value="${esc(ov)}" ${String(ov) === String(v) ? 'selected' : ''}>${esc(ol)}</option>`; }).join('')}</select>`;
+    else if(fld.type === 'subjects') return `<div class="field full"><span>${fld.label}${fld.hint ? ` <span class="hint">${fld.hint}</span>` : ''}</span>${subjPicker(fld.k, Array.isArray(v) ? v : [])}</div>`;
     else if(fld.type === 'check') return `<label class="field check ${fld.full ? 'full' : ''}"><input type="checkbox" name="${fld.k}" ${v ? 'checked' : ''}> ${fld.label}</label>`;
     else inp = `<input class="inp" id="${id}" name="${fld.k}" type="${fld.type||'text'}" value="${esc(v)}" placeholder="${esc(fld.ph||'')}" ${fld.list ? `list="${id}_l"` : ''}>` + (fld.list ? `<datalist id="${id}_l">${fld.list.map(o => `<option value="${esc(o)}">`).join('')}</datalist>` : '');
     return `<label class="field ${fld.full || fld.type === 'textarea' ? 'full' : ''}" for="${id}">${fld.label}${fld.hint ? ` <span class="hint">${fld.hint}</span>` : ''}${inp}</label>`;
@@ -207,6 +208,7 @@ function openForm({ title, fields, value = {}, onSave, onDelete, saveLabel = 'Sa
     e.preventDefault();
     const out = {};
     fields.forEach(fl => {
+      if(fl.type === 'subjects'){ out[fl.k] = $$(`[name="${fl.k}"]:checked`, m).map(x => x.value); return; }
       const el = m.querySelector(`[name="${fl.k}"]`);
       out[fl.k] = fl.type === 'check' ? el.checked : fl.type === 'number' ? (el.value === '' ? '' : Number(el.value)) : el.value.trim();
     });
@@ -268,6 +270,15 @@ const SUBJ = [
   { k:'law',   label:'Law' },        { k:'multi', label:'Multi-subject' },
 ];
 const SUBJ_L = Object.fromEntries(SUBJ.map(s => [s.k, s.label]));
+/* an entry can cover several subjects: ss = ['pol','econ']. Older entries only have s (one key, or 'multi'). */
+const CORE_SUBJ = SUBJ.filter(x => x.k !== 'multi');
+function subjList(x, st){
+  const a = st && st.ss && st.ss.length ? st.ss : x && x.ss && x.ss.length ? x.ss : x && x.s && x.s !== 'multi' ? [x.s] : [];
+  return CORE_SUBJ.map(c => c.k).filter(k => a.includes(k));
+}
+function subjLabel(a){ const n = a.map(k => SUBJ_L[k]); return !n.length ? 'Multi-subject' : n.length === 1 ? n[0] : n.slice(0, -1).join(', ') + ' & ' + n[n.length - 1]; }
+const subjKey = a => a.length === 1 ? a[0] : 'multi';
+const subjPicker = (name, sel, small) => `<div class="subj-checks${small ? ' sm' : ''}" role="group" aria-label="Subjects">${CORE_SUBJ.map(c => `<label class="pill" style="--c:var(--${c.k})"><input type="checkbox" name="${name}" value="${c.k}" ${sel.includes(c.k) ? 'checked' : ''}><span class="dot"></span>${c.label}</label>`).join('')}</div>`;
 const YEARS = [
   { k:'y11',   label:'Year 11',      range:'Sept 2026 – Aug 2027' },
   { k:'y1213', label:'Year 12 / 13', range:'Sept 2027 – Aug 2029' },
@@ -328,7 +339,7 @@ function drawScFinds(body){
 }
 
 function scMatches(it){
-  if(scF.subjects.size && !scF.subjects.has(it.s)) return false;
+  if(scF.subjects.size){ const a = subjList(it, scState(it.id)); if(![...scF.subjects].some(k => k === 'multi' ? a.length !== 1 : a.includes(k))) return false; }
   if(scF.elig && it.elig !== 'now') return false;
   if(scF.saved && !scState(it.id).saved && !it.custom) return false;
   if(scF.q){
@@ -424,7 +435,8 @@ function drawSc(){
     e.preventDefault();
     const t = $('#qT', qa).value.trim(); if(!t) return;
     const id = 'c:' + uid(), date = $('#qD', qa).value;
-    S.scCustom.push({ id, t, s:$('#qS', qa).value, year:scF.year, date, when:'', note:'' });
+    const ss = $$('[name="qS"]:checked', qa).map(x => x.value);
+    S.scCustom.push({ id, t, s:subjKey(ss), ss, year:scF.year, date, when:'', note:'' });
     S.sc[id] = { status:'done', result:$('#qR', qa).value.trim(), doneOn:date };
     save(); toast('Logged: ' + t); viewSuper($('#view'));
   };
@@ -450,7 +462,8 @@ function scRecord(){
     <form class="quick" id="qAdd">
       <input class="inp" id="qT" placeholder="What have you done? e.g. JLI Politics essay" aria-label="What you did" required>
       <div class="row2"><input class="inp" id="qR" placeholder="Result (optional)" aria-label="Result"><input class="inp" type="date" id="qD" value="${isoToday()}" aria-label="Date"></div>
-      <div class="row2"><select class="inp" id="qS" aria-label="Subject">${SUBJ.map(x => `<option value="${x.k}" ${x.k === 'multi' ? 'selected' : ''}>${x.label}</option>`).join('')}</select><button class="btn primary sm" style="justify-content:center">${I(IC.plus,13)} Log as done</button></div>
+      ${subjPicker('qS', [], true)}
+      <button class="btn primary sm" style="justify-content:center">${I(IC.plus,13)} Log as done</button>
     </form>
     <div class="rec-stats"><div><b>${done.length}</b><span>done</span></div><div><b>${doing.length}</b><span>in progress</span></div><div><b>${plan.length}</b><span>planning</span></div><div><b>${books}</b><span>books read</span></div></div>
     <div class="rec-h">Completed</div>
@@ -468,7 +481,7 @@ function drawBooks(body){
     <button class="btn primary" id="bkAdd">${I(IC.plus,14)} Add book</button></div>`
     + (books.length ? BOOK_ST.slice().reverse().filter(st => books.some(b => b.status === st)).map(st => `<section class="tl-month"><div class="tl-mhead"><h2>${st}</h2><span class="n">${books.filter(b => b.status === st).length}</span></div>
       <div class="grid">${books.filter(b => b.status === st).map(b => `<div class="card c-${b.s || 'multi'}" data-bk="${b.id}" style="cursor:pointer">
-        <div class="meta"><span class="chip subj">${SUBJ_L[b.s] || 'Other'}</span>${b.finished ? `<span class="chip soft">Finished ${fmtD(b.finished, true)}</span>` : ''}${b.rating ? `<span class="chip soft">${'★'.repeat(+b.rating)}</span>` : ''}</div>
+        <div class="meta"><span class="chip subj">${esc(subjLabel(subjList(b)))}</span>${b.finished ? `<span class="chip soft">Finished ${fmtD(b.finished, true)}</span>` : ''}${b.rating ? `<span class="chip soft">${'★'.repeat(+b.rating)}</span>` : ''}</div>
         <h3>${esc(b.title)}</h3><div class="muted" style="font-size:13px;margin:-2px 0 8px">${esc(b.author || '')}</div>
         ${b.learned ? `<div class="lbl-sm">What I learned</div><p class="note">${esc(b.learned)}</p>` : ''}
         ${b.use ? `<div class="mynote">${esc(b.use)}</div>` : ''}</div>`).join('')}</div></section>`).join('')
@@ -477,15 +490,15 @@ function drawBooks(body){
   $$('[data-bk]', body).forEach(c => c.onclick = () => editBook(S.books.find(b => b.id === c.dataset.bk)));
 }
 function editBook(bk, preset){
-  openForm({ title: bk ? 'Edit book' : 'Add book', value: bk || Object.assign({ status:'Reading', s:'multi' }, preset),
+  openForm({ title: bk ? 'Edit book' : 'Add book', value: Object.assign({ status:'Reading' }, preset, bk, { ss:subjList(bk || preset) }),
     fields:[
       { k:'title', label:'Title', req:true }, { k:'author', label:'Author' },
-      { k:'s', label:'Subject', type:'select', opts:SUBJ.map(x => [x.k, x.label]) }, { k:'status', label:'Status', type:'select', opts:BOOK_ST },
+      { k:'ss', label:'Subjects', type:'subjects', hint:'pick one or more' }, { k:'status', label:'Status', type:'select', opts:BOOK_ST },
       { k:'finished', label:'Date finished', type:'date' }, { k:'rating', label:'Rating', type:'select', opts:[['', '—'], ['1','★'], ['2','★★'], ['3','★★★'], ['4','★★★★'], ['5','★★★★★']] },
       { k:'learned', label:'What I learned', type:'textarea', rows:4, ph:'The main argument, and what changed your mind' },
       { k:'use', label:'How I’d use it', type:'textarea', ph:'e.g. “I read X, which led me to Y, so I argued Z in the JLI essay.”' },
     ],
-    onSave: out => { if(!S.books) S.books = []; if(out.status === 'Finished' && !out.finished) out.finished = isoToday(); bk ? Object.assign(bk, out) : S.books.push(Object.assign({ id:uid() }, out)); save(); if(scF.tab !== 'log') scF.tab = 'books'; route(); },
+    onSave: out => { out.s = subjKey(out.ss); if(!S.books) S.books = []; if(out.status === 'Finished' && !out.finished) out.finished = isoToday(); bk ? Object.assign(bk, out) : S.books.push(Object.assign({ id:uid() }, out)); save(); if(scF.tab !== 'log') scF.tab = 'books'; route(); },
     onDelete: bk ? () => { S.books = S.books.filter(x => x !== bk); save(); route(); } : null });
 }
 
@@ -493,12 +506,13 @@ function scRow(it){
   const st = scState(it.id);
   const books = it.reading ? ROLE_ORDER.filter(k => it.reading[k]).length : 0;
   const statusChip = st.status ? `<span class="status-tag ${st.status === 'done' ? 's-offer' : 's-applied'}">${SC_STATUS.find(s => s[0] === st.status)[1]}</span>` : '';
-  return `<div class="sc-row c-${it.s}" data-id="${esc(it.id)}" tabindex="0">
+  const subs = subjList(it, st);
+  return `<div class="sc-row c-${subjKey(subs)}" data-id="${esc(it.id)}" tabindex="0">
     <span class="bar"></span>
     <div>
       <h3>${it.custom ? esc(it.t) : it.t}</h3>
       <div class="sw">${I(IC.cal,13)}<span>${it.custom ? esc(it.date ? fmtD(it.date, true) + (it.when ? ' · ' + it.when : '') : it.when || 'No date') : it.when || ''}</span></div>
-      <div class="chips"><span class="chip subj">${SUBJ_L[it.s] || 'Other'}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '<span class="chip soft">Added by you</span>' : eligChip(it.elig)}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}${scRecent(it.id) ? '<span class="badge-new">UPDATED</span>' : ''}${statusChip}</div>
+      <div class="chips"><span class="chip subj">${esc(subjLabel(subs))}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '<span class="chip soft">Added by you</span>' : eligChip(it.elig)}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}${scRecent(it.id) ? '<span class="badge-new">UPDATED</span>' : ''}${statusChip}</div>
     </div>
     <div class="sc-side">
       ${books ? `<span class="rc">${I(IC.book,13)} ${books} book${books > 1 ? 's' : ''}</span>` : ''}
@@ -517,7 +531,7 @@ function openScDrawer(it){
   const st = scState(it.id);
   const r = it.reading;
   const html = `
-    <div class="meta c-${it.s}"><span class="chip subj">${SUBJ_L[it.s] || 'Other'}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '' : eligChip(it.elig)}${it.yr ? `<span class="chip soft">${it.custom ? esc(it.yr) : it.yr}</span>` : ''}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}</div>
+    <div class="meta c-${subjKey(subjList(it, st))}"><span class="chip subj" id="dSubjChip">${esc(subjLabel(subjList(it, st)))}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '' : eligChip(it.elig)}${it.yr ? `<span class="chip soft">${it.custom ? esc(it.yr) : it.yr}</span>` : ''}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}</div>
     <h2>${it.custom ? esc(it.t) : it.t}</h2>
     <div class="when">${I(IC.cal,13)}<span>${it.custom ? esc([it.date && fmtD(it.date, true), it.when].filter(Boolean).join(' · ')) : it.when}</span></div>
     ${it.note ? `<p class="note">${it.custom ? esc(it.note) : it.note}</p>` : ''}
@@ -526,6 +540,7 @@ function openScDrawer(it){
       ${L.changedOn ? `<p class="note"><span class="badge-new">UPDATED</span> Page changed on ${fmtD(L.changedOn, true)} — check the dates below against the ones above.</p>` : ''}
       ${L.dates && L.dates.length ? `<div class="list">${L.dates.map(d => `<div class="li"><span class="when-col">${esc(d.date)}</span><span class="grow"><small>…${esc(d.context)}…</small></span></div>`).join('')}</div>` : `<p class="faint" style="font-size:12.5px;margin:0">${L.ok ? 'No dates found on the page.' : 'The page couldn’t be reached on the last check.'}</p>`}</div>`; })()}
     ${r ? `<div class="drawer-sec"><div class="lbl">Read alongside this</div><div class="reading">${ROLE_ORDER.filter(k => r[k]).map(k => bookHTML(k, r[k])).join('')}${r.link ? `<div class="thelink"><b>The link →</b> ${r.link}</div>` : ''}</div></div>` : ''}
+    ${it.s === 'multi' && !it.custom ? `<div class="drawer-sec"><div class="lbl">Subjects <span class="hint">pick the ones this covers for you</span></div>${subjPicker('dSubj', subjList(it, st), true)}</div>` : ''}
     <div class="drawer-sec"><div class="lbl">Your progress</div>
       <div class="row"><div class="status" id="dStatus">${SC_STATUS.map(s => `<button data-v="${s[0]}" aria-pressed="${(st.status || '') === s[0]}">${s[1]}</button>`).join('')}</div>
       <button class="btn sm ${st.saved ? 'accent' : ''}" id="dStar">${I(IC.star,13)} ${st.saved ? 'Saved' : 'Save'}</button></div>
@@ -544,6 +559,7 @@ function openScDrawer(it){
     $$('#dStatus button', b).forEach(btn => btn.onclick = () => { setSc(it.id, Object.assign({ status:btn.dataset.v }, btn.dataset.v === 'done' && !scState(it.id).doneOn ? { doneOn:isoToday() } : {})); if($('#dDone', b) && !$('#dDone', b).value && btn.dataset.v === 'done') $('#dDone', b).value = isoToday(); $$('#dStatus button', b).forEach(x => x.setAttribute('aria-pressed', x === btn)); drawSc(); });
     $('#dStar', b).onclick = () => { const s = !scState(it.id).saved; setSc(it.id, { saved:s }); $('#dStar', b).className = 'btn sm ' + (s ? 'accent' : ''); $('#dStar', b).innerHTML = I(IC.star,13) + (s ? ' Saved' : ' Save'); drawSc(); };
     $('#dNote', b).oninput = debounce(e => setSc(it.id, { note:e.target.value }), 300);
+    $$('[name="dSubj"]', b).forEach(cb => cb.onchange = () => { setSc(it.id, { ss:$$('[name="dSubj"]:checked', b).map(x => x.value) }); $('#dSubjChip', b).textContent = subjLabel(subjList(it, scState(it.id))); drawSc(); });
     $('#dLearn', b).oninput = debounce(e => { setSc(it.id, { learned:e.target.value }); drawSc(); }, 400);
     $('#dRes', b).oninput = debounce(e => { setSc(it.id, { result:e.target.value }); drawSc(); }, 400);
     $('#dDone', b).onchange = e => { setSc(it.id, { doneOn:e.target.value }); drawSc(); };
@@ -554,10 +570,10 @@ function openScDrawer(it){
 function editScCustom(existing, preset){
   openForm({
     title: existing ? 'Edit supercurricular' : 'Add a supercurricular',
-    value: existing || Object.assign({ year:scF.year, s:'multi' }, preset),
+    value: Object.assign({ year:scF.year }, preset, existing, { ss:subjList(existing || preset, existing && scState(existing.id)) }),
     fields:[
       { k:'t', label:'Title', req:true, full:true, ph:'e.g. Bank of England Target 2.0 Challenge' },
-      { k:'s', label:'Subject', type:'select', opts:SUBJ.map(s => [s.k, s.label]) },
+      { k:'ss', label:'Subjects', type:'subjects', hint:'pick one or more' },
       { k:'year', label:'School year', type:'select', opts:YEARS.map(y => [y.k, y.label]) },
       { k:'date', label:'Key date', type:'date', hint:'deadline or event day' },
       { k:'when', label:'Timing notes', ph:'e.g. Heats in March' },
@@ -570,6 +586,7 @@ function editScCustom(existing, preset){
     ],
     onSave: out => {
       const st = out._status, res = out._result, learned = out._learned; delete out._status; delete out._result; delete out._learned;
+      out.s = subjKey(out.ss);
       let id;
       if(existing){ Object.assign(existing, out); id = existing.id; }
       else { id = 'c:' + uid(); S.scCustom.push(Object.assign({ id }, out)); }
@@ -1108,7 +1125,7 @@ function recEntries(){
   const out = [];
   allSc().forEach(i => {
     const st = scState(i.id); if(st.status !== 'done' && st.status !== 'doing') return;
-    out.push({ type:'sc', id:i.id, title:strip(i.t), meta:[SUBJ_L[i.s]], date:st.doneOn || i.date || '',
+    out.push({ type:'sc', id:i.id, title:strip(i.t), meta:[subjLabel(subjList(i, st))], date:st.doneOn || i.date || '',
       when:st.status === 'doing' ? 'In progress' : st.doneOn ? fmtD(st.doneOn, true) : 'Done', out:st.result || '', learned:st.learned || '',
       set:v => setSc(i.id, { learned:v }), edit:() => i.custom ? editScCustom(S.scCustom.find(c => c.id === i.id)) : openScDrawer(i) });
   });
@@ -1118,10 +1135,10 @@ function recEntries(){
   S.work.forEach(w => out.push({ type:'work', id:w.id, title:w.company, meta:[w.role || w.type, w.sector], date:w.start || '',
     when:[fmtD(w.start, true), w.days ? w.days + (+w.days === 1 ? ' day' : ' days') : ''].filter(Boolean).join(', '), out:toPoints(w.did).join('; '), learned:w.learned || '', inCV:w.inCV,
     set:v => { w.learned = v; save(); }, edit:() => editWork(w) }));
-  (S.books || []).filter(b => b.status !== 'Want to read').forEach(b => out.push({ type:'book', id:b.id, title:b.title, meta:[b.author, SUBJ_L[b.s]], date:b.finished || '',
+  (S.books || []).filter(b => b.status !== 'Want to read').forEach(b => out.push({ type:'book', id:b.id, title:b.title, meta:[b.author, subjLabel(subjList(b))], date:b.finished || '',
     when:b.status === 'Reading' ? 'Reading now' : b.finished ? fmtD(b.finished, true) : 'Finished', out:b.use || '', learned:b.learned || '',
     set:v => { b.learned = v; save(); }, edit:() => editBook(b) }));
-  (S.lectures || []).forEach(l => out.push({ type:'lec', id:l.id, title:l.title, meta:[l.host, SUBJ_L[l.s]], date:l.date || '',
+  (S.lectures || []).forEach(l => out.push({ type:'lec', id:l.id, title:l.title, meta:[l.host, subjLabel(subjList(l))], date:l.date || '',
     when:l.date ? fmtD(l.date, true) : '', out:l.speaker || '', learned:l.learned || '', link:l.link,
     set:v => { l.learned = v; save(); }, edit:() => editLecture(l) }));
   out.forEach(e => { e.key = e.type + ':' + e.id; e.meta = e.meta.filter(Boolean); e.points = toPoints(e.learned); });
@@ -1331,7 +1348,7 @@ function drawLectures(){
   $$('[data-lstar]', body).forEach(b => b.onclick = () => { const id = b.dataset.lstar; S.lecSaved[id] = !S.lecSaved[id]; if(!S.lecSaved[id]) delete S.lecSaved[id]; save(); drawLectures(); });
   $$('[data-went]', body).forEach(b => b.onclick = () => {
     const it = LEC.items.find(i => i.id === b.dataset.went); if(!it || lecAttended(it)) return;
-    S.lectures.push({ id:uid(), ref:it.id, title:it.title, host:it.host, speaker:it.speakers || '', date:it.date, link:it.link, s:it.s || 'multi', learned:'' });
+    S.lectures.push({ id:uid(), ref:it.id, title:it.title, host:it.host, speaker:it.speakers || '', date:it.date, link:it.link, s:it.s || 'multi', ss:it.s && it.s !== 'multi' ? [it.s] : [], learned:'' });
     save(); toast('Logged. Add what you learned under Attended'); drawLectures();
     const n = $('.subtabs [data-t="att"] .n'); if(n) n.textContent = S.lectures.length;
   });
@@ -1354,15 +1371,15 @@ function lecRow(i){
   </div>`;
 }
 function editLecture(l){
-  openForm({ title: l ? 'Edit lecture' : 'Log a lecture', value: l || { date:isoToday(), s:'multi' },
+  openForm({ title: l ? 'Edit lecture' : 'Log a lecture', value: Object.assign({ date:isoToday() }, l, { ss:subjList(l) }),
     fields:[
       { k:'title', label:'Lecture', req:true, full:true, ph:'e.g. Why nations fail, revisited' },
       { k:'speaker', label:'Speaker' }, { k:'host', label:'Host', list:LEC_HOSTS.map(h => h.name), ph:'e.g. LSE' },
-      { k:'date', label:'Date', type:'date' }, { k:'s', label:'Subject', type:'select', opts:SUBJ.map(x => [x.k, x.label]) },
+      { k:'date', label:'Date', type:'date' }, { k:'ss', label:'Subjects', type:'subjects', hint:'pick one or more' },
       { k:'link', label:'Link', type:'url', full:true, ph:'https://' },
       { k:'learned', label:'What I learned', type:'textarea', hint:'one short point per line' },
     ],
-    onSave: out => { if(!S.lectures) S.lectures = []; l ? Object.assign(l, out) : S.lectures.push(Object.assign({ id:uid() }, out)); save(); if(location.hash.startsWith('#lectures')) lcF.tab = 'att'; route(); },
+    onSave: out => { out.s = subjKey(out.ss); if(!S.lectures) S.lectures = []; l ? Object.assign(l, out) : S.lectures.push(Object.assign({ id:uid() }, out)); save(); if(location.hash.startsWith('#lectures')) lcF.tab = 'att'; route(); },
     onDelete: l ? () => { S.lectures = S.lectures.filter(x => x !== l); save(); route(); } : null });
 }
 

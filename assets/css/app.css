@@ -1361,3 +1361,13 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
   .about-group{grid-template-columns:1fr;gap:4px;}
   .about-notes{grid-template-columns:1fr;gap:20px;}
 }
+
+/* subject picker: pick one or more */
+.subj-checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.subj-checks .pill{position:relative;cursor:pointer;user-select:none;}
+.subj-checks input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none;}
+.subj-checks .pill:has(input:checked){background:color-mix(in srgb,var(--c) 12%,var(--surface));color:var(--ink);border-color:color-mix(in srgb,var(--c) 45%,transparent);}
+.subj-checks .pill:has(input:checked) .dot{background:var(--c);}
+.subj-checks .pill:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px;}
+.subj-checks.sm{gap:6px;margin:0;}
+.subj-checks.sm .pill{font-size:12px;padding:3px 9px;}
