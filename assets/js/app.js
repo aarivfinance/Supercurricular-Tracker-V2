@@ -9,7 +9,7 @@
 /* ---------------- store ---------------- */
 const KEY = 'apphub.v1';
 const DEFAULTS = () => ({
-  sc:{}, scCustom:[], books:[], restorePoints:[], opMeta:{}, reviewDecisions:{}, extras:[], work:[], contacts:[], openings:[],
+  sc:{}, scCustom:[], books:[], projects:[], restorePoints:[], opMeta:{}, reviewDecisions:{}, extras:[], work:[], contacts:[], openings:[],
   resCustom:[], resFav:{}, uni:{}, uniCustom:[], grades:'', cv:null,
   settings:{ theme:'auto' }
 });
@@ -87,6 +87,7 @@ const IC = {
   print:'<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/>',
   down:'<path d="M12 4v12M6 10l6 6 6-6M4 20h16"/>',
   up:'<path d="M12 20V8M6 14l6-6 6 6M4 4h16"/>',
+  bolt:'<path d="M13 2 4 14h8l-1 8 9-12h-8z"/>',
 };
 
 /* ---------------- navigation ---------------- */
@@ -102,6 +103,7 @@ const NAV = [
   { k:'professional', label:'Professional', items:[
     { k:'openings', label:'Openings',               desc:'Spring weeks, internships and apprenticeships',     ic:'radar', c:'var(--new)' },
     { k:'work',     label:'Work experience logger', desc:'Placements you’ve done, and what you learned',      ic:'brief', c:'var(--teal)' },
+    { k:'projects', label:'Projects',               desc:'AI workflows, automations and things you’ve built', ic:'bolt',  c:'var(--multi)' },
     { k:'contacts', label:'Networking & contacts',  desc:'People you’ve met and when to follow up',           ic:'users', c:'var(--pol)' },
     { k:'cv',       label:'CV builder',             desc:'One-page CV built from your logs',                  ic:'doc',   c:'var(--multi)' },
   ]},
@@ -507,11 +509,11 @@ function scRow(it){
   const books = it.reading ? ROLE_ORDER.filter(k => it.reading[k]).length : 0;
   const statusChip = st.status ? `<span class="status-tag ${st.status === 'done' ? 's-offer' : 's-applied'}">${SC_STATUS.find(s => s[0] === st.status)[1]}</span>` : '';
   const subs = subjList(it, st);
+  const when = it.custom ? (it.date ? fmtD(it.date, true) + (it.when ? ', ' + it.when : '') : it.when || 'No date') : strip(it.when || '');
   return `<div class="sc-row c-${subjKey(subs)}" data-id="${esc(it.id)}" tabindex="0">
-    <span class="bar"></span>
-    <div>
+    <div class="sc-when">${esc(when)}</div>
+    <div class="sc-main">
       <h3>${it.custom ? esc(it.t) : it.t}</h3>
-      <div class="sw">${I(IC.cal,13)}<span>${it.custom ? esc(it.date ? fmtD(it.date, true) + (it.when ? ' · ' + it.when : '') : it.when || 'No date') : it.when || ''}</span></div>
       <div class="chips"><span class="chip subj">${esc(subjLabel(subs))}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '<span class="chip soft">Added by you</span>' : eligChip(it.elig)}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}${scRecent(it.id) ? '<span class="badge-new">UPDATED</span>' : ''}${statusChip}</div>
     </div>
     <div class="sc-side">
@@ -1115,6 +1117,7 @@ const REC_TYPES = [
   { k:'ex',   label:'Extracurriculars', one:'Extracurricular', c:'var(--phil)',   out:'Achievements' },
   { k:'work', label:'Work experience',  one:'Work experience', c:'var(--teal)',   out:'What I did' },
   { k:'book', label:'Reading',          one:'Book',         c:'var(--econ)',   out:'How I’d use it' },
+  { k:'proj', label:'Projects',         one:'Project',      c:'var(--multi)',  out:'What it does' },
   { k:'lec',  label:'Lectures',         one:'Lecture',      c:'var(--law)',    out:'Speaker' },
 ];
 const REC_T = Object.fromEntries(REC_TYPES.map(t => [t.k, t]));
@@ -1138,6 +1141,9 @@ function recEntries(){
   (S.books || []).filter(b => b.status !== 'Want to read').forEach(b => out.push({ type:'book', id:b.id, title:b.title, meta:[b.author, subjLabel(subjList(b))], date:b.finished || '',
     when:b.status === 'Reading' ? 'Reading now' : b.finished ? fmtD(b.finished, true) : 'Finished', out:b.use || '', learned:b.learned || '',
     set:v => { b.learned = v; save(); }, edit:() => editBook(b) }));
+  (S.projects || []).forEach(pj => out.push({ type:'proj', id:pj.id, title:pj.title, meta:[pj.status, pj.tools], date:pj.start || '',
+    when:pj.start ? fmtRange(pj.start, pj.end) : (pj.status || ''), outs:[['Problem', pj.problem], ['What I built', toPoints(pj.built).join('; ')], ['Outcome', pj.outcome]],
+    learned:pj.learned || '', link:pj.link, inCV:pj.inCV, set:v => { pj.learned = v; save(); }, edit:() => editProject(pj) }));
   (S.lectures || []).forEach(l => out.push({ type:'lec', id:l.id, title:l.title, meta:[l.host, subjLabel(subjList(l))], date:l.date || '',
     when:l.date ? fmtD(l.date, true) : '', out:l.speaker || '', learned:l.learned || '', link:l.link,
     set:v => { l.learned = v; save(); }, edit:() => editLecture(l) }));
@@ -1154,6 +1160,8 @@ function recMatches(e){
 const LOGS = {
   extracurriculars:{ types:['ex'], title:'Extracurriculars', add:'Add activity',
     sub:'Sport, music, leadership, volunteering and anything else outside lessons. Under each, keep a few short points on what you learned. Those points are what your CV and personal statement are built from.' },
+  projects:{ types:['proj'], title:'Projects', add:'Add project',
+    sub:'AI workflows, automations, apps and anything else you’ve built. Note the problem, what you built and what came of it, then a few short points on what you learned. A good project makes a strong CV line and interview story.' },
   work:{ types:['work'], title:'Work experience logger', add:'Add placement',
     sub:'Placements, insight days and virtual programmes you’ve done. Note what you did, and a few short points on what you learned. Interviewers ask about the second part.' },
 };
@@ -1179,12 +1187,30 @@ function viewLog(v, page){
 }
 const viewExtras = v => viewLog(v, 'extracurriculars');
 const viewWork = v => viewLog(v, 'work');
+const viewProjects = v => viewLog(v, 'projects');
+const PROJ_ST = ['In progress', 'In use', 'Finished', 'Paused'];
+function editProject(pj){
+  openForm({ title: pj ? 'Edit project' : 'Add project', value: pj || { status:'In progress', start:isoToday(), inCV:true },
+    fields:[
+      { k:'title', label:'Project', req:true, full:true, ph:'e.g. Automated spring-week deadline tracker' },
+      { k:'status', label:'Status', type:'select', opts:PROJ_ST }, { k:'tools', label:'Tools', ph:'e.g. Claude, Python, Google Sheets' },
+      { k:'start', label:'Started', type:'date' }, { k:'end', label:'Finished', type:'date', hint:'blank if ongoing' },
+      { k:'link', label:'Link', type:'url', ph:'GitHub, demo or write-up' }, { k:'inCV', label:'Include on CV', type:'check' },
+      { k:'problem', label:'Problem', type:'textarea', rows:2, ph:'What were you trying to fix or make easier?' },
+      { k:'built', label:'What I built', type:'textarea', hint:'one per line, these become CV bullet points', ph:'e.g. Scrapes 600 firms’ careers pages every 3 hours' },
+      { k:'outcome', label:'Outcome', full:true, ph:'e.g. Saves me 2 hours a week; used by 3 friends' },
+      { k:'learned', label:'What I learned', type:'textarea', hint:'one short point per line' },
+    ],
+    onSave: out => { if(!S.projects) S.projects = []; pj ? Object.assign(pj, out) : S.projects.push(Object.assign({ id:uid() }, out)); save(); route(); },
+    onDelete: pj ? () => { S.projects = S.projects.filter(x => x !== pj); save(); route(); } : null });
+}
 function recNew(t){
   if(t === 'sc') editScCustom(null, { _status:'done', date:isoToday() });
   if(t === 'ex') editExtra();
   if(t === 'work') editWork();
   if(t === 'book') editBook(null, { status:'Finished', finished:isoToday() });
   if(t === 'lec') editLecture();
+  if(t === 'proj') editProject();
 }
 function recItemHTML(e){
   const T = REC_T[e.type];
@@ -1193,7 +1219,7 @@ function recItemHTML(e){
     <div class="rec-main">
       <div class="rec-top"><h3>${e.link ? `<a href="${esc(safeUrl(e.link))}" target="_blank" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}</h3><button class="btn sm ghost" data-edit>Edit</button></div>
       ${e.meta.length ? `<p class="rec-meta">${e.meta.map(esc).join(', ')}${e.inCV ? ' <span class="chip soft">On CV</span>' : ''}</p>` : ''}
-      ${e.out ? `<p class="rec-out"><b>${T.out}</b> ${esc(e.out)}</p>` : ''}
+      ${(e.outs || [[T.out, e.out]]).filter(x => x[1]).map(([l, t]) => `<p class="rec-out"><b>${l}</b> ${esc(t)}</p>`).join('')}
       <div class="rec-learn">
         <h4>What I learned</h4>
         ${e.points.length ? `<ul>${e.points.map((p, i) => `<li><span class="pt" contenteditable="true" spellcheck="true" data-pi="${i}" aria-label="Learning point ${i + 1}">${esc(p)}</span><button type="button" class="pt-del" data-pdel="${i}" aria-label="Remove this point">${I(IC.x, 13)}</button></li>`).join('')}</ul>` : ''}
@@ -1209,6 +1235,7 @@ function drawRecord(){
     const t = recF.types[0], what = { ex:['No activities yet', 'Add a club, team, instrument, role or volunteering commitment, then note what you learned from it in a few short points.', 'Add your first activity'],
       work:['No placements logged yet', 'Add anything from a week in an office to a virtual programme, then note what you learned in a few short points.', 'Add your first placement'],
       sc:['Nothing logged yet', 'Mark a competition as done or in progress, add a book you’ve read, or log a lecture. Then note what you learned in a few short points.', 'Log a competition'],
+      proj:['No projects yet', 'Add an AI workflow, automation, app or tool you’ve built, even a small one. Then note what you learned in a few short points.', 'Add your first project'],
       lec:['No lectures logged yet', 'After a lecture, press “I went” on it in Upcoming, or log one here. Then note what you learned in a few short points.', 'Log a lecture'] }[t];
     b.innerHTML = emptyBox(what[0], what[1], `<button class="btn primary" data-first>${I(IC.plus,14)} ${what[2]}</button>`);
     $('[data-first]', b).onclick = () => recNew(t); return;
@@ -1393,6 +1420,7 @@ const ABOUT = {
   extracurriculars:'Sport, music, leadership and volunteering, with dates, roles and achievements, and what you learned from each.',
   openings:'Spring weeks, insight days, internships and apprenticeships at UK firms. Each firm’s own careers site is checked every 3 hours, and every role links to its own page.',
   work:'Placements, insight days and virtual programmes you’ve done: what you did, and a few short points on what you learned.',
+  projects:'AI workflows, automations and anything else you’ve built: the problem, what you built, what came of it and what you learned.',
   contacts:'People you meet at events and placements, how you met, and when to follow up so the connection doesn’t go cold.',
   cv:'A one-page CV that imports straight from your logs. Edit the wording, choose a layout, then save as PDF.',
 };
@@ -1575,14 +1603,15 @@ function editUni(u){
    CV BUILDER
    ============================================================ */
 const CV_DEF = () => ({ template:'classic', name:'', email:'', phone:'', location:'', linkedin:'', profile:'',
-  education:[{ title:'', org:'', dates:'', bullets:'' }], experience:[], activities:[], achievements:[], skills:'', interests:'' });
+  education:[{ title:'', org:'', dates:'', bullets:'' }], experience:[], projects:[], activities:[], achievements:[], skills:'', interests:'' });
 const CV_SECTIONS = [
   { k:'education',    label:'Education',                   ph:{ title:'GCSEs (predicted)', org:'School name', bullets:'Maths 9, English Language 9, …' } },
   { k:'experience',   label:'Work experience',             ph:{ title:'Work experience', org:'Company', bullets:'One achievement per line' }, imp:'Import from Work experience logger' },
+  { k:'projects',     label:'Projects',                    ph:{ title:'Deadline tracker', org:'Claude, Python', bullets:'One result per line' }, imp:'Import from Projects' },
   { k:'activities',   label:'Positions & activities',      ph:{ title:'Captain', org:'School hockey team', bullets:'One achievement per line' }, imp:'Import from Extracurriculars' },
   { k:'achievements', label:'Supercurriculars & awards',   ph:{ title:'John Locke Essay Prize — Commended', org:'', bullets:'' }, imp:'Import completed supercurriculars' },
 ];
-function cv(){ if(!S.cv) S.cv = CV_DEF(); return S.cv; }
+function cv(){ if(!S.cv) S.cv = CV_DEF(); CV_SECTIONS.forEach(x => { if(!Array.isArray(S.cv[x.k])) S.cv[x.k] = []; }); return S.cv; }
 function viewCV(v){
   const c = cv();
   const inp = (k, label, type='text', ph='') => `<label class="field">${label}<input class="inp" data-cv="${k}" type="${type}" value="${esc(c[k])}" placeholder="${esc(ph)}"></label>`;
@@ -1638,6 +1667,7 @@ function cvImport(k){
   const c = cv(), have = new Set(c[k].map(e => (e.title + '|' + e.org).toLowerCase()));
   let add = [];
   if(k === 'experience') add = S.work.filter(w => w.inCV).map(w => ({ title:w.role || w.type || 'Work experience', org:w.company, dates:w.start ? fmtRange(w.start).replace(' – present', '') : '', bullets:w.did || w.learned || '' }));
+  if(k === 'projects') add = (S.projects || []).filter(p => p.inCV).map(p => ({ title:p.title, org:p.tools || '', dates:fmtRange(p.start, p.end), bullets:[p.built, p.outcome].filter(Boolean).join('\n') }));
   if(k === 'activities') add = S.extras.filter(e => e.inCV).map(e => ({ title:e.role || e.title, org:e.role ? e.title + (e.org ? ', ' + e.org : '') : e.org || '', dates:fmtRange(e.start, e.end), bullets:e.achieve || '' }));
   if(k === 'achievements') add = allSc().filter(i => scState(i.id).status === 'done').map(i => { const st = scState(i.id); return { title:strip(i.t) + (st.result ? ', ' + st.result : ''), org:'', dates:st.doneOn ? fmtRange(st.doneOn).replace(' – present', '') : '', bullets:st.learned || st.note || '' }; });
   add = add.filter(e => !have.has((e.title + '|' + e.org).toLowerCase()));
@@ -1721,7 +1751,7 @@ function bindCvFile(v){
    ROUTER
    ============================================================ */
 const VIEWS = { home:viewHome, about:viewAbout, universities:viewUni, lectures:viewLectures, supercurriculars:viewSuper, extracurriculars:viewExtras,
-                openings:viewOpenings, work:viewWork, contacts:viewContacts, cv:viewCV };
+                openings:viewOpenings, work:viewWork, projects:viewProjects, contacts:viewContacts, cv:viewCV };
 function route(){
   const kk = (location.hash || '#home').slice(1).split('?')[0];
   const page = VIEWS[kk] ? kk : 'home';
