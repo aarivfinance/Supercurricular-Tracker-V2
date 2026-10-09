@@ -3840,6 +3840,154 @@
    "tenant": "aviva",
    "site": "External",
    "company": "Aviva"
+  },
+  {
+   "company": "GOV.UK Find an apprenticeship",
+   "type": "govappr",
+   "queries": [
+    {
+     "q": "levelIds=6&levelIds=7",
+     "pages": 10
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=4&levelIds=5",
+     "pages": 8
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=finance",
+     "pages": 2
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=accounting",
+     "pages": 2
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=legal",
+     "pages": 2
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=data",
+     "pages": 2
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=software",
+     "pages": 2
+    },
+    {
+     "q": "location=EC2M+7PY&distance=15&levelIds=3&searchTerm=business+analyst",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=finance&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 4
+    },
+    {
+     "q": "searchTerm=accounting&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 4
+    },
+    {
+     "q": "searchTerm=banking&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=investment&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=legal&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 3
+    },
+    {
+     "q": "searchTerm=solicitor&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 3
+    },
+    {
+     "q": "searchTerm=paralegal&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=economics&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=economist&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=actuarial&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=audit&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 3
+    },
+    {
+     "q": "searchTerm=tax&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=insurance&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=consulting&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=data+analyst&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    },
+    {
+     "q": "searchTerm=software&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 3
+    },
+    {
+     "q": "searchTerm=cyber&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 1
+    },
+    {
+     "q": "searchTerm=financial+services&levelIds=4&levelIds=5&levelIds=6&levelIds=7",
+     "pages": 2
+    }
+   ],
+   "all": true,
+   "track": "appr",
+   "label": "GOV.UK Find an apprenticeship"
+  },
+  {
+   "company": "J.P. Morgan",
+   "type": "programme",
+   "url": "https://careers.jpmorgan.com/global/en/students/programs/financial-services-apprenticeship",
+   "title": "Financial Services Degree Apprenticeship (Level 6)",
+   "exactPage": true
+  },
+  {
+   "company": "Citi",
+   "type": "programme",
+   "url": "https://jobs.citi.com/early-career-programs-apprenticeships",
+   "title": "Apprenticeship Programmes",
+   "exactPage": true
+  },
+  {
+   "company": "HSBC",
+   "type": "programme",
+   "url": "https://www.hsbc.com/careers/students-and-graduates/schools-and-apprenticeships",
+   "title": "School Leaver & Degree Apprenticeships",
+   "exactPage": true
+  },
+  {
+   "company": "KPMG",
+   "type": "programme",
+   "url": "https://www.kpmgcareers.co.uk/apprentice/",
+   "title": "Apprenticeship Programmes (school & college leavers)",
+   "exactPage": true
+  },
+  {
+   "company": "Slaughter and May",
+   "type": "programme",
+   "url": "https://www.slaughterandmay.com/careers/early-careers/solicitor-apprenticeship-programme/",
+   "title": "Solicitor Apprenticeship Programme (Level 7)",
+   "exactPage": true
   }
  ]
 }

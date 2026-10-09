@@ -63,7 +63,7 @@ async function get(url, opts = {}){
 async function getJSON(url, opts){ const r = await get(url, opts); if(!r.ok){ const e = new Error('HTTP ' + r.status); e.status = r.status; throw e; } return r.json(); }
 
 /* ---------------------------------------------------------------- what counts */
-export const EARLY = /\b(intern(s|ship|ships)?|spring (week|insight|programme|program|internship|into)|insight (day|week|days|programme|program|event|evening|series|scheme|internship)|early insight|work[- ]experience|placements?|graduates?|summer (analyst|associate|programme|program|school|intern)|off[- ]cycle|apprentice(ship)?s?|vacation schemes?|first[- ]year|penultimate|discovery (day|week|programme|program|event)|open (day|evening)|fellowships?|accelerator|school leavers?|sixth[- ]form|year 1[0-3]|virtual (work|experience|insight|internship|programme|program)|taster|early careers?|trainee(ship)?s?|training contract|scholarships?|pre-?university|work shadow(ing)?|boot ?camp|pathways to)\b/i;
+export const EARLY = /\b(intern(s|ship|ships)?|spring (week|insight|programme|program|internship|into)|insight (day|week|days|programme|program|event|evening|series|scheme|internship)|early insight|work[- ]experience|placements?|graduates?|summer (analyst|associate|programme|program|school|intern)|off[- ]cycle|apprentice(ship)?s?|vacation schemes?|first[- ]year|penultimate|discovery (day|week|programme|program|event)|open (day|evening)|fellowships?|accelerator|school leavers?|sixth[- ]form|year 1[0-3]|virtual (work|experience|insight|internship|programme|program)|taster|early careers?|trainee(ship)?s?|training contract|scholarships?|pre-?university|work shadow(ing)?|boot ?camp|pathways to|exploratory|explore (program|programme)|bridge (program|programme)|future (women )?leaders|launching leaders|sophomore|freshman)\b/i;
 export const EXCLUDE = /\b(senior|snr|principal|director|head of|lead\b|manager|vice president|vp|avp|experienced|lateral|staff (engineer|scientist)|executive|chief|recruit(er|ment (partner|coordinator|specialist|manager|lead|advisor))|graduate recruitment|mentor|coach|tutor|lecturer|professor|teacher|internal (audit|comm))\b/i;
 export const isEarly = t => !!t && EARLY.test(t) && !EXCLUDE.test(t);
 
@@ -91,14 +91,15 @@ export function ageOf(text){
   if(/year 1[01]\b|gcse|aged? 1[45]|14-16|15-16/.test(t)) return '14-16';
   if(/year 1[23]\b|sixth[- ]form|a-?level|school students?|aged? 1[67]|16-18|16\+|pre-?university|pathways to/.test(t)) return '16-18';
   if(/school leaver|apprentice|gap year|18\+/.test(t)) return '18+';
-  if(/spring|insight|first[- ]year|fresher|discovery|1st year/.test(t)) return 'uni1';
+  if(/spring|insight|first[- ]year|fresher|discovery|1st year|exploratory|sophomore|freshman|bridge program/.test(t)) return 'uni1';
   if(/graduate|final[- ]year|training contract|full[- ]time analyst/.test(t)) return 'grad';
   if(/penultimate|summer (analyst|associate|intern)|internship|\bintern\b|vacation scheme|placement|off-?cycle/.test(t)) return 'uni2';
   return '';
 }
 export function trackOf(o){
   if(['Online course', 'Fellowship', 'Accelerator', 'Competition'].includes(o.programme)) return 'opps';
-  if(['14-16', '16-18', '18+'].includes(o.ageGroup) || ['Pre-university programme', 'Summer school', 'Apprenticeship'].includes(o.programme)) return 'preuni';
+  if(o.programme === 'Apprenticeship') return 'appr';
+  if(['14-16', '16-18', '18+'].includes(o.ageGroup) || ['Pre-university programme', 'Summer school'].includes(o.programme)) return 'preuni';
   return 'uni';
 }
 const ROLE_TYPES = [
@@ -146,6 +147,78 @@ export function regionOf(loc){
   return null;
 }
 
+/* ---------------------------------------------------------------- apprenticeships */
+export function levelOf(text){
+  const t = String(text || '').toLowerCase();
+  const m = t.match(/level\s*([2-7])\b/); if(m) return 'L' + m[1];
+  if(/solicitor apprentice/.test(t)) return 'L7';
+  if(/degree[- ]apprentice|degree[- ]level|\(degree\)|chartered manager|\bbsc\b|\bba \(hons\)/.test(t)) return 'L6';
+  if(/higher apprentice/.test(t)) return 'L4';
+  if(/advanced apprentice/.test(t)) return 'L3';
+  return '';
+}
+const PC_AREAS = {
+  'London':'E EC N NW SE SW W WC BR CR DA EN HA IG KT RM SM TW UB WD',
+  'South East':'BN CT GU HP ME MK OX PO RG RH SL SO TN SS CM',
+  'South West':'BA BH BS DT EX GL PL SN SP TA TQ TR',
+  'East of England':'AL CB CO IP LU NR PE SG',
+  'West Midlands':'B CV DY HR ST TF WR WS WV',
+  'East Midlands':'DE DN LE LN NG NN',
+  'North West':'BB BL CA CH CW FY L LA M OL PR SK WA WN',
+  'Yorkshire':'BD HD HG HU HX LS S WF YO',
+  'North East':'DH DL NE SR TS',
+  'Scotland':'AB DD DG EH FK G HS IV KA KW KY ML PA PH TD ZE',
+  'Wales':'CF LD LL NP SA SY',
+  'Northern Ireland':'BT',
+};
+const PC_MAP = Object.fromEntries(Object.entries(PC_AREAS).flatMap(([r, a]) => a.split(' ').map(x => [x, r])));
+export function postcodeRegion(pc){ const m = String(pc || '').toUpperCase().match(/^([A-Z]{1,2})\d/); return m ? (PC_MAP[m[1]] || '') : ''; }
+const tidyEmployer = n => { n = String(n || '').replace(/\s+/g, ' ').trim(); if(n === n.toUpperCase() && n.length > 4) n = n.toLowerCase().replace(/\b[a-z]/g, c => c.toUpperCase()).replace(/\b(Uk|Llp|Plc|Nhs|Bt|Bbc|Hsbc|Kpmg|Pwc|Ey|Bdo|Rsm|Ibm|Bae|Jp)\b/g, x => x.toUpperCase()); return n.replace(/\s+(Limited|Ltd\.?|LIMITED)$/i, '').trim(); };
+export const firmKey = n => String(n || '').toLowerCase().replace(/&/g, ' and ').replace(/\b(limited|ltd|plc|llp|lp|inc|group|holdings?|services|uk|europe|international|the|and|company|co)\b/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
+/* GOV.UK "Find an apprenticeship" (official vacancy service for England). Each vacancy has its own page.
+   src.queries: [{ q:'levelIds=6&levelIds=7', pages:6 }, …]  — q is appended to /apprenticeships?sort=AgeAsc& */
+export async function readGovApprenticeships(src){
+  const base = 'https://www.findapprenticeship.service.gov.uk', seen = new Map();
+  for(const qy of src.queries || []){
+    for(let page = 1; page <= (qy.pages || 3); page++){
+      const url = `${base}/apprenticeships?sort=AgeAsc&${qy.q}${page > 1 ? '&pageNumber=' + page : ''}`;
+      let html; try{ const r = await get(url); if(!r.ok) break; html = await r.text(); }catch(e){ if(e.robots) throw e; break; }
+      const hits = [...html.matchAll(/<a\b[^>]*href="(\/apprenticeship\/(?:VAC)?\d+)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi)];
+      let fresh = 0;
+      hits.forEach((m, i) => {
+        const id = m[1]; if(seen.has(id)) return;
+        const title = htmlText(m[2]); if(!title || title.length < 4) return;
+        const chunk = html.slice(m.index + m[0].length, hits[i + 1] ? hits[i + 1].index : m.index + 6000);
+        const lines = chunk.replace(/<(?:br|\/p|\/li|\/div|\/h\d|\/dd|\/dt|\/span|\/strong)[^>]*>/gi, '\n').replace(/<[^>]+>/g, ' ').split('\n').map(x => htmlText(x)).filter(Boolean);
+        const all = lines.join(' | ');
+        const label = /^(start date|wage|training course|closes|closing|posted|distance|location|employer|apply|save|new|added)/i;
+        const employer = tidyEmployer(lines.find(l => !label.test(l) && l.length < 90 && !/\(\s*[A-Z]{1,2}\d/.test(l) && !/\d+ (miles|available)/i.test(l)) || '');
+        const pcm = all.match(/([A-Za-z][A-Za-z' .&-]{1,40}?)\s*\(([A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2})\)/);
+        const town = pcm ? pcm[1].replace(/^.*\|\s*/, '').trim() : '', pc = pcm ? pcm[2] : '';
+        const grab = re => { const x = all.match(re); return x ? x[1].trim() : ''; };
+        const DATE = `(?<!\\d)(\\d{1,2}(?:st|nd|rd|th)?\\s+${MONTH}(?:\\s+20\\d\\d)?)`;
+        const start = grab(new RegExp(`Start date[^|]{0,12}(?:\\|\\s*)?[^|]{0,30}?${DATE}`, 'i'));
+        const closes = grab(new RegExp(`Clos(?:es|ing date|ing)[^|]{0,60}?${DATE}`, 'i'));
+        const posted = grab(new RegExp(`Posted[^|]{0,20}?${DATE}`, 'i'));
+        const course = grab(/Training course[\s:|]*([^|]{4,140})/i);
+        const wage = grab(/Wage[\s:|]*([^|]{2,60})/i);
+        const level = levelOf(course) || levelOf(all) || levelOf(title);
+        let postedIso = posted ? dateFrom(posted) : '';
+        if(postedIso > TODAY && !/20\d\d/.test(posted)) postedIso = (+postedIso.slice(0, 4) - 1) + postedIso.slice(4);   // 'Posted 5 October' means this year, not next
+        seen.set(id, { role:title, link:base + id, company:employer || 'Employer on GOV.UK', location:town ? `${town}, England` : 'England', region:postcodeRegion(pc) || (town ? regionOf(town) : '') || 'UK (region not stated)',
+          programme:'Apprenticeship', level, start:start ? dateFrom(start) : '', wage, course, live:'open', exact:true,
+          deadline:closes ? dateFrom(closes) : '', postedAt:postedIso && postedIso > TODAY ? '' : postedIso,
+          ageGroup:/^L[2-3]$/.test(level) ? '16-18' : '18+',
+          notes:[course && `Training course: ${course}.`].filter(Boolean) });
+        fresh++;
+      });
+      if(!hits.length || !fresh) break;
+      await sleep(450);
+    }
+  }
+  return [...seen.values()];
+}
+
 /* ---------------------------------------------------------------- details: deadlines, status, visa, notes */
 const MONTH = '(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)';
 const MI = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
@@ -185,7 +258,7 @@ export function visaFrom(text){
   if(/visa sponsorship (?:is |may be )?(?:available|provided|offered)|(?:we|will|can) (?:can |will |may )?(?:offer |provide )?(?:visa )?sponsor(?:ship)?\b/i.test(t)) return 'Visa sponsorship';
   return '';
 }
-const htmlText = h => String(h || '').replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCharCode(parseInt(n, 16))).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<br\s*\/?>|<\/p>|<\/li>|<\/h\d>/gi, '. ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').replace(/([.!?])\s*(?:\.\s*)+/g, '$1 ').replace(/(^|\s)\.\s/g, '$1').trim();
+const htmlText = h => String(h || '').replace(/&pound;/g, '£').replace(/&euro;/g, '€').replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCharCode(parseInt(n, 16))).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<br\s*\/?>|<\/p>|<\/li>|<\/h\d>/gi, '. ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').replace(/([.!?])\s*(?:\.\s*)+/g, '$1 ').replace(/(^|\s)\.\s/g, '$1').trim();
 export const deslug = s => decodeURIComponent(String(s || '')).replace(/^XMLNAME-/i, '').replace(/---/g, ' – ').replace(/--/g, ' ').replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b([a-z])/g, (m, c, i, str) => (i === 0 || str[i - 1] === ' ') ? c.toUpperCase() : c);
 function detailsOf(text){ return { notes:notesFrom(text), visa:visaFrom(text), deadline:deadlineIn(text), opens:opensIn(text) }; }
 
@@ -470,7 +543,7 @@ export function isDeep(href){
     if(/\/(opportunit(y|ies)|vacanc(y|ies)|jobs?|roles?|careers?\/details)\//i.test(u.pathname) && last.split('-').length >= 4 && /20\d\d|intern|analyst|insight|graduate|programme|placement|scheme/i.test(last)) return true;
     if(/\/(job|jobs|opp|jobdetail|job-detail|requisitions?|vacanc(y|ies)|positions?|postings?|details?)\/[^/?#]{3,}/i.test(p) && /\d{4,}|[a-z]+-[a-z]+-[a-z]+/i.test(p)) return true;
     if(/[?&](jobid|job_id|jobreq|reqid|req_id|requisitionid|vacancyid|posting|gh_jid|id)=\w{3,}/i.test(u.search)) return true;
-    if(/recruitee\.com\/o\/[\w-]+|bamboohr\.com\/careers\/\d+|teamtailor\.com\/jobs\/\d+|\/jobs\/\d{4,}-[a-z0-9-]+|charliehr\.com\/job-openings\/[\w-]+|pinpointhq\.com\/(en\/)?postings\/[0-9a-f-]{20,}|icims\.com\/jobs\/\d+|jobvite\.com\/[^/]+\/job\/\w+|kallidusrecruit\.com\/VacancyInformation|VacancyInformation\.aspx\?VId=\d+|cvmailuk\.com\/.+jobId=\d+|viRecruitSelfApply|job\/detail\.php\?record=\d+|smartrecruiters\.com\/.+\/[0-9a-f]{8}-[0-9a-f-]{20,}|smartrecruiters\.com\/[^/]+\/\d{9,}|smrtr\.io\/[\w-]{4,}|apply\.candidats\.io\/[0-9a-f-]{36}|apply\.candidx\.io\/[0-9a-f-]{36}|\.app\.candidx\.io\/|ambertrack\.global\/.+LAYER1=|workable\.com\/(.+\/)?j\/[0-9A-F]{6,}|recsolu\.com\/jobs\/[\w-]{16,}|tfaforms\.net\/\d+|job-offer\/[a-z0-9-]{8,}|\/emergingtalent\/job\/|janestreet\.com\/join-jane-street\/(position|apply)\/\d+|greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
+    if(/findapprenticeship\.service\.gov\.uk\/apprenticeship\/(VAC)?\d+|recruitee\.com\/o\/[\w-]+|bamboohr\.com\/careers\/\d+|teamtailor\.com\/jobs\/\d+|\/jobs\/\d{4,}-[a-z0-9-]+|charliehr\.com\/job-openings\/[\w-]+|pinpointhq\.com\/(en\/)?postings\/[0-9a-f-]{20,}|icims\.com\/jobs\/\d+|jobvite\.com\/[^/]+\/job\/\w+|kallidusrecruit\.com\/VacancyInformation|VacancyInformation\.aspx\?VId=\d+|cvmailuk\.com\/.+jobId=\d+|viRecruitSelfApply|job\/detail\.php\?record=\d+|smartrecruiters\.com\/.+\/[0-9a-f]{8}-[0-9a-f-]{20,}|smartrecruiters\.com\/[^/]+\/\d{9,}|smrtr\.io\/[\w-]{4,}|apply\.candidats\.io\/[0-9a-f-]{36}|apply\.candidx\.io\/[0-9a-f-]{36}|\.app\.candidx\.io\/|ambertrack\.global\/.+LAYER1=|workable\.com\/(.+\/)?j\/[0-9A-F]{6,}|recsolu\.com\/jobs\/[\w-]{16,}|tfaforms\.net\/\d+|job-offer\/[a-z0-9-]{8,}|\/emergingtalent\/job\/|janestreet\.com\/join-jane-street\/(position|apply)\/\d+|greenhouse\.io\/.+\/jobs\/\d+|lever\.co\/[^/]+\/[0-9a-f-]{20,}|ashbyhq\.com\/[^/]+\/[0-9a-f-]{20,}|workable\.com\/.+\/j\/|smartrecruiters\.com\/[^/]+\/\d+|myworkdayjobs\.com\/.+\/job\/|tal\.net\/.+\/opp\/|avature\.net\/.+JobDetail|oraclecloud\.com\/.+\/job\/\d+|successfactors|eightfold\.ai\/careers\/job|icims\.com\/jobs\/\d+|taleo\.net\/.+job=|brassring|springpod\.com\/(virtual-work-experience|subject-spotlights)\/|suttontrust\.com\/.+\/course\//i.test(href)) return true;
   }catch(e){}
   return false;
 }
@@ -730,6 +803,7 @@ async function readBoard(src){
   if(src.type === 'coursera') return readCoursera(src);
   if(src.type === 'eightfold') return readEightfold(src);
   if(src.type === 'wpjson') return readWpJson(src);
+  if(src.type === 'govappr') return readGovApprenticeships(src);
   if(src.type === 'json') return readJsonFeed(src);
   if(src.type === 'recruitee') return readRecruitee(src);
   if(src.type === 'bamboohr') return readBamboo(src);
@@ -751,14 +825,14 @@ async function toOpenings(rows, co, src){
     let location = j.location || src.location || '', text = j.text || '';
     const tc = role.match(/\b(London|Leeds|Manchester|Birmingham|Edinburgh|Glasgow|Bristol|Belfast|Cardiff|Newcastle|Nottingham|Sheffield|Liverpool|Reading|Cambridge|Oxford|Bournemouth|Northampton|Knutsford|Chester|Milton Keynes|Canary Wharf)\b/i);
     if(tc && (!j.location || !new RegExp(tc[1], 'i').test(j.location))) location = (tc[1] === 'Canary Wharf' ? 'Canary Wharf, London' : tc[1]) + ', United Kingdom';
-    let region = regionOf(location);
+    let region = j.region || regionOf(location);
     const needDetail = j.detail && details < (src.maxDetails || 40) && (!region || /\d+ locations/i.test(location) || !text);
     if(needDetail){
       details++;
       try{
         const d = await j.detail();
         if(typeof d === 'string') text = d; else if(d){ text = d.text || text; if(d.location) location = d.location; if(d.postedAt) j.postedAt = d.postedAt; }
-        region = regionOf(location);
+        region = j.region || regionOf(location);
         await sleep(150);
       }catch(e){}
     }
@@ -766,16 +840,18 @@ async function toOpenings(rows, co, src){
     if(!region && src.online) region = 'Online';
     if(!region) continue;
     const programme = j.programme || src.programme || programmeOf(role);
-    const ageGroup = src.age || ageOf(role) || ageOf(text.slice(0, 1500));
+    const ageGroup = src.age || j.ageGroup || ageOf(role) || ageOf(text.slice(0, 1500));
+    const firm = j._co || co;
     const det = text ? detailsOf(text) : {};
     const o = {
-      id:idOf(co.company, role, j.link), company:co.company, sector:co.sector || src.sector || 'Other', sub:co.sub || '',
-      role, programme, roleType:src.roleType || roleTypeOf(role) || roleTypeOf(co.sector), ageGroup, location, region, link:j.link || '', info:j.info || '', exact:!!(j.exact || isDeep(j.link)), _prog:!!j.progPage,
+      id:idOf(firm.company, role, j.link), company:firm.company, sector:firm.sector || src.sector || 'Other', sub:firm.sub || '',
+      role, programme, roleType:src.roleType || roleTypeOf(role + ' ' + (j.course || '')) || roleTypeOf(firm.sector), ageGroup, location, region, link:j.link || '', info:j.info || '', exact:!!(j.exact || isDeep(j.link)), _prog:!!j.progPage,
       postedAt:(j.postedAt || '').replace('+', ''), postedApprox:/\+$/.test(j.postedAt || ''),
       deadline:j.deadline || det.deadline || '', opens:j.opens || det.opens || '', live:j.live || '',
       visa:j.visa || det.visa || '', notes:(j.notes && j.notes.length ? j.notes : det.notes || []).slice(0, 4),
       price:j.price || src.price || '', source:src.label || src.type,
     };
+    if(programme === 'Apprenticeship'){ o.level = j.level || levelOf(role) || levelOf(text.slice(0, 2500)); if(j.wage) o.wage = j.wage; if(j.start) o.start = j.start; if(!o.ageGroup) o.ageGroup = '18+'; }
     o.track = src.track || trackOf(o);
     out.push(o);
   }
@@ -795,6 +871,7 @@ async function main(){
   const extraFirms = [...disc, ...discovered].filter((c, i, a) => a.findIndex(x => x.company === c.company) === i && !watch.some(w => w.company === c.company));
   const byName = Object.fromEntries([...extraFirms, ...watch].map(c => [c.company, c]));
   const onList = new Set(watch.map(c => c.company));
+  const FIRM_KEYS = [...watch, ...extraFirms].map(c => [firmKey(c.company), c]).filter(([k]) => k.length >= 3).sort((x, y) => y[0].length - x[0].length);
   const companyOf = (name, src = {}) => byName[name] || { company:name, sector:src.sector || 'Access programmes', sub:src.sub || '' };
 
   const found = [];                // openings from the watchlist + sources
@@ -817,6 +894,14 @@ async function main(){
         if(co.sector === 'Access programmes') for(const b of r.ats) pageBoards.set(boardKey(b), b);
       }else rows = await readBoard(src);
       if(rows == null) throw new Error('no job board here');
+      if(src.type === 'govappr'){          // each vacancy has its own employer: match it to a watched firm where possible
+        for(const r of rows){
+          const k = firmKey(r.company);
+          const hit = k.length >= 3 && FIRM_KEYS.find(([fk]) => fk === k || (fk.length >= 4 && (k.startsWith(fk + ' ') || fk.startsWith(k + ' '))));
+          r._co = hit ? hit[1] : { company:r.company, sector:sectorGuess(r.company, r.role + ' ' + (r.course || '')), sub:'Apprenticeship employers' };
+          okCompanies.add(r._co.company);
+        }
+      }
       const list = await toOpenings(rows, co, { ...src, all:src.all ?? (src.type === 'programme' || src.type === 'coursera' || !!src.linkPattern), label:src.label || ({ links:'firm’s own page', programme:'firm’s own page' }[src.type] || src.type) });
       sink.push(...list); okCompanies.add(co.company);
       note(co.company, { ok:true, via:src.label || src.type, found:list.length });
@@ -995,7 +1080,7 @@ async function main(){
   await writeFile('data/ats-cache.json', JSON.stringify(cache, null, 1));
   const byTrack = t => openings.filter(o => o.track === t).length;
   console.log(`  specific application links: ${openings.filter(o => o.exact).length} · programme/general pages: ${openings.filter(o => !o.exact).length}`);
-  console.log(`\n✓ ${openings.length} UK openings (${byTrack('uni')} internships & spring weeks · ${byTrack('preuni')} pre-uni · ${byTrack('opps')} opportunities) · ${reviewList.length} for review · ${closedNow.length} closed since last scan`);
+  console.log(`\n✓ ${openings.length} UK openings (${byTrack('uni')} internships & spring weeks · ${byTrack('appr')} apprenticeships · ${byTrack('preuni')} pre-uni · ${byTrack('opps')} opportunities) · ${reviewList.length} for review · ${closedNow.length} closed since last scan`);
   console.log(`  firms with openings found: ${new Set(openings.map(o => o.company)).size} · sources failing: ${LOG.filter(l => !l.ok).length}`);
 }
 

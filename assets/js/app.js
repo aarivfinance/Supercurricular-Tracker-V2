@@ -647,10 +647,11 @@ function editExtra(ex){
 const SECTORS = ['Banking','Consulting & Accounting','AI & Tech','Private Equity & VC','Investment (HF / AM / ER)','Law','Access programmes','Online courses','Other'];
 const SEC_COL = { 'Banking':'teal', 'Consulting & Accounting':'multi', 'AI & Tech':'phil', 'Private Equity & VC':'pol', 'Investment (HF / AM / ER)':'econ', 'Law':'law', 'Access programmes':'accent', 'Online courses':'law', 'Other':'grey' };
 const PROGRAMMES = ['Spring week','Insight / work experience','Summer internship','Off-cycle internship','Industrial placement','Graduate programme','Apprenticeship','Vacation scheme','Training contract','Virtual programme','Pre-university programme','Summer school','Event / talk','Fellowship','Accelerator','Online course','Competition'];
-const TRACKS = [['uni','Internships & spring weeks'], ['preuni','Pre-uni'], ['opps','Opportunities']];
+const TRACKS = [['uni','Internships & spring weeks'], ['appr','Apprenticeships'], ['preuni','Pre-uni'], ['opps','Opportunities']];
 const TRACK_SUB = {
   uni:'Spring weeks, insight programmes, summer and off-cycle internships, placements and graduate schemes at UK firms.',
-  preuni:'Work experience, insight days, apprenticeships, summer schools and programmes open to school students (Years 10–13).',
+  appr:'Degree, higher and solicitor apprenticeships across England — from firms on your watchlist and the government’s Find an apprenticeship service.',
+  preuni:'Work experience, insight days, summer schools and programmes open to school students (Years 10–13).',
   opps:'Fellowships, accelerators, competitions and online courses — with prices where they cost something.',
 };
 const YEAR_GROUPS = ['Year 10','Year 11','Year 12','Year 13','Gap year','First year','Penultimate year','Any'];
@@ -668,7 +669,22 @@ function guessAge(text){
   return '';
 }
 const ageOf = o => o.ageGroup || YG_AGE[o.yearGroup] || (o.remote ? guessAge(o.role + ' ' + (o.programme || '')) : '');
+/* apprenticeship levels */
+const LEVEL_GROUPS = [['deg','Degree (Level 6–7)'], ['high','Higher (Level 4–5)'], ['adv','Advanced (Level 3)'], ['int','Intermediate (Level 2)']];
+const LEVEL_NAME = { L2:'Level 2 · intermediate', L3:'Level 3 · advanced', L4:'Level 4 · higher', L5:'Level 5 · higher', L6:'Level 6 · degree', L7:'Level 7 · master’s / solicitor' };
+function levelOf(o){
+  if(o.level) return o.level;
+  const t = String((o.role || '') + ' ' + (Array.isArray(o.notes) ? o.notes.join(' ') : '')).toLowerCase();
+  const m = t.match(/level\s*([2-7])\b/); if(m) return 'L' + m[1];
+  if(/solicitor apprentice/.test(t)) return 'L7';
+  if(/degree[- ]apprentice|degree[- ]level|\(degree\)/.test(t)) return 'L6';
+  if(/higher apprentice/.test(t)) return 'L4';
+  if(/advanced apprentice/.test(t)) return 'L3';
+  return '';
+}
+const levelGroup = o => ({ L6:'deg', L7:'deg', L4:'high', L5:'high', L3:'adv', L2:'int' }[levelOf(o)] || '');
 function trackOf(o){
+  if(o.programme === 'Apprenticeship') return 'appr';
   if(o.track) return o.track;
   if(['Online course','Fellowship','Accelerator','Competition'].includes(o.programme)) return 'opps';
   if(['14-16','16-18','18+'].includes(ageOf(o)) || ['Pre-university programme','Summer school','Apprenticeship'].includes(o.programme)) return 'preuni';
@@ -682,8 +698,10 @@ const statusCls = s => ({ 'Offer':'s-offer', 'Rejected':'s-rejected', 'Applied':
 /* macro trading & analysis: macro funds, markets desks, economics & research roles */
 const MACRO_FIRM = /brevan|rokos|caxton|tudor|bridgewater|element capital|graham capital|haidar|alphadyne|andurand|symmetry|kirkoswald|garda|lmr|florin|bluecrest|fulcrum|capstone|capital economics|oxford economics|pantheon|ts lombard|bca research|bank of england|treasury/i;
 const MACRO_ROLE = /macro|rates|\bfx\b|foreign exchange|currenc|commodit|fixed income|\bficc\b|global markets|\bmarkets\b|sales (&|and) trading|trading|trader|econom|strateg(y|ist)|research|treasury|derivativ|emerging market|\bcredit\b|bond/i;
+/* first-year / exploratory programmes (UK spring weeks & insights; US 'exploratory' programmes) */
+const isFirstYear = o => ageOf(o) === 'uni1' || ['Spring week', 'Insight / work experience'].includes(o.programme) || /first[- ]year|spring|insight|discovery|explor|bridge|launch|future (women )?leaders|sophomore|freshman/i.test(o.role || '');
 const isMacro = o => MACRO_FIRM.test(o.company) || MACRO_ROLE.test(o.role + ' ' + (o.programme || '') + ' ' + (o.sub || ''));
-const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, macro:false, sort:'posted', dir:1, page:0 };
+const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, macro:false, level:'', first:false, sort:'posted', dir:1, page:0 };
 const PAGE_SIZE = 25;
 
 /* time helpers: "8 hours ago", "detected 2 days after posting" */
@@ -712,6 +730,7 @@ const LIVE = { updated:null, openings:[], review:[], closed:[], watchlist:[], he
 if(!S.opMeta) S.opMeta = {};
 if(!S.reviewDecisions) S.reviewDecisions = {};
 if(!S.firmNotes) S.firmNotes = {};
+if(S.settings && S.settings.apiKey){ delete S.settings.apiKey; try{ save(); }catch(e){} }   // Ask Claude removed: don't keep a key around
 function OPS(){
   const ids = new Set(LIVE.openings.map(o => o.id));
   const remote = LIVE.openings.concat((LIVE.review || []).filter(r => !ids.has(r.id)).map(r => Object.assign({ auto:true }, r)));   // older data files kept auto-found firms separately
@@ -772,7 +791,7 @@ function viewOpenings(v){
   const isTrackTab = TRACKS.some(t => t[0] === opF.tab);
   const cur = isTrackTab ? inTrack(opF.tab) : all;
   const open = cur.filter(o => o.live !== 'closed' && (daysUntil(o.deadline) ?? 0) >= 0);
-  const title = { uni:'Live internship & spring week tracker', preuni:'Live pre-uni tracker', opps:'Opportunities' }[opF.tab] || 'Openings tracker';
+  const title = { uni:'Live internship & spring week tracker', appr:'Live apprenticeship tracker', preuni:'Live pre-uni tracker', opps:'Opportunities' }[opF.tab] || 'Openings tracker';
   v.innerHTML = head({
     crumbs:crumbsFor('openings'), title,
     sub:(LIVE.updated && isTrackTab ? `<b>${open.length}</b> live UK openings. ` : '') + (TRACK_SUB[opF.tab] || 'Every UK opening across the firms you watch.') + ' Detected automatically, newest first.',
@@ -790,18 +809,21 @@ function viewOpenings(v){
       ${selectBox('opRole', 'All role types', [...new Set(cur.map(o => o.roleType).filter(Boolean))].sort(), opF.role)}
       ${selectBox('opProg', 'All programmes', PROGRAMMES.filter(x => cur.some(o => o.programme === x)), opF.prog)}
       ${selectBox('opYg', 'Any age', AGE_GROUPS, opF.yg)}
+      ${opF.tab === 'appr' ? selectBox('opLevel', 'All levels', LEVEL_GROUPS.filter(g => cur.some(o => levelGroup(o) === g[0])), opF.level) : ''}
       ${selectBox('opReg', 'All UK regions', REGIONS.filter(x => cur.some(o => o.region === x)), opF.region)}
-      <span class="row" style="gap:14px">${sw('opMacro', 'Macro & markets', opF.macro)} ${sw('opNew', 'New (24h)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opOpen', 'Open now', opF.openOnly)}</span>
+      <span class="row" style="gap:14px">${opF.tab === 'uni' ? sw('opFirst', 'First-years', opF.first) + ' ' : ''}${sw('opMacro', 'Macro & markets', opF.macro)} ${sw('opNew', 'New (24h)', opF.isNew)} ${sw('opSoon', 'Deadline soon', opF.soon)} ${sw('opOpen', 'Open now', opF.openOnly)}</span>
     </div>
   </div>
   <div id="opStrip"></div>
   <div id="opBody"></div>`;
-  $$('.subtabs button', v).forEach(b => b.onclick = () => { opF.tab = b.dataset.t; opF.page = 0; opF.sector = opF.role = opF.prog = opF.region = ''; viewOpenings(v); });
+  $$('.subtabs button', v).forEach(b => b.onclick = () => { opF.tab = b.dataset.t; opF.page = 0; opF.sector = opF.role = opF.prog = opF.region = opF.level = ''; viewOpenings(v); });
+  { const lv = $('#opLevel'); if(lv) lv.onchange = e => { opF.level = e.target.value; opF.page = 0; drawOpenings(); }; }
   $('#opAdd').onclick = () => editOpening();
   $('#opRefresh').onclick = () => { toast('Checking…'); loadLive(false); };
   bindSearch('opQ', q => { opF.q = q; opF.page = 0; drawOpenings(); });
   [['opReg','region'], ['opSec','sector'], ['opRole','role'], ['opProg','prog'], ['opYg','yg']].forEach(([id, k]) => $('#' + id).onchange = e => { opF[k] = e.target.value; opF.page = 0; drawOpenings(); });
   $('#opNew').onchange = e => { opF.isNew = e.target.checked; opF.page = 0; drawOpenings(); };
+  { const f = $('#opFirst'); if(f) f.onchange = e => { opF.first = e.target.checked; opF.page = 0; drawOpenings(); }; }
   $('#opMacro').onchange = e => { opF.macro = e.target.checked; opF.page = 0; drawOpenings(); };
   $('#opSoon').onchange = e => { opF.soon = e.target.checked; opF.page = 0; drawOpenings(); };
   $('#opOpen').onchange = e => { opF.openOnly = e.target.checked; opF.page = 0; drawOpenings(); };
@@ -816,12 +838,14 @@ function opFiltered(){
     if(opF.tab === 'apps' && !o.status) return false;
     if(opF.sector && o.sector !== opF.sector) return false;
     if(opF.region && o.region !== opF.region) return false;
+    if(opF.level && opF.tab === 'appr' && levelGroup(o) !== opF.level) return false;
     if(opF.role && o.roleType !== opF.role) return false;
     if(opF.prog && o.programme !== opF.prog) return false;
     if(opF.yg && ageOf(o) !== opF.yg && o.yearGroup !== 'Any') return false;
     if(opF.isNew && !isNew24(o)) return false;
     if(opF.openOnly && (o.live === 'closed' || (daysUntil(o.deadline) ?? 0) < 0)) return false;
     if(opF.macro && !isMacro(o)) return false;
+    if(opF.first && opF.tab === 'uni' && !isFirstYear(o)) return false;
     if(opF.soon){ const d = daysUntil(o.deadline); if(d === null || d < 0 || d > 14) return false; }
     if(opF.q && ![o.company, o.role, o.roleType, o.location, o.region, o.programme, o.sector, (o.notes || []).join ? (o.notes || []).join(' ') : '', o.myNotes].join(' ').toLowerCase().includes(opF.q)) return false;
     return true;
@@ -885,11 +909,11 @@ function otherLocs(o){
   return [...(_otherLocs[o.company + '|' + opTitleKey(o.role)] || [])].filter(c => c && c !== cityOf(o));
 }
 function opRow(o, ghost){
-  const sub = [o.roleType, o.price].filter(Boolean).join(' · ');
+  const sub = [o.roleType, o.price, o.wage].filter(Boolean).join(' · ');
   return `<div class="tr-row ${ghost ? 'ghost' : ''} ${o.live === 'closed' ? 'is-closed' : ''}" data-id="${esc(o.id || '')}" style="--sc:var(--${SEC_COL[o.sector] || 'grey'})">
     <div class="cell-main"><button class="co-link" data-co="${esc(o.company)}" title="See everything at ${esc(o.company)}">${esc(o.company)}</button><small><span class="sec-dot"></span>${esc(o.sector || '')}</small></div>
     <div class="cell-main"><div class="ttl"><b>${esc(o.role || o.programme)}</b>${isNew24(o) ? '<span class="badge-new">NEW</span>' : ''}${o.auto ? '<span class="badge-auto" title="The scanner found this firm by itself">New firm</span>' : ''}${o.status ? `<span class="status-tag ${statusCls(o.status)}">${esc(o.status)}</span>` : ''}</div><small>${esc(sub)}</small></div>
-    <div class="cell-txt">${esc(o.programme || '')}</div>
+    <div class="cell-txt">${esc(o.programme || '')}${o.programme === 'Apprenticeship' && levelOf(o) ? `<small class="lvl">${esc(LEVEL_NAME[levelOf(o)] || levelOf(o))}</small>` : ''}</div>
     <div class="cell-main"><b style="font-weight:500">${esc(cityOf(o))}</b><small>${(() => { const ol = otherLocs(o); return ol.length ? `<span title="Same programme also in ${esc(ol.join(', '))}">also ${esc(ol.slice(0, 2).join(', '))}${ol.length > 2 ? ' +' + (ol.length - 2) : ''}</span>` : o.region && o.region !== cityOf(o) ? esc(o.region) : ''; })()}</small></div>
     <div class="cell-age">${ageCell(o)}</div>
     <div>${o.live === 'closed' ? '<span class="cd closed">Closed</span>' : o.deadline || o.opens || o.rolling ? countdown(o.deadline, o.opens, o.rolling) : o.live === 'open' ? '<span class="cd open">Open</span>' : o.live === 'soon' ? '<span class="cd future">Opening soon</span>' : '<span class="faint">·</span>'}</div>
@@ -908,7 +932,7 @@ function opRow(o, ghost){
 let hoverEl;
 function showHover(o, row){
   if(!hoverEl){ hoverEl = document.createElement('div'); hoverEl.className = 'hovercard'; hoverEl.setAttribute('role', 'tooltip'); document.body.appendChild(hoverEl); }
-  const badges = [o.programme, ageOf(o) && AGE_TEXT[ageOf(o)], o.visa, o.price, o.live === 'open' ? 'Applications open' : o.live === 'closed' ? 'Closed' : o.live === 'soon' ? 'Opening soon' : ''].filter(Boolean);
+  const badges = [o.programme, o.programme === 'Apprenticeship' && LEVEL_NAME[levelOf(o)], o.wage, o.start && 'Starts ' + fmtD(o.start, true), ageOf(o) && AGE_TEXT[ageOf(o)], o.visa, o.price, o.live === 'open' ? 'Applications open' : o.live === 'closed' ? 'Closed' : o.live === 'soon' ? 'Opening soon' : ''].filter(Boolean);
   const lines = [];
   if(o.deadline) lines.push(`<b>Deadline ${fmtD(o.deadline, true)}.</b>`);
   else if(o.opens) lines.push(`<b>Opens ${fmtD(o.opens, true)}.</b>`);
@@ -942,6 +966,9 @@ function openOpening(o){
       ${o.opens ? `<dt>Opens</dt><dd>${fmtD(o.opens, true)}</dd>` : ''}
       ${o.roleType ? `<dt>Role type</dt><dd>${esc(o.roleType)}</dd>` : ''}
       ${o.region ? `<dt>Region</dt><dd>${esc(o.region)}</dd>` : ''}
+      ${o.programme === 'Apprenticeship' && levelOf(o) ? `<dt>Level</dt><dd>${esc(LEVEL_NAME[levelOf(o)] || levelOf(o))}</dd>` : ''}
+      ${o.wage ? `<dt>Wage</dt><dd>${esc(o.wage)}</dd>` : ''}
+      ${o.start ? `<dt>Starts</dt><dd>${fmtD(o.start, true)}</dd>` : ''}
       ${o.price ? `<dt>Price</dt><dd>${esc(o.price)}</dd>` : ''}
       <dt>Posted</dt><dd>${o.postedAt ? fmtD(o.postedAt, true) + (o.postedApprox ? ' or earlier' : '') + ' by ' + esc(o.company) : 'Not stated by the firm'}</dd>
       ${o.detected ? `<dt>Detected</dt><dd>${new Date(o.detected).toLocaleString('en-GB', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })}${o.source ? ' · via ' + esc(o.source) : ''}</dd>` : ''}
@@ -1309,7 +1336,7 @@ function viewCV(v){
   v.innerHTML = head({
     crumbs:crumbsFor('cv'), title:'CV builder',
     sub:'A clean one-page CV. Pull entries in from your other pages, edit the wording, then save as PDF.',
-    actions:`<button class="btn accent" id="cvAsk">✦ Edit with Claude</button><div class="seg" id="cvT">${['classic','modern'].map(t => `<button data-t="${t}" aria-pressed="${c.template === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div><button class="btn primary" id="cvPrint">${I(IC.print,14)} Save as PDF</button>`
+    actions:`<div class="seg" id="cvT">${['classic','modern'].map(t => `<button data-t="${t}" aria-pressed="${c.template === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div><button class="btn primary" id="cvPrint">${I(IC.print,14)} Save as PDF</button>`
   }) + cvFilePanel() + `<h2 class="sec" style="margin-top:26px">Builder</h2><div class="cv-layout">
     <div class="cv-editor">
       <details open><summary>Personal details</summary><div class="body">
@@ -1350,7 +1377,6 @@ function viewCV(v){
   });
   $$('#cvT button').forEach(b => b.onclick = () => { c.template = b.dataset.t; save(); $$('#cvT button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#cvSheet').className = 'cv-sheet ' + c.template; redraw(); });
   bindCvFile(v);
-  $('#cvAsk').onclick = () => openClaude();
   $('#cvPrint').onclick = () => { $('#print-root').innerHTML = `<div class="cv-sheet ${c.template}">${cvHTML(c)}</div>`; window.print(); };
   function keepOpen(k){ const y = window.scrollY; viewCV(v); $$('.cv-editor details').forEach(d => d.open = d.querySelector(`[data-sec="${k}"]`) ? true : d.open); window.scrollTo(0, y); }
   redraw();
@@ -1691,21 +1717,11 @@ applyTheme();
 route();
 loadLive(true);
 loadScLive(true);
-$('#askFab').onclick = () => openClaude();
 $('#backupBtn').onclick = () => openDrawer('Settings', `<h2>Back up your data</h2>
   <p class="note">Everything you enter lives in this browser only. Export a backup now and then, and import it on another device.</p>
   <div class="row"><button class="btn" id="exp">${I(IC.down,14)} Export backup</button>
   <label class="btn">${I(IC.up,14)} Import backup<input type="file" id="imp" accept="application/json" hidden></label></div>
-  <h2 style="margin-top:30px">Restore points</h2>
-  <p class="note">Saved automatically before every change Claude makes. Each one disappears after 24 hours.</p>
-  ${restoreListHTML()}
-  <h2 style="margin-top:30px">Claude on your site</h2>
-  <p class="note">You don’t need anything here: Ask Claude works with your Claude Pro account by copy and paste. Optional, for developers only: an Anthropic API key (18+, billed separately) makes answers appear directly. It’s stored only in this browser.</p>
-  <label class="field">API key<input class="inp" id="apiKey" type="password" value="${esc(S.settings.apiKey || '')}" placeholder="sk-ant-…" autocomplete="off"></label>
-  <label class="field" style="margin-top:10px">Model<input class="inp" id="apiModel" value="${esc(S.settings.model || 'claude-sonnet-5')}"></label>
-  <div class="row" style="margin-top:10px"><button class="btn primary sm" id="apiSave">Save</button></div>`, b => {
-  bindRestore(b);
-  $('#apiSave', b).onclick = () => { S.settings.apiKey = $('#apiKey', b).value.trim(); S.settings.model = $('#apiModel', b).value.trim() || 'claude-sonnet-5'; save(); toast('Saved'); };
+`, b => {
   $('#exp', b).onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 2)], { type:'application/json' })); a.download = 'admissions-home-backup-' + isoToday() + '.json'; a.click(); };
   $('#imp', b).onchange = e => { const f = e.target.files[0]; if(!f) return; f.text().then(t => { try{ S = Object.assign(DEFAULTS(), JSON.parse(t)); save(); applyTheme(); closeDrawer(); route(); toast('Backup imported'); }catch(err){ toast('That file isn’t a valid backup'); } }); };
 });
