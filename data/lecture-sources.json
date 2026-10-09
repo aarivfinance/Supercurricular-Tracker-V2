@@ -1,0 +1,14 @@
+{
+  "_note": "Lecture hosts read by scripts/scan-lectures.mjs. type: page (rendered listing page) | oxtalks (talks.ox.ac.uk API). link: optional regex for event-page paths; if it matches nothing, the scanner falls back to any link whose card shows an upcoming date. filter: 'subject' keeps only events that match philosophy/politics/economics/law; 'loose' keeps everything except obvious non-lectures. s: default subject.",
+  "sources": [
+    { "name": "LSE public events", "type": "page", "url": "https://www.lse.ac.uk/events", "link": "/events/\\d{4}/\\d{2}/\\d{8,12}", "city": "London", "filter": "loose", "s": "pol", "free": true },
+    { "name": "LSE public events", "type": "page", "url": "https://www.lse.ac.uk/events/search-events", "link": "/events/\\d{4}/\\d{2}/\\d{8,12}", "city": "London", "filter": "subject", "s": "pol", "free": true },
+    { "name": "Gresham College", "type": "page", "url": "https://www.gresham.ac.uk/whats-on", "city": "London", "filter": "subject", "s": "multi", "free": true },
+    { "name": "Institute for Fiscal Studies", "type": "page", "url": "https://ifs.org.uk/events", "link": "^/events/[a-z0-9-]+$", "city": "London", "filter": "loose", "s": "econ" },
+    { "name": "Institute for Government", "type": "page", "url": "https://www.instituteforgovernment.org.uk/our-events", "link": "^/event/[a-z0-9-]+$", "city": "London", "filter": "loose", "s": "pol" },
+    { "name": "Resolution Foundation", "type": "page", "url": "https://www.resolutionfoundation.org/events/", "link": "^/events/[a-z0-9-]+/?$", "city": "London", "filter": "loose", "s": "econ" },
+    { "name": "The British Academy", "type": "page", "url": "https://www.thebritishacademy.ac.uk/events/", "link": "^/events/.+", "city": "London", "filter": "subject", "s": "multi" },
+    { "name": "RSA", "type": "page", "url": "https://www.thersa.org/events/upcoming", "link": "^/events/\\d{4}/\\d{2}/[^/]+/?$", "city": "London", "filter": "loose", "s": "multi" },
+    { "name": "Oxford Talks", "type": "oxtalks", "url": "https://talks.ox.ac.uk/api/talks/search?from=today&to=plus90&count=500", "city": "Oxford", "filter": "subject", "s": "multi" }
+  ]
+}

@@ -92,22 +92,23 @@ const IC = {
 /* ---------------- navigation ---------------- */
 const NAV = [
   { k:'academics', label:'Academics', items:[
-    { k:'revision',     label:'Revision resources', desc:'Notes, past papers and admissions-test prep', ic:'book', c:'var(--econ)' },
-    { k:'universities', label:'Universities',       desc:'Courses, offers and subject requirements',  ic:'cap',  c:'var(--law)' },
+    { k:'universities', label:'Universities',      desc:'Courses, offers and A-level requirements',            ic:'cap',  c:'var(--law)' },
+    { k:'lectures',     label:'Academic lectures', desc:'Free public lectures in London and online',           ic:'book', c:'var(--econ)' },
   ]},
   { k:'cocurricular', label:'Co-curriculars', items:[
-    { k:'supercurriculars', label:'Supercurriculars', desc:'Competitions and programmes by date, with reading guides', ic:'trophy', c:'var(--accent)' },
-    { k:'extracurriculars', label:'Extracurriculars', desc:'Sport, music, leadership, volunteering',                   ic:'run',    c:'var(--phil)' },
+    { k:'supercurriculars', label:'Supercurriculars', desc:'Competitions and programmes by date, and your log',  ic:'trophy', c:'var(--accent)' },
+    { k:'extracurriculars', label:'Extracurriculars', desc:'Sport, music, leadership, volunteering',             ic:'run',    c:'var(--phil)' },
   ]},
   { k:'professional', label:'Professional', items:[
-    { k:'openings', label:'Openings tracker', desc:'Spring weeks, insight days and internships',   ic:'radar', c:'var(--new)' },
-    { k:'work',     label:'Work experience',  desc:'Placements you’ve done, and what you learned', ic:'brief', c:'var(--teal)' },
-    { k:'contacts', label:'Contacts',         desc:'People you’ve met and when to follow up',      ic:'users', c:'var(--pol)' },
-    { k:'cv',       label:'CV builder',       desc:'One-page CV that pulls from everything here',  ic:'doc',   c:'var(--multi)' },
+    { k:'openings', label:'Openings',               desc:'Spring weeks, internships and apprenticeships',     ic:'radar', c:'var(--new)' },
+    { k:'work',     label:'Work experience logger', desc:'Placements you’ve done, and what you learned',      ic:'brief', c:'var(--teal)' },
+    { k:'contacts', label:'Networking & contacts',  desc:'People you’ve met and when to follow up',           ic:'users', c:'var(--pol)' },
+    { k:'cv',       label:'CV builder',             desc:'One-page CV built from your logs',                  ic:'doc',   c:'var(--multi)' },
   ]},
 ];
 const PAGES = {};
 NAV.forEach(g => g.items.forEach(it => PAGES[it.k] = Object.assign({ group:g }, it)));
+PAGES.about = { k:'about', label:'About', group:{ k:'about', label:'Admissions Home' } };
 
 function ddItem(it, cur){
   return `<a class="dd-item" href="#${it.k}" style="--ic:${it.c}" ${it.k === cur ? 'aria-current="page"' : ''}>
@@ -119,9 +120,10 @@ function buildNav(cur){
     <div class="menu ${g.k === curGroup ? 'active' : ''}" data-k="${g.k}">
       <button aria-haspopup="true" aria-expanded="false">${g.label}${I(IC.chev, 14)}</button>
       <div class="dropdown" role="menu">${g.items.map(it => ddItem(it, cur)).join('')}</div>
-    </div>`).join('');
+    </div>`).join('') + `<a class="menu-link" href="#about" ${cur === 'about' ? 'aria-current="page"' : ''}>About</a>`;
   $('#mobileMenu').innerHTML = `<a class="dd-item" href="#home"><span class="dd-ico">${I(IC.star,17)}</span><span><b>Overview</b><span>Everything at a glance</span></span></a>`
-    + NAV.map(g => `<h4>${g.label}</h4>` + g.items.map(it => ddItem(it, cur)).join('')).join('');
+    + NAV.map(g => `<h4>${g.label}</h4>` + g.items.map(it => ddItem(it, cur)).join('')).join('')
+    + `<h4>Admissions Home</h4><a class="dd-item" href="#about"><span class="dd-ico">${I(IC.flag,17)}</span><span><b>About</b><span>What each part of the site is for</span></span></a>`;
 }
 function closeMenus(){ $$('.menu.open').forEach(m => { m.classList.remove('open'); $('button', m).setAttribute('aria-expanded','false'); }); }
 document.addEventListener('click', e => {
@@ -353,6 +355,7 @@ function viewSuper(v){
   <div class="subtabs" role="tablist">
     <button role="tab" data-t="timeline" aria-selected="${scF.tab === 'timeline'}">Opportunities by date</button>
     <button role="tab" data-t="reading" aria-selected="${scF.tab === 'reading'}">Reading guide</button>
+    <button role="tab" data-t="log" aria-selected="${scF.tab === 'log'}">My log <span class="n">${recEntries().filter(e => ['sc', 'book', 'lec'].includes(e.type)).length}</span></button>
     <button role="tab" data-t="books" aria-selected="${scF.tab === 'books'}">My books <span class="n">${(S.books || []).length}</span></button>
     <button role="tab" data-t="finds" aria-selected="${scF.tab === 'finds'}">New finds <span class="n">${scPending().length}</span></button>
   </div>
@@ -381,10 +384,21 @@ function viewSuper(v){
   drawSc();
 }
 
+function drawScLog(body){
+  recF.types = ['sc', 'book', 'lec'];
+  if(!$('#recBody', body)){
+    body.innerHTML = `<div class="row" style="justify-content:space-between;margin-bottom:14px"><p class="muted" style="margin:0;max-width:62ch">Competitions you’ve done or are doing, books you’ve read and lectures you’ve been to. Under each, keep a few short points on what you learned.</p>
+      <div class="row"><button class="btn" id="lgBook">${I(IC.book,14)} Add book</button><button class="btn primary" id="lgSc">${I(IC.plus,14)} Log a competition</button></div></div>` + logBar() + `<div id="recBody"></div>`;
+    $('#lgSc', body).onclick = () => recNew('sc'); $('#lgBook', body).onclick = () => recNew('book');
+    bindLogBar(body);
+  }
+  drawRecord();
+}
 function drawSc(){
   const body = $('#scBody'); if(!body) return;
   if($('#scLive')) $('#scLive').innerHTML = scLiveLine();
-  $('.filterbar').classList.toggle('hidden', scF.tab === 'finds' || scF.tab === 'books');
+  $('.filterbar').classList.toggle('hidden', scF.tab === 'finds' || scF.tab === 'books' || scF.tab === 'log');
+  if(scF.tab === 'log') return drawScLog(body);
   if(scF.tab === 'finds') return drawScFinds(body);
   if(scF.tab === 'books') return drawBooks(body);
   const pool = allSc().filter(i => i.custom ? (i.year || 'y11') === scF.year : i.year === scF.year);
@@ -415,6 +429,7 @@ function drawSc(){
     save(); toast('Logged: ' + t); viewSuper($('#view'));
   };
   $$('[data-gobooks]', body).forEach(a => a.onclick = () => { scF.tab = 'books'; viewSuper($('#view')); });
+  $$('[data-golog]', body).forEach(a => a.onclick = () => { scF.tab = 'log'; viewSuper($('#view')); window.scrollTo(0, 0); });
 
   $$('.sc-row', body).forEach(r => r.onclick = e => {
     const it = allSc().find(i => i.id === r.dataset.id);
@@ -442,7 +457,7 @@ function scRecord(){
     ${done.length ? done.map(i => li(i, [scState(i.id).result, scState(i.id).doneOn && fmtD(scState(i.id).doneOn, true)].filter(Boolean).join(' · ') || 'Add your result')).join('') : '<p class="faint rec-empty">Mark something as Done and it appears here with its result.</p>'}
     ${doing.length ? '<div class="rec-h">In progress</div>' + doing.map(i => li(i)).join('') : ''}
     ${plan.length ? '<div class="rec-h">Planning</div>' + plan.map(i => li(i)).join('') : ''}
-    <button class="btn sm" data-gobooks style="margin-top:12px;width:100%;justify-content:center">${I(IC.book,13)} My books</button>
+    <div class="row2" style="margin-top:12px"><button class="btn sm" data-golog style="justify-content:center">Open my log</button><button class="btn sm" data-gobooks style="justify-content:center">${I(IC.book,13)} My books</button></div>
   </div></aside>`;
 }
 
@@ -470,7 +485,7 @@ function editBook(bk, preset){
       { k:'learned', label:'What I learned', type:'textarea', rows:4, ph:'The main argument, and what changed your mind' },
       { k:'use', label:'How I’d use it', type:'textarea', ph:'e.g. “I read X, which led me to Y, so I argued Z in the JLI essay.”' },
     ],
-    onSave: out => { if(!S.books) S.books = []; if(out.status === 'Finished' && !out.finished) out.finished = isoToday(); bk ? Object.assign(bk, out) : S.books.push(Object.assign({ id:uid() }, out)); save(); scF.tab = 'books'; route(); },
+    onSave: out => { if(!S.books) S.books = []; if(out.status === 'Finished' && !out.finished) out.finished = isoToday(); bk ? Object.assign(bk, out) : S.books.push(Object.assign({ id:uid() }, out)); save(); if(scF.tab !== 'log') scF.tab = 'books'; route(); },
     onDelete: bk ? () => { S.books = S.books.filter(x => x !== bk); save(); route(); } : null });
 }
 
@@ -518,6 +533,9 @@ function openScDrawer(it){
     <div class="drawer-sec"><div class="lbl">Result</div>
       <div class="row2"><input class="inp" id="dRes" value="${esc(st.result || '')}" placeholder="e.g. Highly commended, semi-finalist, certificate"><input class="inp" type="date" id="dDone" value="${esc(st.doneOn || '')}" aria-label="Date completed"></div>
     </div>
+    <div class="drawer-sec"><div class="lbl">What I learned <span class="hint">one short point per line, shown in My record</span></div>
+      <textarea class="inp" id="dLearn" rows="4" placeholder="e.g. Writing to a word limit forced me to cut my weakest argument">${esc(st.learned || '')}</textarea>
+    </div>
     <div class="drawer-sec"><div class="lbl">Your notes</div>
       <textarea class="inp" id="dNote" rows="4" placeholder="What you entered, what you argued, what you’d say about it in an interview…">${esc(st.note || '')}</textarea>
     </div>
@@ -526,16 +544,17 @@ function openScDrawer(it){
     $$('#dStatus button', b).forEach(btn => btn.onclick = () => { setSc(it.id, Object.assign({ status:btn.dataset.v }, btn.dataset.v === 'done' && !scState(it.id).doneOn ? { doneOn:isoToday() } : {})); if($('#dDone', b) && !$('#dDone', b).value && btn.dataset.v === 'done') $('#dDone', b).value = isoToday(); $$('#dStatus button', b).forEach(x => x.setAttribute('aria-pressed', x === btn)); drawSc(); });
     $('#dStar', b).onclick = () => { const s = !scState(it.id).saved; setSc(it.id, { saved:s }); $('#dStar', b).className = 'btn sm ' + (s ? 'accent' : ''); $('#dStar', b).innerHTML = I(IC.star,13) + (s ? ' Saved' : ' Save'); drawSc(); };
     $('#dNote', b).oninput = debounce(e => setSc(it.id, { note:e.target.value }), 300);
+    $('#dLearn', b).oninput = debounce(e => { setSc(it.id, { learned:e.target.value }); drawSc(); }, 400);
     $('#dRes', b).oninput = debounce(e => { setSc(it.id, { result:e.target.value }); drawSc(); }, 400);
     $('#dDone', b).onchange = e => { setSc(it.id, { doneOn:e.target.value }); drawSc(); };
     if(it.custom) $('#dEdit', b).onclick = () => { closeDrawer(); editScCustom(S.scCustom.find(c => c.id === it.id)); };
   });
 }
 
-function editScCustom(existing){
+function editScCustom(existing, preset){
   openForm({
     title: existing ? 'Edit supercurricular' : 'Add a supercurricular',
-    value: existing || { year:scF.year, s:'multi' },
+    value: existing || Object.assign({ year:scF.year, s:'multi' }, preset),
     fields:[
       { k:'t', label:'Title', req:true, full:true, ph:'e.g. Bank of England Target 2.0 Challenge' },
       { k:'s', label:'Subject', type:'select', opts:SUBJ.map(s => [s.k, s.label]) },
@@ -547,13 +566,14 @@ function editScCustom(existing){
       { k:'note', label:'Description', type:'textarea' },
       { k:'_status', label:'Status', type:'select', opts:SC_STATUS, def:existing ? (scState(existing.id).status || '') : '' },
       { k:'_result', label:'Result', ph:'e.g. Commended, finalist', def:existing ? (scState(existing.id).result || '') : '' },
+      { k:'_learned', label:'What I learned', type:'textarea', hint:'one short point per line', def:existing ? (scState(existing.id).learned || '') : '' },
     ],
     onSave: out => {
-      const st = out._status, res = out._result; delete out._status; delete out._result;
+      const st = out._status, res = out._result, learned = out._learned; delete out._status; delete out._result; delete out._learned;
       let id;
       if(existing){ Object.assign(existing, out); id = existing.id; }
       else { id = 'c:' + uid(); S.scCustom.push(Object.assign({ id }, out)); }
-      S.sc[id] = Object.assign({}, S.sc[id], { status:st, result:res }, st === 'done' && !(S.sc[id] || {}).doneOn ? { doneOn:out.date || isoToday() } : {});
+      S.sc[id] = Object.assign({}, S.sc[id], { status:st, result:res, learned }, st === 'done' && !(S.sc[id] || {}).doneOn ? { doneOn:out.date || isoToday() } : {});
       save(); scF.year = out.year; route();
     },
     onDelete: existing ? () => { S.scCustom = S.scCustom.filter(c => c !== existing); save(); route(); } : null
@@ -593,37 +613,6 @@ function drawReading(body, shown){
    ============================================================ */
 const EX_CATS = ['Sport','Music','Drama & arts','Leadership','Volunteering','Debating & MUN','Clubs & societies','Enterprise','Other'];
 const EX_COL = { 'Sport':'econ','Music':'phil','Drama & arts':'pol','Leadership':'multi','Volunteering':'teal','Debating & MUN':'law','Clubs & societies':'grey','Enterprise':'multi','Other':'grey' };
-const exF = { cat:'', q:'' };
-
-function viewExtras(v){
-  const hrs = S.extras.filter(e => !e.end).reduce((a, e) => a + (Number(e.hours) || 0), 0);
-  v.innerHTML = head({
-    crumbs:crumbsFor('extracurriculars'), title:'Extracurriculars',
-    sub:'Everything you do outside lessons. Log it as you go — dates, roles and achievements are much harder to reconstruct when you’re writing a CV or personal statement.',
-    stats:[[S.extras.length, 'activities'], [S.extras.filter(e => !e.end).length, 'ongoing'], [hrs, 'hours / week']],
-    actions:`<button class="btn primary" id="exAdd">${I(IC.plus,14)} Add activity</button>`
-  }) + `<div class="filterbar"><div class="row">${searchbar('exQ', 'Search activities…', exF.q)}${selectBox('exCat', 'All categories', EX_CATS, exF.cat)}</div></div><div id="exBody"></div>`;
-  $('#exAdd').onclick = () => editExtra();
-  $('#exCat').onchange = e => { exF.cat = e.target.value; drawExtras(); };
-  bindSearch('exQ', q => { exF.q = q; drawExtras(); });
-  drawExtras();
-}
-function drawExtras(){
-  const b = $('#exBody');
-  const list = S.extras.filter(e => (!exF.cat || e.cat === exF.cat) && (!exF.q || [e.title, e.org, e.role, e.desc, e.achieve].join(' ').toLowerCase().includes(exF.q)));
-  if(!S.extras.length){ b.innerHTML = emptyBox('No activities yet', 'Add a club, team, instrument, role or volunteering commitment.', `<button class="btn primary" data-add>${I(IC.plus,14)} Add your first activity</button>`); $('[data-add]', b).onclick = () => editExtra(); return; }
-  const cats = EX_CATS.filter(c => list.some(e => e.cat === c));
-  b.innerHTML = cats.length ? cats.map(c => `<section class="tl-month"><div class="tl-mhead"><h2>${c}</h2><span class="n">${list.filter(e => e.cat === c).length}</span></div>
-    <div class="grid">${list.filter(e => e.cat === c).map(e => `
-      <div class="card bar c-${EX_COL[c]}" data-id="${e.id}" style="cursor:pointer">
-        <div class="meta"><span class="chip subj">${esc(c)}</span>${e.end ? `<span class="chip soft">Ended</span>` : '<span class="chip ok">Ongoing</span>'}${e.hours ? `<span class="chip soft">${esc(e.hours)} h/wk</span>` : ''}${e.inCV ? '<span class="chip soft">On CV</span>' : ''}</div>
-        <h3>${esc(e.title)}</h3>
-        <div class="when">${I(IC.cal,13)}${esc([e.role, e.org].filter(Boolean).join(' · '))}${(e.role || e.org) ? ' · ' : ''}${esc(fmtRange(e.start, e.end))}</div>
-        ${e.desc ? `<p class="note">${esc(e.desc)}</p>` : ''}
-        ${e.achieve ? `<div class="mynote">${esc(e.achieve)}</div>` : ''}
-      </div>`).join('')}</div></section>`).join('') : emptyBox('No matches', 'Try a different search or category.');
-  $$('[data-id]', b).forEach(c => c.onclick = () => editExtra(S.extras.find(e => e.id === c.dataset.id)));
-}
 function fmtRange(a, b){ const f = s => { const d = parseD(s); return d ? MONTHS[d.getMonth()] + ' ' + d.getFullYear() : ''; }; return a ? f(a) + ' – ' + (b ? f(b) : 'present') : (b ? 'until ' + f(b) : ''); }
 function editExtra(ex){
   openForm({ title: ex ? 'Edit activity' : 'Add activity', value: ex || { cat:'Sport', inCV:true },
@@ -636,7 +625,8 @@ function editExtra(ex){
       { k:'hours', label:'Hours per week', type:'number' },
       { k:'inCV', label:'Include on CV', type:'check' },
       { k:'desc', label:'What you do', type:'textarea' },
-      { k:'achieve', label:'Achievements & responsibilities', type:'textarea', hint:'one per line — these become CV bullet points' },
+      { k:'achieve', label:'Achievements & responsibilities', type:'textarea', hint:'one per line, these become CV bullet points' },
+      { k:'learned', label:'What I learned', type:'textarea', hint:'one short point per line', ph:'e.g. Running a meeting means deciding the outcome before it starts' },
     ],
     onSave: out => { ex ? Object.assign(ex, out) : S.extras.push(Object.assign({ id:uid() }, out)); save(); route(); },
     onDelete: ex ? () => { S.extras = S.extras.filter(e => e !== ex); save(); route(); } : null });
@@ -978,6 +968,9 @@ function openOpening(o){
     ${notes.length ? `<div class="drawer-sec"><div class="lbl">Key details from the listing</div><ul class="notes">${notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : ''}
     <div class="drawer-sec"><div class="lbl">Application status</div>
       <select class="dd-sel" id="dSt">${APP_STATUS.map(s => `<option value="${s}" ${s === (o.status || '') ? 'selected' : ''}>${s || 'Not tracking'}</option>`).join('')}</select></div>
+    <div class="drawer-sec"><div class="lbl">What I learned <span class="hint">one short point per line, shown in My record</span></div>
+      <textarea class="inp" id="dLearn" rows="4" placeholder="e.g. Writing to a word limit forced me to cut my weakest argument">${esc(st.learned || '')}</textarea>
+    </div>
     <div class="drawer-sec"><div class="lbl">Your notes</div><textarea class="inp" id="dN" rows="4" placeholder="Cover letter angle, test dates, who you spoke to…">${esc(o.myNotes || '')}</textarea></div>
     ${o.remote ? '' : '<div class="drawer-sec row"><button class="btn" id="dE">Edit details</button></div>'}`;
   openDrawer(esc(o.company), html, b => {
@@ -1080,24 +1073,6 @@ function drawCompanies(b){
 /* ============================================================
    WORK EXPERIENCE (log)
    ============================================================ */
-function viewWork(v){
-  v.innerHTML = head({
-    crumbs:crumbsFor('work'), title:'Work experience',
-    sub:'Placements, insight days and virtual programmes you’ve completed — and what you actually took from them. The reflection is what interviewers ask about.',
-    stats:[[S.work.length, 'placements'], [S.work.reduce((a, w) => a + (Number(w.days) || 0), 0), 'days in total']],
-    actions:`<button class="btn primary" id="wAdd">${I(IC.plus,14)} Add placement</button>`
-  }) + `<div id="wBody"></div>`;
-  $('#wAdd').onclick = () => editWork();
-  const b = $('#wBody');
-  if(!S.work.length){ b.innerHTML = emptyBox('No placements logged yet', 'Add anything from a week in an office to a Forage virtual programme.', `<button class="btn primary" data-add>${I(IC.plus,14)} Add your first placement</button>`); $('[data-add]', b).onclick = () => editWork(); return; }
-  const list = [...S.work].sort((a, c) => (c.start || '') < (a.start || '') ? -1 : 1);
-  b.innerHTML = `<div class="grid">${list.map(w => `<div class="card bar" data-id="${w.id}" style="--sc:var(--${SEC_COL[w.sector] || 'teal'});cursor:pointer">
-    <div class="meta"><span class="chip subj">${esc(w.sector || 'Other')}</span>${w.type ? `<span class="chip soft">${esc(w.type)}</span>` : ''}${w.inCV ? '<span class="chip soft">On CV</span>' : ''}</div>
-    <h3>${esc(w.role || w.type)} · ${esc(w.company)}</h3>
-    <div class="when">${I(IC.cal,13)}${esc([fmtD(w.start, true), w.days ? w.days + ' days' : ''].filter(Boolean).join(' · '))}</div>
-    ${w.did ? `<div class="lbl-sm">What I did</div><p class="note">${esc(w.did)}</p>` : ''}${w.learned ? `<div class="lbl-sm">What I learned</div><div class="mynote" style="margin-top:0">${esc(w.learned)}</div>` : ''}</div>`).join('')}</div>`;
-  $$('[data-id]', b).forEach(c => c.onclick = () => editWork(S.work.find(w => w.id === c.dataset.id)));
-}
 function editWork(w){
   openForm({ title: w ? 'Edit placement' : 'Add placement', value: w || { sector:'Banking', type:'Work experience', inCV:true },
     fields:[
@@ -1105,11 +1080,313 @@ function editWork(w){
       { k:'sector', label:'Sector', type:'select', opts:SECTORS }, { k:'type', label:'Type', type:'select', opts:PROGRAMMES },
       { k:'start', label:'Start date', type:'date' }, { k:'days', label:'Length (days)', type:'number' },
       { k:'contact', label:'Supervisor / contact' }, { k:'inCV', label:'Include on CV', type:'check' },
-      { k:'did', label:'What you did', type:'textarea', hint:'one per line — these become CV bullet points' },
-      { k:'learned', label:'What you learned / would say in an interview', type:'textarea' },
+      { k:'did', label:'What you did', type:'textarea', hint:'one per line, these become CV bullet points' },
+      { k:'learned', label:'What I learned', type:'textarea', hint:'one short point per line', ph:'e.g. Credit analysts care more about cash flow than profit' },
     ],
     onSave: out => { w ? Object.assign(w, out) : S.work.push(Object.assign({ id:uid() }, out)); save(); route(); },
     onDelete: w ? () => { S.work = S.work.filter(x => x !== w); save(); route(); } : null });
+}
+
+/* ============================================================
+   MY RECORD
+   Supercurriculars, extracurriculars, work experience and reading in one log.
+   It reads the stores that already exist (S.sc + catalogue, S.extras, S.work, S.books),
+   so nothing is moved or copied. "What I learned" points are kept one per line.
+   ============================================================ */
+const REC_TYPES = [
+  { k:'sc',   label:'Supercurriculars', one:'Competition', c:'var(--accent)', out:'Result' },
+  { k:'ex',   label:'Extracurriculars', one:'Extracurricular', c:'var(--phil)',   out:'Achievements' },
+  { k:'work', label:'Work experience',  one:'Work experience', c:'var(--teal)',   out:'What I did' },
+  { k:'book', label:'Reading',          one:'Book',         c:'var(--econ)',   out:'How I’d use it' },
+  { k:'lec',  label:'Lectures',         one:'Lecture',      c:'var(--law)',    out:'Speaker' },
+];
+const REC_T = Object.fromEntries(REC_TYPES.map(t => [t.k, t]));
+const recF = { types:[], q:'', gaps:false };
+const toPoints = t => String(t || '').split('\n').map(l => l.replace(/^\s*[-•*–]\s*/, '').trim()).filter(Boolean);
+
+function recEntries(){
+  const out = [];
+  allSc().forEach(i => {
+    const st = scState(i.id); if(st.status !== 'done' && st.status !== 'doing') return;
+    out.push({ type:'sc', id:i.id, title:strip(i.t), meta:[SUBJ_L[i.s]], date:st.doneOn || i.date || '',
+      when:st.status === 'doing' ? 'In progress' : st.doneOn ? fmtD(st.doneOn, true) : 'Done', out:st.result || '', learned:st.learned || '',
+      set:v => setSc(i.id, { learned:v }), edit:() => i.custom ? editScCustom(S.scCustom.find(c => c.id === i.id)) : openScDrawer(i) });
+  });
+  S.extras.forEach(e => out.push({ type:'ex', id:e.id, title:e.title, meta:[e.cat, e.role, e.org], date:e.start || '',
+    when:fmtRange(e.start, e.end) || 'Ongoing', out:toPoints(e.achieve).join('; '), learned:e.learned || '', inCV:e.inCV,
+    set:v => { e.learned = v; save(); }, edit:() => editExtra(e) }));
+  S.work.forEach(w => out.push({ type:'work', id:w.id, title:w.company, meta:[w.role || w.type, w.sector], date:w.start || '',
+    when:[fmtD(w.start, true), w.days ? w.days + (+w.days === 1 ? ' day' : ' days') : ''].filter(Boolean).join(', '), out:toPoints(w.did).join('; '), learned:w.learned || '', inCV:w.inCV,
+    set:v => { w.learned = v; save(); }, edit:() => editWork(w) }));
+  (S.books || []).filter(b => b.status !== 'Want to read').forEach(b => out.push({ type:'book', id:b.id, title:b.title, meta:[b.author, SUBJ_L[b.s]], date:b.finished || '',
+    when:b.status === 'Reading' ? 'Reading now' : b.finished ? fmtD(b.finished, true) : 'Finished', out:b.use || '', learned:b.learned || '',
+    set:v => { b.learned = v; save(); }, edit:() => editBook(b) }));
+  (S.lectures || []).forEach(l => out.push({ type:'lec', id:l.id, title:l.title, meta:[l.host, SUBJ_L[l.s]], date:l.date || '',
+    when:l.date ? fmtD(l.date, true) : '', out:l.speaker || '', learned:l.learned || '', link:l.link,
+    set:v => { l.learned = v; save(); }, edit:() => editLecture(l) }));
+  out.forEach(e => { e.key = e.type + ':' + e.id; e.meta = e.meta.filter(Boolean); e.points = toPoints(e.learned); });
+  return out.sort((a, b) => (b.date || '0') < (a.date || '0') ? -1 : (b.date || '0') > (a.date || '0') ? 1 : 0);
+}
+function recMatches(e){
+  if(!recF.types.includes(e.type)) return false;
+  if(recF.gaps && e.points.length) return false;
+  if(recF.q && ![e.title, e.meta.join(' '), e.out, e.learned].join(' ').toLowerCase().includes(recF.q)) return false;
+  return true;
+}
+
+const LOGS = {
+  extracurriculars:{ types:['ex'], title:'Extracurriculars', add:'Add activity',
+    sub:'Sport, music, leadership, volunteering and anything else outside lessons. Under each, keep a few short points on what you learned. Those points are what your CV and personal statement are built from.' },
+  work:{ types:['work'], title:'Work experience logger', add:'Add placement',
+    sub:'Placements, insight days and virtual programmes you’ve done. Note what you did, and a few short points on what you learned. Interviewers ask about the second part.' },
+};
+function logStats(types){
+  const all = recEntries().filter(e => types.includes(e.type));
+  const pts = all.reduce((a, e) => a + e.points.length, 0);
+  return [[all.length, all.length === 1 ? 'entry' : 'entries'], [pts, pts === 1 ? 'learning point' : 'learning points'], [all.filter(e => !e.points.length).length, 'without notes yet']];
+}
+function logBar(){
+  return `<div class="filterbar"><div class="row">${searchbar('recQ', 'Search…', recF.q)}${sw('recGaps', 'Missing notes only', recF.gaps)}</div></div>`;
+}
+function bindLogBar(root){
+  $('#recGaps', root).onchange = e => { recF.gaps = e.target.checked; drawRecord(); };
+  bindSearch('recQ', q => { recF.q = q; drawRecord(); });
+}
+function viewLog(v, page){
+  const L = LOGS[page]; recF.types = L.types;
+  v.innerHTML = head({ crumbs:crumbsFor(page), title:L.title, sub:L.sub, stats:logStats(L.types),
+    actions:`<button class="btn primary" id="logAdd">${I(IC.plus,14)} ${L.add}</button>` }) + logBar() + `<div id="recBody"></div>`;
+  $('#logAdd').onclick = () => recNew(L.types[0]);
+  bindLogBar(v);
+  drawRecord();
+}
+const viewExtras = v => viewLog(v, 'extracurriculars');
+const viewWork = v => viewLog(v, 'work');
+function recNew(t){
+  if(t === 'sc') editScCustom(null, { _status:'done', date:isoToday() });
+  if(t === 'ex') editExtra();
+  if(t === 'work') editWork();
+  if(t === 'book') editBook(null, { status:'Finished', finished:isoToday() });
+  if(t === 'lec') editLecture();
+}
+function recItemHTML(e){
+  const T = REC_T[e.type];
+  return `<article class="rec-item" data-key="${esc(e.key)}" style="--c:${T.c}">
+    <div class="rec-side">${recF.types.length > 1 ? `<span class="rec-type"><i></i>${T.one}</span>` : ''}<span class="rec-when">${esc(e.when)}</span></div>
+    <div class="rec-main">
+      <div class="rec-top"><h3>${e.link ? `<a href="${esc(safeUrl(e.link))}" target="_blank" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}</h3><button class="btn sm ghost" data-edit>Edit</button></div>
+      ${e.meta.length ? `<p class="rec-meta">${e.meta.map(esc).join(', ')}${e.inCV ? ' <span class="chip soft">On CV</span>' : ''}</p>` : ''}
+      ${e.out ? `<p class="rec-out"><b>${T.out}</b> ${esc(e.out)}</p>` : ''}
+      <div class="rec-learn">
+        <h4>What I learned</h4>
+        ${e.points.length ? `<ul>${e.points.map((p, i) => `<li><span class="pt" contenteditable="true" spellcheck="true" data-pi="${i}" aria-label="Learning point ${i + 1}">${esc(p)}</span><button type="button" class="pt-del" data-pdel="${i}" aria-label="Remove this point">${I(IC.x, 13)}</button></li>`).join('')}</ul>` : ''}
+        <form class="rec-add"><span aria-hidden="true">${I(IC.plus, 13)}</span><input class="inp" maxlength="220" placeholder="${e.points.length ? 'Add another point' : 'What did you take from this? One short point, then press Enter'}" aria-label="Add a learning point"></form>
+      </div>
+    </div>
+  </article>`;
+}
+function drawRecord(){
+  const b = $('#recBody'); if(!b) return;
+  const all = recEntries().filter(e => recF.types.includes(e.type)), list = all.filter(recMatches);
+  if(!all.length){
+    const t = recF.types[0], what = { ex:['No activities yet', 'Add a club, team, instrument, role or volunteering commitment, then note what you learned from it in a few short points.', 'Add your first activity'],
+      work:['No placements logged yet', 'Add anything from a week in an office to a virtual programme, then note what you learned in a few short points.', 'Add your first placement'],
+      sc:['Nothing logged yet', 'Mark a competition as done or in progress, add a book you’ve read, or log a lecture. Then note what you learned in a few short points.', 'Log a competition'],
+      lec:['No lectures logged yet', 'After a lecture, press “I went” on it in Upcoming, or log one here. Then note what you learned in a few short points.', 'Log a lecture'] }[t];
+    b.innerHTML = emptyBox(what[0], what[1], `<button class="btn primary" data-first>${I(IC.plus,14)} ${what[2]}</button>`);
+    $('[data-first]', b).onclick = () => recNew(t); return;
+  }
+  b.innerHTML = list.length ? `<div class="rec-list">${list.map(recItemHTML).join('')}</div>` : emptyBox('No entries match', 'Clear the search or switch off “Missing notes only”.');
+  $$('.rec-item', b).forEach(bindRecItem);
+}
+function refreshLogStats(){
+  const k = (location.hash || '').slice(1).split('?')[0], st = $('.page-head .stats');
+  if(LOGS[k] && st) st.innerHTML = logStats(LOGS[k].types).map(x => `<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+}
+function bindRecItem(el){
+  const get = () => recEntries().find(x => x.key === el.dataset.key);
+  const redraw = focusAdd => {
+    refreshLogStats();
+    const e = get(); if(!e) return drawRecord();
+    const tmp = document.createElement('div'); tmp.innerHTML = recItemHTML(e);
+    const fresh = tmp.firstElementChild; el.replaceWith(fresh); bindRecItem(fresh);
+    if(focusAdd) $('.rec-add input', fresh).focus();
+  };
+  $('[data-edit]', el).onclick = () => get().edit();
+  $('.rec-add', el).onsubmit = ev => {
+    ev.preventDefault();
+    const val = $('input', ev.target).value.replace(/\s+/g, ' ').trim(); if(!val) return;
+    const e = get(); e.set(e.points.concat(val).join('\n')); redraw(true);
+  };
+  $$('[data-pdel]', el).forEach(btn => btn.onclick = () => { const e = get(); e.points.splice(+btn.dataset.pdel, 1); e.set(e.points.join('\n')); redraw(); });
+  $$('.pt', el).forEach(pt => {
+    pt.onkeydown = ev => { if(ev.key === 'Enter'){ ev.preventDefault(); pt.blur(); } if(ev.key === 'Escape'){ pt.textContent = get().points[+pt.dataset.pi] || ''; pt.blur(); } };
+    pt.onpaste = ev => { ev.preventDefault(); document.execCommand('insertText', false, (ev.clipboardData.getData('text/plain') || '').replace(/\s+/g, ' ')); };
+    pt.onblur = () => {
+      const e = get(), i = +pt.dataset.pi, val = pt.textContent.replace(/\s+/g, ' ').trim();
+      if(val === e.points[i]) return;
+      if(val) e.points[i] = val; else e.points.splice(i, 1);
+      e.set(e.points.join('\n'));
+      if(!val) redraw(); else refreshLogStats();
+    };
+  });
+}
+
+/* ============================================================
+   ACADEMIC LECTURES
+   Data: data/lectures.json (rewritten every 3 hours by scripts/scan-lectures.mjs).
+   What you attended is kept in S.lectures, with "What I learned" points like every other log.
+   ============================================================ */
+const LEC_HOSTS = [
+  { name:'LSE public events', where:'London and online', what:'Talks by leading economists, politicians and writers. Most are free, with a ticket.', link:'https://www.lse.ac.uk/events' },
+  { name:'Gresham College', where:'London and online', what:'Free public lectures across economics, law, philosophy and more, with recordings online.', link:'https://www.gresham.ac.uk/whats-on' },
+  { name:'Institute for Fiscal Studies', where:'London and online', what:'Briefings and lectures on tax, public spending and the economy.', link:'https://ifs.org.uk/events' },
+  { name:'Institute for Government', where:'London and online', what:'Discussions with ministers, officials and experts on how government works.', link:'https://www.instituteforgovernment.org.uk/our-events' },
+  { name:'Resolution Foundation', where:'London and online', what:'Report launches and debates on living standards, wages and the economy.', link:'https://www.resolutionfoundation.org/events/' },
+  { name:'The British Academy', where:'London and around the UK', what:'Lectures and festivals from the national academy for the humanities and social sciences.', link:'https://www.thebritishacademy.ac.uk/events/' },
+  { name:'RSA', where:'London and online', what:'Talks on ideas, society and the economy.', link:'https://www.thersa.org/events/upcoming' },
+  { name:'Oxford Talks', where:'Oxford and online', what:'The University of Oxford’s listing of lectures and seminars. Check each one is open to the public.', link:'https://talks.ox.ac.uk/' },
+  { name:'Cambridge Talks', where:'Cambridge and online', what:'The University of Cambridge’s listing of talks and seminars. Check each one is open to the public.', link:'https://talks.cam.ac.uk/' },
+];
+const LEC = { updated:null, items:[], loaded:false, error:false };
+const lcF = { tab:'up', q:'', subjects:new Set(), host:'', online:false, saved:false };
+async function loadLectures(){
+  try{
+    const r = await fetch('data/lectures.json?t=' + Date.now(), { cache:'no-store' }); if(!r.ok) throw 0;
+    const d = await r.json(); Object.assign(LEC, { updated:d.updated || null, items:d.items || [], loaded:true, error:false });
+  }catch(e){ Object.assign(LEC, { loaded:true, error:true }); }
+  if(location.hash.startsWith('#lectures') && lcF.tab === 'up') drawLectures();
+}
+setInterval(loadLectures, 10 * 60 * 1000);
+function lecLiveLine(){
+  if(!LEC.loaded) return '<span class="live"><i></i>Loading listings…</span>';
+  if(LEC.error || !LEC.updated) return '<span class="live wait"><i></i>Lecture checker set up · listings appear after its first run</span>';
+  return `<span class="live"><i></i>Live · hosts’ own pages checked ${ago(LEC.updated.slice(0,10)).toLowerCase()} at ${LEC.updated.slice(11,16)} UTC</span>`;
+}
+const lecAttended = it => (S.lectures || []).some(l => l.ref === it.id);
+function viewLectures(v){
+  if(!S.lectures) S.lectures = [];
+  if(!S.lecSaved) S.lecSaved = {};
+  const up = LEC.items.filter(i => daysUntil(i.date) >= 0);
+  v.innerHTML = head({
+    crumbs:crumbsFor('lectures'), title:'Academic lectures',
+    sub:'Public lectures and debates on philosophy, politics, economics and law, in London, Oxford and online. Listings come from each host’s own website and are refreshed every 3 hours.',
+    stats:[[up.length, 'upcoming'], [up.filter(i => daysUntil(i.date) <= 7).length, 'in the next 7 days'], [S.lectures.length, 'attended']],
+    actions:`<button class="btn primary" id="lcAdd">${I(IC.plus,14)} Log a lecture</button>`
+  }) + `
+  <div class="subtabs" role="tablist">
+    <button role="tab" data-t="up" aria-selected="${lcF.tab === 'up'}">Upcoming <span class="n">${up.length}</span></button>
+    <button role="tab" data-t="att" aria-selected="${lcF.tab === 'att'}">Attended <span class="n">${S.lectures.length}</span></button>
+    <button role="tab" data-t="where" aria-selected="${lcF.tab === 'where'}">Where to look</button>
+  </div>
+  <div id="lcBody"></div>`;
+  $$('.subtabs button', v).forEach(b => b.onclick = () => { lcF.tab = b.dataset.t; viewLectures(v); });
+  $('#lcAdd').onclick = () => editLecture();
+  drawLectures();
+}
+function drawLectures(){
+  const body = $('#lcBody'); if(!body) return;
+  if(lcF.tab === 'where'){
+    body.innerHTML = `<p class="muted" style="margin:0 0 16px;max-width:64ch">The hosts the checker reads. Most lectures are free but need a ticket, and popular ones go quickly, so book when they’re announced.</p>
+      <div class="grid">${LEC_HOSTS.map(h => `<a class="card host-card" href="${esc(h.link)}" target="_blank" rel="noopener"><h3>${esc(h.name)}</h3><div class="when">${esc(h.where)}</div><p class="note">${esc(h.what)}</p><span class="lnk">Open their listings ${I(IC.ext,12)}</span></a>`).join('')}</div>`;
+    return;
+  }
+  if(lcF.tab === 'att'){
+    recF.types = ['lec'];
+    body.innerHTML = logBar() + '<div id="recBody"></div>';
+    bindLogBar(body); drawRecord(); return;
+  }
+  const hosts = [...new Set(LEC.items.map(i => i.host))].sort();
+  if(!$('#lcFilters', body)){
+    body.innerHTML = `<div style="margin:-6px 0 14px" id="lcLive"></div>
+    <div class="filterbar" id="lcFilters">
+      <div class="row">${searchbar('lcQ', 'Search lectures, speakers, hosts…', lcF.q)}${selectBox('lcHost', 'All hosts', hosts, lcF.host)}</div>
+      <div class="row" id="lcPills">${SUBJ.filter(s => s.k !== 'multi').map(s => `<button class="pill" data-s="${s.k}" style="--c:var(--${s.k})" aria-pressed="${lcF.subjects.has(s.k)}"><span class="dot"></span>${s.label}</button>`).join('')}
+        <span style="width:6px"></span>${sw('lcOnline', 'Online', lcF.online)} ${sw('lcSaved', 'Saved only', lcF.saved)}<span class="count" id="lcCount"></span></div>
+    </div><div id="lcList"></div>`;
+    bindSearch('lcQ', q => { lcF.q = q; drawLectures(); });
+    $('#lcHost', body).onchange = e => { lcF.host = e.target.value; drawLectures(); };
+    $('#lcOnline', body).onchange = e => { lcF.online = e.target.checked; drawLectures(); };
+    $('#lcSaved', body).onchange = e => { lcF.saved = e.target.checked; drawLectures(); };
+    $$('#lcPills .pill', body).forEach(b => b.onclick = () => { const k = b.dataset.s; lcF.subjects.has(k) ? lcF.subjects.delete(k) : lcF.subjects.add(k); b.setAttribute('aria-pressed', lcF.subjects.has(k)); drawLectures(); });
+  }
+  $('#lcLive', body).innerHTML = lecLiveLine();
+  const match = i => (!lcF.subjects.size || lcF.subjects.has(i.s)) && (!lcF.host || i.host === lcF.host) && (!lcF.online || /online/i.test(i.format || ''))
+    && (!lcF.saved || S.lecSaved[i.id]) && (!lcF.q || [i.title, i.host, i.venue, i.speakers].join(' ').toLowerCase().includes(lcF.q));
+  const up = LEC.items.filter(i => daysUntil(i.date) >= 0).sort((a, b) => (a.date + (a.time || '')).localeCompare(b.date + (b.time || '')));
+  const past = LEC.items.filter(i => { const d = daysUntil(i.date); return d < 0 && d >= -14; }).sort((a, b) => b.date.localeCompare(a.date));
+  const shown = up.filter(match), shownPast = past.filter(match);
+  $('#lcCount', body).textContent = shown.length === up.length ? up.length + ' upcoming' : shown.length + ' of ' + up.length;
+  const months = [];
+  shown.forEach(i => { const m = i.date.slice(0, 7); let g = months.find(x => x.m === m); if(!g) months.push(g = { m, items:[] }); g.items.push(i); });
+  const mLabel = m => { const d = parseD(m + '-01'); return d.toLocaleDateString('en-GB', { month:'long', year:'numeric' }); };
+  $('#lcList', body).innerHTML = (!LEC.items.length
+      ? emptyBox(LEC.updated ? 'No lectures found right now' : 'Listings are on their way', LEC.updated ? 'The checker found nothing upcoming on the hosts’ pages. See “Where to look” for the hosts it reads.' : 'The lecture checker runs in the cloud every 3 hours. The first listings appear after its next run. Meanwhile, “Where to look” has every host.')
+      : months.length ? months.map(g => `<section class="tl-month"><div class="tl-mhead"><h2>${mLabel(g.m)}</h2><span class="n">${g.items.length}</span></div><div class="lec-list">${g.items.map(lecRow).join('')}</div></section>`).join('')
+      : emptyBox('Nothing matches those filters', 'Clear the search or the subject filters.'))
+    + (shownPast.length ? `<section class="tl-month"><div class="tl-mhead"><h2>Last two weeks</h2><span class="n">Went to one? Log it</span></div><div class="lec-list">${shownPast.map(lecRow).join('')}</div></section>` : '');
+  $$('[data-lstar]', body).forEach(b => b.onclick = () => { const id = b.dataset.lstar; S.lecSaved[id] = !S.lecSaved[id]; if(!S.lecSaved[id]) delete S.lecSaved[id]; save(); drawLectures(); });
+  $$('[data-went]', body).forEach(b => b.onclick = () => {
+    const it = LEC.items.find(i => i.id === b.dataset.went); if(!it || lecAttended(it)) return;
+    S.lectures.push({ id:uid(), ref:it.id, title:it.title, host:it.host, speaker:it.speakers || '', date:it.date, link:it.link, s:it.s || 'multi', learned:'' });
+    save(); toast('Logged. Add what you learned under Attended'); drawLectures();
+    const n = $('.subtabs [data-t="att"] .n'); if(n) n.textContent = S.lectures.length;
+  });
+}
+function lecRow(i){
+  const d = parseD(i.date), past = daysUntil(i.date) < 0, saved = !!S.lecSaved[i.id];
+  const went = lecAttended(i);
+  return `<div class="lec-row c-${i.s || 'multi'}">
+    <div class="lec-date"><b>${d.getDate()}</b><span>${d.toLocaleDateString('en-GB', { weekday:'short' })}${i.time ? ', ' + esc(i.time) : ''}</span></div>
+    <div class="lec-main">
+      <h3><a href="${esc(safeUrl(i.link))}" target="_blank" rel="noopener">${esc(i.title)}</a></h3>
+      <p class="lec-meta">${esc([i.host, i.venue && i.venue !== i.host ? i.venue : '', i.speakers].filter(Boolean).join(', '))}</p>
+      <div class="chips">${i.s && SUBJ_L[i.s] ? `<span class="chip subj">${SUBJ_L[i.s]}</span>` : ''}${i.format ? `<span class="chip soft">${esc(i.format)}</span>` : ''}${i.free ? '<span class="chip ok">Free</span>' : ''}</div>
+    </div>
+    <div class="lec-side">
+      ${past ? (went ? '<span class="chip ok">Logged</span>' : `<button class="btn sm" data-went="${esc(i.id)}">${I(IC.check,13)} I went</button>`)
+             : `<button class="act ${saved ? 'on' : ''}" data-lstar="${esc(i.id)}" title="${saved ? 'Saved' : 'Save'}" aria-label="${saved ? 'Saved' : 'Save'}">${I(IC.star,17)}</button>`}
+      <a class="btn sm" href="${esc(safeUrl(i.link))}" target="_blank" rel="noopener">${past ? 'Details' : 'Book'} ${I(IC.ext,12)}</a>
+    </div>
+  </div>`;
+}
+function editLecture(l){
+  openForm({ title: l ? 'Edit lecture' : 'Log a lecture', value: l || { date:isoToday(), s:'multi' },
+    fields:[
+      { k:'title', label:'Lecture', req:true, full:true, ph:'e.g. Why nations fail, revisited' },
+      { k:'speaker', label:'Speaker' }, { k:'host', label:'Host', list:LEC_HOSTS.map(h => h.name), ph:'e.g. LSE' },
+      { k:'date', label:'Date', type:'date' }, { k:'s', label:'Subject', type:'select', opts:SUBJ.map(x => [x.k, x.label]) },
+      { k:'link', label:'Link', type:'url', full:true, ph:'https://' },
+      { k:'learned', label:'What I learned', type:'textarea', hint:'one short point per line' },
+    ],
+    onSave: out => { if(!S.lectures) S.lectures = []; l ? Object.assign(l, out) : S.lectures.push(Object.assign({ id:uid() }, out)); save(); if(location.hash.startsWith('#lectures')) lcF.tab = 'att'; route(); },
+    onDelete: l ? () => { S.lectures = S.lectures.filter(x => x !== l); save(); route(); } : null });
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+const ABOUT = {
+  universities:'Every PPE, economics, law and politics course you’re weighing up, with the typical offer, required and suggested A-levels, GCSE rules and admissions test. Add your predicted grades and each course shows whether you meet it.',
+  lectures:'Public lectures and debates on philosophy, politics, economics and law from LSE, Gresham College, the IFS, Oxford and more, refreshed every 3 hours. Log the ones you go to, with what you learned.',
+  supercurriculars:'Competitions, essay prizes and programmes sorted by the school year they apply to, each with a reading guide. Your log keeps what you’ve done, read and attended, with a few short points on what you learned.',
+  extracurriculars:'Sport, music, leadership and volunteering, with dates, roles and achievements, and what you learned from each.',
+  openings:'Spring weeks, insight days, internships and apprenticeships at UK firms. Each firm’s own careers site is checked every 3 hours, and every role links to its own page.',
+  work:'Placements, insight days and virtual programmes you’ve done: what you did, and a few short points on what you learned.',
+  contacts:'People you meet at events and placements, how you met, and when to follow up so the connection doesn’t go cold.',
+  cv:'A one-page CV that imports straight from your logs. Edit the wording, choose a layout, then save as PDF.',
+};
+function viewAbout(v){
+  v.innerHTML = `<article class="about">
+    <h1>Admissions Home</h1>
+    <p class="about-lede">One place to plan a PPE application. Find lectures, competitions and openings, log what you do and what you learned from it, and turn that into a CV and a personal statement.</p>
+    ${NAV.map(g => `<section class="about-group"><h2>${esc(g.label)}</h2><div class="about-list">${g.items.map(it => `<a class="about-row" href="#${it.k}">
+      <h3>${esc(it.label)}</h3><p>${esc(ABOUT[it.k] || it.desc)}</p></a>`).join('')}</div></section>`).join('')}
+    <div class="about-notes">
+      <section><h2>Your data stays with you</h2><p>Everything you type is saved in this browser only. Nothing is uploaded. Use the backup button in the top bar to export a copy or move it to another device.</p></section>
+      <section><h2>What updates by itself</h2><p>Openings, lectures and supercurricular dates are refreshed from official pages every 3 hours, in the cloud. You don’t need to open anything for that to happen.</p></section>
+    </div>
+  </article>`;
 }
 
 /* ============================================================
@@ -1176,65 +1453,6 @@ function exportContacts(){
 }
 
 /* ============================================================
-   REVISION RESOURCES
-   ============================================================ */
-const RES_TYPES = { notes:'Notes', papers:'Past papers', video:'Videos', practice:'Practice', flashcards:'Flashcards', tests:'Admissions tests', reading:'Reading' };
-const RES_COL = { notes:'law', papers:'econ', video:'pol', practice:'multi', flashcards:'phil', tests:'teal', reading:'grey' };
-const rsF = { subj:'', level:'', type:'', fav:false, q:'' };
-function allRes(){ return RES_DATA.map(r => Object.assign({ id:'r:' + slug(r.t) }, r)).concat(S.resCustom.map(r => Object.assign({ mine:true }, r))); }
-function viewRevision(v){
-  const all = allRes();
-  const subjects = [...new Set(all.map(r => r.subj))];
-  v.innerHTML = head({
-    crumbs:crumbsFor('revision'), title:'Revision resources',
-    sub:'The sites worth your time for GCSE, A-level and admissions tests. Star the ones you use and add your own.',
-    stats:[[all.length, 'resources'], [subjects.length, 'subjects'], [Object.values(S.resFav).filter(Boolean).length, 'starred']],
-    actions:`<button class="btn primary" id="rAdd">${I(IC.plus,14)} Add resource</button>`
-  }) + `<div class="filterbar"><div class="row">${searchbar('rQ', 'Search resources…', rsF.q)}
-    <div class="seg" id="rLvl">${[['','All levels'],['gcse','GCSE'],['alevel','A-level']].map(l => `<button data-l="${l[0]}" aria-pressed="${rsF.level === l[0]}">${l[1]}</button>`).join('')}</div></div>
-    <div class="row">${selectBox('rSubj', 'All subjects', subjects, rsF.subj)} ${selectBox('rType', 'All types', Object.entries(RES_TYPES), rsF.type)} ${sw('rFav', 'Starred only', rsF.fav)}</div></div>
-    <div id="rBody"></div>`;
-  $('#rAdd').onclick = () => editRes();
-  bindSearch('rQ', q => { rsF.q = q; drawRes(); });
-  $('#rSubj').onchange = e => { rsF.subj = e.target.value; drawRes(); };
-  $('#rType').onchange = e => { rsF.type = e.target.value; drawRes(); };
-  $('#rFav').onchange = e => { rsF.fav = e.target.checked; drawRes(); };
-  $$('#rLvl button').forEach(b => b.onclick = () => { rsF.level = b.dataset.l; $$('#rLvl button').forEach(x => x.setAttribute('aria-pressed', x === b)); drawRes(); });
-  drawRes();
-}
-function drawRes(){
-  const b = $('#rBody');
-  const list = allRes().filter(r => (!rsF.subj || r.subj === rsF.subj) && (!rsF.type || r.type === rsF.type)
-    && (!rsF.level || r.level === rsF.level || r.level === 'both') && (!rsF.fav || S.resFav[r.id])
-    && (!rsF.q || [r.t, r.d, r.subj].join(' ').toLowerCase().includes(rsF.q)));
-  const subjects = [...new Set(list.map(r => r.subj))];
-  b.innerHTML = subjects.length ? subjects.map(s => `<section class="tl-month"><div class="tl-mhead"><h2>${esc(s)}</h2><span class="n">${list.filter(r => r.subj === s).length}</span></div>
-    <div class="grid">${list.filter(r => r.subj === s).map(r => `<div class="card" style="--sc:var(--${RES_COL[r.type] || 'grey'})">
-      <a class="card-link" href="${esc(safeUrl(r.u))}" target="_blank" rel="noopener" aria-label="${esc(r.t)}"></a>
-      <div class="res"><span class="av">${esc(r.t[0])}</span><div style="flex:1;min-width:0">
-        <h3>${esc(r.t)} <span class="faint">${I(IC.ext,12)}</span></h3>
-        <div class="meta" style="margin:4px 0 0"><span class="chip subj">${RES_TYPES[r.type] || 'Other'}</span><span class="chip soft">${{ gcse:'GCSE', alevel:'A-level', both:'GCSE & A-level' }[r.level] || ''}</span>${r.mine ? '<span class="chip soft">Yours</span>' : ''}</div>
-        ${r.d ? `<p>${esc(r.d)}</p>` : ''}</div>
-        <div style="display:flex;flex-direction:column;gap:2px"><button class="act ${S.resFav[r.id] ? 'on' : ''}" data-fav="${esc(r.id)}" aria-label="Star">${I(IC.star,17)}</button>
-        ${r.mine ? `<button class="act" data-edit="${esc(r.id)}" aria-label="Edit" style="font-size:12px">✎</button>` : ''}</div></div></div>`).join('')}</div></section>`).join('')
-    : emptyBox('Nothing matches', 'Try clearing a filter.');
-  $$('[data-fav]', b).forEach(x => x.onclick = e => { e.preventDefault(); S.resFav[x.dataset.fav] = !S.resFav[x.dataset.fav]; save(); drawRes(); });
-  $$('[data-edit]', b).forEach(x => x.onclick = e => { e.preventDefault(); editRes(S.resCustom.find(r => r.id === x.dataset.edit)); });
-}
-function editRes(r){
-  openForm({ title: r ? 'Edit resource' : 'Add resource', value: r || { level:'both', type:'notes' },
-    fields:[
-      { k:'t', label:'Name', req:true }, { k:'u', label:'Link', type:'url', req:true, ph:'https://' },
-      { k:'subj', label:'Subject', req:true, list:[...new Set(allRes().map(x => x.subj))] },
-      { k:'type', label:'Type', type:'select', opts:Object.entries(RES_TYPES) },
-      { k:'level', label:'Level', type:'select', opts:[['both','GCSE & A-level'],['gcse','GCSE'],['alevel','A-level']] },
-      { k:'d', label:'Why it’s useful', type:'textarea' },
-    ],
-    onSave: out => { r ? Object.assign(r, out) : S.resCustom.push(Object.assign({ id:'m:' + uid() }, out)); save(); route(); },
-    onDelete: r ? () => { S.resCustom = S.resCustom.filter(x => x !== r); save(); route(); } : null });
-}
-
-/* ============================================================
    UNIVERSITIES
    ============================================================ */
 const AREAS = { ppe:['PPE','phil'], law:['Law','law'], econ:['Economics','econ'], pol:['Politics & social sciences','pol'], other:['Other','grey'] };
@@ -1250,19 +1468,31 @@ function gradeCheck(offer){
   return ok ? '<span class="chip ok">Meets offer</span>' : '<span class="chip bad">Below offer</span>';
 }
 function allUni(){ return UNI_DATA.concat(S.uniCustom.map(u => Object.assign({ mine:true }, u))); }
+const UNI_DOMAIN = { 'Oxford':'ox.ac.uk', 'Cambridge':'cam.ac.uk', 'LSE':'lse.ac.uk', 'Imperial':'imperial.ac.uk', 'Durham':'durham.ac.uk', 'UCL':'ucl.ac.uk',
+  "King's College London":'kcl.ac.uk', 'Warwick':'warwick.ac.uk', 'St Andrews':'st-andrews.ac.uk', 'Edinburgh':'ed.ac.uk', 'Bristol':'bristol.ac.uk', 'Exeter':'exeter.ac.uk', 'York':'york.ac.uk', 'Manchester':'manchester.ac.uk', 'Bath':'bath.ac.uk', 'Nottingham':'nottingham.ac.uk' };
+function uniDomain(name, link){
+  if(UNI_DOMAIN[name]) return UNI_DOMAIN[name];
+  try{ const h = new URL(safeUrl(link)).hostname.replace(/^www\./, ''); return /ucas\.com$/.test(h) ? '' : h; }catch(e){ return ''; }
+}
+/* the university's own site icon, with its initials as a fallback if the icon can't load */
+function uniLogo(name, link, size = 22){
+  const d = uniDomain(name, link), ini = esc(String(name).replace(/[^A-Za-z ]/g, '').split(/\s+/).filter(w => w && !/^(of|the|and|college)$/i.test(w)).map(w => w[0]).join('').slice(0, 3) || '?');
+  return `<span class="uni-logo" style="--s:${size}px" aria-hidden="true">${d ? `<img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64" alt="" loading="lazy" onerror="this.remove()">` : ''}<i>${ini}</i></span>`;
+}
+const aLevelCell = u => `<div class="alv"><span><b>Required</b> ${esc(u.required || '—')}</span>${u.suggested ? `<span class="${/^none stated$/i.test(u.suggested) ? 'faint' : ''}"><b>Suggested</b> ${esc(u.suggested)}</span>` : ''}</div>`;
 function viewUni(v){
   const all = allUni();
   v.innerHTML = head({
     crumbs:crumbsFor('universities'), title:'Universities',
-    sub:'Courses you’re considering, with the typical offer, required and recommended subjects, and the admissions test for each.',
+    sub:'Courses you’re considering, with the typical offer, required and suggested A-levels, and the admissions test for each.',
     stats:[[all.length, 'courses'], [new Set(all.map(u => u.uni)).size, 'universities'], [Object.values(S.uni).filter(u => u.status).length, 'on your list']],
     actions:`<button class="btn primary" id="uAdd">${I(IC.plus,14)} Add course</button>`
   }) + `
   <div class="caveat">${I(IC.warn,15)}<div>Figures are for <b>2027 entry</b>, checked on each university’s own page in September 2026. You’ll apply in autumn 2028, so re-check every course in the summer before you apply. Where a page didn’t state GCSE requirements, the card says so — that usually means none beyond the university’s general rules.</div></div>
   <div class="gradebox"><b>Your predicted / target grades</b><input id="uGr" value="${esc(S.grades)}" placeholder="e.g. A*A*A" aria-label="Your grades"><span class="muted">Each course shows whether they meet its typical offer.</span></div>
   <h2 class="sec">PPE at a glance</h2>
-  <div class="tbl-wrap" style="margin-bottom:30px"><table class="tbl"><thead><tr><th>University</th><th>Course</th><th>Offer</th><th>A-level required</th><th>GCSE</th><th>Test</th><th></th></tr></thead><tbody>
-  ${all.filter(u => u.area === 'ppe').map(u => `<tr><td class="co">${esc(u.uni)}</td><td>${esc(u.course)}</td><td style="font-family:var(--mono)">${esc(u.offer)}</td><td>${esc(u.required)}</td><td class="prog">${esc(u.gcse)}</td><td class="prog">${esc(u.test)}</td><td>${gradeCheck(u.offer)}</td></tr>`).join('')}
+  <div class="tbl-wrap" style="margin-bottom:30px"><table class="tbl"><thead><tr><th>University</th><th>Course</th><th>Offer</th><th>A-levels</th><th>GCSE</th><th>Test</th><th></th></tr></thead><tbody>
+  ${all.filter(u => u.area === 'ppe').map(u => `<tr><td class="co"><span class="uni-name">${uniLogo(u.uni, u.link)}${esc(u.uni)}</span></td><td>${esc(u.course)}</td><td class="num">${esc(u.offer)}</td><td>${aLevelCell(u)}</td><td class="prog">${esc(u.gcse)}</td><td class="prog">${esc(u.test)}</td><td>${gradeCheck(u.offer)}</td></tr>`).join('')}
   </tbody></table></div>
   <div class="filterbar"><div class="row">${searchbar('uQ', 'Search universities, courses, tests…', unF.q)}</div>
     <div class="row">${Object.entries(AREAS).filter(([k]) => all.some(u => (u.area || 'other') === k)).map(([k, a]) => `<button class="pill" data-a="${k}" style="--c:var(--${a[1]})" aria-pressed="${unF.area === k}"><span class="dot"></span>${a[0]}</button>`).join('')}
@@ -1280,11 +1510,11 @@ function viewUni(v){
 function drawUni(){
   const b = $('#uBody');
   const list = allUni().filter(u => (!unF.area || (u.area || 'other') === unF.area) && (!unF.short || (S.uni[u.id] || {}).status)
-    && (!unF.q || [u.uni, u.course, u.test, u.required, u.recommended, u.gcse].join(' ').toLowerCase().includes(unF.q)));
+    && (!unF.q || [u.uni, u.course, u.test, u.required, u.suggested, u.recommended, u.gcse].join(' ').toLowerCase().includes(unF.q)));
   const ORDER = { ppe:0, econ:1, law:2, pol:3 };
   list.sort((a, b) => (ORDER[a.area] ?? 9) - (ORDER[b.area] ?? 9));
   const unis = [...new Set(list.map(u => u.uni))];
-  b.innerHTML = unis.length ? unis.map(n => `<section class="tl-month"><div class="tl-mhead"><h2>${esc(n)}</h2><span class="n">${list.filter(u => u.uni === n).length} course${list.filter(u => u.uni === n).length > 1 ? 's' : ''}</span></div>
+  b.innerHTML = unis.length ? unis.map(n => `<section class="tl-month"><div class="tl-mhead"><h2 class="uni-name">${uniLogo(n, (list.find(u => u.uni === n) || {}).link, 26)}${esc(n)}</h2><span class="n">${list.filter(u => u.uni === n).length} course${list.filter(u => u.uni === n).length > 1 ? 's' : ''}</span></div>
     <div class="grid">${list.filter(u => u.uni === n).map(u => { const st = S.uni[u.id] || {}; const a = AREAS[u.area] || AREAS.other; return `
     <div class="card bar c-${a[1]}">
       <div class="meta"><span class="chip subj">${a[0]}</span>${u.ucas ? `<span class="chip soft">UCAS ${esc(u.ucas)}</span>` : ''}${u.years ? `<span class="chip soft">${esc(u.years)} years</span>` : ''}${gradeCheck(u.offer)}${u.mine ? '<span class="chip soft">Added by you</span>' : ''}</div>
@@ -1292,8 +1522,9 @@ function drawUni(){
       <div class="offer">${esc(u.offer || '—')}</div>
       <dl class="kv">
         <dt>A-level required</dt><dd>${esc(u.required || '—')}</dd>
+        ${u.suggested && !/^none stated$/i.test(u.suggested) ? `<dt>Suggested</dt><dd>${esc(u.suggested)}</dd>` : ''}
         <dt>GCSE</dt><dd>${esc(u.gcse || '—')}</dd>
-        ${u.recommended ? `<dt>Recommended</dt><dd>${esc(u.recommended)}</dd>` : ''}
+        ${u.recommended ? `<dt>Notes</dt><dd>${esc(u.recommended)}</dd>` : ''}
         <dt>Test</dt><dd>${esc(u.test || '—')}</dd>
         ${u.other ? `<dt>Also</dt><dd>${esc(u.other)}</dd>` : ''}
         ${u.stats ? `<dt>Competition</dt><dd>${esc(u.stats)}</dd>` : ''}
@@ -1312,7 +1543,7 @@ function editUni(u){
       { k:'uni', label:'University', req:true, list:[...new Set(allUni().map(x => x.uni))] }, { k:'course', label:'Course', req:true },
       { k:'area', label:'Area', type:'select', opts:Object.entries(AREAS).map(([k, a]) => [k, a[0]]) }, { k:'ucas', label:'UCAS code' },
       { k:'offer', label:'Typical offer', ph:'A*AA' }, { k:'years', label:'Length (years)', type:'number' },
-      { k:'required', label:'Required subjects', full:true }, { k:'recommended', label:'Recommended subjects', full:true },
+      { k:'required', label:'Required subjects', full:true }, { k:'suggested', label:'Suggested subjects', full:true, ph:'e.g. History and/or English Lit' }, { k:'recommended', label:'Other subject notes', full:true },
       { k:'test', label:'Admissions test', full:true }, { k:'other', label:'Other notes', full:true },
       { k:'link', label:'Course page', type:'url', full:true },
     ],
@@ -1327,7 +1558,7 @@ const CV_DEF = () => ({ template:'classic', name:'', email:'', phone:'', locatio
   education:[{ title:'', org:'', dates:'', bullets:'' }], experience:[], activities:[], achievements:[], skills:'', interests:'' });
 const CV_SECTIONS = [
   { k:'education',    label:'Education',                   ph:{ title:'GCSEs (predicted)', org:'School name', bullets:'Maths 9, English Language 9, …' } },
-  { k:'experience',   label:'Work experience',             ph:{ title:'Work experience', org:'Company', bullets:'One achievement per line' }, imp:'Import from Work experience' },
+  { k:'experience',   label:'Work experience',             ph:{ title:'Work experience', org:'Company', bullets:'One achievement per line' }, imp:'Import from Work experience logger' },
   { k:'activities',   label:'Positions & activities',      ph:{ title:'Captain', org:'School hockey team', bullets:'One achievement per line' }, imp:'Import from Extracurriculars' },
   { k:'achievements', label:'Supercurriculars & awards',   ph:{ title:'John Locke Essay Prize — Commended', org:'', bullets:'' }, imp:'Import completed supercurriculars' },
 ];
@@ -1337,7 +1568,7 @@ function viewCV(v){
   const inp = (k, label, type='text', ph='') => `<label class="field">${label}<input class="inp" data-cv="${k}" type="${type}" value="${esc(c[k])}" placeholder="${esc(ph)}"></label>`;
   v.innerHTML = head({
     crumbs:crumbsFor('cv'), title:'CV builder',
-    sub:'A clean one-page CV. Pull entries in from your other pages, edit the wording, then save as PDF.',
+    sub:'A clean one-page CV. Import entries from your logs, edit the wording, then save as PDF.',
     actions:`<div class="seg" id="cvT">${['classic','modern'].map(t => `<button data-t="${t}" aria-pressed="${c.template === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div><button class="btn primary" id="cvPrint">${I(IC.print,14)} Save as PDF</button>`
   }) + cvFilePanel() + `<h2 class="sec" style="margin-top:26px">Builder</h2><div class="cv-layout">
     <div class="cv-editor">
@@ -1386,9 +1617,9 @@ function viewCV(v){
 function cvImport(k){
   const c = cv(), have = new Set(c[k].map(e => (e.title + '|' + e.org).toLowerCase()));
   let add = [];
-  if(k === 'experience') add = S.work.filter(w => w.inCV).map(w => ({ title:w.role || w.type || 'Work experience', org:w.company, dates:w.start ? fmtRange(w.start).replace(' – present', '') : '', bullets:w.did || '' }));
+  if(k === 'experience') add = S.work.filter(w => w.inCV).map(w => ({ title:w.role || w.type || 'Work experience', org:w.company, dates:w.start ? fmtRange(w.start).replace(' – present', '') : '', bullets:w.did || w.learned || '' }));
   if(k === 'activities') add = S.extras.filter(e => e.inCV).map(e => ({ title:e.role || e.title, org:e.role ? e.title + (e.org ? ', ' + e.org : '') : e.org || '', dates:fmtRange(e.start, e.end), bullets:e.achieve || '' }));
-  if(k === 'achievements') add = allSc().filter(i => scState(i.id).status === 'done').map(i => ({ title:strip(i.t), org:'', dates:'', bullets:scState(i.id).note || '' }));
+  if(k === 'achievements') add = allSc().filter(i => scState(i.id).status === 'done').map(i => { const st = scState(i.id); return { title:strip(i.t) + (st.result ? ', ' + st.result : ''), org:'', dates:st.doneOn ? fmtRange(st.doneOn).replace(' – present', '') : '', bullets:st.learned || st.note || '' }; });
   add = add.filter(e => !have.has((e.title + '|' + e.org).toLowerCase()));
   c[k].push(...add); return add.length;
 }
@@ -1404,237 +1635,6 @@ function cvHTML(c){
 }
 
 
-/* ============================================================
-   ASK CLAUDE
-   In the Claude preview: uses the viewer's own Claude (sample capability).
-   On the GitHub site: uses an Anthropic API key you paste into Settings
-   (stored only in this browser).
-   ============================================================ */
-let SAMPLE = null;
-(async () => { try{ if(window.claude && claude.use) SAMPLE = await claude.use('sample'); }catch(e){} })();
-const claudeReady = () => !!SAMPLE || !!(S.settings.apiKey || '').trim();
-
-async function askClaude(turns, { onText, signal } = {}){
-  if(SAMPLE){
-    const r = await SAMPLE(turns, { onText, signal, cache:false });
-    return r.text;
-  }
-  const key = (S.settings.apiKey || '').trim();
-  if(!key) throw { code:'no_key', message:'Add an API key in Settings to use Claude on this site.' };
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method:'POST', signal,
-    headers:{ 'content-type':'application/json', 'x-api-key':key, 'anthropic-version':'2023-06-01', 'anthropic-dangerous-direct-browser-access':'true' },
-    body:JSON.stringify({ model:S.settings.model || 'claude-sonnet-5', max_tokens:4096, messages:turns })
-  });
-  const d = await res.json().catch(() => ({}));
-  if(!res.ok) throw { code:'api', message:(d.error && d.error.message) || ('Request failed (' + res.status + ')') };
-  const text = (d.content || []).map(c => c.text || '').join('');
-  if(onText) onText({ text });
-  return text;
-}
-function parseJSON(t){
-  try{ return JSON.parse(t); }catch(e){}
-  const f = t.match(/```(?:json)?\s*([\s\S]*?)```/); if(f){ try{ return JSON.parse(f[1]); }catch(e){} }
-  const a = t.indexOf('{'), b = t.lastIndexOf('}'); if(a >= 0 && b > a){ try{ return JSON.parse(t.slice(a, b + 1)); }catch(e){} }
-  return null;
-}
-const errCopy = e => ({ not_granted:'Claude wasn’t allowed for this page.', rate_limited:'Too many requests — try again in a minute.', refused:'Claude declined that request — try rewording it.',
-  no_key:'Add your Anthropic API key in Settings (the database icon, top right) to use Claude on the GitHub site.', session_expired:'Sign in to Claude again.' }[e && e.code] || (e && e.message) || 'Something went wrong — try again.');
-
-/* page context sent with each question */
-function pageContext(page){
-  const cut = (x, n = 9000) => { const t = JSON.stringify(x); return t.length > n ? t.slice(0, n) + '…' : t; };
-  switch(page){
-    case 'cv': return 'CV builder data (JSON): ' + cut(cv(), 14000) + (S.cvFile && S.cvFile.text ? '\n\nText of the CV file the student uploaded:\n' + S.cvFile.text.slice(0, 12000) : '');
-    case 'supercurriculars': return 'Supercurriculars the student has progress on: ' + cut(allSc().filter(i => scState(i.id).status || scState(i.id).saved).map(i => ({ id:i.id, t:strip(i.t), subject:SUBJ_L[i.s], when:strip(i.when), ...scState(i.id) }))) + '\nBooks: ' + cut(S.books);
-    case 'extracurriculars': return 'Extracurriculars: ' + cut(S.extras);
-    case 'work': return 'Work experience log: ' + cut(S.work);
-    case 'contacts': return 'Contacts (names, orgs, notes): ' + cut(S.contacts.map(c => ({ id:c.id, name:c.name, org:c.org, course:c.course, email:c.email, title:c.title, met:c.met, notes:c.notes, followUp:c.followUp }))); 
-    case 'openings': return 'Openings being tracked: ' + cut(OPS().filter(o => !o.remote).map(o => ({ id:o.id, company:o.company, role:o.role, programme:o.programme, deadline:o.deadline, status:o.status })));
-    case 'universities': return 'Courses on the page: ' + cut(allUni().map(u => ({ id:u.id, uni:u.uni, course:u.course, offer:u.offer, required:u.required, gcse:u.gcse, test:u.test, myStatus:(S.uni[u.id] || {}).status }))) + '\nStudent’s predicted grades: ' + (S.grades || 'not entered');
-    case 'revision': return 'Revision resources listed: ' + cut(allRes().map(r => r.t + ' (' + r.subj + ')')) + '\nThe student’s own added resources: ' + cut(S.resCustom);
-    default: return 'Summary: ' + S.extras.length + ' extracurriculars, ' + S.work.length + ' placements, ' + S.contacts.length + ' contacts, ' + (S.books || []).length + ' books.';
-  }
-}
-
-/* ---------- Claude can edit your entries — only when asked, only after you click Yes ---------- */
-const EDITABLE = {
-  extras:'Extracurriculars {title, cat, role, org, start, end (YYYY-MM-DD), hours, inCV, desc, achieve}',
-  work:'Work experience {company, role, sector, type, start, days, contact, inCV, did, learned}',
-  contacts:'Contacts {name, title, org (company or university), course (if at a university), sector, rel, met, email, phone, linkedin, last, followUp, notes}',
-  books:'My books {title, author, s (phil|pol|econ|law|multi), status (Want to read|Reading|Finished), finished, rating (1-5), learned, use}',
-  scCustom:'Own supercurriculars {t, s, year (y11|y1213), date, when, yr, link, note}',
-  sc:'Progress on a listed supercurricular — update only, by its id {status (planning|doing|done), result, doneOn, note, saved}',
-  openings:'Own openings {company, sector, role, roleType, programme, ageGroup (14-16|16-18|18+|uni1|uni2|grad), location, region, opens, deadline, rolling, link, status, notes}',
-  resCustom:'Own revision resources {t, u, subj, type (notes|papers|video|practice|flashcards|tests|reading), level (gcse|alevel|both), d}',
-  uniCustom:'Own university courses {uni, course, area (ppe|law|econ|pol), ucas, offer, years, required, recommended, gcse, test, other, link}',
-  uni:'Shortlist status of a listed course — update only, by its id {status}',
-  grades:'Predicted grades — replace, data is a string e.g. "A*A*A"',
-  cv:'The CV — replace, data is the complete CV object in the same shape as the CV builder data',
-};
-const EDIT_RULES = 'Always reply with ONLY one JSON object: {"reply": "your message to the student", "changes": [...]}.\n'
-  + 'Put changes in "changes" ONLY when the student has explicitly asked you to add, change or delete something in their planner in their latest message. For questions, advice or drafts, "changes" must be []. The student will be shown your changes and must click Yes before anything happens, so say in "reply" what you are proposing.\n'
-  + 'Each change: {"collection": one of ' + Object.keys(EDITABLE).join(', ') + ', "action": "add" | "update" | "delete" | "replace", "id": "existing id (update/delete)", "data": {fields}, "label": "short human description"}.\n'
-  + 'Collections:\n' + Object.entries(EDITABLE).map(([k, v]) => '- ' + k + ': ' + v).join('\n') + '\n'
-  + 'Only use ids that appear in the page data. Never invent grades, results, jobs or achievements — use only what the student tells you, and ask if something is missing. You cannot change the website’s design or code, only the student’s entries; say so if asked.';
-const ARR = ['extras','work','contacts','books','scCustom','openings','resCustom','uniCustom'];
-const PREFIX = { scCustom:'c:', resCustom:'m:', uniCustom:'u:' };
-const COL_NAME = { extras:'Extracurriculars', work:'Work experience', contacts:'Contacts', books:'My books', scCustom:'Supercurriculars', sc:'Supercurricular progress', openings:'Openings', resCustom:'Revision resources', uniCustom:'Universities', uni:'University shortlist', grades:'Predicted grades', cv:'CV' };
-function validChange(c){
-  if(!c || !EDITABLE[c.collection] || !['add','update','delete','replace'].includes(c.action)) return false;
-  if(['sc','uni'].includes(c.collection)) return c.action === 'update' && !!c.id;
-  if(['grades','cv'].includes(c.collection)) return c.action === 'replace' && c.data != null;
-  if(c.action === 'add') return c.data && typeof c.data === 'object';
-  if(c.action === 'update' || c.action === 'delete') return !!c.id && (S[c.collection] || []).some(x => x.id === c.id);
-  return false;
-}
-function describeChange(c){
-  const verb = { add:'Add to', update:'Update in', delete:'Delete from', replace:'Replace' }[c.action];
-  const item = c.label || (c.data && (c.data.name || c.data.title || c.data.t || c.data.company || c.data.course)) || ((S[c.collection] || []).find(x => x.id === c.id) || {}).name || c.id || '';
-  return `${verb} ${COL_NAME[c.collection]}${item ? ': ' + item : ''}`;
-}
-function applyChanges(changes){
-  let n = 0;
-  changes.forEach(c => {
-    const d = c.data || {};
-    if(c.collection === 'cv'){ S.cv = Object.assign(CV_DEF(), d); n++; return; }
-    if(c.collection === 'grades'){ S.grades = String(d); n++; return; }
-    if(c.collection === 'sc' || c.collection === 'uni'){ S[c.collection][c.id] = Object.assign({}, S[c.collection][c.id], d); n++; return; }
-    if(!S[c.collection]) S[c.collection] = [];
-    if(c.action === 'add'){ S[c.collection].push(Object.assign({}, d, { id:(PREFIX[c.collection] || '') + uid() })); n++; }
-    if(c.action === 'update'){ const x = S[c.collection].find(y => y.id === c.id); if(x){ Object.assign(x, d, { id:x.id }); n++; } }
-    if(c.action === 'delete'){ const before = S[c.collection].length; S[c.collection] = S[c.collection].filter(y => y.id !== c.id); if(S[c.collection].length < before) n++; }
-  });
-  return n;
-}
-function confirmCard(changes, page){
-  const box = document.createElement('div'); box.className = 'confirm';
-  box.innerHTML = `<b>Claude wants to make ${changes.length} change${changes.length > 1 ? 's' : ''}:</b><ul>${changes.map(c => `<li>${esc(describeChange(c))}</li>`).join('')}</ul>
-    <div class="row"><button class="btn primary sm" data-yes>Yes, make ${changes.length > 1 ? 'these changes' : 'this change'}</button><button class="btn sm" data-no>No</button></div>`;
-  $('[data-no]', box).onclick = () => { box.innerHTML = '<span class="faint">Declined — nothing was changed.</span>'; };
-  $('[data-yes]', box).onclick = () => {
-    const rp = makeRestorePoint(changes.map(describeChange).join('; '));
-    const n = applyChanges(changes); save();
-    const y = window.scrollY; VIEWS[page]($('#view')); window.scrollTo(0, y);
-    box.innerHTML = `<span>✓ ${n} change${n === 1 ? '' : 's'} made. A restore point was saved.</span> `;
-    const u = document.createElement('button'); u.className = 'btn sm'; u.textContent = 'Undo (restore)'; u.onclick = () => restoreTo(rp.id); box.appendChild(u);
-    toast('Changes applied');
-  };
-  return box;
-}
-
-/* restore points: a snapshot taken before every Claude edit, kept for 24 hours */
-const DAY = 864e5;
-function snapshot(){ const c = Object.assign({}, S); delete c.restorePoints; delete c.cvFile; return JSON.parse(JSON.stringify(c)); }
-function pruneRestorePoints(){ S.restorePoints = (S.restorePoints || []).filter(r => Date.now() - r.at < DAY); }
-function makeRestorePoint(label){
-  pruneRestorePoints();
-  const rp = { id:uid(), at:Date.now(), label, data:snapshot() };
-  S.restorePoints.unshift(rp); S.restorePoints = S.restorePoints.slice(0, 15);
-  return rp;
-}
-function restoreTo(id){
-  pruneRestorePoints();
-  const rp = S.restorePoints.find(r => r.id === id);
-  if(!rp){ toast('That restore point has expired'); return; }
-  const keep = { restorePoints:S.restorePoints, cvFile:S.cvFile, settings:S.settings };
-  S = Object.assign(DEFAULTS(), JSON.parse(JSON.stringify(rp.data)), keep);
-  save(); closeDrawer(); route(); toast('Restored to ' + new Date(rp.at).toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }));
-}
-function restoreListHTML(){
-  pruneRestorePoints();
-  const list = S.restorePoints;
-  return list.length ? `<div class="list">${list.map(r => { const left = Math.max(0, Math.round((DAY - (Date.now() - r.at)) / 36e5)); return `<div class="li"><span class="when-col">${new Date(r.at).toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' })}</span><span class="grow">Before: ${esc(r.label)}<small>Expires in ${left}h</small></span><button class="btn sm" data-restore="${r.id}">Restore</button></div>`; }).join('')}</div>`
-    : '<p class="faint" style="font-size:12.5px">No restore points. One is saved automatically before every change Claude makes, and kept for 24 hours.</p>';
-}
-function bindRestore(root){ $$('[data-restore]', root).forEach(b => b.onclick = () => { b.textContent = 'Click again to confirm'; b.onclick = () => restoreTo(b.dataset.restore); }); }
-
-const CHAT = { turns:[], busy:false, ctl:null };
-function currentPage(){ const k = (location.hash || '#home').slice(1); return VIEWS[k] ? k : 'home'; }
-
-function openClaude(prefill){
-  const page = currentPage(), isCV = page === 'cv';
-  const label = PAGES[page] ? PAGES[page].label : 'Overview';
-  openDrawer('Ask Claude · ' + esc(label), `
-    <div class="chat" id="chatLog">${CHAT.turns.length ? '' : `<div class="chat-hello"><b>Hi — I can see your ${esc(label.toLowerCase())} page.</b>${isCV
-      ? 'Ask me to edit your CV — e.g. “Tighten my profile to two lines” or “Import my uploaded CV”.'
-      : 'Ask about anything here, or tell me to change your entries — e.g. “Add Jane Doe from LSE to my contacts”, “Mark the JLI essay as done, result: commended”.'} I’ll only change things when you ask, and you’ll always click <b>Yes</b> first. A restore point is saved before every change and kept for 24 hours.</div>`}</div>
-    ${claudeReady() ? '' : `<p class="faint" style="font-size:12px;margin:8px 0 0">Works with your Claude Pro account: after you send, copy the prompt into Claude and paste its reply back here.</p>`}
-    <form class="chat-box" id="chatForm"><textarea class="inp" id="chatIn" rows="2" placeholder="${isCV ? 'e.g. Rewrite my work experience bullets to sound more concrete' : 'Ask Claude…'}">${esc(prefill || '')}</textarea>
-      <div class="row" style="justify-content:space-between"><span class="row"><button type="button" class="btn sm ghost" id="chatClear">New chat</button><button type="button" class="btn sm ghost" id="chatRP">Restore points (${(pruneRestorePoints(), S.restorePoints.length)})</button></span>
-      <div class="row"><button type="button" class="btn sm hidden" id="chatStop">Stop</button><button class="btn primary sm" id="chatSend">Send</button></div></div></form>`, b => {
-    const log = $('#chatLog', b);
-    const bubble = (role, text, extra) => { const d = document.createElement('div'); d.className = 'msg ' + role; d.textContent = text; if(extra) d.appendChild(extra); log.appendChild(d); log.scrollTop = log.scrollHeight; return d; };
-    CHAT.turns.forEach(t => bubble(t.role === 'user' ? 'me' : 'ai', t.shown || t.content));
-    $('#chatClear', b).onclick = () => { CHAT.turns = []; openClaude(); };
-    $('#chatRP', b).onclick = () => { const d = document.createElement('div'); d.className = 'msg ai'; d.style.maxWidth = '100%'; d.innerHTML = '<b>Restore points</b> — go back to how things were before a change (kept 24 hours).' + restoreListHTML(); log.appendChild(d); bindRestore(d); log.scrollTop = log.scrollHeight; };
-    $('#chatStop', b).onclick = () => CHAT.ctl && CHAT.ctl.abort();
-    $('#chatIn', b).onkeydown = e => { if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); $('#chatForm', b).requestSubmit(); } };
-    $('#chatForm', b).onsubmit = async e => {
-      e.preventDefault();
-      const q = $('#chatIn', b).value.trim(); if(!q || CHAT.busy) return;
-      $('#chatIn', b).value = '';
-      bubble('me', q);
-      CHAT.turns.push({ role:'user', content:q, shown:q });
-      const rules = 'You are a helpful, encouraging assistant inside “Admissions Home”, a UK Year 11 student’s application planner (target: PPE at Oxford, LSE, UCL, Warwick etc.; also interested in law, economics, finance). Be concise, specific and practical. British English.\n\nCurrent page: ' + label + '\n' + pageContext(page) + '\n\n' + EDIT_RULES;
-      const turns = [{ role:'user', content:rules }, { role:'assistant', content:'Understood. I will reply with the JSON object only.' }].concat(CHAT.turns.slice(-10).map(t => ({ role:t.role, content:t.content })));
-      const handleReply = (text, out) => {
-        const j = parseJSON(text);
-        const shown = (j && j.reply) || text;
-        out.textContent = shown;
-        const changes = j && Array.isArray(j.changes) ? j.changes.filter(validChange) : [];
-        if(changes.length) out.appendChild(confirmCard(changes, page));
-        CHAT.turns.push({ role:'assistant', content:text, shown });
-        log.scrollTop = log.scrollHeight;
-      };
-
-      /* No built-in Claude here (the GitHub site with a Pro plan): hand the prompt to claude.ai and paste the answer back */
-      if(!claudeReady()){
-        const prompt = rules + '\n\n--- Conversation so far ---\n' + CHAT.turns.slice(-10).map(t => (t.role === 'user' ? 'Student: ' : 'You: ') + t.content).join('\n\n')
-          + '\n\nReply to the student’s latest message. Output ONLY the JSON object described above, in one code block, nothing else.';
-        const out = bubble('ai', '');
-        out.classList.add('handoff');
-        out.innerHTML = `<b>Ask Claude with your Pro account</b>
-          <ol><li><button class="btn primary sm" data-copy>Copy prompt &amp; open Claude</button> <span class="faint" data-copied></span></li>
-          <li>In the new Claude tab, paste (<kbd>Ctrl+V</kbd>) and send.</li>
-          <li>Copy Claude’s whole reply (the copy icon under it), then paste it here:</li></ol>
-          <textarea class="inp" rows="3" placeholder="Paste Claude’s reply here" data-paste></textarea>
-          <div class="row" style="margin-top:6px"><button class="btn sm" data-use>Use this reply</button></div>
-          <details style="margin-top:8px"><summary class="faint" style="cursor:pointer;font-size:12px">Copy didn’t work? Show the prompt</summary><textarea class="inp" rows="5" readonly data-raw></textarea></details>`;
-        $('[data-raw]', out).value = prompt;
-        $('[data-copy]', out).onclick = () => {
-          const done = ok => { $('[data-copied]', out).textContent = ok ? 'Copied ✓' : 'Copy the prompt from “Show the prompt” below'; };
-          (navigator.clipboard ? navigator.clipboard.writeText(prompt) : Promise.reject()).then(() => done(true), () => { const r = $('[data-raw]', out); r.closest('details').open = true; r.select(); done(false); });
-          window.open('https://claude.ai/new', '_blank', 'noopener');
-        };
-        $('[data-use]', out).onclick = () => {
-          const t = $('[data-paste]', out).value.trim(); if(!t){ toast('Paste Claude’s reply first'); return; }
-          const res = bubble('ai', ''); handleReply(t, res);
-          if(!parseJSON(t)) res.appendChild(Object.assign(document.createElement('div'), { className:'faint', style:'font-size:12px;margin-top:6px', textContent:'(That reply wasn’t in the expected format, so no changes can be applied — shown as text.)' }));
-          out.remove();
-        };
-        return;
-      }
-
-      const out = bubble('ai', 'Thinking…'); out.classList.add('pending');
-      CHAT.busy = true; CHAT.ctl = new AbortController(); $('#chatStop', b).classList.remove('hidden'); $('#chatSend', b).disabled = true;
-      try{
-        const text = await askClaude(turns, { signal:CHAT.ctl.signal });
-        out.classList.remove('pending');
-        handleReply(text, out);
-      }catch(err){
-        out.classList.remove('pending');
-        if(err && err.code === 'cancelled'){ out.textContent = (err.text || '') + ' [stopped]'; }
-        else { out.textContent = errCopy(err); out.classList.add('err'); CHAT.turns.pop(); }
-      }finally{
-        CHAT.busy = false; $('#chatStop', b).classList.add('hidden'); $('#chatSend', b).disabled = false;
-      }
-    };
-    if(prefill) $('#chatIn', b).focus();
-  });
-}
-
-/* ---------- CV file upload: PDF (pdf.js), Word (mammoth), or text ---------- */
 function loadScript(src){ return new Promise((ok, no) => { if(document.querySelector(`script[src="${src}"]`)) return ok(); const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); }); }
 const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
 async function pdfLib(){ await loadScript(PDFJS); window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; return window.pdfjsLib; }
@@ -1674,11 +1674,11 @@ async function renderPdfPages(el){
 }
 function cvFilePanel(){
   const f = S.cvFile;
-  if(!f) return `<div class="upload" id="cvDrop"><div><b>Upload your current CV</b><span>PDF, Word (.docx) or text. It’s shown here in full, and Claude can read it to fill in the builder.</span></div>
+  if(!f) return `<div class="upload" id="cvDrop"><div><b>Upload your current CV</b><span>PDF, Word (.docx) or text. It’s shown here in full, next to the builder.</span></div>
     <label class="btn">${I(IC.up,14)} Choose file<input type="file" id="cvFileIn" accept=".pdf,.docx,.txt,.md,application/pdf" hidden></label></div>`;
   return `<div class="filecard">
     <div class="row" style="justify-content:space-between"><div><b>${esc(f.name)}</b><span class="muted" style="font-size:12.5px"> · ${(f.size / 1024).toFixed(0)} KB · uploaded ${esc(fmtD(f.added, true))}</span></div>
-    <div class="row"><button class="btn sm accent" id="cvImportAI">✦ Fill builder from this with Claude</button><label class="btn sm">Replace<input type="file" id="cvFileIn" accept=".pdf,.docx,.txt,.md,application/pdf" hidden></label><button class="btn sm ghost danger" id="cvFileDel">Remove</button></div></div>
+    <div class="row"><label class="btn sm">Replace<input type="file" id="cvFileIn" accept=".pdf,.docx,.txt,.md,application/pdf" hidden></label><button class="btn sm ghost danger" id="cvFileDel">Remove</button></div></div>
     <div class="subtabs" style="margin:12px 0 10px"><button data-fv="doc" aria-selected="true">Document</button><button data-fv="text" aria-selected="false">Full text</button></div>
     <div id="fvDoc" class="file-view">${f.kind === 'docx' ? `<div class="docx">${f.html}</div>` : f.kind === 'pdf' ? (f.data ? '<div id="pdfPages" class="faint">Loading…</div>' : '<p class="faint">Large PDF — only the text was kept. See Full text.</p>') : `<pre class="plain">${esc(f.text)}</pre>`}</div>
     <div id="fvText" class="file-view hidden"><pre class="plain">${esc(f.text || '(No text could be read from this file.)')}</pre></div>
@@ -1695,17 +1695,16 @@ function bindCvFile(v){
   const del = $('#cvFileDel', v); if(del) del.onclick = () => { S.cvFile = null; save(); viewCV(v); };
   $$('[data-fv]', v).forEach(t => t.onclick = () => { $$('[data-fv]', v).forEach(x => x.setAttribute('aria-selected', x === t)); $('#fvDoc', v).classList.toggle('hidden', t.dataset.fv !== 'doc'); $('#fvText', v).classList.toggle('hidden', t.dataset.fv !== 'text'); });
   const pages = $('#pdfPages', v); if(pages) renderPdfPages(pages);
-  const imp = $('#cvImportAI', v); if(imp) imp.onclick = () => { openClaude('Import my uploaded CV into the builder — fill every section from the file, keeping my wording.'); };
 }
 
 /* ============================================================
    ROUTER
    ============================================================ */
-const VIEWS = { home:viewHome, supercurriculars:viewSuper, extracurriculars:viewExtras, openings:viewOpenings, work:viewWork,
-                contacts:viewContacts, revision:viewRevision, universities:viewUni, cv:viewCV };
+const VIEWS = { home:viewHome, about:viewAbout, universities:viewUni, lectures:viewLectures, supercurriculars:viewSuper, extracurriculars:viewExtras,
+                openings:viewOpenings, work:viewWork, contacts:viewContacts, cv:viewCV };
 function route(){
-  const k = (location.hash || '#home').slice(1).split('?')[0];
-  const page = VIEWS[k] ? k : 'home';
+  const kk = (location.hash || '#home').slice(1).split('?')[0];
+  const page = VIEWS[kk] ? kk : 'home';
   closeMenus(); closeDrawer(); $('#mobileMenu').classList.remove('open');
   buildNav(page);
   document.title = (PAGES[page] ? PAGES[page].label + ' · ' : '') + 'Admissions Home';
@@ -1719,6 +1718,7 @@ applyTheme();
 route();
 loadLive(true);
 loadScLive(true);
+loadLectures();
 $('#backupBtn').onclick = () => openDrawer('Settings', `<h2>Back up your data</h2>
   <p class="note">Everything you enter lives in this browser only. Export a backup now and then, and import it on another device.</p>
   <div class="row"><button class="btn" id="exp">${I(IC.down,14)} Export backup</button>

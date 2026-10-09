@@ -4,7 +4,7 @@
    required: A-level subjects that are compulsory, with grade      gcse: GCSE requirements            */
 window.UNI_DATA = [
   // ---------------- Oxford ----------------
-  { id:"ox-ppe", uni:"Oxford", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:3,
+  { id:"ox-ppe", suggested:"Maths (recommended). History useful", uni:"Oxford", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:3,
     offer:"AAA", required:"None", recommended:"Maths A-level strongly recommended — a large majority of successful applicants took it",
     gcse:"No formal requirement; used in context", test:"TARA — sat mid-October", other:"Interview if shortlisted. No written work.",
     stats:"38% interviewed · 12% successful · intake 227 (2023–25 avg)",
@@ -35,7 +35,7 @@ window.UNI_DATA = [
     stats:"", link:"https://www.christs.cam.ac.uk/study-here/undergraduate-study/subjects/environment-law-and-economics" },
 
   // ---------------- LSE ----------------
-  { id:"lse-ppe", uni:"LSE", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:4,
+  { id:"lse-ppe", suggested:"An arts or humanities subject, e.g. History or English Lit. Further Maths helps", uni:"LSE", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:4,
     offer:"A*AA", required:"Maths A-level at A*", recommended:"At least two traditional academic subjects",
     gcse:"English Language and Maths at 6+; several grades at 7–9", test:"None", other:"Four-year programme.",
     stats:"1,183 applications for 49 places (2025) — ~24 per place", link:"https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-philosophy-politics-and-economics" },
@@ -47,11 +47,11 @@ window.UNI_DATA = [
     offer:"A*AA", required:"Maths A-level at A*", recommended:"Further Maths desirable, not required",
     gcse:"English Language and Maths at 6+; several grades at 7–9", test:"None", other:"",
     stats:"1,526 applications for 69 places (2025) — ~22 per place", link:"https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-finance" },
-  { id:"lse-pe", uni:"LSE", course:"Politics and Economics", area:"ppe", ucas:"LL12", years:3,
+  { id:"lse-pe", suggested:"History, Politics, English, Economics or a language", uni:"LSE", course:"Politics and Economics", area:"ppe", ucas:"LL12", years:3,
     offer:"AAA", required:"Maths A-level", recommended:"Politics, History, English, Economics, Sociology, Philosophy or a language typical",
     gcse:"English Language and Maths at 6+; several grades at 7–9", test:"None", other:"",
     stats:"1,221 applications for 71 places (2025) — ~17 per place", link:"https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-politics-and-economics" },
-  { id:"lse-phe", uni:"LSE", course:"Philosophy and Economics", area:"ppe", ucas:"LV15", years:3,
+  { id:"lse-phe", suggested:"An arts or humanities subject, e.g. History or English Lit. Further Maths helps", uni:"LSE", course:"Philosophy and Economics", area:"ppe", ucas:"LV15", years:3,
     offer:"AAA", required:"Maths A-level at A", recommended:"No need to have studied Philosophy or Economics",
     gcse:"English Language and Maths at 6+; several grades at 7–9", test:"None", other:"Contextual offer AAB with A in Maths.",
     stats:"401 applications for 33 places (2025) — ~12 per place", link:"https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-philosophy-and-economics" },
@@ -67,11 +67,11 @@ window.UNI_DATA = [
     stats:"", link:"https://www.imperial.ac.uk/study/courses/undergraduate/economics-finance-data-science/" },
 
   // ---------------- Durham ----------------
-  { id:"dur-ppe", uni:"Durham", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"VL52", years:3,
+  { id:"dur-ppe", suggested:"None stated", uni:"Durham", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"VL52", years:3,
     offer:"A*AA", required:"Maths A-level + an arts/humanities or social science subject", recommended:"Economics A-level not needed",
     gcse:"Not stated on course page", test:"None", other:"Contextual ABB with A in Maths. Optional placement or year abroad.",
     stats:"", link:"https://www.durham.ac.uk/business/courses/philosophy-politics-and-economics-vl52/" },
-  { id:"dur-pe", uni:"Durham", course:"Economics and Politics", area:"ppe", ucas:"LL12", years:3,
+  { id:"dur-pe", suggested:"None stated", uni:"Durham", course:"Economics and Politics", area:"ppe", ucas:"LL12", years:3,
     offer:"A*AA", required:"Maths A-level + a social science or humanities subject", recommended:"",
     gcse:"Not stated on course page", test:"None", other:"Contextual ABB with A in Maths.",
     stats:"", link:"https://www.durham.ac.uk/business/courses/economics-and-politics-ll12/" },
@@ -89,11 +89,11 @@ window.UNI_DATA = [
     stats:"", link:"https://www.durham.ac.uk/study/courses/law-m101/" },
 
   // ---------------- UCL ----------------
-  { id:"ucl-ppe", uni:"UCL", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"4V86", years:3,
+  { id:"ucl-ppe", suggested:"Two from UCL’s preferred list, e.g. History, English Lit, Economics, Politics, a language", uni:"UCL", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"4V86", years:3,
     offer:"A*AA", required:"Maths A-level at A*", recommended:"At least two subjects from UCL’s preferred A-level list",
     gcse:"English Language 6+, Maths 4+", test:"None", other:"Contextual A*BB with A* in Maths.",
     stats:"", link:"https://www.ucl.ac.uk/study/prospective-students/undergraduate/courses/philosophy-politics-and-economics-bsc" },
-  { id:"ucl-phe", uni:"UCL", course:"Philosophy and Economics", area:"ppe", ucas:"VL51", years:3,
+  { id:"ucl-phe", suggested:"Two from UCL’s preferred list, e.g. History, English Lit, Economics, a language", uni:"UCL", course:"Philosophy and Economics", area:"ppe", ucas:"VL51", years:3,
     offer:"A*AA", required:"Maths A-level at A*", recommended:"At least two subjects from UCL’s preferred A-level list",
     gcse:"English Language 6+, Maths 4+", test:"None", other:"Contextual A*BB with A* in Maths.",
     stats:"", link:"https://www.ucl.ac.uk/study/prospective-students/undergraduate/courses/philosophy-and-economics-ba" },
@@ -107,7 +107,7 @@ window.UNI_DATA = [
     stats:"", link:"https://www.ucl.ac.uk/study/prospective-students/undergraduate/courses/law-llb" },
 
   // ---------------- King's College London ----------------
-  { id:"kcl-ppe", uni:"King's College London", course:"Philosophy, Politics & Economics", area:"ppe", ucas:"L0V0", years:3,
+  { id:"kcl-ppe", suggested:"None stated", uni:"King's College London", course:"Philosophy, Politics & Economics", area:"ppe", ucas:"L0V0", years:3,
     offer:"A*AA", required:"None at A-level", recommended:"General Studies / Critical Thinking not accepted",
     gcse:"Maths 7+ (essential)", test:"None", other:"Contextual AAB.",
     stats:"", link:"https://www.kcl.ac.uk/study/undergraduate/courses/philosophy-politics-and-economics-ba-bsc" },
@@ -125,7 +125,7 @@ window.UNI_DATA = [
     stats:"", link:"https://www.kcl.ac.uk/study/undergraduate/courses/law-llb" },
 
   // ---------------- Warwick ----------------
-  { id:"war-ppe", uni:"Warwick", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:3,
+  { id:"war-ppe", suggested:"None stated", uni:"Warwick", course:"Philosophy, Politics and Economics", area:"ppe", ucas:"L0V0", years:3,
     offer:"A*AA", required:"None at A-level", recommended:"",
     gcse:"Maths 7+, English Language 6+", test:"None", other:"No interviews. Contextual AAB (Maths GCSE 7 still required). Optional placement year.",
     stats:"", link:"https://warwick.ac.uk/study/undergraduate/courses/ba-bsc-philosophy-politics-economics/" },
@@ -133,7 +133,7 @@ window.UNI_DATA = [
     offer:"A*AA", required:"Maths A-level at A", recommended:"Further Maths and Economics optional — no priority given",
     gcse:"English Language and Maths 6+; majority at 7–9", test:"TMUA optional — top scores can earn a reduced AAA offer", other:"Contextual AAB with A in Maths.",
     stats:"", link:"https://warwick.ac.uk/fac/soc/economics/prospective/ug/admissions-and-entry-requirements/" },
-  { id:"war-epp", uni:"Warwick", course:"Economics, Psychology and Philosophy", area:"ppe", ucas:"L1CA", years:3,
+  { id:"war-epp", suggested:"None stated", uni:"Warwick", course:"Economics, Psychology and Philosophy", area:"ppe", ucas:"L1CA", years:3,
     offer:"A*AA", required:"None at A-level", recommended:"",
     gcse:"Maths 7+, English Language 6+", test:"None", other:"Warwick has no standalone Philosophy & Economics degree — EPP is the closest. Contextual AAB.",
     stats:"", link:"https://warwick.ac.uk/study/undergraduate/courses/ba-bsc-economics-psychology-philosophy/" },
@@ -151,7 +151,7 @@ window.UNI_DATA = [
     offer:"AAA", required:"None — maths ability essential", recommended:"Minimum entry ABB",
     gcse:"English 5+ and one of Maths/sciences/Geography/Computing/Psychology at 5+", test:"None", other:"St Andrews’ ‘Economics and Finance’ option.",
     stats:"", link:"https://www.st-andrews.ac.uk/subjects/finance/financial-economics-ma/" },
-  { id:"sta-ephil", uni:"St Andrews", course:"Economics and Philosophy (MA)", area:"ppe", ucas:"LV15", years:4,
+  { id:"sta-ephil", suggested:"None stated", uni:"St Andrews", course:"Economics and Philosophy (MA)", area:"ppe", ucas:"LV15", years:4,
     offer:"AAA", required:"None", recommended:"Critical Thinking, General Studies, Global Perspectives not accepted",
     gcse:"English 5+ and one of Maths/sciences/Geography/Computing at 5+", test:"None", other:"Scottish four-year MA.",
     stats:"", link:"https://www.ucas.com/explore/courses/5c236da3-d763-ead6-b7e0-ed5f439787a5/course" },
