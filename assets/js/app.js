@@ -88,24 +88,34 @@ const IC = {
   down:'<path d="M12 4v12M6 10l6 6 6-6M4 20h16"/>',
   up:'<path d="M12 20V8M6 14l6-6 6 6M4 4h16"/>',
   bolt:'<path d="M13 2 4 14h8l-1 8 9-12h-8z"/>',
+  /* menu icons (set B) */
+  nUni:'<path d="M3 21h18M5 21v-9M9.5 21v-9M14.5 21v-9M19 21v-9M2 9l10-6 10 6z"/>',
+  nLec:'<rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5M8.5 21.5h7"/>',
+  nSc:'<circle cx="12" cy="15" r="5.5"/><path d="M8.5 10.5 6 2.5h4l2 5 2-5h4l-2.5 8"/><path d="m12 13 .9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2-1.4-1.4 2-.3z"/>',
+  nEx:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  nOp:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/>',
+  nWk:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 10h6M9 14h6M9 18h3.5"/>',
+  nPj:'<path d="m8 8-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"/>',
+  nNw:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>',
+  nCv:'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="12" cy="12.5" r="2"/><path d="M8.5 18a3.5 3.5 0 0 1 7 0"/>',
 };
 
 /* ---------------- navigation ---------------- */
 const NAV = [
   { k:'academics', label:'Academics', items:[
-    { k:'universities', label:'Universities',      desc:'Courses, offers and A-level requirements',            ic:'cap',  c:'var(--law)' },
-    { k:'lectures',     label:'Academic lectures', desc:'Free public lectures in London and online',           ic:'book', c:'var(--econ)' },
+    { k:'universities', label:'Universities',      desc:'Courses, offers and A-level requirements',            ic:'nUni',  c:'var(--law)' },
+    { k:'lectures',     label:'Academic lectures', desc:'Free public lectures in London and online',           ic:'nLec', c:'var(--econ)' },
   ]},
   { k:'cocurricular', label:'Co-curriculars', items:[
-    { k:'supercurriculars', label:'Supercurriculars', desc:'Competitions and programmes by date, and your log',  ic:'trophy', c:'var(--accent)' },
-    { k:'extracurriculars', label:'Extracurriculars', desc:'Sport, music, leadership, volunteering',             ic:'run',    c:'var(--phil)' },
+    { k:'supercurriculars', label:'Supercurriculars', desc:'Competitions and programmes by date, and your log',  ic:'nSc', c:'var(--accent)' },
+    { k:'extracurriculars', label:'Extracurriculars', desc:'Sport, music, leadership, volunteering',             ic:'nEx',    c:'var(--phil)' },
   ]},
   { k:'professional', label:'Professional', items:[
-    { k:'openings', label:'Openings',               desc:'Spring weeks, internships and apprenticeships',     ic:'radar', c:'var(--new)' },
-    { k:'work',     label:'Work experience logger', desc:'Placements you’ve done, and what you learned',      ic:'brief', c:'var(--teal)' },
-    { k:'projects', label:'Projects',               desc:'AI workflows, automations and things you’ve built', ic:'bolt',  c:'var(--multi)' },
-    { k:'contacts', label:'Networking & contacts',  desc:'People you’ve met and when to follow up',           ic:'users', c:'var(--pol)' },
-    { k:'cv',       label:'CV builder',             desc:'One-page CV built from your logs',                  ic:'doc',   c:'var(--multi)' },
+    { k:'openings', label:'Openings',               desc:'Spring weeks, internships and apprenticeships',     ic:'nOp', c:'var(--new)' },
+    { k:'work',     label:'Work experience logger', desc:'Placements you’ve done, and what you learned',      ic:'nWk', c:'var(--teal)' },
+    { k:'projects', label:'Projects',               desc:'AI workflows, automations and things you’ve built', ic:'nPj',  c:'var(--multi)' },
+    { k:'contacts', label:'Networking & contacts',  desc:'People you’ve met and when to follow up',           ic:'nNw', c:'var(--pol)' },
+    { k:'cv',       label:'CV builder',             desc:'One-page CV built from your logs',                  ic:'nCv',   c:'var(--multi)' },
   ]},
 ];
 const PAGES = {};
