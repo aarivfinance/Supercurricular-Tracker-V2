@@ -417,6 +417,8 @@ function drawScLog(body){
   }
   drawRecord();
 }
+/* "Your additions" can be folded away; it starts folded and remembers your choice */
+const ownCollapsed = () => S.settings.ownCollapsed !== false;
 function drawSc(){
   const body = $('#scBody'); if(!body) return;
   if($('#scLive')) $('#scLive').innerHTML = scLiveLine();
@@ -436,12 +438,14 @@ function drawSc(){
   SC_DATA[scF.year].forEach(g => { const it = g.items.filter(i => shown.includes(i)); if(it.length) groups.push({ month:g.month, items:it }); });
 
   body.innerHTML = `<div class="sc-layout"><div>` + caveat + (groups.length ? groups.map(g => `
-    <section class="tl-month">
-      <div class="tl-mhead"><h2>${esc(g.month)}</h2><span class="n">${g.items.length} ${g.items.length === 1 ? 'entry' : 'entries'}</span></div>
-      <div class="sc-list">${g.items.map(scRow).join('')}</div>
+    <section class="tl-month${g.own ? ' own' : ''}">
+      ${g.own ? `<button class="tl-mhead own-toggle" data-own aria-expanded="${!ownCollapsed()}"><h2>${I(IC.chev, 15)}${esc(g.month)}</h2><span class="n">${g.items.length} ${g.items.length === 1 ? 'entry' : 'entries'}${ownCollapsed() ? ' · hidden' : ''}</span></button>`
+        : `<div class="tl-mhead"><h2>${esc(g.month)}</h2><span class="n">${g.items.length} ${g.items.length === 1 ? 'entry' : 'entries'}</span></div>`}
+      ${g.own && ownCollapsed() ? '' : `<div class="sc-list">${g.items.map(scRow).join('')}</div>`}
     </section>`).join('')
     : emptyBox('Nothing matches those filters', 'Try clearing the search or switching off “Eligible now” / “Saved only”.')) + `</div>${scRecord()}</div>`;
   $$('[data-rec]', body).forEach(a => a.onclick = () => openScDrawer(allSc().find(i => i.id === a.dataset.rec)));
+  { const t = $('[data-own]', body); if(t) t.onclick = () => { S.settings.ownCollapsed = !ownCollapsed(); save(); drawSc(); }; }
   const qa = $('#qAdd', body);
   if(qa) qa.onsubmit = e => {
     e.preventDefault();

@@ -1098,3 +1098,11 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
 .learn-card b span{color:var(--muted);display:inline-flex;}
 .learn-card small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px;}
 .learn-card p{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-2);}
+
+/* supercurriculars: fold "Your additions" */
+.own-toggle{display:flex;width:100%;align-items:baseline;justify-content:space-between;background:none;border:0;padding:0 0 2px;margin:0;cursor:pointer;color:inherit;font:inherit;text-align:left;}
+.own-toggle h2{display:inline-flex;align-items:center;gap:6px;}
+.own-toggle h2 svg{transition:transform .15s;color:var(--muted);}
+.own-toggle[aria-expanded="false"] h2 svg{transform:rotate(-90deg);}
+.own-toggle:hover h2{text-decoration:underline;text-underline-offset:4px;}
+.tl-month.own .own-toggle[aria-expanded="false"]{border-bottom:1px solid var(--line);padding-bottom:12px;}

@@ -60,6 +60,14 @@ DATA.y11 = [
      n:"Joshua Angrist &amp; Jörn-Steffen Pischke, <i>Mastering 'Metrics</i>|How economists separate cause from correlation, from the Nobel-winning author. The method behind a serious economics investigation.",
      link:"Harford keeps your data honest; Angrist and Pischke show how to make a causal claim from it. A CREST project that uses either properly is a far stronger PPE story than a standard STEM write-up."}},
 
+  {t:"Lloyds Banking Group work experience (online and in person)", s:"econ", yr:"School and college students", elig:"now", tag:"NEW",
+   when:"Runs throughout the year, often in school holidays (e.g. Easter, May half-term)", link:"https://www.lloydsbankinggrouptalent.com/work-experience/",
+   note:"Free insight days and work experience programmes, run online, hybrid or in person at sites including London, Leeds, Manchester and Edinburgh. Past online ones included two-day Business and Technology &amp; Data placements. Sign-up links change each time, so check the <a href=\"https://www.lloydsbankinggrouptalent.com/events/\" target=\"_blank\" rel=\"noopener\">events page</a> and ask your careers adviser. Under-19s can also use their free <a href=\"https://lloydsbankinggroup.connectr.co.uk/earlycareers\" target=\"_blank\" rel=\"noopener\">Fast Forward</a> platform any time.",
+   reading:{
+     m:"Mervyn King, <i>The End of Alchemy</i>|The former Governor of the Bank of England on what banks actually do with your money, and why that makes them fragile.",
+     c:"Anat Admati &amp; Martin Hellwig, <i>The Bankers' New Clothes</i>|The case that banks are far riskier than they admit and should be funded with much more equity. Banks hate this book.",
+     link:"Lloyds shows you a big retail bank from the inside. King explains why banks like it are inherently fragile; Admati and Hellwig say the fix is simple and banks resist it. Ask yourself who's right after your placement, and you have an interview answer."}},
+
   {t:"Forage Online Job Simulations", s:"econ", yr:"16+ / Y11+", elig:"now",
    when:"Self-paced, open all year", link:"https://www.theforage.com/",
    note:"Free simulations built with real employers. Low effort, decent signal — but only if you have something to say <em>about</em> the industry afterwards.",
