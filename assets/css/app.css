@@ -1082,3 +1082,19 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
 
 /* menu icon tiles: keep the icon centred (".dd-item span" would otherwise make the tile a plain block) */
 .dd-item .dd-ico{display:grid;place-items:center;}
+
+/* openings: note about roles that don't state a location */
+.unk-line{font-size:13.5px;color:var(--muted);margin:0 0 12px;}
+.unk-line b{color:var(--ink);font-weight:600;}
+.unk-line .lnk{background:none;border:0;padding:0;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:4px;}
+
+/* projects: where to learn */
+.learn{margin:0 0 24px;}
+.learn .sec{font-size:15px;margin:0 0 10px;}
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.learn-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--surface);}
+.learn-card:hover{border-color:color-mix(in srgb,var(--ink) 18%,var(--line));background:var(--surface-2);}
+.learn-card b{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;}
+.learn-card b span{color:var(--muted);display:inline-flex;}
+.learn-card small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px;}
+.learn-card p{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-2);}

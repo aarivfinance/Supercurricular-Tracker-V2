@@ -64,7 +64,7 @@ async function getJSON(url, opts){ const r = await get(url, opts); if(!r.ok){ co
 
 /* ---------------------------------------------------------------- what counts */
 export const EARLY = /\b(intern(s|ship|ships)?|spring (week|insight|programme|program|internship|into)|insight (day|week|days|programme|program|event|evening|series|scheme|internship)|early insight|work[- ]experience|placements?|graduates?|summer (analyst|associate|programme|program|school|intern)|off[- ]cycle|apprentice(ship)?s?|vacation schemes?|first[- ]year|penultimate|discovery (day|week|programme|program|event)|open (day|evening)|fellowships?|accelerator|school leavers?|sixth[- ]form|year 1[0-3]|virtual (work|experience|insight|internship|programme|program)|taster|early careers?|trainee(ship)?s?|training contract|scholarships?|pre-?university|work shadow(ing)?|boot ?camp|pathways to|exploratory|explore (program|programme)|bridge (program|programme)|future (women )?leaders|launching leaders|sophomore|freshman)\b/i;
-export const EXCLUDE = /\b(senior|snr|principal|director|head of|lead\b|manager|vice president|vp|avp|experienced|lateral|staff (engineer|scientist)|executive|chief|recruit(er|ment (partner|coordinator|specialist|manager|lead|advisor))|graduate recruitment|mentor|coach|tutor|lecturer|professor|teacher|internal (audit|comm))\b/i;
+export const EXCLUDE = /\b(senior|snr|principal|director|architect|expert|head of|lead\b|manager|vice president|vp|avp|experienced|lateral|staff (engineer|scientist)|executive|chief|recruit(er|ment (partner|coordinator|specialist|manager|lead|advisor))|graduate recruitment|mentor|coach|tutor|lecturer|professor|teacher|internal (audit|comm))\b/i;
 export const isEarly = t => !!t && EARLY.test(t) && !EXCLUDE.test(t);
 
 export function programmeOf(t){
@@ -121,11 +121,11 @@ export const roleTypeOf = t => (ROLE_TYPES.find(([, re]) => re.test(t || '')) ||
 
 /* ---------------------------------------------------------------- UK only, with region */
 const REGIONS = [
-  ['London', /london|canary wharf|city of london/i],
+  ['London', /london|canary wharf|city of london|croydon|bromley|\bsutton\b|kingston upon thames|richmond upon thames|harrow|enfield|\bbarnet\b|ealing|hounslow|uxbridge|romford|ilford|stratford|wimbledon|woolwich|hammersmith|chiswick|brentford|teddington|twickenham|dagenham|barking|welling|bexley|purley|haringey|wembley|heathrow|hayes\b/i],
   ['South East', /reading|oxford|brighton|guildford|milton keynes|southampton|crawley|slough|maidenhead|kent|surrey|sussex|berkshire|farnborough|basingstoke/i],
-  ['South West', /bristol|bath\b|exeter|plymouth|swindon|cheltenham|gloucester|bournemouth/i],
-  ['East of England', /cambridge|norwich|ipswich|chelmsford|luton|peterborough|st albans/i],
-  ['West Midlands', /birmingham|coventry|wolverhampton|worcester/i],
+  ['South West', /bristol|bath\b|exeter|plymouth|swindon|cheltenham|gloucester|bournemouth|poole|taunton|truro/i],
+  ['East of England', /cambridge|norwich|ipswich|chelmsford|luton|peterborough|st albans|watford|rickmansworth|hertfordshire|hemel hempstead|stevenage|welwyn|essex|basildon|southend|colchester|south ockendon|grays\b|thurrock/i],
+  ['West Midlands', /birmingham|coventry|wolverhampton|worcester|telford|shrewsbury|solihull|stoke/i],
   ['East Midlands', /nottingham|leicester|derby|northampton|lincoln/i],
   ['North West', /manchester|liverpool|chester|preston|warrington|lancaster|knutsford/i],
   ['Yorkshire', /leeds|sheffield|\byork\b|bradford|hull/i],
@@ -135,7 +135,7 @@ const REGIONS = [
   ['Northern Ireland', /northern ireland|belfast/i],
 ];
 const UK = /united kingdom|\buk\b|england|scotland|wales|northern ireland|great britain|\bgb\b|britain/i;
-const NOT_UK = /united states|\busa?\b|, ?(al|ca|ct|ma|nc|nh|nj|ny|pa|ri|tx|wa|il|ga|fl|va|md|co)\b|new york|san francisco|seattle|chicago|boston|austin|palo alto|mountain view|hong kong|singapore|tokyo|paris|frankfurt|dubai|sydney|mumbai|bangalore|bengaluru|toronto|zurich|geneva|amsterdam|dublin|madrid|milan|luxembourg|warsaw|budapest|shanghai|beijing|seoul|sao paulo|mexico|canada|india|ireland|france|germany|spain|italy|poland|switzerland|netherlands|japan|china|australia|brazil|apac|americas|middle east|riyadh|saudi|\buae\b|abu dhabi|doha|munich|stockholm|oslo|copenhagen|brussels|vienna|lisbon|prague|istanbul|juillet|janvier|septembre|octobre|mars 20|alternance|\bstage (d|[-–])|stellen|praktikum/i;
+const NOT_UK = /united states|\busa?\b|, ?(al|ca|ct|ma|nc|nh|nj|ny|pa|ri|tx|wa|il|ga|fl|va|md|co)\b|new york|san francisco|seattle|chicago|boston|austin|palo alto|mountain view|hong kong|singapore|tokyo|paris|frankfurt|dubai|sydney|mumbai|bangalore|bengaluru|toronto|zurich|geneva|amsterdam|dublin|madrid|milan|luxembourg|warsaw|budapest|shanghai|beijing|seoul|korea|taiwan|hsinchu|taichung|tainan|kaohsiung|sophia[- ]antipolis|grenoble|toulouse|lyon|berlin|hamburg|stuttgart|cologne|düsseldorf|dusseldorf|eindhoven|rotterdam|antwerp|barcelona|valencia|lisbon|porto|cork|galway|limerick|krakow|kraków|wroclaw|gdansk|bucharest|sofia|athens|tel aviv|israel|cyprus|limassol|malta|helsinki|gothenburg|bangkok|jakarta|kuala lumpur|manila|vietnam|auckland|nairobi|lagos|johannesburg|cape town|cairo|buenos aires|sao paulo|são paulo|los angeles|san jose|san diego|denver|atlanta|miami|dallas|houston|philadelphia|princeton|greenwich, ct|stamford|seattle|mexico|canada|india|ireland|france|germany|spain|italy|poland|switzerland|netherlands|japan|china|australia|brazil|apac|americas|middle east|riyadh|saudi|\buae\b|abu dhabi|doha|munich|stockholm|oslo|copenhagen|brussels|vienna|lisbon|prague|istanbul|juillet|janvier|septembre|octobre|mars 20|alternance|\bstage (d|[-–])|stellen|praktikum/i;
 export function regionOf(loc){
   if(!loc) return null;
   const foreign = NOT_UK.test(loc);
@@ -158,10 +158,11 @@ export function levelOf(text){
   return '';
 }
 const PC_AREAS = {
-  'London':'E EC N NW SE SW W WC BR CR DA EN HA IG KT RM SM TW UB WD',
-  'South East':'BN CT GU HP ME MK OX PO RG RH SL SO TN SS CM',
+  // outer areas that straddle the London boundary (DA KT TW EN RM WD) go by the town name first; the postcode is the fallback
+  'London':'E EC N NW SE SW W WC BR CR HA IG SM UB',
+  'South East':'BN CT GU HP ME MK OX PO RG RH SL SO TN DA KT TW',
   'South West':'BA BH BS DT EX GL PL SN SP TA TQ TR',
-  'East of England':'AL CB CO IP LU NR PE SG',
+  'East of England':'AL CB CO IP LU NR PE SG SS CM EN RM WD',
   'West Midlands':'B CV DY HR ST TF WR WS WV',
   'East Midlands':'DE DN LE LN NG NN',
   'North West':'BB BL CA CH CW FY L LA M OL PR SK WA WN',
@@ -205,7 +206,7 @@ export async function readGovApprenticeships(src){
         const level = levelOf(course) || levelOf(all) || levelOf(title);
         let postedIso = posted ? dateFrom(posted) : '';
         if(postedIso > TODAY && !/20\d\d/.test(posted)) postedIso = (+postedIso.slice(0, 4) - 1) + postedIso.slice(4);   // 'Posted 5 October' means this year, not next
-        seen.set(id, { role:title, link:base + id, company:employer || 'Employer on GOV.UK', location:town ? `${town}, England` : 'England', region:postcodeRegion(pc) || (town ? regionOf(town) : '') || 'UK (region not stated)',
+        seen.set(id, { role:title, link:base + id, company:employer || 'Employer on GOV.UK', location:town ? `${town}, England` : 'England', region:(town && REGIONS.some(([, re]) => re.test(town)) ? regionOf(town) : '') || postcodeRegion(pc) || 'UK (region not stated)',
           programme:'Apprenticeship', level, start:start ? dateFrom(start) : '', wage, course, live:'open', exact:true,
           deadline:closes ? dateFrom(closes) : '', postedAt:postedIso && postedIso > TODAY ? '' : postedIso,
           ageGroup:/^L[2-3]$/.test(level) ? '16-18' : '18+',
@@ -569,12 +570,46 @@ const GENERIC = /^(apply( now| here| today)?|find out more|learn more|read more|
 let browser = null;
 async function getBrowser(){
   if(browser !== null) return browser;
-  try{ const { chromium } = await import('playwright'); browser = await chromium.launch(); }
+  try{ const { chromium } = await import('playwright'); browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath:process.env.CHROMIUM_PATH } : {}); }
   catch(e){ console.warn('⚠ Playwright not installed — skipping firms’ own pages. Run: npm i playwright && npx playwright install chromium'); browser = false; }
   return browser;
 }
 const UK_WORDS = /london|\buk\b|united kingdom|emea|england|scotland|wales|belfast|edinburgh|glasgow|manchester|leeds|birmingham|bristol|cardiff|newcastle|nottingham|sheffield|liverpool/i;
 const HUMAN = /verify (?:you are|you're) (?:a )?human|are you a robot|captcha|quick check needed|access denied|unusual traffic/i;
+/* Many careers sites put the city in the job URL, e.g. careers.arm.com/job/seoul/<title>/33099/<id> or search.jobs.barclays/job/knutsford/... */
+export function cityInUrl(href){
+  try{
+    const p = new URL(href).pathname.split('/').filter(Boolean);
+    const i = p.findIndex(x => /^jobs?$/i.test(x));
+    if(i >= 0 && p.length >= i + 4 && /^\d+$/.test(p[p.length - 1]) && /^[a-z][a-z-]+$/i.test(p[i + 1]) && !/^(en|en-gb|gb|uk|details?|view|apply|search)$/i.test(p[i + 1])) return decodeURIComponent(p[i + 1]).replace(/-/g, ' ');
+  }catch(e){}
+  return '';
+}
+const UK_PLACE = loc => REGIONS.some(([, re]) => re.test(loc));
+/* the best location we can actually see for a link: city in the URL, then a UK city named next to it, then what the source says.
+   Returns null when the link is clearly somewhere outside the UK. Never guesses London. */
+export function locationFor(href, ctx, fallback){
+  const c = cityInUrl(href);
+  if(c){
+    if(UK_PLACE(c)) return c.replace(/\b\w/g, m => m.toUpperCase()) + ', United Kingdom';
+    if(NOT_UK.test(c) || !UK.test(c)) return null;            // a city in the URL that isn't a UK place → not a UK role
+  }
+  const near = String(ctx || '').slice(0, 400);
+  for(const [r, re] of REGIONS){ const m = near.match(re); if(m && !(NOT_UK.test(near) && !UK.test(near) && !/london/i.test(m[0]))) return m[0].replace(/\b\w/g, x => x.toUpperCase()) + ', United Kingdom'; }
+  return fallback || 'United Kingdom';
+}
+/* shared job platforms list other companies' jobs too ("similar jobs"); keep only this firm's */
+const MULTI_TENANT = /^(jobs\.smartrecruiters\.com|careers\.smartrecruiters\.com|boards\.greenhouse\.io|job-boards\.(eu\.)?greenhouse\.io|jobs\.lever\.co|jobs\.eu\.lever\.co|jobs\.ashbyhq\.com|apply\.workable\.com)$/i;
+const squash = x => String(x || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]/g, '');
+export function sameFirmLink(href, company, startUrl){
+  let u; try{ u = new URL(href); }catch(e){ return true; }
+  if(!MULTI_TENANT.test(u.hostname)) return true;
+  const t = squash(u.pathname.split('/').filter(Boolean)[0]);
+  if(!t) return true;
+  try{ const s = new URL(startUrl); if(MULTI_TENANT.test(s.hostname) && squash(s.pathname.split('/').filter(Boolean)[0]) === t) return true; }catch(e){}
+  const c = squash(String(company || '').replace(/\b(group|plc|llp|ltd|limited|inc|the|uk|international|holdings?)\b/gi, ''));
+  return !!c && (t.includes(c.slice(0, 8)) || c.includes(t.slice(0, 8)));
+}
 export const NON_UK_URL = /\/(americas|asia-pacific|apac|north-america|latin-america|japan|india|china|hong-kong|singapore|australia|middle-east|united-states)\//i;
 export const cleanHref = h => String(h || '').replace(/\/xf-[0-9a-f]{6,}(?=\/)/i, '').replace(/&amp;/g, '&');
 const grabLinks = page => page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => ({ t:(a.innerText || a.getAttribute('aria-label') || a.title || '').replace(/\s+/g, ' ').trim(), h:String(a.href).replace(/\/xf-[0-9a-f]{6,}(?=\/)/i, ''), ctx:(a.closest('li,article,tr,[class*=card],[class*=item],div') || a).innerText.replace(/\s+/g, ' ').slice(0, 600) })));
@@ -657,9 +692,12 @@ function collectLinks1(links, src, seen, items, ats){
         if(NOT_UK.test(title) && !UK_WORDS.test(title)) continue;                         // the title names somewhere outside the UK
         if(NON_UK_URL.test(l.h) && !UK_WORDS.test(title)) continue;                       // a page for another region
         if(!UK_WORDS.test(title) && NOT_UK.test(l.ctx) && !UK_WORDS.test(l.ctx)) continue;
-        seen.add(l.h);
+        if(!sameFirmLink(l.h, src.company, src.url)) continue;                             // another company's job on a shared platform
         const city = src.cityFromUrl ? (new URL(l.h).pathname.split('/').filter(Boolean)[src.cityFromUrl] || '') : '';
-        items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location:city ? deslug(city) + ', United Kingdom' : (src.location || 'London, United Kingdom') });
+        const location = city && UK_PLACE(deslug(city)) ? deslug(city) + ', United Kingdom' : locationFor(l.h, l.ctx, src.location);
+        if(!location) continue;                                                            // the link itself says it's outside the UK
+        seen.add(l.h);
+        items.push({ role:title, link:l.h, live:statusIn(l.ctx), deadline:deadlineIn(l.ctx), opens:opensIn(l.ctx), notes:notesFrom(l.ctx).slice(0, 2), location });
       }
 }
 /* raw HTML (no browser): used when a page shows no links in the browser, or the browser can't load it */
@@ -694,7 +732,7 @@ export async function scanPage(src){
       const { page, text } = pg;
       if(i === 0) pageNotes = notesFrom(text);
       if(src.type === 'programme'){
-        items.push({ role:src.title, link:src.url, progPage:true, live:statusIn(text), ...detailsOf(text), location:src.location || 'London, United Kingdom' });
+        items.push({ role:src.title, link:src.url, progPage:true, live:statusIn(text), ...detailsOf(text), location:src.location || 'United Kingdom' });
         if(src.exactPage) items[items.length - 1].exact = true;       // a page dedicated to this one programme
         break;
       }
@@ -703,7 +741,7 @@ export async function scanPage(src){
       collectLinks(links, src, seen, items, ats);
       if(src.textList && items.length === before){
         const lines = await page.evaluate(() => (document.body ? document.body.innerText : '').split('\n').map(t => t.trim()).filter(Boolean));
-        for(const t of [...new Set(lines)]) if(t.length >= 6 && t.length <= 120 && isEarly(t) && !JUNK_TITLE.test(t) && !HUB_ROLE.test(t)) items.push({ role:t, link:url, live:'open', location:src.location || 'London, United Kingdom', exact:false });
+        for(const t of [...new Set(lines)]) if(t.length >= 6 && t.length <= 120 && isEarly(t) && !JUNK_TITLE.test(t) && !HUB_ROLE.test(t)) items.push({ role:t, link:url, live:'open', location:src.location || 'United Kingdom', exact:false });
       }
       if(i > 0 && items.length === before) break;          // ran out of pages
     }finally{ await pg.page.close().catch(() => {}); }
@@ -726,10 +764,13 @@ export async function scanPage(src){
     const d = detailsOf(r.text);
     for(const bd of r.ats) ats.set(JSON.stringify(bd), bd);
     const ukOk = j => !(NON_UK_URL.test(j.h) && !UK_WORDS.test(j.t)) && !(NOT_UK.test(j.t) && !UK_WORDS.test(j.t)) && !(!UK_WORDS.test(j.t) && NOT_UK.test(j.ctx || '') && !UK_WORDS.test(j.ctx || ''));
-    const specific = r.jobs.filter(j => !seen.has(j.h) && (isEarly(j.t) || src.all || CATEGORY.test(it.role)) && ukOk(j));
+    // a programme page links to all sorts (senior jobs, other firms' "similar jobs"), so only early-careers roles from this firm count
+    const looseOk = src.all && src.type !== 'programme' && !it.progPage;
+    const specific = r.jobs.filter(j => !seen.has(j.h) && !EXCLUDE.test(j.t) && (isEarly(j.t) || looseOk || (CATEGORY.test(it.role) && !it.progPage)) && ukOk(j)
+      && sameFirmLink(j.h, src.company, src.url) && locationFor(j.h, j.ctx, it.location) !== null);
     const k = kindOf(it.role);
     const same = specific.filter(j => k >= 0 && kindOf(j.t) === k);
-    for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx || ''), deadline:deadlineIn(j.ctx || '') || (specific.length === 1 ? d.deadline : ''), opens:opensIn(j.ctx || ''), notes:notesFrom(j.ctx || '').slice(0, 2), location:it.location }); }
+    for(const j of specific){ seen.add(j.h); out.push({ role:j.t, link:j.h, info:it.link, live:statusIn(j.ctx || ''), deadline:deadlineIn(j.ctx || '') || (specific.length === 1 ? d.deadline : ''), opens:opensIn(j.ctx || ''), notes:notesFrom(j.ctx || '').slice(0, 2), location:locationFor(j.h, j.ctx, /london/i.test(it.location || '') && !src.location ? 'United Kingdom' : it.location) }); }
     const replaced = same.length || (specific.length && ((CATEGORY.test(it.role) && !it.progPage) || JUNK_TITLE.test(it.role)));
     if(!replaced){
       for(const f of ['deadline', 'opens', 'visa']) if(!it[f] && d[f]) it[f] = d[f];
@@ -822,6 +863,7 @@ async function toOpenings(rows, co, src){
   for(const j of rows || []){
     const ct = cleanTitle(j.role); const role = ct.title; if(ct.opens && !j.opens && ct.opens !== 'soon') j.opens = ct.opens; if(ct.opens && (!j.live || j.live === 'check')) j.live = 'soon'; if(!role || HUB_ROLE.test(role) || JUNK_TITLE.test(role)) continue;
     if(!src.all && !isEarly(role)) continue;
+    if(EXCLUDE.test(role) && !j.progPage) continue;                                       // senior roles, even on boards marked early-careers
     let location = j.location || src.location || '', text = j.text || '';
     const tc = role.match(/\b(London|Leeds|Manchester|Birmingham|Edinburgh|Glasgow|Bristol|Belfast|Cardiff|Newcastle|Nottingham|Sheffield|Liverpool|Reading|Cambridge|Oxford|Bournemouth|Northampton|Knutsford|Chester|Milton Keynes|Canary Wharf)\b/i);
     if(tc && (!j.location || !new RegExp(tc[1], 'i').test(j.location))) location = (tc[1] === 'Canary Wharf' ? 'Canary Wharf, London' : tc[1]) + ', United Kingdom';
@@ -1059,7 +1101,8 @@ async function main(){
   const stamp = o => { o.detected = firstSeen[o.id] || NOW_ISO; o.posted = o.detected.slice(0, 10); return o; };
   openings.forEach(stamp); reviewList.forEach(stamp);
   const ids = new Set(openings.map(o => o.id));
-  const carried = (prev.openings || []).filter(o => !ids.has(o.id) && failedCompanies.has(o.company) && !HUB_ROLE.test(o.role) && !JUNK_TITLE.test(o.role) && !NON_UK_URL.test(o.link || ''))
+  const carried = (prev.openings || []).filter(o => !ids.has(o.id) && failedCompanies.has(o.company) && !HUB_ROLE.test(o.role) && !JUNK_TITLE.test(o.role) && !NON_UK_URL.test(o.link || '')
+      && !(EXCLUDE.test(o.role) && !o._prog) && sameFirmLink(o.link, o.company, '') && locationFor(o.link, '', 'x') !== null)
     .map(o => ({ ...o, stale:true, exact:!!(o.exact || isDeep(o.link)) }));
   openings.push(...carried);
 

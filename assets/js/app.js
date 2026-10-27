@@ -722,7 +722,7 @@ const MACRO_ROLE = /macro|rates|\bfx\b|foreign exchange|currenc|commodit|fixed i
 /* first-year / exploratory programmes (UK spring weeks & insights; US 'exploratory' programmes) */
 const isFirstYear = o => ageOf(o) === 'uni1' || ['Spring week', 'Insight / work experience'].includes(o.programme) || /first[- ]year|spring|insight|discovery|explor|bridge|launch|future (women )?leaders|sophomore|freshman/i.test(o.role || '');
 const isMacro = o => MACRO_FIRM.test(o.company) || MACRO_ROLE.test(o.role + ' ' + (o.programme || '') + ' ' + (o.sub || ''));
-const opF = { tab:'uni', q:'', region:'', sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, macro:false, level:'', first:false, sort:'posted', dir:1, page:0 };
+const opF = { tab:'uni', q:'', region:'', unknownToo:false, sector:'', role:'', prog:'', yg:'', isNew:false, soon:false, openOnly:false, macro:false, level:'', first:false, sort:'posted', dir:1, page:0 };
 const PAGE_SIZE = 25;
 
 /* time helpers: "8 hours ago", "detected 2 days after posting" */
@@ -858,7 +858,7 @@ function opFiltered(){
     if(opF.tab === 'saved' && !o.saved) return false;
     if(opF.tab === 'apps' && !o.status) return false;
     if(opF.sector && o.sector !== opF.sector) return false;
-    if(opF.region && o.region !== opF.region) return false;
+    if(opF.region && o.region !== opF.region && !(opF.unknownToo && o.region === 'UK (region not stated)')) return false;
     if(opF.level && opF.tab === 'appr' && levelGroup(o) !== opF.level) return false;
     if(opF.role && o.roleType !== opF.role) return false;
     if(opF.prog && o.programme !== opF.prog) return false;
@@ -891,6 +891,10 @@ function drawOpenings(){
   if(opF.tab === 'apps') return drawBoard(b);
   const list = opFiltered();
   const ghost = !OPS().length && !LIVE.updated;
+  // filtering by a region: say how many openings don't state where they are, and let them be included
+  let unk = 0;
+  if(opF.region && opF.region !== 'UK (region not stated)'){ const keep = opF.region, was = opF.unknownToo; opF.region = 'UK (region not stated)'; opF.unknownToo = false; unk = opFiltered().length; opF.region = keep; opF.unknownToo = was; }
+  const unkLine = unk ? `<div class="unk-line">${opF.unknownToo ? `Including <b>${unk}</b> opening${unk === 1 ? '' : 's'} that don’t say where in the UK they are.` : `<b>${unk}</b> more opening${unk === 1 ? '' : 's'} don’t say where in the UK they are, so they may be in ${esc(opF.region)} too.`} <button class="lnk" id="opUnk">${opF.unknownToo ? 'Hide them' : 'Include them'}</button></div>` : '';
   // closing soonest
   const soon = list.filter(o => { const d = daysUntil(o.deadline); return d !== null && d >= 0 && o.live !== 'closed'; }).sort((x, y) => x.deadline < y.deadline ? -1 : 1).slice(0, 5);
   if(soon.length) strip.innerHTML = `<div class="strip"><span class="strip-h">Closing soonest</span>${soon.map(o => `<button class="strip-i" data-open="${esc(o.id)}"><b>${esc(o.company)}</b><span>${esc(o.role)}</span>${countdown(o.deadline)}</button>`).join('')}</div>`;
@@ -899,11 +903,12 @@ function drawOpenings(){
   const rows = ghost ? GHOSTS : list.slice(opF.page * PAGE_SIZE, (opF.page + 1) * PAGE_SIZE);
   const cols = [['company','Company'], ['role','Role'], ['programme','Programme'], ['location','Location'], ['age','Age'], ['deadline','Deadline'], ['posted','Posted']];
   b.innerHTML = (ghost ? `<div class="caveat">${I(IC.warn,15)}<div><b>Preview rows.</b> Real openings appear here after the scanner’s first run.</div></div>` : '')
-  + `<div class="tracker">
+  + unkLine + `<div class="tracker">
     <div class="tr-head">${cols.map(c => `<span data-sort="${c[0]}" class="${opF.sort === c[0] ? 'sorted' : ''}">${c[1]}${opF.sort === c[0] ? (opF.dir > 0 ? ' ↓' : ' ↑') : ''}</span>`).join('')}<span></span></div>
     ${rows.length ? rows.map(o => opRow(o, ghost)).join('') : `<div class="tr-empty"><b>No openings match</b>Try clearing a filter or the search box.</div>`}
   </div>
   ${!ghost && list.length > PAGE_SIZE ? `<div class="pager"><button class="btn sm" data-pg="-1" ${opF.page === 0 ? 'disabled' : ''}>← Previous</button><span>Page ${opF.page + 1} of ${pages} · ${list.length} openings</span><button class="btn sm" data-pg="1" ${opF.page >= pages - 1 ? 'disabled' : ''}>Next →</button></div>` : (!ghost && list.length ? `<div class="pager"><span>${list.length} opening${list.length === 1 ? '' : 's'}</span></div>` : '')}`;
+  { const u = $('#opUnk', b); if(u) u.onclick = () => { opF.unknownToo = !opF.unknownToo; opF.page = 0; drawOpenings(); }; }
   $$('[data-sort]', b).forEach(h => h.onclick = () => { opF.dir = opF.sort === h.dataset.sort ? -opF.dir : 1; opF.sort = h.dataset.sort; drawOpenings(); });
   $$('[data-pg]', b).forEach(x => x.onclick = () => { opF.page += +x.dataset.pg; drawOpenings(); $('#opFilters').scrollIntoView({ behavior:'smooth', block:'start' }); });
   if(ghost) return;
@@ -1170,7 +1175,7 @@ function recMatches(e){
 const LOGS = {
   extracurriculars:{ types:['ex'], title:'Extracurriculars', add:'Add activity',
     sub:'Sport, music, leadership, volunteering and anything else outside lessons. Under each, keep a few short points on what you learned. Those points are what your CV and personal statement are built from.' },
-  projects:{ types:['proj'], title:'Projects', add:'Add project',
+  projects:{ types:['proj'], title:'Projects', add:'Add project', extra:() => learnLinks(),
     sub:'AI workflows, automations, apps and anything else you’ve built. Note the problem, what you built and what came of it, then a few short points on what you learned. A good project makes a strong CV line and interview story.' },
   work:{ types:['work'], title:'Work experience logger', add:'Add placement',
     sub:'Placements, insight days and virtual programmes you’ve done. Note what you did, and a few short points on what you learned. Interviewers ask about the second part.' },
@@ -1190,7 +1195,7 @@ function bindLogBar(root){
 function viewLog(v, page){
   const L = LOGS[page]; recF.types = L.types;
   v.innerHTML = head({ crumbs:crumbsFor(page), title:L.title, sub:L.sub, stats:logStats(L.types),
-    actions:`<button class="btn primary" id="logAdd">${I(IC.plus,14)} ${L.add}</button>` }) + logBar() + `<div id="recBody"></div>`;
+    actions:`<button class="btn primary" id="logAdd">${I(IC.plus,14)} ${L.add}</button>` }) + (L.extra ? L.extra() : '') + logBar() + `<div id="recBody"></div>`;
   $('#logAdd').onclick = () => recNew(L.types[0]);
   bindLogBar(v);
   drawRecord();
@@ -1198,6 +1203,13 @@ function viewLog(v, page){
 const viewExtras = v => viewLog(v, 'extracurriculars');
 const viewWork = v => viewLog(v, 'work');
 const viewProjects = v => viewLog(v, 'projects');
+/* where to learn to build with AI */
+const LEARN = [
+  { name:'Claude Academy', by:'Anthropic', link:'https://academy.claude.com/', what:'Free courses and tutorials on using AI well: how AI works, AI fluency, and getting the most out of Claude.' },
+  { name:'OpenAI Academy', by:'OpenAI', link:'https://academy.openai.com/', what:'Courses, live events and guides on prompting, Codex, building with the API and putting AI to work.' },
+];
+const learnLinks = () => `<section class="learn"><h2 class="sec">Where to learn</h2><div class="learn-grid">${LEARN.map(x => `<a class="learn-card" href="${x.link}" target="_blank" rel="noopener">
+  <b>${esc(x.name)} <span>${I(IC.ext, 12)}</span></b><small>${esc(x.by)}</small><p>${esc(x.what)}</p></a>`).join('')}</div></section>`;
 const PROJ_ST = ['In progress', 'In use', 'Finished', 'Paused'];
 function editProject(pj){
   openForm({ title: pj ? 'Edit project' : 'Add project', value: pj || { status:'In progress', start:isoToday(), inCV:true },
