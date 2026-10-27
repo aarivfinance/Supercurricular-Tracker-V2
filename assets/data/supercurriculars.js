@@ -43,6 +43,23 @@ DATA.y11 = [
      c:"J.A.G. Griffith, <i>The Politics of the Judiciary</i>|The classic dissent: judges are not neutral umpires but a narrow social group whose decisions track a definite view of the public interest. Treats 'the rule of law' as a claim to be tested rather than a virtue to be praised.",
      link:"Bingham's eight principles are a deliberate modern restatement of Dicey. Reading the original lets you say precisely <b>where Bingham departs from him</b> — above all on whether the rule of law includes human rights, which Dicey would have denied. That is an argument, not a summary."}},
 
+  {t:"AmplifyME Finance Accelerator (free live simulations)", s:"econ", yr:"Students (age not stated)", elig:"check", tag:"NEW",
+   when:"Weekly 2-hour live sessions, rolling, repeat as often as you like", link:"https://amplifyme.com/for-learners/finance-accelerator-free-experience",
+   note:"Free live simulations in <b>Markets</b> (trading live markets, managing risk, reacting to real macro events), <b>Banking</b> (M&amp;A) and <b>Quant</b>, with a certificate at the end. The Markets one is the closest thing to macro trading you can try at school age. The site doesn't state a minimum age, so check when you sign up.",
+   reading:{
+     m:"Sebastian Mallaby, <i>More Money Than God</i>|The history of hedge funds, from Soros breaking the Bank of England to the 2008 crisis. The background to every macro trade you'll make in the simulation.",
+     s:"George Soros, <i>The Alchemy of Finance</i>|Soros's own account of reflexivity: markets don't just reflect the economy, they change it. Hard going, but a real primary source.",
+     c:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|The case that almost nobody beats the market over time, so active trading is mostly luck and fees.",
+     link:"The simulation shows you how a macro trader reacts to news. Mallaby and Soros show why it sometimes works; Malkiel asks whether it works at all. 'I enjoyed the trading sim, but Malkiel made me question whether skill or luck explained my P&amp;L' is a strong interview line."}},
+
+  {t:"CREST Gold Award (70-hour research project)", s:"multi", yr:"Typically 16+, open to all ages", elig:"now", tag:"NEW",
+   when:"Rolling, no fixed deadline, about 70 hours", link:"https://www.crestawards.org/secondary-further-education/gold/",
+   note:"The British Science Association's top award: a long, independent research project, ideally with a mentor, assessed against the Gold criteria. It's built for STEM, so for PPE pick a project with real data, such as a statistical or behavioural-economics investigation, and check with your school that it qualifies. Usually entered through school; £30 + VAT per student. The British Science Association says it helps with UCAS applications.",
+   reading:{
+     m:"Tim Harford, <i>How to Make the World Add Up</i>|Ten rules for thinking clearly about statistics. Exactly the habits a CREST assessor looks for.",
+     n:"Joshua Angrist &amp; Jörn-Steffen Pischke, <i>Mastering 'Metrics</i>|How economists separate cause from correlation, from the Nobel-winning author. The method behind a serious economics investigation.",
+     link:"Harford keeps your data honest; Angrist and Pischke show how to make a causal claim from it. A CREST project that uses either properly is a far stronger PPE story than a standard STEM write-up."}},
+
   {t:"Forage Online Job Simulations", s:"econ", yr:"16+ / Y11+", elig:"now",
    when:"Self-paced, open all year", link:"https://www.theforage.com/",
    note:"Free simulations built with real employers. Low effort, decent signal — but only if you have something to say <em>about</em> the industry afterwards.",
