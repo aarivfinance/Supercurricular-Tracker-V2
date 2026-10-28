@@ -1106,3 +1106,18 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
 .own-toggle[aria-expanded="false"] h2 svg{transform:rotate(-90deg);}
 .own-toggle:hover h2{text-decoration:underline;text-underline-offset:4px;}
 .tl-month.own .own-toggle[aria-expanded="false"]{border-bottom:1px solid var(--line);padding-bottom:12px;}
+
+/* CV: links stay black but clickable; Banking template = the standard investment-banking layout */
+.cv-sheet a{color:inherit;text-decoration:none;}
+.cv-sheet.banking{font-family:'Times New Roman',Times,'Liberation Serif',serif;color:#000;line-height:1.25;font-size:clamp(7.4px,1.12vw,11.2px);}
+.cv-sheet.banking h1{font-family:'Times New Roman',Times,'Liberation Serif',serif;font-weight:400;text-align:center;font-size:2.05em;letter-spacing:.01em;margin:0 0 .1em;color:#000;}
+.cv-sheet.banking .contact{text-align:center;color:#000;font-size:1em;margin-bottom:.7em;}
+.cv-sheet.banking h2{font-family:inherit;color:#000;font-size:1em;letter-spacing:0;text-transform:uppercase;font-weight:700;border-bottom:1px solid #000;padding-bottom:.08em;margin:.85em 0 .3em;}
+.cv-sheet.banking .it{margin-bottom:.45em;}
+.cv-sheet.banking .it-h{gap:1em;}
+.cv-sheet.banking .it-h b,.cv-sheet.banking .it-h i,.cv-sheet.banking .it-h span{color:#000;font-size:1em;}
+.cv-sheet.banking ul{margin:.1em 0 0;padding-left:1.3em;}
+.cv-sheet.banking li{margin-bottom:.05em;}
+.cv-sheet.banking .profile{margin:0 0 .4em;}
+.cv-sheet.banking .skl p{margin:0 0 .1em;}
+#print-root .cv-sheet.banking{font-size:11px;padding:13mm 15mm;}

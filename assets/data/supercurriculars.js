@@ -68,6 +68,14 @@ DATA.y11 = [
      c:"Anat Admati &amp; Martin Hellwig, <i>The Bankers' New Clothes</i>|The case that banks are far riskier than they admit and should be funded with much more equity. Banks hate this book.",
      link:"Lloyds shows you a big retail bank from the inside. King explains why banks like it are inherently fragile; Admati and Hellwig say the fix is simple and banks resist it. Ask yourself who's right after your placement, and you have an interview answer."}},
 
+  {t:"Bloomberg Market Concepts (BMC) certificate", s:"econ", yr:"Anyone (no age stated)", elig:"check", tag:"NEW",
+   when:"Self-paced online, about 8 hours for the certificate", link:"https://portal.bloombergforeducation.com/",
+   note:"Bloomberg's own introduction to the financial markets: Economic Indicators, Currencies, Fixed Income and Equities (about 8 hours in total), with a certificate at the end, plus optional modules on portfolio management, options and commodities. It's free if your school or a university you can access has a Bloomberg Terminal; otherwise you pay, and Bloomberg only shows the price after sign-up (one US university lists $150 for students). It's widely recognised on finance CVs.",
+   reading:{
+     m:"Gillian Tett, <i>Fool's Gold</i>|How a team at J.P. Morgan invented the credit products that later blew up in 2008. Makes the Fixed Income module, the longest one, feel real.",
+     s:"Michael Lewis, <i>Liar's Poker</i>|A bond salesman's memoir of 1980s Salomon Brothers. Funny, and the best picture of how a trading floor actually behaves.",
+     link:"BMC teaches what bonds, currencies and indicators are. Tett and Lewis show what people do with them, and how it goes wrong. 'BMC taught me how a bond is priced; Fool's Gold showed me how pricing risk badly nearly broke the system' is the kind of link interviewers remember."}},
+
   {t:"Forage Online Job Simulations", s:"econ", yr:"16+ / Y11+", elig:"now",
    when:"Self-paced, open all year", link:"https://www.theforage.com/",
    note:"Free simulations built with real employers. Low effort, decent signal — but only if you have something to say <em>about</em> the industry afterwards.",

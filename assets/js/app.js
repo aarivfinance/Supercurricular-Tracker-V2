@@ -1628,8 +1628,9 @@ function editUni(u){
 /* ============================================================
    CV BUILDER
    ============================================================ */
-const CV_DEF = () => ({ template:'classic', name:'', email:'', phone:'', location:'', linkedin:'', profile:'',
-  education:[{ title:'', org:'', dates:'', bullets:'' }], experience:[], projects:[], activities:[], achievements:[], skills:'', interests:'' });
+const CV_DEF = () => ({ template:'banking', tplSet:true, name:'', email:'', phone:'', location:'', linkedin:'', profile:'',
+  education:[{ title:'', org:'', loc:'', dates:'', bullets:'' }], experience:[], projects:[], activities:[], achievements:[], languages:'', skills:'', certs:'', interests:'' });
+const CV_TEMPLATES = [['banking', 'Banking'], ['classic', 'Classic'], ['modern', 'Modern']];
 const CV_SECTIONS = [
   { k:'education',    label:'Education',                   ph:{ title:'GCSEs (predicted)', org:'School name', bullets:'Maths 9, English Language 9, …' } },
   { k:'experience',   label:'Work experience',             ph:{ title:'Work experience', org:'Company', bullets:'One achievement per line' }, imp:'Import from Work experience logger' },
@@ -1637,14 +1638,19 @@ const CV_SECTIONS = [
   { k:'activities',   label:'Positions & activities',      ph:{ title:'Captain', org:'School hockey team', bullets:'One achievement per line' }, imp:'Import from Extracurriculars' },
   { k:'achievements', label:'Supercurriculars & awards',   ph:{ title:'John Locke Essay Prize — Commended', org:'', bullets:'' }, imp:'Import completed supercurriculars' },
 ];
-function cv(){ if(!S.cv) S.cv = CV_DEF(); CV_SECTIONS.forEach(x => { if(!Array.isArray(S.cv[x.k])) S.cv[x.k] = []; }); return S.cv; }
+function cv(){
+  if(!S.cv) S.cv = CV_DEF();
+  if(!S.cv.tplSet){ S.cv.template = 'banking'; S.cv.tplSet = true; save(); }   // Banking became the default; switch once, then respect the choice
+  CV_SECTIONS.forEach(x => { if(!Array.isArray(S.cv[x.k])) S.cv[x.k] = []; });
+  return S.cv;
+}
 function viewCV(v){
   const c = cv();
   const inp = (k, label, type='text', ph='') => `<label class="field">${label}<input class="inp" data-cv="${k}" type="${type}" value="${esc(c[k])}" placeholder="${esc(ph)}"></label>`;
   v.innerHTML = head({
     crumbs:crumbsFor('cv'), title:'CV builder',
     sub:'A clean one-page CV. Import entries from your logs, edit the wording, then save as PDF.',
-    actions:`<div class="seg" id="cvT">${['classic','modern'].map(t => `<button data-t="${t}" aria-pressed="${c.template === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div><button class="btn primary" id="cvPrint">${I(IC.print,14)} Save as PDF</button>`
+    actions:`<div class="seg" id="cvT">${CV_TEMPLATES.map(([t, l]) => `<button data-t="${t}" aria-pressed="${c.template === t}">${l}</button>`).join('')}</div><button class="btn primary" id="cvPrint">${I(IC.print,14)} Save as PDF</button>`
   }) + cvFilePanel() + `<h2 class="sec" style="margin-top:26px">Builder</h2><div class="cv-layout">
     <div class="cv-editor">
       <details open><summary>Personal details</summary><div class="body">
@@ -1655,15 +1661,17 @@ function viewCV(v){
       ${CV_SECTIONS.map(s => `<details ${s.k === 'education' ? 'open' : ''}><summary>${s.label} <span class="faint" style="font-weight:500;font-size:12px;margin-left:auto;margin-right:10px">${c[s.k].length}</span></summary><div class="body" data-sec="${s.k}">
         ${c[s.k].map((e, i) => `<div class="entry" data-i="${i}">
           <div class="row2"><input class="inp" data-f="title" value="${esc(e.title)}" placeholder="${esc(s.ph.title)}"><input class="inp" data-f="dates" value="${esc(e.dates)}" placeholder="Dates"></div>
-          <input class="inp" data-f="org" value="${esc(e.org)}" placeholder="${esc(s.ph.org || 'Organisation')}">
+          <div class="row2"><input class="inp" data-f="org" value="${esc(e.org)}" placeholder="${esc(s.ph.org || 'Organisation')}"><input class="inp" data-f="loc" value="${esc(e.loc || '')}" placeholder="City, e.g. London"></div>
           <textarea class="inp" data-f="bullets" rows="2" placeholder="${esc(s.ph.bullets || 'Details — one bullet per line')}">${esc(e.bullets)}</textarea>
           <div class="entry-tools"><button class="btn sm ghost" data-mv="-1">↑</button><button class="btn sm ghost" data-mv="1">↓</button><button class="btn sm ghost danger" data-rm>Remove</button></div>
         </div>`).join('')}
         <div class="row"><button class="btn sm" data-addent>${I(IC.plus,12)} Add entry</button>${s.imp ? `<button class="btn sm ghost" data-imp="${s.k}">${s.imp}</button>` : ''}</div>
       </div></details>`).join('')}
       <details><summary>Skills & interests</summary><div class="body">
-        <label class="field">Skills <span class="hint">comma-separated</span><textarea class="inp" data-cv="skills" rows="2" placeholder="Excel, Python (basic), public speaking, Spanish (GCSE)">${esc(c.skills)}</textarea></label>
-        <label class="field">Interests<textarea class="inp" data-cv="interests" rows="2">${esc(c.interests)}</textarea></label>
+        <label class="field">Languages<input class="inp" data-cv="languages" value="${esc(c.languages || '')}" placeholder="English (native); Spanish (conversational)"></label>
+        <label class="field">Technical skills <span class="hint">comma-separated</span><textarea class="inp" data-cv="skills" rows="2" placeholder="Python (pandas), Excel (DCF), JavaScript">${esc(c.skills)}</textarea></label>
+        <label class="field">Certifications &amp; training<input class="inp" data-cv="certs" value="${esc(c.certs || '')}" placeholder="CISI Fundamentals of Financial Services (2026)"></label>
+        <label class="field">Interests <span class="hint">1–2 lines, be specific</span><textarea class="inp" data-cv="interests" rows="2" placeholder="Macro markets (I read the MPC minutes each month); half-marathons (best 1:42)">${esc(c.interests)}</textarea></label>
       </div></details>
     </div>
     <div class="cv-preview-wrap"><div class="cv-sheet ${c.template}" id="cvSheet"></div><div class="cv-warn hidden" id="cvWarn">Your CV runs over one page — trim a few bullets.</div></div>
@@ -1680,7 +1688,7 @@ function viewCV(v){
       $('[data-rm]', en).onclick = () => { c[k].splice(i, 1); save(); keepOpen(k); };
       $$('[data-mv]', en).forEach(m => m.onclick = () => { const j = i + +m.dataset.mv; if(j < 0 || j >= c[k].length) return; [c[k][i], c[k][j]] = [c[k][j], c[k][i]]; save(); keepOpen(k); });
     });
-    $('[data-addent]', sec).onclick = () => { c[k].push({ title:'', org:'', dates:'', bullets:'' }); save(); keepOpen(k); };
+    $('[data-addent]', sec).onclick = () => { c[k].push({ title:'', org:'', loc:'', dates:'', bullets:'' }); save(); keepOpen(k); };
     const imp = $('[data-imp]', sec); if(imp) imp.onclick = () => { const n = cvImport(k); save(); keepOpen(k); toast(n ? `Imported ${n} entr${n > 1 ? 'ies' : 'y'}` : 'Nothing new to import'); };
   });
   $$('#cvT button').forEach(b => b.onclick = () => { c.template = b.dataset.t; save(); $$('#cvT button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#cvSheet').className = 'cv-sheet ' + c.template; redraw(); });
@@ -1699,15 +1707,40 @@ function cvImport(k){
   add = add.filter(e => !have.has((e.title + '|' + e.org).toLowerCase()));
   c[k].push(...add); return add.length;
 }
+/* email and LinkedIn are links, so they're clickable in the saved PDF */
+function cvContact(c){
+  const li = String(c.linkedin || '').trim(), em = String(c.email || '').trim();
+  const liHref = li ? (/^https?:\/\//i.test(li) ? li : 'https://' + li.replace(/^\/+/, '')) : '';
+  const parts = [
+    c.location ? esc(c.location) : '',
+    c.phone ? esc(c.phone) : '',
+    em ? `<a href="mailto:${esc(em)}">${esc(em)}</a>` : '',
+    li ? `<a href="${esc(liHref)}">${esc(li.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/$/, ''))}</a>` : '',
+  ].filter(Boolean);
+  return parts;
+}
+const cvBullets = e => (e.bullets || '').trim() ? `<ul>${e.bullets.split('\n').map(l => l.replace(/^[-•*]\s*/, '').trim()).filter(Boolean).map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : '';
 function cvHTML(c){
-  const contact = [c.email, c.phone, c.location, c.linkedin].filter(Boolean).map(esc).join('  ·  ');
-  const sec = (label, list) => list.filter(e => e.title || e.org).length ? `<h2>${label}</h2>` + list.filter(e => e.title || e.org).map(e => `<div class="it">
-    <div class="it-h"><b>${esc(e.title)}</b><span>${esc(e.dates)}</span></div>${e.org ? `<div class="org">${esc(e.org)}</div>` : ''}
-    ${(e.bullets || '').trim() ? `<ul>${e.bullets.split('\n').map(l => l.replace(/^[-•*]\s*/, '').trim()).filter(Boolean).map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}</div>`).join('') : '';
-  return `<h1>${esc(c.name) || '<span style="color:#bbb">Your name</span>'}</h1><div class="contact">${contact || '<span style="color:#bbb">email · phone · location</span>'}</div>
+  const contact = cvContact(c), name = esc(c.name) || '<span style="color:#bbb">Your name</span>';
+  const live = list => list.filter(e => e.title || e.org);
+  if(c.template === 'banking'){
+    // the format banks expect: firm and city on one line, role and dates under it, black serif type, labelled skills lines
+    const ent = (e, k) => k === 'projects' && e.org ? ent({ ...e, title:e.org, org:e.title }) : e.org ? `<div class="it"><div class="it-h"><b>${esc(e.org)}</b><b>${esc(e.loc || '')}</b></div>${e.title || e.dates ? `<div class="it-h"><i>${esc(e.title)}</i><span>${esc(e.dates)}</span></div>` : ''}${cvBullets(e)}</div>`
+                       : `<div class="it"><div class="it-h"><b>${esc(e.title)}</b><span>${esc([e.loc, e.dates].filter(Boolean).join(', '))}</span></div>${cvBullets(e)}</div>`;
+    const lines = [['Languages', c.languages], ['Technical skills', c.skills], ['Certifications &amp; training', c.certs], ['Interests', c.interests]].filter(x => (x[1] || '').trim());
+    return `<h1>${name}</h1><div class="contact">${contact.join('&nbsp; | &nbsp;') || '<span style="color:#bbb">City | phone | email | LinkedIn</span>'}</div>
+      ${c.profile ? `<p class="profile">${esc(c.profile)}</p>` : ''}
+      ${CV_SECTIONS.map(s => live(c[s.k]).length ? `<h2>${s.label}</h2>` + live(c[s.k]).map(e => ent(e, s.k)).join('') : '').join('')}
+      ${lines.length ? `<h2>Skills, activities &amp; interests</h2><div class="skl">${lines.map(([l, v]) => `<p><b>${l}:</b> ${esc(v)}</p>`).join('')}</div>` : ''}`;
+  }
+  const sec = (label, list) => live(list).length ? `<h2>${label}</h2>` + live(list).map(e => `<div class="it">
+    <div class="it-h"><b>${esc(e.title)}</b><span>${esc(e.dates)}</span></div>${e.org || e.loc ? `<div class="org">${esc([e.org, e.loc].filter(Boolean).join(', '))}</div>` : ''}
+    ${cvBullets(e)}</div>`).join('') : '';
+  const skills = [c.languages, c.skills, c.certs].filter(x => (x || '').trim()).join('; ');
+  return `<h1>${name}</h1><div class="contact">${contact.join('  ·  ') || '<span style="color:#bbb">email · phone · location</span>'}</div>
     ${c.profile ? `<h2>Profile</h2><p>${esc(c.profile)}</p>` : ''}
     ${CV_SECTIONS.map(s => sec(s.label, c[s.k])).join('')}
-    ${c.skills ? `<h2>Skills</h2><p>${esc(c.skills)}</p>` : ''}${c.interests ? `<h2>Interests</h2><p>${esc(c.interests)}</p>` : ''}`;
+    ${skills ? `<h2>Skills</h2><p>${esc(skills)}</p>` : ''}${c.interests ? `<h2>Interests</h2><p>${esc(c.interests)}</p>` : ''}`;
 }
 
 
