@@ -316,6 +316,24 @@ async function sitemapUrls(url, keep){
   for(const u of subs){ if(timeLeft() < 90e3) break; try{ out.push(...locsFrom(await (await get(u)).text())); }catch(e){} }
   return out.filter(x => keep(x.loc)).sort((a, b) => (b.mod || '').localeCompare(a.mod || '')).map(x => x.loc);
 }
+/* a page that describes just one upcoming event (e.g. Imperial's yearly Newlands Lecture): its date, plus the heading nearest above it */
+export function singleEvent(html, url, today, back = 14, ahead = 365){
+  const text = htmlText(html), d = datesIn(text, today).find(x => { const n = dayDiff(x.date, today); return n >= -back && n <= ahead; });
+  if(!d) return null;
+  // the heading or bold line closest before the date in the page source is the lecture title
+  const words = text.slice(Math.max(0, d.index - 600), d.index);
+  const heads = [...String(html).matchAll(/<(h[1-4]|strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi)].map(m => htmlText(m[2]).trim()).filter(t => t.length >= 12 && t.length <= 160 && !datesIn(t).length);
+  const title = heads.filter(t => words.includes(t)).pop() || '';
+  return { date:d.date, time:d.time, title };
+}
+async function scanSingle(src, today){
+  const html = await (await get(src.url)).text();
+  const ev = singleEvent(html, src.url, today);
+  if(!ev) return { items:[], note:'no upcoming date on the page' };
+  const title = ev.title && !new RegExp(src.titlePrefix || '^$', 'i').test(ev.title) ? `${src.titlePrefix || ''}${ev.title}` : (src.title || ev.title);
+  const it = finish(src, { title, link:src.url, date:ev.date, time:ev.time, text:htmlText(html).slice(0, 3000) }, today);
+  return { items:it ? [it] : [], note:`single event page, ${ev.date}` };
+}
 const PUBLIC_TALK = /\b(lecture|lectures|debate|in conversation|conversation with|panel discussion|book (talk|launch)|public talk|annual|memorial|keynote|address|symposium|festival)\b/i;
 async function scanOxTalks(src, today){
   const items = []; let url = src.url, pages = 0;
@@ -442,7 +460,7 @@ export async function main({ embed } = {}){
     if(timeLeft() < 45e3){ report.push({ name:src.name, url:src.url, ok:false, error:'skipped: out of time' }); failed.add(src.name); continue; }
     const t = Date.now();
     try{
-      const r = src.type === 'oxtalks' ? await scanOxTalks(src, today) : await scanPage(src, today);
+      const r = src.type === 'oxtalks' ? await scanOxTalks(src, today) : src.type === 'single' ? await scanSingle(src, today) : await scanPage(src, today);
       all.push(...r.items);
       report.push({ name:src.name, url:src.url, ok:true, found:r.items.length, note:r.note, secs:Math.round((Date.now() - t) / 1000) });
       console.log(`✓ ${src.name} · ${r.items.length} found · ${r.note}`);

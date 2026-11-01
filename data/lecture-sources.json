@@ -89,6 +89,17 @@
       "city": "Oxford",
       "filter": "subject",
       "s": "multi"
+    },
+    {
+      "name": "Imperial College London",
+      "type": "single",
+      "url": "https://www.imperial.ac.uk/be-inspired/schools-outreach/secondary-schools/stem-events/newlands-lecture-series/",
+      "title": "Newlands Lecture (Imperial College London)",
+      "titlePrefix": "Newlands Lecture: ",
+      "city": "London",
+      "filter": "loose",
+      "s": "multi",
+      "free": true
     }
   ]
 }
