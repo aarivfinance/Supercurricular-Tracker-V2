@@ -137,6 +137,15 @@ DATA.y11 = [
 
 { month:"October – November 2026", items:[
 
+  {t:"Oxford Centre for Advanced Research (OCAR) Global Essay Prize", s:"multi", yr:"Ages 14–18 on 31 Jan 2027", elig:"now", tag:"NEW",
+   when:"Free registration by 20 Dec 2026 (£5 after); essays due 3 Jan 2027", link:"https://oxford-research.uk.com/essay-competition",
+   note:"Six prompts set by Oxford and Cambridge researchers, several right on PPE: decision-making under uncertainty, digital technology and democracy, present versus future welfare, and whether technology can be neutral. 1,500 words, MLA citations, and you need a teacher as referee. Free to enter, and every entrant gets a certificate. Note that OCAR is a private company, not part of the University of Oxford, and most prizes are tuition credit for its own paid programmes. A small cash prize comes with the top places. Early-bird deadline 15 Nov 2026 adds £100."},
+
+  {t:"Lumiere Scholars Essay Award (Fall 2026 round)", s:"multi", yr:"Secondary school students, worldwide", elig:"now", tag:"NEW",
+   when:"Free registration by 30 Nov 2026; essays due 20 Dec 2026", link:"https://www.lumiere-education.com/lumiere-scholars-essay-award",
+   note:"Five prompts, including democracy and economic inequality, international law and treaties, and corporate governance. 2,000 words, formal academic style, MLA citations, and a teacher as referee. Judged double-blind by academics from Oxford, Cambridge and US universities. Free to enter; the top six win cash ($300 to $1,000) plus credit towards Lumiere’s own paid programmes, and medallists are invited to a gala dinner in Oxford in July 2027. Lumiere is a private company. The early-bird deadline has passed."},
+
+
   {t:"Warwick Future Economist Essay Competition", s:"econ", yr:"Ages 16–18", elig:"check", tag:"NEW", tbc:true,
    when:"2025 cycle: opened 6 Oct, closed 7 Nov — expect the same window",
    link:"https://www.warwickeconomicssociety.com/copy-of-careers-talks",

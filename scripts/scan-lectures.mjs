@@ -197,11 +197,15 @@ async function readListing(url){
         // grow the card outwards until it would take in a link to a different event (same site section, different page)
         const key = h => { try{ const u = new URL(h); return [u.host, u.pathname.split('/').filter(Boolean)[0] || ''].join('/'); }catch(e){ return ''; } };
         const me = a.href.split('#')[0], sect = key(a.href);
+        // a "Register" or "Book" link to the same event (…/end-maths/register) is part of this card, not another event
+        const path = h => { try{ return new URL(h).pathname.replace(/\/+$/, ''); }catch(e){ return h; } };
+        const sameEvent = h => { const x = path(h), y = path(me); return x === y || x.startsWith(y + '/') || y.startsWith(x + '/'); };
         let card = a;
         for(let i = 0; i < 6; i++){
           const p = card.parentElement; if(!p || p.tagName === 'BODY' || p.tagName === 'MAIN') break;
           const others = [...p.querySelectorAll('a[href]')].map(x => x.href.split('#')[0]).filter(h => h !== me);
-          if(others.some(h => key(h) === sect) || new Set(others).size > 3 || (p.innerText || '').length > 800) break;
+          const rivals = others.filter(h => key(h) === sect && !sameEvent(h));
+          if(rivals.length || new Set(others.filter(h => !sameEvent(h))).size > 6 || (p.innerText || '').length > 800) break;
           card = p;
         }
         const t = card.querySelector('time[datetime]');
@@ -247,6 +251,10 @@ function finish(src, raw, today){
 }
 async function scanPage(src, today){
   const { anchors, ld, via, html } = await readListing(src.url);
+  for(const extra of src.also || []){
+    if(timeLeft() < 90e3) break;
+    try{ const r = await readListing(extra); anchors.push(...r.anchors); ld.push(...r.ld); }catch(e){ /* a missing extra page is fine */ }
+  }
   const items = [], seen = new Set();
   // 1. structured data on the listing page
   for(const e of eventsFromJsonLd(ld)){
@@ -266,6 +274,12 @@ async function scanPage(src, today){
     mode = 'auto'; cands = own.filter(deep);
     if(via === 'html') segmentCards(cands, html);
     cands = cands.filter(a => a.dt ? fromIsoLocal(a.dt) : firstWhen(a.card, today));
+  }
+  // listing page shows nothing usable → take event pages from the site's sitemap and open each one for its date
+  if(!cands.length && src.sitemap && re){
+    mode = 'sitemap';
+    const urls = await sitemapUrls(src.sitemap, u => { try{ return re.test(new URL(u).pathname); }catch(e){ return false; } });
+    cands = urls.slice(0, src.maxFollow || 30).map(u => ({ href:cleanHref(u), text:'', card:'', dt:'' }));
   }
   // merge anchors that point at the same page (image link + title link + "Book" link)
   const byHref = new Map();
@@ -293,6 +307,14 @@ async function scanPage(src, today){
     if(it) items.push(it);
   }
   return { items, note:`${via}, ${mode}, ${byHref.size} links, ${follows} pages opened` };
+}
+/* sitemap.xml (and one level of sitemap index), newest first */
+export function locsFrom(xml){ return [...String(xml || '').matchAll(/<url>\s*<loc>([^<]+)<\/loc>(?:\s*<lastmod>([^<]+)<\/lastmod>)?/gi)].map(m => ({ loc:m[1].trim(), mod:m[2] || '' })); }
+async function sitemapUrls(url, keep){
+  let xml = await (await get(url)).text(), out = locsFrom(xml);
+  const subs = [...xml.matchAll(/<sitemap>\s*<loc>([^<]+)<\/loc>/gi)].map(m => m[1].trim()).slice(0, 6);
+  for(const u of subs){ if(timeLeft() < 90e3) break; try{ out.push(...locsFrom(await (await get(u)).text())); }catch(e){} }
+  return out.filter(x => keep(x.loc)).sort((a, b) => (b.mod || '').localeCompare(a.mod || '')).map(x => x.loc);
 }
 const PUBLIC_TALK = /\b(lecture|lectures|debate|in conversation|conversation with|panel discussion|book (talk|launch)|public talk|annual|memorial|keynote|address|symposium|festival)\b/i;
 async function scanOxTalks(src, today){
@@ -325,6 +347,89 @@ async function jobBudget(){
   const used = Date.now() - (started - 3 * 60e3);   // ~3 min of setup before scan.mjs starts
   return Math.min(LIMIT_MS, 40 * 60e3 - used - 3 * 60e3);
 }
+/* ---------------------------------------------------------------- hackathons (MLH + Devpost) */
+const UK_PLACE = /\b(uk|united kingdom|england|scotland|wales|northern ireland|london|manchester|birmingham|leeds|bristol|edinburgh|glasgow|cardiff|belfast|oxford|cambridge|nottingham|sheffield|liverpool|newcastle|southampton|york|bath|warwick|coventry|leicester|exeter|durham|st andrews|brighton|reading|aberdeen|dundee)\b/i;
+const AI_RE = /\b(ai|a\.i\.|artificial intelligence|machine learning|ml|llms?|genai|gen ai|agents?|agentic|gpt|claude|openai|data science)\b/i;
+const seasonOf = d => { const y = d.getUTCFullYear(); return d.getUTCMonth() >= 6 ? y + 1 : y; };   // MLH seasons run July–June
+async function scanMLH(today){
+  const b = await getBrowser(); if(!b) throw new Error('browser unavailable');
+  const season = seasonOf(new Date());
+  const pages = process.env.HACK_MLH_URL ? [process.env.HACK_MLH_URL] : [`https://www.mlh.com/seasons/${season}/events`, `https://mlh.io/seasons/${season}/events`];
+  let lastErr = null;
+  for(const url of pages){
+    if(!(await allowed(url))){ lastErr = new Error('blocked by robots.txt'); continue; }
+    const ctx = await b.newContext({ userAgent:UA, locale:'en-GB' });
+    try{
+      const page = await ctx.newPage(); const resp = await page.goto(url, { waitUntil:'domcontentloaded', timeout:35000 });
+      if(resp && resp.status() >= 400){ lastErr = new Error('HTTP ' + resp.status()); continue; }
+      try{ await page.waitForLoadState('networkidle', { timeout:8000 }); }catch(e){}
+      const cards = await page.$$eval('[itemtype*="schema.org/Event"], .event, .event-wrapper', els => els.map(el => {
+        const q = s => el.querySelector(s), meta = s => { const m = q(s); return m ? (m.getAttribute('content') || m.getAttribute('datetime') || m.textContent || '').trim() : ''; };
+        const a = q('a[href]');
+        return { name:meta('[itemprop="name"]') || (q('h3, h2, .event-name') || {}).textContent || '', href:a ? a.href : '', start:meta('[itemprop="startDate"]'), end:meta('[itemprop="endDate"]'),
+          place:[meta('[itemprop="city"]'), meta('[itemprop="state"]'), meta('[itemprop="addressCountry"]')].filter(Boolean).join(', '), text:(el.innerText || '').replace(/\s+/g, ' ').slice(0, 400) };
+      }));
+      const ld = eventsFromJsonLd(await page.$$eval('script[type="application/ld+json"]', s => s.map(x => x.textContent || '')));
+      const rows = cards.filter(c => c.name && c.href).map(c => ({ ...c, name:c.name.trim() }));
+      for(const e of ld) if(e.url && !rows.some(r => r.href === e.url)) rows.push({ name:e.title, href:e.url, start:e.start, end:'', place:e.venue, text:e.format });
+      if(!rows.length){ lastErr = new Error('no events found on ' + url); continue; }
+      const out = [];
+      for(const r of rows){
+        const st = r.start ? fromIsoLocal(r.start) : firstWhen(r.text, today, 0, 300); if(!st) continue;
+        const en = r.end ? fromIsoLocal(r.end) : null;
+        if(dayDiff((en || st).date, today) < 0) continue;
+        const format = /digital|online|virtual/i.test(r.text) ? 'Online' : /hybrid/i.test(r.text) ? 'Hybrid' : 'In person';
+        if(format === 'In person' && !UK_PLACE.test(r.place + ' ' + r.text)) continue;   // in-person events only if they're in the UK
+        out.push({ id:slugId('mlh ' + r.name + ' ' + st.date), title:r.name, link:r.href, source:'MLH', start:st.date, end:en ? en.date : '', format, place:format === 'Online' ? 'Online' : r.place,
+          highSchool:/high school/i.test(r.text), ai:AI_RE.test(r.name + ' ' + r.text), note:'' });
+      }
+      return { items:out, note:`${url}, ${rows.length} events listed` };
+    }catch(e){ lastErr = e; }
+    finally{ await ctx.close().catch(() => {}); }
+  }
+  throw lastErr || new Error('MLH events page not reachable');
+}
+const MON3 = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+/* "Oct 30 - Nov 20, 2026" or "Nov 01 - 03, 2026" → start/end ISO dates */
+export function devpostDates(s){
+  const m = String(s || '').match(/([A-Za-z]{3})\w*\s+(\d{1,2})(?:,\s*(\d{4}))?\s*[-–]\s*(?:([A-Za-z]{3})\w*\s+)?(\d{1,2}),\s*(\d{4})/);
+  if(!m) return null;
+  const y2 = +m[6], y1 = m[3] ? +m[3] : y2, m1 = MON3[m[1].toLowerCase()], m2 = m[4] ? MON3[m[4].toLowerCase()] : m1;
+  if(!m1 || !m2) return null;
+  const p = n => String(n).padStart(2, '0');
+  return { start:`${y1}-${p(m1)}-${p(+m[2])}`, end:`${y2}-${p(m2)}-${p(+m[5])}` };
+}
+async function scanDevpost(today){
+  const out = []; let pages = 0, total = 0;
+  for(let page = 1; page <= 4 && timeLeft() > 60e3; page++){
+    const url = (process.env.HACK_DEVPOST_URL || 'https://devpost.com/api/hackathons?challenge_type[]=online&status[]=upcoming&status[]=open&order_by=deadline') + `&page=${page}`;
+    const d = await (await get(url, { headers:{ accept:'application/json' } })).json(); pages++;
+    const list = d.hackathons || []; total = (d.meta && d.meta.total_count) || total;
+    for(const h of list){
+      if(h.invite_only) continue;
+      const dates = devpostDates(h.submission_period_dates); if(!dates || dayDiff(dates.end, today) < 0) continue;
+      const themes = (h.themes || []).map(t => t.name || t).filter(Boolean);
+      out.push({ id:slugId('devpost ' + h.title), title:String(h.title || '').trim(), link:h.url, source:'Devpost', start:dates.start, end:dates.end, format:'Online', place:'Online',
+        highSchool:false, ai:AI_RE.test((h.title || '') + ' ' + themes.join(' ')),
+        themes:themes.slice(0, 4), prize:String(h.prize_amount || '').replace(/<[^>]+>/g, '').trim(), org:h.organization_name || '' });
+    }
+    if(list.length < 9) break;
+  }
+  return { items:out, note:`api, ${pages} page${pages > 1 ? 's' : ''}, ${total} listed` };
+}
+async function scanHackathons(prev){
+  const today = londonToday(), items = [], sources = [];
+  for(const [name, fn] of [['MLH', scanMLH], ['Devpost', scanDevpost]]){
+    if(timeLeft() < 60e3){ sources.push({ name, ok:false, error:'skipped: out of time' }); continue; }
+    try{ const r = await fn(today); items.push(...r.items); sources.push({ name, ok:true, found:r.items.length, note:r.note }); console.log(`✓ ${name} hackathons · ${r.items.length} · ${r.note}`); }
+    catch(e){ sources.push({ name, ok:false, error:String(e.message || e).slice(0, 160) }); console.log(`✗ ${name} hackathons · ${e.message}`);
+      for(const it of (prev && prev.items) || []) if(it.source === name && dayDiff(it.end || it.start, today) >= 0) items.push({ ...it, stale:true }); }
+  }
+  const seen = new Set(), uniq = items.filter(it => { const k = it.link || it.id; if(seen.has(k) || seen.has(it.id)) return false; seen.add(k); seen.add(it.id); return true; });
+  uniq.sort((a, b) => a.start.localeCompare(b.start));
+  return { updated:new Date().toISOString(), items:uniq, sources };
+}
+
 export async function main({ embed } = {}){
   const today = londonToday();
   if(embed) deadline = Date.now() + await jobBudget();
@@ -359,7 +464,11 @@ export async function main({ embed } = {}){
   }
   const doc = { updated:new Date().toISOString(), took:+((Date.now() - T0) / 60e3).toFixed(1), items:out, sources:report };
   await writeFile('data/lectures.json', JSON.stringify(doc, null, 1) + '\n');
-  if(embed){ const host = await read(embed, null); if(host){ host.lectures = doc; await writeFile(embed, JSON.stringify(host, null, 1)); } }
+  // hackathons ride along in the same run
+  let hk = null;
+  try{ const prevHk = embed ? (await read(embed, {})).hackathons : await read('data/hackathons.json', null); hk = await scanHackathons(prevHk); await writeFile('data/hackathons.json', JSON.stringify(hk, null, 1) + '\n'); }
+  catch(e){ console.log('✗ hackathons:', e.message); }
+  if(embed){ const host = await read(embed, null); if(host){ host.lectures = doc; if(hk) host.hackathons = hk; await writeFile(embed, JSON.stringify(host, null, 1)); } }
   console.log(`→ ${out.length} lectures written (${report.filter(r => r.ok).length}/${report.length} hosts read) in ${doc.took} min`);
 }
 

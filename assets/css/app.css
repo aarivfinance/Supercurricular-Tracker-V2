@@ -1121,3 +1121,15 @@ dl.kv dt{font-size:13px;font-weight:500;color:var(--muted);}
 .cv-sheet.banking .profile{margin:0 0 .4em;}
 .cv-sheet.banking .skl p{margin:0 0 .1em;}
 #print-root .cv-sheet.banking{font-size:11px;padding:13mm 15mm;}
+
+/* projects: hackathons */
+.hack-intro{margin:0 0 12px;max-width:72ch;font-size:14px;line-height:1.6;color:var(--ink-2);}
+.hack-tip{margin:10px 0 0;font-size:13px;color:var(--muted);max-width:72ch;}
+.learn-card .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+
+/* projects: live hackathons */
+.hack-live{margin-top:18px;}
+.hack-live-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+.hack-live-h h3{margin:0;font-size:15px;font-weight:600;}
+.hack-live-h h3 .faint{font-weight:400;font-size:13px;margin-left:6px;}
+.hk-row .lec-date span{white-space:normal;}

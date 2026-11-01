@@ -1179,7 +1179,7 @@ function recMatches(e){
 const LOGS = {
   extracurriculars:{ types:['ex'], title:'Extracurriculars', add:'Add activity',
     sub:'Sport, music, leadership, volunteering and anything else outside lessons. Under each, keep a few short points on what you learned. Those points are what your CV and personal statement are built from.' },
-  projects:{ types:['proj'], title:'Projects', add:'Add project', extra:() => learnLinks(),
+  projects:{ types:['proj'], title:'Projects', add:'Add project', extra:() => learnLinks() + hackathons(),
     sub:'AI workflows, automations, apps and anything else you’ve built. Note the problem, what you built and what came of it, then a few short points on what you learned. A good project makes a strong CV line and interview story.' },
   work:{ types:['work'], title:'Work experience logger', add:'Add placement',
     sub:'Placements, insight days and virtual programmes you’ve done. Note what you did, and a few short points on what you learned. Interviewers ask about the second part.' },
@@ -1206,12 +1206,60 @@ function viewLog(v, page){
 }
 const viewExtras = v => viewLog(v, 'extracurriculars');
 const viewWork = v => viewLog(v, 'work');
-const viewProjects = v => viewLog(v, 'projects');
+const viewProjects = v => { viewLog(v, 'projects'); bindHackLive(); if(!HK.loaded) loadHacks(); };
 /* where to learn to build with AI */
 const LEARN = [
   { name:'Claude Academy', by:'Anthropic', link:'https://academy.claude.com/', what:'Free courses and tutorials on using AI well: how AI works, AI fluency, and getting the most out of Claude.' },
   { name:'OpenAI Academy', by:'OpenAI', link:'https://academy.openai.com/', what:'Courses, live events and guides on prompting, Codex, building with the API and putting AI to work.' },
 ];
+/* live hackathon listings from MLH and Devpost (scanned in the cloud every 3 hours, stored in supercurriculars-live.json) */
+const HK = { updated:null, items:[], loaded:false, aiOnly:false, all:false };
+async function loadHacks(){
+  const grab = async (f, pick) => { try{ const r = await fetch(f + '?t=' + Date.now(), { cache:'no-store' }); return r.ok ? pick(await r.json()) : null; }catch(e){ return null; } };
+  const [a, b] = await Promise.all([grab('data/supercurriculars-live.json', d => d.hackathons), grab('data/hackathons.json', d => d)]);
+  const d = [a, b].filter(x => x && x.updated).sort((x, y) => y.updated.localeCompare(x.updated))[0];
+  Object.assign(HK, { updated:d ? d.updated : null, items:d ? d.items || [] : [], loaded:true });
+  const el = $('#hackLive'); if(el){ el.innerHTML = hackLiveHTML(); bindHackLive(); }
+}
+const fmtSpan = (a, b) => !b || a === b ? fmtD(a) : fmtD(a) + ' – ' + fmtD(b);
+function hackLiveHTML(){
+  if(!HK.loaded) return '<p class="hack-tip">Loading live hackathons…</p>';
+  if(!HK.updated) return '<p class="hack-tip">Live listings from MLH and Devpost appear here after the next cloud scan (every 3 hours).</p>';
+  const list = HK.items.filter(h => daysUntil(h.end || h.start) >= 0 && (!HK.aiOnly || h.ai));
+  const shown = HK.all ? list : list.slice(0, 8);
+  return `<div class="hack-live"><div class="hack-live-h"><h3>Upcoming hackathons <span class="faint">online or in the UK, from MLH and Devpost</span></h3>${sw('hkAi', 'AI only', HK.aiOnly)}</div>
+    ${shown.length ? `<div class="lec-list">${shown.map(h => `<div class="lec-row hk-row">
+      <div class="lec-date"><b>${parseD(h.start).getDate()}</b><span>${MONTHS[parseD(h.start).getMonth()]}${h.end && h.end !== h.start ? ' – ' + fmtD(h.end) : ''}</span></div>
+      <div class="lec-main"><h3><a href="${esc(safeUrl(h.link))}" target="_blank" rel="noopener">${esc(h.title)}</a></h3>
+        <p class="lec-meta">${esc([h.source, h.org, h.place].filter(Boolean).join(', '))}</p>
+        <div class="chips"><span class="chip soft">${esc(h.format)}</span>${h.ai ? '<span class="chip new">AI</span>' : ''}${h.highSchool ? '<span class="chip ok">High school</span>' : ''}${h.prize ? `<span class="chip soft">${esc(h.prize)} prizes</span>` : ''}${(h.themes || []).filter(t => !/machine learning\/ai/i.test(t)).slice(0, 2).map(t => `<span class="chip soft">${esc(t)}</span>`).join('')}</div></div>
+      <div class="lec-side"><a class="btn sm" href="${esc(safeUrl(h.link))}" target="_blank" rel="noopener">Details ${I(IC.ext,12)}</a></div></div>`).join('')}</div>`
+      : `<p class="hack-tip">Nothing ${HK.aiOnly ? 'AI-themed ' : ''}coming up right now. New ones appear here as MLH and Devpost list them.</p>`}
+    ${list.length > 8 ? `<button class="btn sm" id="hkAll" style="margin-top:10px">${HK.all ? 'Show fewer' : `Show all ${list.length}`}</button>` : ''}
+    <p class="hack-tip">Many Devpost hackathons require entrants to be 18 or over; check each one’s rules before you sign up. Under-18s need a parent’s permission for MLH events.</p></div>`;
+}
+function bindHackLive(){
+  const a = $('#hkAi'); if(a) a.onchange = e => { HK.aiOnly = e.target.checked; $('#hackLive').innerHTML = hackLiveHTML(); bindHackLive(); };
+  const b = $('#hkAll'); if(b) b.onclick = () => { HK.all = !HK.all; $('#hackLive').innerHTML = hackLiveHTML(); bindHackLive(); };
+}
+/* hackathons: build something in a weekend, with a team, against a deadline */
+const HACKS = [
+  { name:'MLH Global Hack Week', by:'Major League Hacking', link:'https://mlh.io/', tags:['Online', 'Free', '13+'],
+    what:'Week-long online hackathons run most months, on themes such as AI agents, data and APIs. Under-18s need a parent’s permission.' },
+  { name:'Hack Club', by:'Non-profit for teenagers', link:'https://hackclub.com/', tags:['Online + in person', 'Free', 'Ages 13–18'],
+    what:'A worldwide community of teen builders with an online Slack, in-person events and game jams, and help starting a club at your school.' },
+  { name:'Hackathons for Schools', by:'UK, run by students', link:'https://www.hackathonsforschools.com/', tags:['UK', 'Ages 15–18'],
+    what:'A UK non-profit that runs hackathons for school students, including an online Student Summer Sprint for sixth-formers.' },
+  { name:'UCL All Girls AI Hackathon', by:'UCL Computer Science', link:'https://www.ucl.ac.uk/computer-science/collaborate/schools-outreach/all-girls-hackathon', tags:['London', 'Free', 'February'],
+    what:'A one-day AI hackathon at UCL for girls at state schools who study A-level Maths.' },
+];
+const hackathons = () => `<section class="learn"><h2 class="sec">Hackathons</h2>
+  <p class="hack-intro">A hackathon is a short competition, from a day to a week, where a small team builds a working project from scratch and presents it to judges. You don’t need to be an expert coder, since no-code tools and AI count. For a PPE or finance application, aim to build something that uses real economic or financial data. Then log it here as a project, with what you built and what you learned.</p>
+  <div class="learn-grid">${HACKS.map(x => `<a class="learn-card" href="${x.link}" target="_blank" rel="noopener">
+    <b>${esc(x.name)} <span>${I(IC.ext, 12)}</span></b><small>${esc(x.by)}</small><p>${esc(x.what)}</p>
+    <div class="chips">${x.tags.map(t => `<span class="chip soft">${esc(t)}</span>`).join('')}</div></a>`).join('')}</div>
+  <div id="hackLive">${hackLiveHTML()}</div>
+  <p class="hack-tip">Also ask your school’s careers adviser: local colleges and employers run one-day hackathons for Year 12 and 13 that are only advertised through schools.</p></section>`;
 const learnLinks = () => `<section class="learn"><h2 class="sec">Where to learn</h2><div class="learn-grid">${LEARN.map(x => `<a class="learn-card" href="${x.link}" target="_blank" rel="noopener">
   <b>${esc(x.name)} <span>${I(IC.ext, 12)}</span></b><small>${esc(x.by)}</small><p>${esc(x.what)}</p></a>`).join('')}</div></section>`;
 const PROJ_ST = ['In progress', 'In use', 'Finished', 'Paused'];
