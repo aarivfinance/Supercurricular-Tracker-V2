@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-31T19:40:00.591Z",
+ "updated": "2026-11-01T00:29:48.259Z",
  "items": {
   "y11:cambridge-exploring-law-course": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "6aac44f57555",
    "dates": [
     {
@@ -21,53 +21,44 @@
    ],
    "changedOn": null
   },
-  "y11:amplifyme-finance-accelerator-free-live-simulations": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "2bfdbba4dcea",
-   "dates": [],
-   "changedOn": "2026-10-29"
-  },
   "y11:oxford-14-16-digital-resources": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "01a979ad0899",
    "dates": [],
    "changedOn": null
   },
+  "y11:amplifyme-finance-accelerator-free-live-simulations": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "2bfdbba4dcea",
+   "dates": [],
+   "changedOn": "2026-10-29"
+  },
   "y11:bloomberg-market-concepts-bmc-certificate": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "b5ec1a4878e3",
    "dates": [],
    "changedOn": null
   },
-  "y11:forage-online-job-simulations": {
+  "y11:lloyds-banking-group-work-experience-online-and-in-person": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "62d660aedf3c",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "bd4981ed5e3a",
    "dates": [],
-   "changedOn": "2026-10-30"
+   "changedOn": null
   },
-  "y11:wharton-global-high-school-investment-competition": {
+  "y11:kcl-online-law-lecture-series": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "d06ecaaf30c7",
-   "dates": [
-    {
-     "date": "March 20, 2026",
-     "context": "Teams Advance to the 2026 Wharton Global High School Investment Competition Global Finale March 20, 2026 Wharton Global Youth Program Introduces"
-    },
-    {
-     "date": "September 15, 2026",
-     "context": "r competition information, will be shared with registered teams via SurveyMonkey Apply on September 15, 2026. Unlike other investment competitions,"
-    }
-   ],
-   "changedOn": "2026-10-30"
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "518fbe2912df",
+   "dates": [],
+   "changedOn": "2026-09-30"
   },
   "y11:jli-global-essay-prize-registration-opens": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "22a73989fa96",
    "dates": [
     {
@@ -77,44 +68,44 @@
    ],
    "changedOn": "2026-10-02"
   },
-  "y11:kcl-online-law-lecture-series": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "518fbe2912df",
-   "dates": [],
-   "changedOn": "2026-09-30"
-  },
-  "y11:lloyds-banking-group-work-experience-online-and-in-person": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "bd4981ed5e3a",
-   "dates": [],
-   "changedOn": null
-  },
   "y11:coursera-courses": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "bc5c6b781a83",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "26f461c3e03b",
    "dates": [],
-   "changedOn": "2026-10-31"
+   "changedOn": "2026-11-01"
   },
   "y11:dukes-plus-essay-competition": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "d631e0c41055",
    "dates": [],
    "changedOn": null
   },
+  "y11:forage-online-job-simulations": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "62d660aedf3c",
+   "dates": [],
+   "changedOn": "2026-10-30"
+  },
   "y11:esu-schools-mace-registration": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "f52c49b167bb",
+   "dates": [],
+   "changedOn": "2026-10-28"
+  },
+  "y11:crest-gold-award-70-hour-research-project": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "f9d4dea142f4",
    "dates": [],
    "changedOn": "2026-10-28"
   },
   "y11:cisi-certifications": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "6fcc2ca73ca6",
    "dates": [
     {
@@ -124,9 +115,16 @@
    ],
    "changedOn": "2026-10-29"
   },
+  "y11:queen-s-commonwealth-writing-competition-royal-commonwealth-": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "88d33f825282",
+   "dates": [],
+   "changedOn": "2026-10-22"
+  },
   "y11:king-s-entrepreneurship-essay-competition-king-s-college-cam": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "b44122ebd022",
    "dates": [
     {
@@ -140,40 +138,9 @@
    ],
    "changedOn": "2026-10-25"
   },
-  "y11:think-essay-prize-royal-institute-of-philosophy": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "b8277e00574b",
-   "dates": [
-    {
-     "date": "19th April 2027",
-     "context": "ving your submission by email to ThinkEssay@royalinstitutephilosophy.org Deadline: Monday 19th April 2027, Midnight (BST). Rules of Entry & Eligi"
-    }
-   ],
-   "changedOn": "2026-10-24"
-  },
-  "y11:queen-s-commonwealth-writing-competition-royal-commonwealth-": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "88d33f825282",
-   "dates": [],
-   "changedOn": "2026-10-22"
-  },
-  "y11:minds-underground-law-essay-competition": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "d9d7bec8e404",
-   "dates": [
-    {
-     "date": "3 April 2026",
-     "context": "nswer. The 2026 Minds Underground Law Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
-    }
-   ],
-   "changedOn": null
-  },
   "y11:jli-global-essay-prize-deadline": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "22a73989fa96",
    "dates": [
     {
@@ -183,25 +150,21 @@
    ],
    "changedOn": "2026-10-02"
   },
-  "y11:king-s-entrepreneurship-essay-competition-deadline": {
+  "y11:think-essay-prize-royal-institute-of-philosophy": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "b44122ebd022",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "b8277e00574b",
    "dates": [
     {
-     "date": "2 April 2026",
-     "context": "es of suspected breach of eligibility . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm)"
-    },
-    {
-     "date": "5 August 2026",
-     "context": "lity . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm) - Deadline for submission of essa"
+     "date": "19th April 2027",
+     "context": "ving your submission by email to ThinkEssay@royalinstitutephilosophy.org Deadline: Monday 19th April 2027, Midnight (BST). Rules of Entry & Eligi"
     }
    ],
-   "changedOn": "2026-10-25"
+   "changedOn": "2026-10-24"
   },
   "y11:young-economist-of-the-year": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "6c917d022b60",
    "dates": [
     {
@@ -211,16 +174,9 @@
    ],
    "changedOn": "2026-10-08"
   },
-  "y11:crest-gold-award-70-hour-research-project": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "f9d4dea142f4",
-   "dates": [],
-   "changedOn": "2026-10-28"
-  },
   "y11:peter-cane-legal-reasoning-prize": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "3959341599be",
    "dates": [
     {
@@ -234,42 +190,81 @@
    ],
    "changedOn": "2026-10-24"
   },
-  "y11:amplifyme-accreditation": {
+  "y11:king-s-entrepreneurship-essay-competition-deadline": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "96bd94871ad9",
-   "dates": [],
-   "changedOn": "2026-10-29"
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "b44122ebd022",
+   "dates": [
+    {
+     "date": "2 April 2026",
+     "context": "es of suspected breach of eligibility . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm)"
+    },
+    {
+     "date": "5 August 2026",
+     "context": "lity . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm) - Deadline for submission of essa"
+    }
+   ],
+   "changedOn": "2026-10-25"
+  },
+  "y11:wharton-global-high-school-investment-competition": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "d06ecaaf30c7",
+   "dates": [
+    {
+     "date": "March 20, 2026",
+     "context": "Teams Advance to the 2026 Wharton Global High School Investment Competition Global Finale March 20, 2026 Wharton Global Youth Program Introduces"
+    },
+    {
+     "date": "September 15, 2026",
+     "context": "r competition information, will be shared with registered teams via SurveyMonkey Apply on September 15, 2026. Unlike other investment competitions,"
+    }
+   ],
+   "changedOn": "2026-10-30"
+  },
+  "y11:minds-underground-law-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "d9d7bec8e404",
+   "dates": [
+    {
+     "date": "3 April 2026",
+     "context": "nswer. The 2026 Minds Underground Law Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
+    }
+   ],
+   "changedOn": null
   },
   "y11:big-think-competition-st-edmund-hall-oxford": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "27dc32578c6f",
    "dates": [],
    "changedOn": null
   },
+  "y11:amplifyme-accreditation": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "96bd94871ad9",
+   "dates": [],
+   "changedOn": "2026-10-29"
+  },
+  "y11:cambridge-re-think-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "6ec14273b3a3",
+   "dates": [],
+   "changedOn": "2026-10-28"
+  },
   "y1213:apply-cambridge-year-12": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "870a4c8168b3",
    "dates": [],
    "changedOn": "2026-10-30"
   },
-  "y11:fsla-essay-competition": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "cce8c2ce8568",
-   "dates": [
-    {
-     "date": "20 March 2026",
-     "context": "Essays should be no longer than 1,500 words, and the deadline for entries is midnight on 20 March 2026. Prizes The Chris Stallard Memorial (Fi"
-    }
-   ],
-   "changedOn": "2026-10-24"
-  },
   "y1213:wharton-global-high-school-investment-competition": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "d06ecaaf30c7",
    "dates": [
     {
@@ -285,21 +280,26 @@
   },
   "y1213:social-mobility-foundation-aspiring-professionals-programme": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "c26165d4075b",
    "dates": [],
    "changedOn": "2026-10-29"
   },
-  "y11:cambridge-re-think-essay-competition": {
+  "y11:fsla-essay-competition": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "6ec14273b3a3",
-   "dates": [],
-   "changedOn": "2026-10-28"
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "cce8c2ce8568",
+   "dates": [
+    {
+     "date": "20 March 2026",
+     "context": "Essays should be no longer than 1,500 words, and the deadline for entries is midnight on 20 March 2026. Prizes The Chris Stallard Memorial (Fi"
+    }
+   ],
+   "changedOn": "2026-10-24"
   },
   "y1213:balliol-college-outreach-taster-days-ps-workshops": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "4847e43ff68c",
    "dates": [
     {
@@ -329,16 +329,9 @@
    ],
    "changedOn": "2026-10-30"
   },
-  "y1213:worcester-college-outreach": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "2b8f901c3dcb",
-   "dates": [],
-   "changedOn": "2026-10-29"
-  },
   "y1213:oxford-uniq-summer-schools": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "83e5fb75168d",
    "dates": [
     {
@@ -348,40 +341,35 @@
    ],
    "changedOn": "2026-10-30"
   },
-  "y1213:minds-underground-philosophy-essay-competition": {
+  "y1213:worcester-college-outreach": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "bf869152797f",
-   "dates": [
-    {
-     "date": "3 April 2026",
-     "context": "The 2026 Minds Underground Philosophy Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
-    }
-   ],
-   "changedOn": null
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "2b8f901c3dcb",
+   "dates": [],
+   "changedOn": "2026-10-29"
   },
-  "y1213:minds-underground-politics-essay-competition": {
+  "y1213:robert-walker-prize-for-essays-in-law-trinity-cambridge": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "72331183f2ac",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "5c3404e9e1bf",
    "dates": [
     {
-     "date": "3 April 2026",
-     "context": ". The 2026 Minds Underground Politics Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
+     "date": "2 April 2026",
+     "context": "g as you use it consistently. Entries must be submitted online by 1pm UK time on Thursday 2 April 2026 using the form below. The submission fo"
     }
    ],
-   "changedOn": null
+   "changedOn": "2026-10-30"
   },
   "y1213:oxford-ppe-supercurricular-hub": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "02936afbefaa",
    "dates": [],
    "changedOn": null
   },
   "y1213:peter-cane-legal-reasoning-prize": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "3959341599be",
    "dates": [
     {
@@ -397,14 +385,14 @@
   },
   "y1213:oriel-college-oxford-ppe-study-day": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "01a979ad0899",
    "dates": [],
    "changedOn": null
   },
   "y1213:sutton-trust-warwick-ppe-stream": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "18574faabb82",
    "dates": [
     {
@@ -414,28 +402,28 @@
    ],
    "changedOn": null
   },
-  "y1213:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
+  "y1213:minds-underground-philosophy-essay-competition": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "81d21249482d",
-   "dates": [],
-   "changedOn": "2026-10-30"
-  },
-  "y1213:robert-walker-prize-for-essays-in-law-trinity-cambridge": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "5c3404e9e1bf",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "bf869152797f",
    "dates": [
     {
-     "date": "2 April 2026",
-     "context": "g as you use it consistently. Entries must be submitted online by 1pm UK time on Thursday 2 April 2026 using the form below. The submission fo"
+     "date": "3 April 2026",
+     "context": "The 2026 Minds Underground Philosophy Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
     }
    ],
-   "changedOn": "2026-10-30"
+   "changedOn": null
+  },
+  "y1213:sutton-trust-y12-social-sciences-law": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "7d1f31b9c3c4",
+   "dates": [],
+   "changedOn": null
   },
   "y1213:king-s-entrepreneurship-essay-competition-king-s-cambridge": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "b44122ebd022",
    "dates": [
     {
@@ -449,9 +437,21 @@
    ],
    "changedOn": "2026-10-25"
   },
+  "y1213:minds-underground-politics-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "72331183f2ac",
+   "dates": [
+    {
+     "date": "3 April 2026",
+     "context": ". The 2026 Minds Underground Politics Essay Competition questions are now live. Submit by 3 April 2026! View Competition Guidelines Submission"
+    }
+   ],
+   "changedOn": null
+  },
   "y1213:cambridge-open-days": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "d509e65523b7",
    "dates": [
     {
@@ -469,9 +469,16 @@
    ],
    "changedOn": "2026-10-30"
   },
+  "y1213:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "81d21249482d",
+   "dates": [],
+   "changedOn": "2026-10-30"
+  },
   "y1213:r-a-butler-prize-for-politics-and-international-studies-trin": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "92cb88ee2ef8",
    "dates": [
     {
@@ -481,63 +488,37 @@
    ],
    "changedOn": "2026-10-30"
   },
-  "y1213:sutton-trust-y12-social-sciences-law": {
+  "y1213:iea-monetary-policy-essay-prize-sixth-form": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "7d1f31b9c3c4",
-   "dates": [],
-   "changedOn": null
-  },
-  "y1213:iea-dorian-fisher-memorial-prize": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "71f8deaa63aa",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "bf3e87431b2a",
    "dates": [],
    "changedOn": "2026-10-26"
   },
-  "y1213:iea-monetary-policy-essay-prize-sixth-form": {
+  "y1213:iea-dorian-fisher-memorial-prize": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "bf3e87431b2a",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "71f8deaa63aa",
    "dates": [],
    "changedOn": "2026-10-26"
   },
   "y1213:marshall-society-economics-essay-competition": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "error": "fetch failed",
    "dates": [],
    "changedOn": null
   },
   "y1213:lsesu-economics-society-essay-competition": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "01a979ad0899",
    "dates": [],
    "changedOn": null
   },
-  "y1213:christ-s-college-cambridge-summer-school": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "1b259ec78ce5",
-   "dates": [
-    {
-     "date": "18 June 2026",
-     "context": "ace being offered to another student. Teachers: Nominating Students Nominations closed on 18 June 2026. Whilst students can choose to apply in"
-    }
-   ],
-   "changedOn": "2026-10-28"
-  },
-  "y1213:explaw-oxford": {
-   "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "98610060910e",
-   "dates": [],
-   "changedOn": "2026-10-21"
-  },
   "y1213:sidgwick-prize-cambridge": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "8cd00cfa5e58",
    "dates": [
     {
@@ -557,14 +538,45 @@
   },
   "y1213:csep-economics-finance-essay-competition": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "363b4c09e14d",
    "dates": [],
    "changedOn": "2026-10-05"
   },
+  "y1213:john-locke-institute-ppe-summer-school": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "f47d212d05d8",
+   "dates": [],
+   "changedOn": "2026-10-02"
+  },
+  "y1213:future-thought-leaders-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "917989ebc3be",
+   "dates": [
+    {
+     "date": "15 February 2027",
+     "context": "2 . To enter, please submit an original 1,500 word essay on one of the questions below by 15 February 2027 . Shortlisted students and their parent"
+    }
+   ],
+   "changedOn": "2026-10-18"
+  },
+  "y1213:christ-s-college-cambridge-summer-school": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "1b259ec78ce5",
+   "dates": [
+    {
+     "date": "18 June 2026",
+     "context": "ace being offered to another student. Teachers: Nominating Students Nominations closed on 18 June 2026. Whilst students can choose to apply in"
+    }
+   ],
+   "changedOn": "2026-10-28"
+  },
   "y1213:cambridge-subject-masterclasses-applicant-webinars-exploring": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "eeb777b5b5b7",
    "dates": [
     {
@@ -594,9 +606,16 @@
    ],
    "changedOn": "2026-10-30"
   },
+  "y1213:regent-s-park-college-oxford-online-ppe-masterclass": {
+   "ok": false,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "2b21ca672a51",
+   "dates": [],
+   "changedOn": null
+  },
   "y1213:caius-explore": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "771fd238ea75",
    "dates": [
     {
@@ -606,16 +625,44 @@
    ],
    "changedOn": "2026-10-30"
   },
-  "y1213:john-locke-institute-ppe-summer-school": {
+  "y1213:oxford-summer-courses-ppe": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "f47d212d05d8",
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "70ea238df2c7",
    "dates": [],
-   "changedOn": "2026-10-02"
+   "changedOn": "2026-10-12"
+  },
+  "y1213:warwick-future-economist-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "55789dba93b6",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:economics-world-cup": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "a9bd606f6c9a",
+   "dates": [],
+   "changedOn": "2026-10-27"
+  },
+  "y1213:immerse-education-ppe-summer-programme": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "49dd3c94c728",
+   "dates": [],
+   "changedOn": "2026-10-29"
+  },
+  "y11:warwick-future-economist-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "55789dba93b6",
+   "dates": [],
+   "changedOn": null
   },
   "y1213:ucl-expand": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "69ccb7e6b618",
    "dates": [
     {
@@ -629,84 +676,51 @@
    ],
    "changedOn": "2026-10-21"
   },
-  "y1213:oxford-summer-courses-ppe": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "70ea238df2c7",
-   "dates": [],
-   "changedOn": "2026-10-12"
-  },
-  "y1213:regent-s-park-college-oxford-online-ppe-masterclass": {
-   "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "2b21ca672a51",
-   "dates": [],
-   "changedOn": null
-  },
-  "y1213:oxbridge-summer-scholars-law-ppe-amp-global-issues": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "ff6f5e9e5199",
-   "dates": [],
-   "changedOn": "2026-10-24"
-  },
-  "y11:warwick-future-economist-essay-competition": {
-   "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "55789dba93b6",
-   "dates": [],
-   "changedOn": null
-  },
-  "y1213:future-thought-leaders-essay-competition": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "917989ebc3be",
-   "dates": [
-    {
-     "date": "15 February 2027",
-     "context": "2 . To enter, please submit an original 1,500 word essay on one of the questions below by 15 February 2027 . Shortlisted students and their parent"
-    }
-   ],
-   "changedOn": "2026-10-18"
-  },
-  "y1213:warwick-future-economist-essay-competition": {
-   "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "55789dba93b6",
-   "dates": [],
-   "changedOn": null
-  },
   "y11:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "81d21249482d",
    "dates": [],
    "changedOn": "2026-10-30"
   },
+  "y1213:oxbridge-summer-scholars-law-ppe-amp-global-issues": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "ff6f5e9e5199",
+   "dates": [],
+   "changedOn": "2026-10-24"
+  },
+  "y1213:explaw-oxford": {
+   "ok": false,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "98610060910e",
+   "dates": [],
+   "changedOn": "2026-10-21"
+  },
   "y1213:ucl-masterclasses": {
    "ok": false,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "ac082b399bdf",
    "dates": [],
    "changedOn": "2026-10-30"
   },
-  "y11:economics-world-cup": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "a9bd606f6c9a",
-   "dates": [],
-   "changedOn": "2026-10-27"
-  },
   "y1213:cambridge-re-think-essay-competition": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "6ec14273b3a3",
    "dates": [],
    "changedOn": "2026-10-28"
   },
+  "y1213:lse-explore-subject-masterclasses": {
+   "ok": true,
+   "checked": "2026-11-01T00:29:48.259Z",
+   "hash": "683351852523",
+   "dates": [],
+   "changedOn": "2026-10-23"
+  },
   "y1213:lse-pathways-to-law": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "1dcf1101b29b",
    "dates": [
     {
@@ -720,23 +734,9 @@
    ],
    "changedOn": "2026-10-23"
   },
-  "y1213:immerse-education-ppe-summer-programme": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "49dd3c94c728",
-   "dates": [],
-   "changedOn": "2026-10-29"
-  },
-  "y1213:lse-explore-subject-masterclasses": {
-   "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
-   "hash": "683351852523",
-   "dates": [],
-   "changedOn": "2026-10-23"
-  },
   "y1213:debate-chamber-ppe-summer-school": {
    "ok": true,
-   "checked": "2026-10-31T19:40:00.591Z",
+   "checked": "2026-11-01T00:29:48.259Z",
    "hash": "1107c6d0b7e1",
    "dates": [],
    "changedOn": "2026-10-23"
@@ -744,7 +744,7 @@
  },
  "discovered": [],
  "lectures": {
-  "updated": "2026-10-31T19:40:44.366Z",
+  "updated": "2026-11-01T00:30:31.514Z",
   "took": 0.6,
   "items": [
    {
@@ -1099,7 +1099,7 @@
     "ok": true,
     "found": 10,
     "note": "browser, auto, 11 links, 8 pages opened",
-    "secs": 10
+    "secs": 11
    },
    {
     "name": "Gresham College",
