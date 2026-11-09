@@ -160,6 +160,10 @@ DATA.y11 = [
 
 { month:"January – February 2027", items:[
 
+  {t:"FT / PSA American Politics Group A-Level Essay Competition", s:"pol", yr:"Ages 16–19 studying A-level Politics or a related subject (e.g. History)", elig:"check", tag:"NEW",
+   when:"Deadline 1 February 2027 · submitted through your teacher", link:"https://ukpsaapg.co.uk/ft-apg-a-level-essay-competition/",
+   note:"Run by the Political Studies Association's American Politics Group with the <i>Financial Times</i> Schools Programme. 1,300-word essay plus a 200-word reflection, Harvard referencing, citing at least two FT articles. Questions: does the office make the President, with relation to Trump? Do the 2026 midterms show voters turning on the President's party? Is the US better described as a flawed democracy than a model? Are US elections decided by votes <i>against</i> parties? Every entrant gets personal feedback; the best essay wins a book voucher and a trip to the APG Colloquium. Your teacher has to email it in, so ask early. Eligible only if you're taking A-level Politics or a related subject such as History."},
+
   {t:"Cambridge Re:Think Essay Competition", s:"multi", yr:"Eligibility not clearly stated — verify", elig:"check", tbc:true,
    when:"Opens mid-January · closes early May", link:"https://cambridge-research.org/essay-competition/",
    note:"Interdisciplinary, open-topic. <em>Confirm the year-group rules before assuming Y11 can enter.</em>",
@@ -202,10 +206,14 @@ DATA.y11 = [
 
 { month:"March – April 2027", items:[
 
-  {t:"Think Essay Prize (Royal Institute of Philosophy)", s:"phil", yr:"Ages 15–18", elig:"now", tag:"NEW", tbc:true,
-   when:"2026 cycle closed ~20 April — expect similar for 2027",
+  {t:"Orwell Youth Prize (The Orwell Foundation)", s:"pol", yr:"Years 7–13 at a UK school", elig:"now", tag:"NEW",
+   when:"Feedback deadline 3 March 2027 · final deadline 28 April 2027", link:"https://www.orwellfoundation.com/the-orwell-youth-prize/about/introduction/",
+   note:"The youth version of Britain's best-known prize for political writing. This year's theme is <b>“Acts of Courage”</b>, and any form counts: an essay, journalism, a blog post, a letter, a story or a poem. Up to 1,500 words in Years 12–13. Send a draft by 3 March and you get personal feedback before the final deadline. Winners get £100, have their work published (one in <i>The Observer</i>) and can join the Orwell Youth Fellows. A political essay or opinion piece on a real act of courage suits PPE well."},
+
+  {t:"Think Essay Prize (Royal Institute of Philosophy)", s:"phil", yr:"Ages 15–18 by the deadline", elig:"now", tag:"OPEN",
+   when:"Open now · closes Monday 19 April 2027, midnight BST",
    link:"https://royalinstitutephilosophy.org/news/think-essay-prize/",
-   note:"1,200 words on one of six set questions — past prompts covered moral responsibility under determinism, machine consciousness, and when the state may restrict speech. Winner is published in <i>Think</i> alongside professional philosophers. <em>No AI permitted — essays using it are disqualified.</em>",
+   note:"1,200 words on one of six questions for 2026/27: can free will and determinism coexist? Can it be justified to believe something without evidence? Do moral facts exist, and how would we find them? What is the value of thinking when machines can do it for us? Should we genetically engineer future generations? How reasonable is it to think consciousness is everywhere? Write in a non-academic style with <b>no notes or references</b>, 12pt and double-spaced. Email the essay <b>and</b> fill in the application form; both are required. Shortlisted entrants have a short viva with the judges, and the winner is published in <i>Think</i>. <em>No AI permitted; essays using it are disqualified.</em>",
    reading:{
      m:"Thomas Nagel, <i>What Does It All Mean?</i>|Under 100 pages, one short chapter per classic problem — free will, consciousness, meaning. Almost exactly maps the prompt list.",
      n:"Harry Frankfurt, <i>“Alternate Possibilities and Moral Responsibility”</i>|The essay that argues you can be morally responsible even if you couldn't have done otherwise — the standard counter-example in the free-will debate.",
@@ -540,6 +548,11 @@ DATA.y1213 = [
 ]},
 
 { month:"March – August 2028", items:[
+
+  {t:"Caius Explore (Gonville &amp; Caius College, Cambridge)", s:"multi", yr:"Year 12 at a UK state school or college", elig:"check", tag:"NEW", tbc:true,
+   when:"Expect tasks to be released mid-March 2028; entries close late July (2026 closed 26 July)", link:"https://www.cai.cam.ac.uk/access-outreach/schemes-and-events/caius-explore",
+   note:"Cambridge academics set a written task in each subject, and you answer one in up to 1,500 words, on your own or with one partner. Subjects include <b>Economics</b>, <b>Politics</b> (part of Human, Social &amp; Political Sciences), <b>Philosophy</b> and <b>Environment, Law &amp; Economics</b>. The best entrants are invited to a celebration day at Caius to meet Directors of Studies and current students. Free to enter, but <b>only for students at UK state schools or colleges</b>. Read the College’s AI policy before you write. The 2027 round (March–July 2027) is for this year’s Year 12s, so your turn is 2028."},
+
 
   {t:"R.A. Butler Prize for Politics and International Studies (Trinity, Cambridge)", s:"pol", yr:"Y12 / S5 when questions are released", elig:"now",
    when:"Questions announced March · deadline 12 noon, Friday 31 July",
