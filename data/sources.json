@@ -3988,6 +3988,67 @@
    "url": "https://www.slaughterandmay.com/careers/early-careers/solicitor-apprenticeship-programme/",
    "title": "Solicitor Apprenticeship Programme (Level 7)",
    "exactPage": true
+  },
+  {
+   "company": "J.P. Morgan",
+   "type": "programme",
+   "url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/uk-work-experience",
+   "title": "UK Work Experience (ages 14–16) – London, Bournemouth, Glasgow, Edinburgh",
+   "exactPage": true,
+   "programme": "Insight / work experience",
+   "track": "preuni",
+   "age": "14-16"
+  },
+  {
+   "company": "Capgemini",
+   "type": "links",
+   "url": "https://www.capgemini.com/gb-en/careers/join-us/?page=1&size=11&country_code=gb-en&keyword=work",
+   "linkPattern": "careers\\.capgemini\\.com/job/[^\"'?#]*Work-Experience[^\"'?#]*/\\d+",
+   "all": true,
+   "label": "Capgemini work experience",
+   "programme": "Insight / work experience",
+   "track": "preuni",
+   "ageDefault": "16-18"
+  },
+  {
+   "company": "Capgemini",
+   "type": "programme",
+   "url": "https://www.capgemini.com/gb-en/careers/capgemini-work-experience-information-2026/",
+   "title": "Capgemini Work Experience (school students, in person or virtual)",
+   "exactPage": true,
+   "programme": "Insight / work experience",
+   "track": "preuni",
+   "ageDefault": "16-18"
+  },
+  {
+   "company": "Slaughter and May",
+   "type": "programme",
+   "url": "https://www.slaughterandmay.com/careers/early-careers/work-experience-opportunities/school-students/",
+   "title": "Work experience for school students",
+   "exactPage": true,
+   "ageDefault": "16-18",
+   "programme": "Insight / work experience",
+   "track": "preuni"
+  },
+  {
+   "company": "PwC",
+   "type": "programme",
+   "url": "https://pwc.co.uk/careers/early-careers/our-programmes/new-world-new-skills.html",
+   "title": "New World. New Skills. Work Experience",
+   "exactPage": true,
+   "ageDefault": "16-18",
+   "programme": "Insight / work experience",
+   "track": "preuni"
+  },
+  {
+   "company": "Bank of England",
+   "type": "programme",
+   "url": "https://www.bankofengland.co.uk/about/corporate-responsibility/mel-beaman-student-programme",
+   "title": "Mel Beaman Student Programme",
+   "exactPage": true,
+   "ageDefault": "16-18",
+   "programme": "Insight / work experience",
+   "track": "preuni"
   }
  ]
 }
