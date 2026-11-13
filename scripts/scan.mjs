@@ -882,7 +882,7 @@ async function toOpenings(rows, co, src){
     if(!region && src.online) region = 'Online';
     if(!region) continue;
     const programme = j.programme || src.programme || programmeOf(role);
-    const ageGroup = src.age || j.ageGroup || ageOf(role) || ageOf(text.slice(0, 1500));
+    const ageGroup = src.age || j.ageGroup || ageOf(role) || ageOf(text.slice(0, 1500)) || src.ageDefault || '';
     const firm = j._co || co;
     const det = text ? detailsOf(text) : {};
     const o = {
@@ -902,6 +902,34 @@ async function toOpenings(rows, co, src){
 
 /* ================================================================ main */
 const T0 = Date.now(), minutesIn = () => (Date.now() - T0) / 60e3;
+/* School work experience (Years 10–13) for every watched firm.
+   Most UK firms run their school work-experience days through Uptree (J.P. Morgan's own page sends you there),
+   so read Uptree's partner directory once, keep only the firms on the watchlist, and read each matched firm's
+   page for its own event links. Nothing else on Uptree is collected. robots.txt is checked as for every page. */
+const UPTREE = 'https://uptree.co/companies/';
+const UPTREE_KNOWN = { 'J.P. Morgan':'jp-morgan', 'UBS':'ubs', 'PwC':'pwc', 'IBM':'ibm', 'A&O Shearman':'allen-and-overy' };
+const nameMatch = (a, b) => { a = squash(a); b = squash(b); return !!a && !!b && (a === b || (Math.min(a.length, b.length) >= 5 && (a.startsWith(b) || b.startsWith(a)))); };
+async function uptreeSources(watch, cache){
+  const c = cache.__uptree || {};
+  if(!c.at || Date.now() - Date.parse(c.at) > 3 * 864e5 || !c.slugs){
+    let links = [];
+    try{ const b = await getBrowser(); if(b){ const pg = await openPage(b, UPTREE); try{ links = await grabLinks(pg.page); }finally{ await pg.page.close().catch(() => {}); } } }catch(e){}
+    if(!links.length){ try{ links = (await htmlLinks(UPTREE)).links; }catch(e){} }
+    const slugs = {};
+    for(const l of links){
+      const m = String(l.h || '').match(/uptree\.co\/companies\/([a-z0-9-]+)\/?$/i); if(!m || m[1] === 'uptree') continue;
+      const firm = watch.find(w => nameMatch(w.company, l.t) || nameMatch(w.company, m[1].replace(/-/g, ' ')));
+      if(firm) slugs[firm.company] = m[1].toLowerCase();
+    }
+    if(links.length) cache.__uptree = { at:new Date().toISOString(), slugs };
+    log({ company:'Uptree directory', type:'uptree', target:UPTREE, ok:links.length > 0, found:Object.keys(slugs).length, error:links.length ? '' : 'directory unreadable' });
+  }
+  const slugs = { ...UPTREE_KNOWN, ...((cache.__uptree || {}).slugs || {}) };
+  return Object.entries(slugs).filter(([co]) => watch.some(w => w.company === co)).map(([co, slug]) => ({
+    company:co, type:'links', url:UPTREE + slug + '/', linkPattern:`uptree\\.co/(events|opportunities)/${slug}/\\d+`, strictPattern:true, all:true,
+    programme:'Insight / work experience', ageDefault:'16-18', track:'preuni', maxFollow:0, label:'Uptree (school work experience)',
+  }));
+}
 const LIMITS = { api:+(process.env.API_MIN || 11), pages:+(process.env.PAGES_MIN || 26), guess:+(process.env.GUESS_MIN || 30) };
 async function main(){
   const prev  = await read('data/openings.json', { openings:[], review:[], closed:[] });
@@ -909,6 +937,7 @@ async function main(){
   const watch = (await read('data/watchlist.json', { companies:[] })).companies;
   const disc  = (await read('data/discovery.json', { companies:[] })).companies;
   const srcs  = (await read('data/sources.json', { sources:[] })).sources;
+  try{ srcs.push(...await uptreeSources(watch, cache)); }catch(e){ log({ company:'Uptree directory', type:'uptree', target:UPTREE, ok:false, error:e.message }); }
   const discovered = cache.__discovered || [];   // firms the scanner found on its own (kept in ats-cache.json, which the workflow commits)
   const extraFirms = [...disc, ...discovered].filter((c, i, a) => a.findIndex(x => x.company === c.company) === i && !watch.some(w => w.company === c.company));
   const byName = Object.fromEntries([...extraFirms, ...watch].map(c => [c.company, c]));
@@ -1111,6 +1140,21 @@ async function main(){
   const closedNow = (prev.openings || []).filter(o => !nowIds.has(o.id) && okCompanies.has(o.company) && !failedCompanies.has(o.company)).map(o => ({ id:o.id, company:o.company, role:o.role, programme:o.programme, link:o.link, detected:o.detected, closedOn:TODAY }));
   const closed = [...closedNow, ...(prev.closed || []).filter(c => !nowIds.has(c.id) && (Date.now() - Date.parse(c.closedOn)) < 120 * 864e5)]
     .filter((c, i, a) => a.findIndex(x => x.id === c.id) === i);
+
+  // 6) alerts: new openings for school students (ages 14–18, not apprenticeships) → data/alert.md,
+  //    which the workflow turns into a GitHub issue (GitHub emails the repo owner). The first run only records what exists.
+  const forMe = o => !o.stale && ['14-16', '16-18'].includes(o.ageGroup) && o.programme !== 'Apprenticeship';
+  const firstAlertRun = !Array.isArray(cache.__alerted);
+  const alerted = new Set(cache.__alerted || []);
+  const fresh = openings.filter(o => forMe(o) && !alerted.has(o.id));
+  fresh.forEach(o => alerted.add(o.id));
+  cache.__alerted = [...alerted].filter(id => openings.some(o => o.id === id) || (prev.openings || []).some(o => o.id === id)).slice(-3000);
+  const alertMd = firstAlertRun || !fresh.length ? '' :
+    `${fresh.length} new opening${fresh.length > 1 ? 's' : ''} for school students:\n\n` +
+    fresh.map(o => `- **${o.company}** – ${o.role} (${o.programme}, ages ${o.ageGroup}, ${o.region || o.location})${o.deadline ? ' · closes ' + o.deadline : ''}\n  ${o.link}`).join('\n') +
+    `\n\nAll openings: https://aarivfinance.github.io/Supercurricular-Tracker-V2/#openings\n`;
+  await writeFile('data/alert.md', alertMd);
+  if(alertMd) console.log(`  alert: ${fresh.length} new school-age openings`);
 
   const out = {
     updated:NOW_ISO,
