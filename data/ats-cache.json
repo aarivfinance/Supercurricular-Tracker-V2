@@ -53,7 +53,7 @@
  },
  "Centerview Partners": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "BNP Paribas": {
   "via": null,
@@ -77,7 +77,7 @@
  },
  "SMBC": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Houlihan Lokey": {
   "via": null,
@@ -97,7 +97,7 @@
  },
  "Perella Weinberg": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Crédit Agricole CIB": {
   "via": null,
@@ -125,11 +125,11 @@
  },
  "SoFi": {
   "via": "greenhouse:sofi",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Starling Bank": {
   "via": "workable:starling-bank",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Nationwide": {
   "via": null,
@@ -157,7 +157,7 @@
  },
  "Monzo": {
   "via": "greenhouse:monzo",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "IMF": {
   "via": null,
@@ -181,7 +181,7 @@
  },
  "Guggenheim Partners": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Nomura": {
   "via": null,
@@ -189,7 +189,7 @@
  },
  "Kearney": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Roland Berger": {
   "via": null,
@@ -197,7 +197,7 @@
  },
  "Strategy&": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "EY": {
   "via": null,
@@ -217,7 +217,7 @@
  },
  "Forvis Mazars": {
   "via": "greenhouse:forvismazars",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "PwC": {
   "via": null,
@@ -225,15 +225,15 @@
  },
  "L.E.K. Consulting": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "BDO": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Baringa": {
   "via": "greenhouse:baringa",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Capgemini": {
   "via": null,
@@ -241,15 +241,15 @@
  },
  "Grant Thornton": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Oxera": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "RSM UK": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Financial Conduct Authority": {
   "via": null,
@@ -261,11 +261,11 @@
  },
  "Frontier Economics": {
   "via": "lever:frontier",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "FTI Consulting": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Apple": {
   "via": null,
@@ -281,7 +281,7 @@
  },
  "NERA Economic Consulting": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Microsoft": {
   "via": null,
@@ -301,7 +301,7 @@
  },
  "Economic Insight": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Oracle": {
   "via": null,
@@ -321,7 +321,7 @@
  },
  "Anthropic": {
   "via": "greenhouse:anthropic",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Netflix": {
   "via": null,
@@ -329,15 +329,15 @@
  },
  "OpenAI": {
   "via": "ashby:openai",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "xAI": {
   "via": "greenhouse:xai",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Perplexity": {
   "via": "ashby:perplexity",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Mistral AI": {
   "via": null,
@@ -345,7 +345,7 @@
  },
  "Cohere": {
   "via": "ashby:cohere",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Tesla": {
   "via": null,
@@ -353,7 +353,7 @@
  },
  "Scale AI": {
   "via": "greenhouse:scaleai",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Samsung": {
   "via": null,
@@ -361,11 +361,11 @@
  },
  "Synthesia": {
   "via": "ashby:synthesia",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "ElevenLabs": {
   "via": "ashby:elevenlabs",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Wayve": {
   "via": null,
@@ -401,7 +401,7 @@
  },
  "Hugging Face": {
   "via": "workable:huggingface",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "HP": {
   "via": null,
@@ -445,27 +445,27 @@
  },
  "Databricks": {
   "via": "greenhouse:databricks",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Cloudflare": {
   "via": "greenhouse:cloudflare",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Reddit": {
   "via": "greenhouse:reddit",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Snowflake": {
   "via": "ashby:snowflake",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Discord": {
   "via": "greenhouse:discord",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Palantir": {
   "via": "lever:palantir",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "SAP": {
   "via": null,
@@ -473,11 +473,11 @@
  },
  "Airbnb": {
   "via": "greenhouse:airbnb",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Stripe": {
   "via": "greenhouse:stripe",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Shopify": {
   "via": null,
@@ -493,11 +493,11 @@
  },
  "Spotify": {
   "via": "lever:spotify",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Wise": {
   "via": "greenhouse:wise",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Visa": {
   "via": null,
@@ -513,7 +513,7 @@
  },
  "SpaceX": {
   "via": "greenhouse:spacex",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Klarna": {
   "via": null,
@@ -549,7 +549,7 @@
  },
  "The Economist": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "KKR": {
   "via": null,
@@ -585,11 +585,11 @@
  },
  "General Atlantic": {
   "via": "greenhouse:generalatlantic",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Hg": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Advent International": {
   "via": null,
@@ -613,11 +613,11 @@
  },
  "Thoma Bravo": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Silver Lake": {
   "via": "ashby:silver",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Bain & Company": {
   "via": null,
@@ -625,11 +625,11 @@
  },
  "Accel": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Sequoia Capital": {
   "via": "ashby:sequoia",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Bain Capital": {
   "via": null,
@@ -637,11 +637,11 @@
  },
  "Atomico": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Y Combinator": {
   "via": "ashby:ycombinator",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Ares Management": {
   "via": null,
@@ -657,7 +657,7 @@
  },
  "ExodusPoint": {
   "via": "greenhouse:exoduspoint",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Millennium": {
   "via": null,
@@ -673,7 +673,7 @@
  },
  "Balderton Capital": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Andreessen Horowitz": {
   "via": null,
@@ -689,15 +689,15 @@
  },
  "Capstone Investment Advisors": {
   "via": "greenhouse:capstoneinvestmentadvisors",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Index Ventures": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Entrepreneur First": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Brevan Howard": {
   "via": null,
@@ -717,7 +717,7 @@
  },
  "Elliott Management": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Jane Street": {
   "via": "greenhouse:janestreet",
@@ -725,7 +725,7 @@
  },
  "Optiver": {
   "via": "greenhouse:optiverus",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "IMC Trading": {
   "via": "greenhouse:imc",
@@ -733,11 +733,11 @@
  },
  "Schonfeld": {
   "via": "greenhouse:schonfeld",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Situational Awareness": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Jump Trading": {
   "via": "greenhouse:jumptrading",
@@ -757,19 +757,19 @@
  },
  "XTX Markets": {
   "via": "greenhouse:xtxmarketstechnologies",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Squarepoint": {
   "via": "greenhouse:squarepointcapital",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Lansdowne Partners": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Qube Research & Technologies": {
   "via": "greenhouse:quberesearchandtechnologies",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "DRW": {
   "via": "greenhouse:drweng",
@@ -781,7 +781,7 @@
  },
  "Flow Traders": {
   "via": "greenhouse:flowtraders",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Winton": {
   "via": "greenhouse:winton",
@@ -789,11 +789,11 @@
  },
  "AQR": {
   "via": "greenhouse:aqr",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "TCI Fund Management": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "D. E. Shaw": {
   "via": null,
@@ -833,7 +833,7 @@
  },
  "Renaissance Technologies": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "AllianceBernstein": {
   "via": null,
@@ -841,7 +841,7 @@
  },
  "Ruffer": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Schroders": {
   "via": null,
@@ -889,7 +889,7 @@
  },
  "SemiAnalysis": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Franklin Templeton": {
   "via": null,
@@ -909,7 +909,7 @@
  },
  "MSCI": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Nasdaq": {
   "via": null,
@@ -921,7 +921,7 @@
  },
  "Coinbase": {
   "via": "greenhouse:coinbase",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "S&P Global": {
   "via": null,
@@ -933,15 +933,15 @@
  },
  "Robinhood": {
   "via": "greenhouse:robinhood",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Fitch Ratings": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Trading 212": {
   "via": "ashby:trading212",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Webull": {
   "via": null,
@@ -953,11 +953,11 @@
  },
  "Pump.fun": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Kraken": {
   "via": "ashby:kraken.com",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Rothschild & Co Redburn": {
   "via": null,
@@ -965,7 +965,7 @@
  },
  "IG Group": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Interactive Brokers": {
   "via": null,
@@ -977,11 +977,11 @@
  },
  "Axiom Trade": {
   "via": "greenhouse:axiom",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Freetrade": {
   "via": "ashby:freetrade",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Cboe": {
   "via": null,
@@ -989,11 +989,11 @@
  },
  "Hargreaves Lansdown": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Tradeweb": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Clifford Chance": {
   "via": "smartrecruiters:cliffordchance",
@@ -1001,7 +1001,7 @@
  },
  "AJ Bell": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "CME Group": {
   "via": null,
@@ -1025,7 +1025,7 @@
  },
  "Cravath": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Latham & Watkins": {
   "via": null,
@@ -1033,11 +1033,11 @@
  },
  "Kirkland & Ellis": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Paul Weiss": {
   "via": "greenhouse:paulweiss",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Slaughter and May": {
   "via": null,
@@ -1045,31 +1045,31 @@
  },
  "Wachtell Lipton": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Sullivan & Cromwell": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Milbank": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Gibson Dunn": {
   "via": "greenhouse:gibsondunn",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Davis Polk": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Partridge, Muir & Warren": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Goodwin": {
   "via": "greenhouse:goodwin",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Weil": {
   "via": null,
@@ -1077,11 +1077,11 @@
  },
  "Simpson Thacher": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Debevoise": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Macfarlanes": {
   "via": null,
@@ -1089,7 +1089,7 @@
  },
  "Sidley Austin": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "White & Case": {
   "via": null,
@@ -1097,11 +1097,11 @@
  },
  "Covington": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Quinn Emanuel": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Ashurst": {
   "via": null,
@@ -1113,7 +1113,7 @@
  },
  "Cleary Gottlieb": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Travers Smith": {
   "via": null,
@@ -1137,7 +1137,7 @@
  },
  "eToro": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "DLA Piper": {
   "via": null,
@@ -1157,7 +1157,7 @@
  },
  "Bird & Bird": {
   "via": "greenhouse:bird",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Springpod": {
   "via": null,
@@ -1169,11 +1169,11 @@
  },
  "Bright Network": {
   "via": "greenhouse:brightnetwork",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Rare Recruitment": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Simmons & Simmons": {
   "via": null,
@@ -1185,7 +1185,7 @@
  },
  "Amazing Apprenticeships": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Pinsent Masons": {
   "via": null,
@@ -1193,15 +1193,15 @@
  },
  "SEO London": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Social Mobility Foundation": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Eversheds Sutherland": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Sutton Trust": {
   "via": null,
@@ -1209,7 +1209,7 @@
  },
  "Investec": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Stifel": {
   "via": null,
@@ -1217,47 +1217,47 @@
  },
  "Berenberg": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "TSB": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Deutsche Numis": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Tide": {
   "via": "greenhouse:tide",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "OakNorth": {
   "via": "ashby:oaknorth",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Zopa": {
   "via": "lever:zopa",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Cantor Fitzgerald": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Virgin Money": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Peel Hunt": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Panmure Liberum": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Elixirr": {
   "via": "greenhouse:elixirr",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "PA Consulting": {
   "via": null,
@@ -1265,59 +1265,59 @@
  },
  "Credera": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Close Brothers": {
   "via": "ashby:close",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Moorhouse": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Isomorphic Labs": {
   "via": "greenhouse:isomorphiclabs",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "PolyAI": {
   "via": "greenhouse:polyai",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Kroll": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Tractable": {
   "via": "ashby:tractable",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "OC&C Strategy Consultants": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Simon-Kucher": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Darktrace": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Improbable": {
   "via": "ashby:improbable",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Quantexa": {
   "via": "ashby:quantexa",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "PhysicsX": {
   "via": "greenhouse:physicsx",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Deliveroo": {
   "via": "greenhouse:deliveroo",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "GoCardless": {
   "via": "greenhouse:gocardless",
@@ -1325,75 +1325,75 @@
  },
  "Sage": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Cleo": {
   "via": "greenhouse:cleo",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Crowe UK": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Checkout.com": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Figma": {
   "via": "greenhouse:figma",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Ocado Technology": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Monday.com": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Notion": {
   "via": "ashby:notion",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Metro Bank": {
   "via": "greenhouse:metro",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Brex": {
   "via": "greenhouse:brex",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Skyscanner": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Rippling": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Helsing": {
   "via": "greenhouse:helsing",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Faculty AI": {
   "via": "ashby:faculty",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Anduril": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Pantheon": {
   "via": "greenhouse:pantheon",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Bridgepoint": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "ICG": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Plaid": {
   "via": "ashby:plaid",
@@ -1401,67 +1401,67 @@
  },
  "HarbourVest": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Inflexion": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Livingbridge": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Seedcamp": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Northzone": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Creandum": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "LocalGlobe": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Marshmallow": {
   "via": "ashby:marshmallow",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Liontrust": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Vitruvian Partners": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Arrowstreet Capital": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Ninety One": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Newton Europe": {
   "via": "greenhouse:newton",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Columbia Threadneedle": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Coller Capital": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Royal London Asset Management": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Pictet": {
   "via": null,
@@ -1469,39 +1469,39 @@
  },
  "Rathbones": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "HSBC Asset Management": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Quilter": {
   "via": "ashby:quilter",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Wellington (London)": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Akuna Capital": {
   "via": "greenhouse:akunacapital",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Millburn": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "St. James's Place": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "RBC Brewin Dolphin": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Lombard Odier": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Old Mission": {
   "via": null,
@@ -1509,23 +1509,23 @@
  },
  "Ramp": {
   "via": "ashby:ramp",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Virtu Financial": {
   "via": "greenhouse:virtu",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Headlands Technologies": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Shoosmiths": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "TLT": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Janus Henderson": {
   "via": null,
@@ -1533,75 +1533,75 @@
  },
  "Freeths": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Kennedys": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Five Rings": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Dentons": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Jones Day": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Addleshaw Goddard": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Mayer Brown": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Reed Smith": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Akin": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Orrick": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Clyde & Co": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Withers": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Burges Salmon": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Farrer & Co": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Osborne Clarke": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Charles Russell Speechlys": {
   "via": "greenhouse:charles",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Irwin Mitchell": {
   "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "LMR Partners": {
   "via": "greenhouse:lmr",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Alphadyne": {
   "via": null,
@@ -1625,7 +1625,7 @@
  },
  "Pantheon Macroeconomics": {
   "via": "greenhouse:pantheon",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Hudson Bay Capital": {
   "via": null,
@@ -1677,7 +1677,7 @@
  },
  "Pharo Management": {
   "via": "greenhouse:pharomanagement",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Kedalion Capital": {
   "via": null,
@@ -1689,11 +1689,11 @@
  },
  "Arini": {
   "via": "ashby:arini",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Sona Asset Management": {
   "via": "ashby:sona",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "TT International": {
   "via": null,
@@ -1745,7 +1745,7 @@
  },
  "Polar Capital": {
   "via": "ashby:polar",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Brown Shipley": {
   "via": null,
@@ -1753,11 +1753,11 @@
  },
  "Artemis Investment Management": {
   "via": "ashby:artemis",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "StepStone Group": {
   "via": "greenhouse:stepstone",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Stonepeak": {
   "via": null,
@@ -1772,12 +1772,12 @@
   "checked": "2026-11-09T19:52:18.028Z"
  },
  "DC Advisory": {
-  "via": null,
-  "checked": "2026-11-06T23:13:09.452Z"
+  "via": "workable:dcadvisory",
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Kindred Capital": {
   "via": "ashby:kindred",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Molten Ventures": {
   "via": null,
@@ -1821,10 +1821,103 @@
  },
  "Cornerstone Research": {
   "via": "greenhouse:cornerstone",
-  "checked": "2026-11-13T19:46:11.757Z"
+  "checked": "2026-11-14T01:28:01.358Z"
  },
  "Massive (Polygon.io)": {
   "via": null,
   "checked": "2026-11-11T06:31:41.123Z"
- }
+ },
+ "__uptree": {
+  "at": "2026-11-14T01:28:05.022Z",
+  "slugs": {
+   "Accenture": "accenture",
+   "A&O Shearman": "allen-and-overy",
+   "Arm": "arm",
+   "Baker McKenzie": "baker-mckenzie",
+   "Bank of America": "bank-of-america",
+   "BBC": "bbc",
+   "Clifford Chance": "clifford-chance",
+   "Deloitte": "deloitte"
+  }
+ },
+ "__alerted": [
+  "tp-icap|trainee-broker-tp-italian-gas-italian-speaker|https-tp-wd107-myworkdayjobs-com-en-us-tp-icap-job-london-desk-assistant-tp-european-power-italian-speaker-r5925",
+  "j-p-morgan|uk-work-experience-ages-14-16-london-bournemouth-glasgow-edinburgh|https-www-jpmorganchase-com-careers-explore-opportunities-programs-uk-work-experience",
+  "slaughter-and-may|work-experience-for-school-students|https-www-slaughterandmay-com-careers-early-careers-work-experience-opportunities-school-students-",
+  "bank-of-england|mel-beaman-student-programme|https-www-bankofengland-co-uk-about-corporate-responsibility-mel-beaman-student-programme",
+  "ibm|register-your-interest-for-upcoming-early-careers-events-programmes-and-roles-at-ibm|https-uptree-co-opportunities-ibm-72120064-",
+  "capgemini|capgemini-work-experience-school-students-in-person-or-virtual-|https-www-capgemini-com-gb-en-careers-capgemini-work-experience-information-2026-",
+  "a-o-shearman|national-a-o-shearman-law-application-masterclass|https-uptree-co-events-allen-and-overy-383917399-",
+  "a-o-shearman|national-a-o-shearman-law-work-experience-day|https-uptree-co-events-allen-and-overy-2966633890-",
+  "pwc|new-world-new-skills-work-experience|https-pwc-co-uk-careers-early-careers-our-programmes-new-world-new-skills-html",
+  "baker-mckenzie|baker-mckenzie-beginnings-programme-london|https-uptree-co-opportunities-baker-mckenzie-3384636443-",
+  "bank-of-america|register-your-interest-for-upcoming-early-careers-events-programmes-and-roles-with-the-bank-of-america|https-uptree-co-opportunities-bank-of-america-3340066764-",
+  "clifford-chance|national-clifford-chance-access-programme-application-masterclass|https-uptree-co-events-clifford-chance-3306729803-",
+  "clifford-chance|clifford-chance-trainee-solicitor-london|https-uptree-co-opportunities-clifford-chance-3244642663-",
+  "clifford-chance|clifford-chance-access-programme|https-uptree-co-opportunities-clifford-chance-2466680817-",
+  "deloitte|deloitte-s-2027-early-careers-programmes|https-uptree-co-opportunities-deloitte-3215748635-",
+  "kpmg|work-experience-school-students-|https-www-kpmgcareers-co-uk-apprentice-work-experience-",
+  "sutton-trust|pathways-to-banking-finance-year-12-|https-pathwaysprogrammes-suttontrust-com-career-pathways-banking-finance",
+  "sutton-trust|pathways-to-law-year-12-|https-pathwaysprogrammes-suttontrust-com-career-pathways-law",
+  "sutton-trust|accounting-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-accounting-2-",
+  "sutton-trust|mathematics-biological-sciences-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-mathematics-biological-sciences-2-",
+  "sutton-trust|earth-and-planetary-science-2-imperial-college-london|https-summerschools-suttontrust-com-course-imperial-college-london-earth-and-planetary-science-2-",
+  "sutton-trust|earth-sciences-4-durham-university|https-summerschools-suttontrust-com-course-durham-university-earth-sciences-4-",
+  "sutton-trust|environmental-sciences-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-environmental-sciences-",
+  "sutton-trust|geography-4-university-of-cambridge|https-summerschools-suttontrust-com-course-university-of-cambridge-geography-4-",
+  "sutton-trust|geography-5-durham-university|https-summerschools-suttontrust-com-course-durham-university-geography-5-",
+  "sutton-trust|geography-6-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-geography-6-",
+  "sutton-trust|geography-sustainable-development-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-geography-sustainable-development-",
+  "sutton-trust|business-maths-and-economics-2-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-business-maths-and-economics-2-",
+  "sutton-trust|mathematical-sciences-3-university-of-warwick|https-summerschools-suttontrust-com-course-university-of-warwick-mathematical-sciences-3-",
+  "sutton-trust|mathematical-sciences-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-mathematical-sciences-2-",
+  "sutton-trust|mathematics-2-imperial-college-london|https-summerschools-suttontrust-com-course-imperial-college-london-mathematics-2-",
+  "sutton-trust|mathematics-engineering-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-mathematics-engineering-2-",
+  "sutton-trust|mathematics-physics-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-mathematics-physics-2-",
+  "sutton-trust|mathematics-and-physics-3-university-of-sheffield|https-summerschools-suttontrust-com-course-university-of-sheffield-mathematics-and-physics-3-",
+  "sutton-trust|mathematics-statistics-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-mathematics-statistics-",
+  "sutton-trust|physics-5-durham-university|https-summerschools-suttontrust-com-course-durham-university-physics-5-",
+  "sutton-trust|arts-humanities-2-university-of-glasgow|https-summerschools-suttontrust-com-course-university-of-glasgow-arts-humanities-2-",
+  "sutton-trust|english-literature-history-classics-archaeology-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-english-literature-history-c",
+  "sutton-trust|business-university-of-southampton|https-summerschools-suttontrust-com-course-university-of-southampton-business-",
+  "sutton-trust|business-marketing-and-management-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-business-marketing-and-management-2-",
+  "sutton-trust|economics-6-university-of-southampton|https-summerschools-suttontrust-com-course-university-of-southampton-economics-6-",
+  "sutton-trust|economics-and-finance-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-economics-and-finance-2-",
+  "sutton-trust|economics-mathematics-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-economics-mathematics-",
+  "sutton-trust|economics-finance-and-data-science-imperial-college-london|https-summerschools-suttontrust-com-course-imperial-college-london-economics-finance-and-data-science-",
+  "sutton-trust|management-and-economics-university-of-sheffield|https-summerschools-suttontrust-com-course-university-of-sheffield-management-and-economics-",
+  "sutton-trust|education-studies-primary-ed-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-education-studies-primary-ed-2-",
+  "sutton-trust|geography-8-university-of-southampton|https-summerschools-suttontrust-com-course-university-of-southampton-geography-8-",
+  "sutton-trust|human-social-and-political-sciences-2-university-of-cambridge|https-summerschools-suttontrust-com-course-university-of-cambridge-human-social-and-political-sciences-2-",
+  "sutton-trust|philosophy-theology-and-ethics-2-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-philosophy-theology-and-ethics-2-",
+  "sutton-trust|philosophy-theology-religion-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-philosophy-theology-religion-2-",
+  "sutton-trust|social-historical-sciences-ucl|https-summerschools-suttontrust-com-course-ucl-social-historical-sciences-",
+  "sutton-trust|common-law-university-of-glasgow|https-summerschools-suttontrust-com-course-university-of-glasgow-common-law-",
+  "sutton-trust|law-8-university-of-cambridge|https-summerschools-suttontrust-com-course-university-of-cambridge-law-8-",
+  "sutton-trust|law-9-durham-university|https-summerschools-suttontrust-com-course-durham-university-law-9-",
+  "sutton-trust|law-10-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-law-10-",
+  "sutton-trust|law-12-university-of-sheffield|https-summerschools-suttontrust-com-course-university-of-sheffield-law-12-",
+  "sutton-trust|law-13-university-of-southampton|https-summerschools-suttontrust-com-course-university-of-southampton-law-13-",
+  "sutton-trust|law-politics-and-international-relations-3-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-law-politics-and-international-",
+  "sutton-trust|law-politics-and-international-relations-4-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-law-politics-and-international-",
+  "sutton-trust|laws-2-ucl|https-summerschools-suttontrust-com-course-ucl-laws-2-",
+  "sutton-trust|international-relations-2-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-international-relations-2-",
+  "sutton-trust|politics-history-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-politics-history-2-",
+  "sutton-trust|politics-languages-literatures-culture-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-politics-languages-literatures-cultur",
+  "sutton-trust|politics-philosophy-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-politics-philosophy-2-",
+  "sutton-trust|sociology-philosophy-2-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-sociology-philosophy-2-",
+  "sutton-trust|sociology-history-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-sociology-history-",
+  "sutton-trust|art-history-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-art-history-",
+  "sutton-trust|history-of-art-2-university-of-cambridge|https-summerschools-suttontrust-com-course-university-of-cambridge-history-of-art-2-",
+  "sutton-trust|history-and-english-university-of-sheffield|https-summerschools-suttontrust-com-course-university-of-sheffield-history-and-english-",
+  "sutton-trust|classics-ancient-history-2-durham-university|https-summerschools-suttontrust-com-course-durham-university-classics-ancient-history-2-",
+  "sutton-trust|classics-history-university-of-st-andrews|https-summerschools-suttontrust-com-course-university-of-st-andrews-classics-history-",
+  "sutton-trust|historical-studies-2-university-of-nottingham|https-summerschools-suttontrust-com-course-university-of-nottingham-historical-studies-2-",
+  "sutton-trust|history-6-durham-university|https-summerschools-suttontrust-com-course-durham-university-history-6-",
+  "sutton-trust|history-and-english-2-university-of-southampton|https-summerschools-suttontrust-com-course-university-of-southampton-history-and-english-2-",
+  "sutton-trust|english-literature-philosophy-university-of-edinburgh|https-summerschools-suttontrust-com-course-university-of-edinburgh-english-literature-philosophy-",
+  "sutton-trust|music-4-durham-university|https-summerschools-suttontrust-com-course-durham-university-music-4-",
+  "sutton-trust|theology-religious-studies-and-philosophy-2-university-of-cambridge|https-summerschools-suttontrust-com-course-university-of-cambridge-theology-religious-studies-and-p",
+  "lse-pathways-to-banking-finance-|pathways-to-banking-and-finance-years-12-13-|https-www-lse-ac-uk-study-at-lse-undergraduate-widening-participation-sixth-form-college-pathways-to-b"
+ ]
 }
