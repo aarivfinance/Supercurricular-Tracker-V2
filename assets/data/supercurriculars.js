@@ -190,6 +190,15 @@ DATA.y11 = [
      n:"Edward Levi, <i>An Introduction to Legal Reasoning</i> (1949)|About 100 pages on how judges actually move from case to case by analogy, and how a rule's meaning shifts while they do it. A genuine classic of US legal education.",
      c:"Lon Fuller, <i>The Morality of Law</i>|Hart's other opponent — the one most applicants skip in favour of Dworkin. Argues a system can be so iniquitous it fails its own internal logic and ceases to be law.",
      link:"For a prize named for legal <i>reasoning</i>, note the gap: Hart and Dworkin argue about what law <b>is</b>, while Levi shows the mechanics of what judges are literally <b>doing</b> when they decide. Levi is the one that lets you analyse a case rather than recite a theory."}},
+  {t:"Harvard International Economics Essay Contest (HIEEC)", s:"econ", yr:"Grades 9–10 division (Year 10/11) — you're eligible now", elig:"now", tag:"NEW",
+   when:"2026–27 deadline: Tuesday 5 January 2027, 11:59pm Boston time (≈ 4:59am UK, 6 January) · opened 26 October 2026 · results early–mid March", link:"https://www.thehuea.org/general-8",
+   note:"Run by the Harvard Undergraduate Economics Association (a student society, not the university). Up to 1,500 words, submitted anonymously. <em>$35 entry fee</em> outside the US. 2026–27 prompts: AI and youth unemployment, caps on international students, free payment systems, who pays for climate damage to homes, minimum wages where informal work is common — or your own question. Per division: 3 winners (published), 15 finalists, 15 highly commended. Nobel laureate Oliver Hart has judged before."},
+  {t:"Harvard International Review (HIR) Academic Writing Contest", s:"pol", yr:"Grades 9–12 (Year 10–13)", elig:"now", tag:"NEW",
+   when:"Three cycles a year · Fall/Winter cycle: article due 2 January 2027, Defense Day 5 February 2027 · next cycles ~31 May and ~late August", link:"https://hir.harvard.edu/contest",
+   note:"The politics/international-relations counterpart to HIEEC. Short-form article on a current international-affairs topic; finalists defend it live online. <em>Paid registration</em> before you can submit, and capacity is limited. Run by Harvard's student-run international affairs magazine."},
+  {t:"British Economics Olympiad (BEO)", s:"econ", yr:"Secondary students — confirm year group with your Economics dept", elig:"check", tag:"NEW", tbc:true,
+   when:"2027 registration opened September 2026 · Stage 1 online, then later stages through to a UK final at RIC (2026 final was 26 March) · Wilson's has entered before (round 2 in late February)", link:"https://rochester-college.org.uk/2027-british-economics-olympiad",
+   note:"The UK qualifier for the International Economics Olympiad, run by Rochester Independent College. Three stages: 50 economics questions online, a financial-literacy multiple-choice round, then a business case presented to judges. Ask your Economics department whether Wilson's is entering a group this year — that's usually how students get in."},
 ]},
 
 { month:"February 2027", items:[
@@ -276,6 +285,9 @@ DATA.y11 = [
      n:"Morten Jerven, <i>Poor Numbers</i>|Shows that much African GDP and development data is far less reliable than anyone admits — some national statistics are effectively estimates built on estimates.",
      c:"William Easterly, <i>The White Man's Burden</i>|Argues planned, top-down development aid mostly fails, and that the randomised-trial project treats symptoms while leaving the political causes untouched. The strongest attack on the approach the competition will expect you to apply.",
      link:"The final round is a team case study judged on analysis. Every team will apply development theory to the numbers. Jerven lets you open by asking <b>whether the numbers can bear the weight</b> — which is both a genuinely sophisticated move and, in a room full of confident modelling, a memorable one."}},
+  {t:"Minds Underground Economics Essay Competition", s:"econ", yr:"Aimed at Y12, younger students welcome", elig:"now", tag:"NEW", tbc:true,
+   when:"2027 questions released November–December 2026 · deadline expected 3 April 2027 (same as 2026)", link:"https://www.mindsunderground.com/economics-competition",
+   note:"Free. One question from international, mathematical, behavioural or environmental economics. Sits alongside the Law, Politics and Philosophy versions already listed — all four share the same deadline."},
 ]},
 
 { month:"May – June 2027", items:[
@@ -297,6 +309,12 @@ DATA.y11 = [
      n:"Carl Benedikt Frey, <i>The Technology Trap</i>|An Oxford economist tracing 300 years of automation to show the real variable is not whether machines destroy jobs but <i>who holds the political power to resist</i> — which is why the Industrial Revolution impoverished a generation of English workers before it enriched them.",
      c:"Robert Gordon, <i>The Rise and Fall of American Growth</i>|Argues the transformative inventions — electricity, sanitation, the internal combustion engine — are behind us, and that computing and AI are simply far less economically significant than we assume. Read the argument, not all 750 pages.",
      link:"On 'how will AI affect long-run growth', most entrants will speculate about robots. Frey's argument is historical and political: the outcome depends on the distribution of power, not the technology. It reframes the question rather than answering it — and he is at Oxford, which does you no harm at all."}},
+  {t:"MASSOLIT Video Essay Competition (with Brasenose College, Oxford)", s:"multi", yr:"Years 10, 11 and 12 at UK schools", elig:"now", tag:"NEW", tbc:true,
+   when:"Recent rounds opened late February / early March and closed 5pm on the last Friday of June (2025: 28 Feb – 27 Jun) — expect the same in 2027", link:"https://massolit.io/competition",
+   note:"Free; no subscription needed. An 8–12 minute talking-head lecture on <em>any</em> academic topic, uploaded unlisted to YouTube. Winner's lecture is professionally filmed for MASSOLIT; top 10 get certificates and an awards reception at Brasenose. Your Instagram explainers are close to this format already."},
+  {t:"FCDO Next Generation Economics Competition", s:"econ", yr:"Ages 14–18 — Under-16 and Under-18 categories", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 closed 28 June · the page is usually refreshed for the new round around February–March — expect a late-June 2027 deadline", link:"https://www.gov.uk/guidance/fcdo-next-generation-economics-competition",
+   note:"Free. A letter of up to 1,000 words to the FCDO's Chief Economist on one of four set questions; AI may help research but not write. Per category: £350 winner, £200 runner-up, £100 ×2 shortlisted, a funded visit to the FCDO and LSE for the top 8, and an economics book for the top 25. Run with LSE's Hub for Equal Representation. You'd be in the Under-16 category this year."},
 ]},
 
 { month:"July – August 2027", items:[
@@ -308,6 +326,9 @@ DATA.y11 = [
      m:"Tim Harford, <i>Adapt</i>|See the April entry.",
      n:"Amar Bhidé, <i>The Origin and Evolution of New Businesses</i>|See the April entry — the empirical study of what founders actually did, as against what they later said they did.",
      link:"Four months is long enough to read both properly and still draft twice. Use it."}},
+  {t:"Bar Mock Trial Competition (Young Citizens)", s:"law", yr:"Ages 15–18 at non-fee-paying schools — Wilson's qualifies", elig:"now", tag:"NEW",
+   when:"2026/27 applications closed 9 September 2026 · heats run roughly November–June · next round's applications expected to open in summer 2027", link:"https://www.youngcitizens.org/mock-trials",
+   note:"A school team enters (entry fee ~£260, paid by the school) and argues a criminal case in a real Crown Court in front of a real judge. The law counterpart to an olympiad — ask a teacher in the summer term whether Wilson's will put a team in."},
 ]},
 
 { month:"Date not confirmed — verify before relying on these", items:[
@@ -328,6 +349,15 @@ DATA.y11 = [
      m:"Burton Malkiel, <i>A Random Walk Down Wall Street</i>|Free from a library, and covers most of what a paid trading course will tell you.",
      n:"Perry Mehrling, <i>The New Lombard Street</i>|A monetary economist showing how the Fed quietly moved from 'lender of last resort' to <i>dealer</i> of last resort — the actual plumbing of the 2008 rescue, explained by someone who teaches it.",
      link:"If you decide not to pay for this, the pairing still stands alone and costs nothing: Malkiel for how markets are supposed to work, Mehrling for the machinery that catches them when they don't. Mehrling also picks up directly where Bagehot left off, if you read that one too."}},
+  {t:"Harvard Undergraduate Law Review — High School Essay Contest", s:"law", yr:"Grades 9–12 (Year 10–13)", elig:"now", tag:"NEW", tbc:true,
+   when:"Dates for the next contest not yet published", link:"https://hulr.org/essay-contest",
+   note:"Short essay on an annual legal theme (Fall 2025: 'The Boundaries of Expression'). <em>$10 entry fee</em>, waivable on request. Student-run. The law counterpart to HIEEC."},
+  {t:"Harvard Political Review Essay Competition", s:"pol", yr:"Grades 9–12; solo or teams of 2–5", elig:"now", tag:"NEW", tbc:true,
+   when:"2027 dates TBA · last cycle: priority 15 January, regular 1 March, late 15 March", link:"https://www.algoed.co/competitions/harvard-political-review-essay-competition",
+   note:"<em>Paid</em> ($45–$85 in 2026, rising with each deadline) and administered through a commercial partner (AlgoEd), so weigh it below the free university-run prizes. The politics counterpart to HIEEC."},
+  {t:"LIBF Student Investor Challenge", s:"econ", yr:"Ages 14–19 (historically)", elig:"check", tag:"NEW", tbc:true,
+   when:"No UK round found since about 2022/23 — it may have been discontinued in the UK", link:"https://www.libf.ac.uk/",
+   note:"Used to be the big free UK school trading game: teams invested virtual £100,000 portfolios over four months, with a live final. Ask your Economics teacher whether it still runs. If it doesn't, the Wharton Global High School Investment Competition and AmplifyME (both listed) cover the same ground."},
 ]},
 ];
 
@@ -417,6 +447,15 @@ DATA.y1213 = [
      n:"Howard Marks, <i>The Most Important Thing</i>|Second-level thinking and risk control, from a working fund manager.",
      c:"Warren Buffett, the Berkshire Hathaway shareholder letters (free online)|Sixty years of publicly arguing that Malkiel is wrong — and a track record that makes the argument hard to dismiss.",
      link:"Your Investment Policy Statement is the marked artefact. Marks is a whole book on writing down your risk discipline before the market tests it — a direct match for the rubric."}},
+  {t:"Immerse Education Essay Competition", s:"multi", yr:"Ages 13–18", elig:"now", tag:"NEW",
+   when:"2026 round: opened 3 August, closed 25 October, results 9 November — expect a similar window in 2027", link:"https://www.immerse.education/essay-competition",
+   note:"Free; 500 words on one of 20+ subject questions. Prizes are scholarships towards Immerse's own <em>fee-paying</em> summer courses, so it's partly a marketing funnel. Fine as practice, but it carries less weight than the university-run prizes."},
+  {t:"Harvard Undergraduate Moot Court — Legal Essay Contest", s:"law", yr:"Grades 9–12", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline was 2 October — <b>or as soon as 100 entries arrive</b>, whichever came first. Submit early.", link:"https://www.harvardundergraduatemootcourt.org/contest.html",
+   note:"Free. 850-word essay on a published legal prompt; $100 first prize. The 100-entry cap makes this first come, first served."},
+  {t:"The Ethics Cup (University of St Andrews)", s:"phil", yr:"UK school teams (sixth form)", elig:"now", tag:"NEW", tbc:true,
+   when:"London regional 2026: registration closed 16 November, tournament 14 December · national final at St Andrews in spring", link:"https://ethicscup.wp.st-andrews.ac.uk/",
+   note:"The philosophy counterpart to an olympiad: teams discuss a published set of ethics cases, and the judges mark civility and reasoning rather than point-scoring. A school enters a team (~£70). Ask a teacher early in Y12 — the registration deadline comes round fast."},
 ]},
 
 { month:"December 2027 – January 2028 (apply)", items:[
@@ -438,6 +477,9 @@ DATA.y1213 = [
      n:"Edward Levi, <i>An Introduction to Legal Reasoning</i> (1949)|About 100 pages on how judges genuinely move from case to case by analogy, and how the rule quietly changes shape as they do it.",
      c:"Lon Fuller, <i>The Morality of Law</i>|Hart's other opponent, and the one most applicants skip: a legal system can be so iniquitous that it fails its own internal logic and stops being law.",
      link:"Note what the prize is called. Hart and Dworkin argue about what law <b>is</b>; Levi describes what judges are actually <b>doing</b> when they reason. That lets you analyse a line of cases and show the rule shifting — a concrete demonstration of legal reasoning rather than a description of a theory about it."}},
+  {t:"IEA Budget Challenge (with the Vinson Centre)", s:"econ", yr:"Sixth form; teams of up to 4, max 2 teams per school", elig:"now", tag:"NEW",
+   when:"2027 deadline: 23:59, Friday 29 January 2027 · semi-finals Feb/Mar at Buckingham · final Mar/Apr at the IEA, London — expect late January 2028 for your year", link:"https://iea.org.uk/the-budget-challenge",
+   note:"Write a shadow Budget of up to 4,000 words (macro outlook, goals, then taxes, spending and borrowing by department), then defend it in a 10-minute presentation. £1,000 total prize. The most finance-ministry-like competition here — a strong fit with your macro interest."},
 ]},
 
 { month:"January – March 2028 (apply)", items:[
@@ -468,6 +510,9 @@ DATA.y1213 = [
      n:"Albert Hirschman, <i>Exit, Voice, and Loyalty</i>|About 120 pages: when anything declines you can leave (exit) or complain (voice), and loyalty decides which. Applies identically to firms, parties, schools and states.",
      s:"Peter Godfrey-Smith, <i>Other Minds</i>|A philosopher of science and diver using the octopus — complex cognition evolved on a separate branch from ours — to ask what minds are for. Crosses biology, philosophy and consciousness in one readable book.",
      link:"Re:Think rewards essays that genuinely cross disciplines rather than announcing that they do. Hirschman gives you one portable framework that <i>is</i> economics, politics and sociology at once — and unlike Kuhn, nobody will have seen it deployed on their prompt before."}},
+  {t:"Rex Nettleford Essay Prize (Oriel College, Oxford)", s:"pol", yr:"Year 12 at a UK school or college", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline: 12pm, Monday 23 February 2026 — expect late February", link:"https://www.oriel.ox.ac.uk/study-with-us/outreach-and-schools-liaison/what-we-do/events-and-prizes/rex-nettleford-prize-for-year-12-students/",
+   note:"Essays on colonialism and its legacies; four questions. Good for politics, history and political economy (development, trade, debt)."},
 ]},
 
 { month:"February 2028", items:[
@@ -480,6 +525,9 @@ DATA.y1213 = [
      n:"Branko Milanovic, <i>Global Inequality</i>|Inequality between countries, not just within them — a different lens from the default Piketty answer.",
      c:"Gregory Mankiw, <i>“Defending the One Percent”</i> (essay, free online)|Top incomes largely reflect value genuinely created. Short, clearly argued, and almost never engaged with properly at school level.",
      link:"1,000 words forces one mechanism, argued properly. Everyone reaches for Piketty; reaching for Milanovic signals you read past the obvious book."}},
+  {t:"Northeastern University London — AI Futures Challenge", s:"multi", yr:"Year 12 (worldwide), solo or team", elig:"now", tag:"NEW", tbc:true,
+   when:"2027 round: optional pre-work 8–12 February, challenge 15–21 February (submit by 8pm on the 21st)", link:"https://nulondon.ac.uk/essay",
+   note:"Northeastern London's long-running Year 12 essay competition page now runs this five-day online challenge instead. Output is a portfolio, video or presentation. Shortlisted entries win a £1,000 scholarship towards Northeastern's own fees."},
 ]},
 
 { month:"February – April 2028", items:[
@@ -545,6 +593,12 @@ DATA.y1213 = [
      m:"The PPE starter trio (Blackburn · Wolff · Harford) + Sen|The shared vocabulary, and thoroughly expected.",
      n:"Partha Dasgupta, <i>Economics: A Very Short Introduction</i>|~150 pages built around two real children, one in Ethiopia and one in Chicago, asking what economics can say about the gap between their lives.",
      link:"Same logic as Regent's Park. And note the diary entry that actually matters is <b>mid-March</b>, when applications close — not mid-April, when the day runs."}},
+  {t:"Girton College Humanities Writing Competition (Cambridge)", s:"multi", yr:"Year 12, UK-resident", elig:"now", tag:"NEW", tbc:true,
+   when:"2026–27 deadline: 5pm, Friday 5 March 2027 · award ceremony 6 May — expect early March 2028", link:"https://girton.cam.ac.uk/humanities-writing-competition",
+   note:"Write on one or more objects from Girton's Lawrence Room museum; essays or creative responses are both accepted. Any humanities angle works, including political or economic history."},
+  {t:"Armstrong Arts &amp; Humanities Essay Competition (Magdalene College, Cambridge)", s:"multi", yr:"Year 12 at a UK state school — Wilson's qualifies", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline: 23:59, 26 April 2026 — expect late April", link:"https://www.magd.cam.ac.uk/undergraduate/access-and-outreach/essay-competition",
+   note:"Questions span all Cambridge arts subjects, and several are squarely law, politics or philosophy (e.g. 'When should a judge have to withdraw from a case if they are alleged to be biased?'). State schools only, so the field is smaller."},
 ]},
 
 { month:"March – August 2028", items:[
@@ -601,6 +655,9 @@ DATA.y1213 = [
      n:"Derek Parfit, <i>Reasons and Persons</i> (Part 3, personal identity)|Wildly influential, genuinely hard — read one part properly and say so.",
      c:"Bernard Williams, <i>“Persons, Character and Morality”</i>|Argues Parfit's kind of impartial reasoning would strip away exactly the personal attachments that make a life worth living — the famous 'one thought too many' objection.",
      link:"Parfit was a Fellow of All Souls and is central to modern Oxford philosophy. Reading Part 3 honestly — and admitting that's what you read — is more credible and more impressive than claiming the whole book."}},
+  {t:"LSE International History — EDI Essay Competition", s:"pol", yr:"Year 12 and 13, UK-based", elig:"now", tag:"NEW", tbc:true,
+   when:"2026 deadline: 15 May 2026 — expect mid-May", link:"https://www.lse.ac.uk/international-history",
+   note:"Up to 1,200 words, set by LSE's Department of International History. Small cash prizes. A useful LSE-branded entry if you're applying there."},
 ]},
 
 { month:"June – August 2028 (summer schools & open days)", items:[
