@@ -1,4 +1,76 @@
 {
-  "_help": "Pages that list competitions/programmes. Any linked competition not already in the planner shows up under Supercurriculars → New finds. subject: phil | pol | econ | law | multi",
-  "sources": []
+ "_help": "Pages that list competitions/programmes, mostly Oxford and Cambridge colleges. Any new competition link on them shows up under Supercurriculars → New finds; pages marked watch:true are also flagged when their competition wording changes (e.g. '2027 competition now open'). New finds are emailed through the openings alert. subject: phil | pol | econ | law | multi",
+ "sources": [
+  {
+   "name": "Trinity College, Cambridge — essay prizes",
+   "url": "https://www.trin.cam.ac.uk/undergraduate/essay-prizes/",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Fitzwilliam College, Cambridge — competitions",
+   "url": "https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Fitzwilliam College, Cambridge — competitions (event page)",
+   "url": "https://www.fitz.cam.ac.uk/event/fitzwilliam-college-competitions-2026",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Magdalene College, Cambridge — Armstrong essay competition",
+   "url": "https://www.magd.cam.ac.uk/undergraduate/access-and-outreach/essay-competition",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Girton College, Cambridge — Humanities Writing Competition",
+   "url": "https://girton.cam.ac.uk/humanities-writing-competition",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Queens' College, Cambridge — outreach competitions",
+   "url": "https://www.queens.cam.ac.uk/applying-here/access-and-outreach/competitions/",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Cambridge POLIS — R.A. Butler Prize",
+   "url": "https://www.polis.cam.ac.uk/about-us/ra-butler-prize",
+   "subject": "pol",
+   "watch": true
+  },
+  {
+   "name": "Cambridge undergraduate events (all colleges)",
+   "url": "https://www.undergraduate.study.cam.ac.uk/events",
+   "subject": "multi"
+  },
+  {
+   "name": "St Hugh's College, Oxford — essay competitions",
+   "url": "https://www.st-hughs.ox.ac.uk/schools-and-outreach/essay-competitions/",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Oriel College, Oxford — Rex Nettleford Prize",
+   "url": "https://www.oriel.ox.ac.uk/study-with-us/outreach-and-schools-liaison/what-we-do/events-and-prizes/rex-nettleford-prize-for-year-12-students/",
+   "subject": "pol",
+   "watch": true
+  },
+  {
+   "name": "St Edmund Hall, Oxford — events and competitions",
+   "url": "https://www.seh.ox.ac.uk/study/outreach/events-and-competitions",
+   "subject": "multi",
+   "watch": true
+  },
+  {
+   "name": "Corpus Christi College, Oxford — Peter Cane Prize",
+   "url": "https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize",
+   "subject": "law",
+   "watch": true
+  }
+ ]
 }
