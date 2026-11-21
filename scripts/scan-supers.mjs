@@ -39,19 +39,47 @@ await Promise.all(items.map(async it => {
   }catch(e){ out.items[it.id] = { ok:false, checked:now, error:e.message, hash:p.hash, dates:p.dates || [], changedOn:p.changedOn || null }; }
 }));
 
-// discovery
+// discovery: new competition links on listing pages (mostly Oxford/Cambridge college pages), plus
+// "this page's competition wording changed" for pages marked watch:true (e.g. '2027 competition now open')
 const known = new Set(items.map(i => i.link.replace(/\/$/, '')));
 const firstSeen = Object.fromEntries((prev.discovered || []).map(d => [d.link, d.found]));
+const firstRun = !prev.watch;                      // first run only records what's there, so nothing floods in
+out.watch = {};
+const SKIP = /winner|result|previous|past |archive|report|terms|privacy|cookie|news\b/i;
 const srcs = JSON.parse(await readFile('data/sc-discovery.json', 'utf8')).sources || [];
 for(const s of srcs){
   try{
-    const html = await (await fetch(s.url, { headers:UA, signal:AbortSignal.timeout(20000) })).text();
+    const r = await fetch(s.url, { headers:UA, redirect:'follow', signal:AbortSignal.timeout(20000) });
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const html = await r.text(), host = new URL(r.url || s.url).hostname.replace(/^www\./, '');
     for(const m of html.matchAll(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]{6,160}?)<\/a>/gi)){
-      const title = text(m[2]).trim(), link = new URL(m[1], s.url).href.replace(/\/$/, '');
-      if(!COMP.test(title) || known.has(link) || out.discovered.some(d => d.link === link)) continue;
-      out.discovered.push({ id:slug(title) + '-' + createHash('sha1').update(link).digest('hex').slice(0, 6), t:title, link, s:s.subject || 'multi', via:s.name || new URL(s.url).hostname, found:firstSeen[link] || today });
+      const title = text(m[2]).trim();
+      let link; try{ link = new URL(m[1], s.url).href.replace(/\/$/, '').replace(/#.*$/, ''); }catch(e){ continue; }
+      if(!/^https?:/.test(link) || new URL(link).hostname.replace(/^www\./, '') !== host) continue;   // the college's own pages only
+      if(!COMP.test(title) || SKIP.test(title) || known.has(link) || link === s.url.replace(/\/$/, '') || out.discovered.some(d => d.link === link)) continue;
+      out.discovered.push({ id:slug(title) + '-' + createHash('sha1').update(link).digest('hex').slice(0, 6), t:title, link, s:s.subject || 'multi', via:s.name || host, found:firstSeen[link] || (firstRun ? null : today) || today, quiet:firstRun && !firstSeen[link] });
     }
-  }catch(e){ console.warn('✗', s.url, e.message); }
+    if(s.watch){
+      const t = text(html);
+      const lines = (t.match(/[^.!?]{0,160}\b(?:competition|prize|essay|deadline|open|closed?|questions?)\b[^.!?]{0,160}/gi) || []).filter(x => /20\d\d|open|closed?/i.test(x)).join('|');
+      const hash = createHash('sha1').update(lines).digest('hex').slice(0, 12), p = (prev.watch || {})[s.url] || {};
+      const changedOn = p.hash && p.hash !== hash ? today : (p.changedOn || null);
+      out.watch[s.url] = { hash, checked:now, changedOn };
+      if(changedOn && (Date.now() - Date.parse(changedOn)) < 21 * 864e5){
+        const id = 'upd-' + createHash('sha1').update(s.url + changedOn).digest('hex').slice(0, 10);
+        out.discovered.push({ id, t:(s.name || host) + ' — page updated (check for a new round)', link:s.url, s:s.subject || 'multi', via:'page watch', found:changedOn });
+      }
+    }
+  }catch(e){ console.warn('✗', s.url, e.message); out.watch[s.url] = (prev.watch || {})[s.url] || { error:e.message }; }
+}
+// email: anything new today joins the openings alert (the workflow turns data/alert.md into a GitHub issue → email)
+const freshFinds = out.discovered.filter(d => d.found === today && !d.quiet && !(prev.discovered || []).some(x => x.id === d.id));
+out.discovered.forEach(d => delete d.quiet);
+if(freshFinds.length && !firstRun){
+  const prevAlert = await readFile('data/alert.md', 'utf8').catch(() => '');
+  const block = `${freshFinds.length} new competition find${freshFinds.length > 1 ? 's' : ''} (Oxford/Cambridge colleges and listing pages):\n\n` +
+    freshFinds.map(d => `- **${d.t}** (via ${d.via})\n  ${d.link}`).join('\n') + `\n\nReview them: https://aarivfinance.github.io/Supercurricular-Tracker-V2/#supercurriculars (New finds tab)\n`;
+  await writeFile('data/alert.md', (prevAlert ? prevAlert.trim() + '\n\n---\n\n' : '') + block);
 }
 await writeFile('data/supercurriculars-live.json', JSON.stringify(out, null, 1));
 const ch = Object.values(out.items).filter(i => i.changedOn === today).length;
