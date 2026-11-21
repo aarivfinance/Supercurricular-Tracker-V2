@@ -313,7 +313,74 @@ function allSc(){
 const scState = id => S.sc[id] || {};
 function setSc(id, patch){ S.sc[id] = Object.assign({}, S.sc[id], patch); save(); }
 
-const scF = { year:'y11', subjects:new Set(), elig:false, saved:false, q:'', tab:'timeline' };
+const scF = { year:'y11', subjects:new Set(), elig:false, saved:false, q:'', tab:'timeline', hideRolling:false, hidePast:true };
+/* filters are remembered between visits (S.settings.scF) */
+function scLoadF(){
+  if(scF._init) return; scF._init = true;
+  const p = (S.settings || {}).scF; if(!p) return;
+  ['year','elig','saved','hideRolling','hidePast'].forEach(k => { if(k in p) scF[k] = p[k]; });
+  if(Array.isArray(p.subjects)) scF.subjects = new Set(p.subjects);
+}
+function scSaveF(){ S.settings.scF = { year:scF.year, elig:scF.elig, saved:scF.saved, hideRolling:scF.hideRolling, hidePast:scF.hidePast, subjects:[...scF.subjects] }; save(); }
+
+/* ---------- dates: when is each opportunity actually due? ----------
+   Each group label gives a window ("March – April 2027"); a "deadline 5 January 2027"-style phrase in
+   the item's text gives an exact day. Past-cycle dates ("2026 deadline: 26 April 2026") are moved into
+   the group's window, since that is the round the item is listed for. */
+const MONTH_RE = 'January|February|March|April|May|June|July|August|September|October|November|December';
+const monIdx = m => ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m.slice(0, 3).toLowerCase());
+const _winCache = {};
+function scWindow(label){
+  if(label in _winCache) return _winCache[label];
+  let w = null;
+  if(/^Rolling/i.test(label)) w = { rolling:true };
+  else if(/not confirmed|no fixed date|fee-paying|your additions/i.test(label)) w = { undated:true };
+  else {
+    const ms = [...label.matchAll(new RegExp('(' + MONTH_RE + ')(?:\\s+(\\d{4}))?', 'g'))].map(m => ({ m:monIdx(m[1]), y:m[2] ? +m[2] : null }));
+    for(let i = ms.length - 1, y = null; i >= 0; i--){ if(ms[i].y) y = ms[i].y; else ms[i].y = (y !== null && ms[i + 1] && ms[i].m > ms[i + 1].m) ? y - 1 : y; }
+    if(ms.length && ms[0].y) w = { start:new Date(ms[0].y, ms[0].m, 1), end:new Date(ms.at(-1).y, ms.at(-1).m + 1, 0) };
+    else w = { undated:true };
+  }
+  return (_winCache[label] = w);
+}
+const MON_ABBR = '(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\\b';
+// keyword, then (optionally) a time and a weekday, then "5 January [2027]"; the latest such date in the text wins
+const DUE_RE = new RegExp('(?:deadline|closes?|closed|closing date|due|submit by|apply by)(?:[^0-9·;]|\\d{1,2}(?::\\d{2})?\\s*(?:am|pm|noon)\\b|\\d{1,2}:\\d{2}){0,45}?(\\d{1,2})(?:st|nd|rd|th)?\\s+' + MON_ABBR + '(?:\\s+(\\d{4}))?', 'gi');
+function scDue(it){
+  if(it._due !== undefined) return it._due;
+  let r;
+  if(it.custom){ const d = parseD(it.date); r = d ? { date:d, exact:true } : { undated:true }; }
+  else {
+    const w = scWindow(it.month || '');
+    if(w.rolling) r = { rolling:true };
+    else {
+      let d = null;
+      for(const m of strip(it.when || '').matchAll(DUE_RE)){
+        const day = +m[1], mon = monIdx(m[2]); let c = null;
+        if(w.start){
+          // pick the year that puts this day inside (or near) the window the item is listed under
+          const lo = new Date(w.start.getFullYear(), w.start.getMonth() - 3, 1), hi = new Date(w.end.getFullYear(), w.end.getMonth() + 6, 0);
+          const given = m[3] ? new Date(+m[3], mon, day) : null;   // a stated year stands unless it's an earlier cycle
+          c = given && given >= lo && given <= new Date(w.end.getFullYear() + 1, w.end.getMonth(), w.end.getDate()) ? given
+            : [w.start.getFullYear() - 1, w.start.getFullYear(), w.end.getFullYear(), w.end.getFullYear() + 1].map(y => new Date(y, mon, day)).find(x => x >= lo && x <= hi) || null;
+        } else if(m[3]) c = new Date(+m[3], mon, day);
+        if(c && (!d || c > d)) d = c;
+      }
+      r = d ? { date:d, exact:true } : w.end ? { date:w.end, exact:false, start:w.start } : { undated:true };
+    }
+  }
+  return (it._due = r);
+}
+const scIso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const scPast = it => { const d = scDue(it); return !!(d.date && d.date < today() && scState(it.id).status !== 'doing'); };
+function dueChip(it){
+  const d = scDue(it); if(!d.exact || !d.date) return '';
+  const n = Math.round((d.date - today()) / 864e5);
+  if(n < 0) return '<span class="chip soft">Closed</span>';
+  if(n === 0) return '<span class="chip due hot">Due today</span>';
+  if(n <= 60) return `<span class="chip due${n <= 14 ? ' hot' : ''}">${n} day${n === 1 ? '' : 's'} left</span>`;
+  return '';
+}
 
 
 /* ---------- supercurricular live checks (data/supercurriculars-live.json, written by scripts/scan-supers.mjs) ---------- */
@@ -353,6 +420,8 @@ function drawScFinds(body){
 function scMatches(it){
   if(scF.subjects.size){ const a = subjList(it, scState(it.id)); if(![...scF.subjects].some(k => k === 'multi' ? a.length !== 1 : a.includes(k))) return false; }
   if(scF.elig && it.elig !== 'now') return false;
+  if(!it.custom && scF.hideRolling && scDue(it).rolling) return false;
+  if(scF.hidePast && scPast(it)) return false;
   if(scF.saved && !scState(it.id).saved && !it.custom) return false;
   if(scF.q){
     const r = it.reading || {};
@@ -366,6 +435,7 @@ function eligChip(e){
 }
 
 function viewSuper(v){
+  scLoadF();
   const items = allSc();
   const y11 = items.filter(i => i.year === 'y11');
   v.innerHTML = head({
@@ -373,7 +443,7 @@ function viewSuper(v){
     sub:'Philosophy · Politics · Economics · Law — every competition, programme and prize sorted into the school year it applies to, each paired with the reading that lets you actually argue about it.',
     stats:[[items.filter(i => !i.custom).length, 'opportunities'], [y11.filter(i => i.elig === 'now').length, 'you can enter now'],
            [items.filter(i => scState(i.id).saved).length, 'saved'], [items.filter(i => scState(i.id).status === 'done').length, 'done']],
-    actions:`<button class="btn primary" id="scAdd">${I(IC.plus,14)} Add your own</button>`
+    actions:`<button class="btn" id="scIcs" title="Download deadlines as a calendar file (Google Calendar, Apple, Outlook)">${I(IC.cal,14)} Add to calendar</button><button class="btn primary" id="scAdd">${I(IC.plus,14)} Add your own</button>`
   }) + `
   <div class="subtabs" role="tablist">
     <button role="tab" data-t="timeline" aria-selected="${scF.tab === 'timeline'}">Opportunities by date</button>
@@ -391,19 +461,23 @@ function viewSuper(v){
     <div class="row" id="scPills">
       ${SUBJ.map(s => `<button class="pill" data-s="${s.k}" style="--c:var(--${s.k})" aria-pressed="${scF.subjects.has(s.k)}"><span class="dot"></span>${s.label}</button>`).join('')}
       <span style="width:6px"></span>
-      ${sw('scElig', 'Eligible now', scF.elig)} ${sw('scSaved', 'Saved only', scF.saved)}
+      ${sw('scElig', 'Eligible now', scF.elig)} ${sw('scSaved', 'Saved only', scF.saved)} ${sw('scRoll', 'Hide rolling', scF.hideRolling)} ${sw('scPast', 'Hide closed', scF.hidePast)}
       <span class="count" id="scCount"></span>
     </div>
   </div>
   <div id="scBody"></div>`;
 
   $$('.subtabs button', v).forEach(b => b.onclick = () => { scF.tab = b.dataset.t; viewSuper(v); });
-  $$('#scYears button').forEach(b => b.onclick = () => { scF.year = b.dataset.y; $$('#scYears button').forEach(x => x.setAttribute('aria-pressed', x === b)); drawSc(); });
-  $$('#scPills .pill').forEach(b => b.onclick = () => { const k = b.dataset.s; scF.subjects.has(k) ? scF.subjects.delete(k) : scF.subjects.add(k); b.setAttribute('aria-pressed', scF.subjects.has(k)); drawSc(); });
-  $('#scElig').onchange = e => { scF.elig = e.target.checked; drawSc(); };
-  $('#scSaved').onchange = e => { scF.saved = e.target.checked; drawSc(); };
+  $$('#scYears button').forEach(b => b.onclick = () => { scF.year = b.dataset.y; $$('#scYears button').forEach(x => x.setAttribute('aria-pressed', x === b)); scSaveF(); drawSc(); });
+  $$('#scPills .pill').forEach(b => b.onclick = () => { const k = b.dataset.s; scF.subjects.has(k) ? scF.subjects.delete(k) : scF.subjects.add(k); b.setAttribute('aria-pressed', scF.subjects.has(k)); scSaveF(); drawSc(); });
+  $('#scElig').onchange = e => { scF.elig = e.target.checked; scSaveF(); drawSc(); };
+  $('#scSaved').onchange = e => { scF.saved = e.target.checked; scSaveF(); drawSc(); };
+  $('#scRoll').onchange = e => { scF.hideRolling = e.target.checked; scSaveF(); drawSc(); };
+  $('#scPast').onchange = e => { scF.hidePast = e.target.checked; scSaveF(); drawSc(); };
+  $('#scIcs').onclick = scIcs;
   bindSearch('scQ', q => { scF.q = q; drawSc(); });
   $('#scAdd').onclick = () => editScCustom();
+  v.insertAdjacentHTML('beforeend', '<aside class="mcal" id="mcal" aria-label="Deadline calendar"></aside>');
   drawSc();
 }
 
@@ -429,22 +503,26 @@ function drawSc(){
   const pool = allSc().filter(i => i.custom ? (i.year || 'y11') === scF.year : i.year === scF.year);
   const shown = pool.filter(scMatches);
   $('#scCount').textContent = shown.length === pool.length ? pool.length + ' shown' : shown.length + ' of ' + pool.length + ' shown';
+  drawMiniCal();
   if(scF.tab === 'reading') return drawReading(body, shown);
 
-  const caveat = `<div class="caveat">${I(IC.warn,15)}<div>${SC_CAVEATS[scF.year] || ''}</div></div>`;
+  const nPast = scF.hidePast ? pool.filter(i => scPast(i)).length : 0, nRoll = scF.hideRolling ? pool.filter(i => !i.custom && scDue(i).rolling).length : 0;
+  const hiddenNote = (nPast || nRoll) ? `<div class="hid-note">${[nPast ? `${nPast} closed` : '', nRoll ? `${nRoll} rolling` : ''].filter(Boolean).join(' and ')} hidden · <button class="lnk" id="scShowAll">Show them</button></div>` : '';
+  const caveat = `<div class="caveat">${I(IC.warn,15)}<div>${SC_CAVEATS[scF.year] || ''}</div></div>` + hiddenNote;
   const groups = [];
   const custom = shown.filter(i => i.custom);
   if(custom.length) groups.push({ month:'Your additions', items:custom.sort((a, b) => (a.date || 'z') < (b.date || 'z') ? -1 : 1), own:true });
   SC_DATA[scF.year].forEach(g => { const it = g.items.filter(i => shown.includes(i)); if(it.length) groups.push({ month:g.month, items:it }); });
 
   body.innerHTML = `<div class="sc-layout"><div>` + caveat + (groups.length ? groups.map(g => `
-    <section class="tl-month${g.own ? ' own' : ''}">
+    <section class="tl-month${g.own ? ' own' : ''}" data-month="${esc(g.month)}">
       ${g.own ? `<button class="tl-mhead own-toggle" data-own aria-expanded="${!ownCollapsed()}"><h2>${I(IC.chev, 15)}${esc(g.month)}</h2><span class="n">${g.items.length} ${g.items.length === 1 ? 'entry' : 'entries'}${ownCollapsed() ? ' · hidden' : ''}</span></button>`
         : `<div class="tl-mhead"><h2>${esc(g.month)}</h2><span class="n">${g.items.length} ${g.items.length === 1 ? 'entry' : 'entries'}</span></div>`}
       ${g.own && ownCollapsed() ? '' : `<div class="sc-list">${g.items.map(scRow).join('')}</div>`}
     </section>`).join('')
     : emptyBox('Nothing matches those filters', 'Try clearing the search or switching off “Eligible now” / “Saved only”.')) + `</div>${scRecord()}</div>`;
   $$('[data-rec]', body).forEach(a => a.onclick = () => openScDrawer(allSc().find(i => i.id === a.dataset.rec)));
+  { const b = $('#scShowAll', body); if(b) b.onclick = () => { scF.hidePast = false; scF.hideRolling = false; scSaveF(); $('#scPast').checked = false; $('#scRoll').checked = false; drawSc(); }; }
   { const t = $('[data-own]', body); if(t) t.onclick = () => { S.settings.ownCollapsed = !ownCollapsed(); save(); drawSc(); }; }
   const qa = $('#qAdd', body);
   if(qa) qa.onsubmit = e => {
@@ -518,6 +596,69 @@ function editBook(bk, preset){
     onDelete: bk ? () => { S.books = S.books.filter(x => x !== bk); save(); route(); } : null });
 }
 
+/* ---------- mini calendar (bottom left) ---------- */
+const MC = { y:null, m:null, sel:null };
+function mcOpen(){ return (S.settings.mcal ?? (window.innerWidth >= 1560)) !== false; }   // open by default only where it fits beside the page
+function drawMiniCal(){
+  const el = $('#mcal'); if(!el) return;
+  const show = scF.tab === 'timeline' || scF.tab === 'reading';
+  el.hidden = !show; if(!show) return;
+  if(!mcOpen()){
+    el.className = 'mcal min';
+    el.innerHTML = `<button class="mc-pill" id="mcTog" aria-expanded="false">${I(IC.cal,14)} Deadlines</button>`;
+    $('#mcTog', el).onclick = () => { S.settings.mcal = true; save(); drawMiniCal(); };
+    return;
+  }
+  const t = today(); if(MC.y === null){ MC.y = t.getFullYear(); MC.m = t.getMonth(); }
+  // everything that matches the subject/eligibility/search filters, across both year views
+  const keep = scF.year; const items = allSc().filter(i => { const d = scDue(i); return d.date && scMatches(i); });
+  const first = new Date(MC.y, MC.m, 1), last = new Date(MC.y, MC.m + 1, 0);
+  const exact = {}, monthOnly = [];
+  items.forEach(i => { const d = scDue(i);
+    if(d.exact){ if(d.date >= first && d.date <= last) (exact[d.date.getDate()] = exact[d.date.getDate()] || []).push(i); }
+    else if(d.start && d.start <= last && d.date >= first) monthOnly.push(i); });
+  const lead = (first.getDay() + 6) % 7, cells = [];
+  for(let i = 0; i < lead; i++) cells.push('<span></span>');
+  for(let d = 1; d <= last.getDate(); d++){
+    const n = (exact[d] || []).length, isT = MC.y === t.getFullYear() && MC.m === t.getMonth() && d === t.getDate();
+    const past = new Date(MC.y, MC.m, d) < t;
+    cells.push(`<button class="mc-d${n ? ' has' : ''}${isT ? ' today' : ''}${past ? ' past' : ''}${MC.sel === d ? ' sel' : ''}" data-d="${d}" ${n ? '' : 'tabindex="-1"'} aria-label="${d} ${MONTHS[MC.m]}${n ? ', ' + n + ' deadline' + (n > 1 ? 's' : '') : ''}">${d}${n ? `<i>${n > 1 ? n : ''}</i>` : ''}</button>`);
+  }
+  const next = items.filter(i => scDue(i).exact && scDue(i).date >= t).sort((a, b) => scDue(a).date - scDue(b).date)[0];
+  const selList = MC.sel && exact[MC.sel] ? exact[MC.sel] : null;
+  const li = i => `<button class="mc-it c-${subjKey(subjList(i, scState(i.id)))}" data-open="${esc(i.id)}"><span class="bar"></span>${esc(strip(i.t))}</button>`;
+  el.className = 'mcal';
+  el.innerHTML = `<div class="mc-h"><button class="mc-nav" data-nav="-1" aria-label="Previous month">‹</button><b>${['January','February','March','April','May','June','July','August','September','October','November','December'][MC.m]} ${MC.y}</b><button class="mc-nav" data-nav="1" aria-label="Next month">›</button><button class="mc-nav" id="mcMin" aria-label="Minimise calendar" title="Minimise">${I(IC.x,12)}</button></div>
+    <div class="mc-g mc-w">${['M','T','W','T','F','S','S'].map(x => `<span>${x}</span>`).join('')}</div>
+    <div class="mc-g">${cells.join('')}</div>
+    <div class="mc-f">
+      ${selList ? `<div class="mc-lbl">${MC.sel} ${MONTHS[MC.m]}</div>${selList.map(li).join('')}` : ''}
+      ${!selList && monthOnly.length ? `<div class="mc-lbl">${monthOnly.length} more due sometime in ${MONTHS[MC.m]} or soon after</div>` : ''}
+      ${!selList && next ? `<div class="mc-lbl">Next deadline · ${fmtD(scIso(scDue(next).date))} (${Math.round((scDue(next).date - t) / 864e5)}d)</div>${li(next)}` : ''}
+      ${(MC.y !== t.getFullYear() || MC.m !== t.getMonth()) ? '<button class="lnk mc-today" id="mcToday">Back to this month</button>' : ''}
+    </div>`;
+  $$('[data-nav]', el).forEach(b => b.onclick = () => { const d = new Date(MC.y, MC.m + +b.dataset.nav, 1); MC.y = d.getFullYear(); MC.m = d.getMonth(); MC.sel = null; drawMiniCal(); });
+  $$('.mc-d.has', el).forEach(b => b.onclick = () => { MC.sel = MC.sel === +b.dataset.d ? null : +b.dataset.d; drawMiniCal(); });
+  $$('[data-open]', el).forEach(b => b.onclick = () => openScDrawer(allSc().find(i => i.id === b.dataset.open)));
+  $('#mcMin', el).onclick = () => { S.settings.mcal = false; save(); drawMiniCal(); };
+  { const b = $('#mcToday', el); if(b) b.onclick = () => { MC.y = t.getFullYear(); MC.m = t.getMonth(); MC.sel = null; drawMiniCal(); }; }
+}
+
+/* ---------- export deadlines as an .ics calendar file ---------- */
+function scIcs(){
+  const saved = allSc().filter(i => scState(i.id).saved || i.custom);
+  const src = (saved.length ? saved : allSc().filter(scMatches)).filter(i => { const d = scDue(i); return d.date && d.date >= today(); });
+  if(!src.length){ toast('No upcoming dated deadlines to export'); return; }
+  const ymd = d => scIso(d).replace(/-/g, ''), esc2 = s => strip(s).replace(/[\\,;]/g, m => '\\' + m).replace(/\n/g, ' ');
+  const ev = src.map(i => { const d = scDue(i), nx = new Date(d.date); nx.setDate(nx.getDate() + 1);
+    return ['BEGIN:VEVENT', 'UID:' + slug(i.id) + '@admissions-home', 'DTSTAMP:' + ymd(today()) + 'T000000Z', 'DTSTART;VALUE=DATE:' + ymd(d.date), 'DTEND;VALUE=DATE:' + ymd(nx),
+      'SUMMARY:' + esc2((d.exact && !i.tbc ? '' : '≈ ') + strip(i.t) + ' — deadline'), 'DESCRIPTION:' + esc2(strip(i.when || '') + (d.exact ? (i.tbc ? ' (date estimated from the last cycle; check the official page)' : '') : ' (approximate: end of the listed window)')), i.link ? 'URL:' + safeUrl(i.link) : '',
+      'BEGIN:VALARM', 'TRIGGER:-P7D', 'ACTION:DISPLAY', 'DESCRIPTION:Due in a week', 'END:VALARM', 'END:VEVENT'].filter(Boolean).join('\r\n'); });
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Admissions Home//EN', 'CALSCALE:GREGORIAN', ...ev, 'END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type:'text/calendar' })); a.download = 'supercurricular-deadlines.ics'; a.click();
+  toast(src.length + ' deadline' + (src.length > 1 ? 's' : '') + (saved.length ? ' from your saved list' : ' (everything shown)') + ' exported');
+}
+
 function scRow(it){
   const st = scState(it.id);
   const books = it.reading ? ROLE_ORDER.filter(k => it.reading[k]).length : 0;
@@ -528,7 +669,7 @@ function scRow(it){
     <div class="sc-when">${esc(when)}</div>
     <div class="sc-main">
       <h3>${it.custom ? esc(it.t) : it.t}</h3>
-      <div class="chips"><span class="chip subj">${esc(subjLabel(subs))}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '<span class="chip soft">Added by you</span>' : eligChip(it.elig)}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}${scRecent(it.id) ? '<span class="badge-new">UPDATED</span>' : ''}${statusChip}</div>
+      <div class="chips"><span class="chip subj">${esc(subjLabel(subs))}</span>${it.tag ? `<span class="chip new">${it.tag}</span>` : ''}${it.custom ? '<span class="chip soft">Added by you</span>' : eligChip(it.elig)}${it.tbc ? '<span class="chip tbc">date TBC</span>' : ''}${dueChip(it)}${scRecent(it.id) ? '<span class="badge-new">UPDATED</span>' : ''}${statusChip}</div>
     </div>
     <div class="sc-side">
       ${books ? `<span class="rc">${I(IC.book,13)} ${books} book${books > 1 ? 's' : ''}</span>` : ''}
