@@ -1833,6 +1833,15 @@ function cv(){
   CV_SECTIONS.forEach(x => { if(!Array.isArray(S.cv[x.k])) S.cv[x.k] = []; });
   return S.cv;
 }
+/* Size the printed CV to fill the A4 page: the largest text size (up to 11pt) that still fits on one page. */
+function cvFitPrint(r){
+  const sh = r.firstElementChild;
+  r.style.cssText = 'display:block;position:fixed;left:-10000px;top:0;';
+  sh.style.cssText = 'width:210mm;height:297mm;aspect-ratio:auto;padding:14mm 15mm;box-sizing:border-box;overflow:hidden;';
+  let pt = 11; sh.style.fontSize = pt + 'pt';
+  while(sh.scrollHeight > sh.clientHeight + 1 && pt > 8){ pt -= 0.25; sh.style.fontSize = pt + 'pt'; }
+  r.style.cssText = ''; sh.style.cssText = 'font-size:' + pt + 'pt';
+}
 function viewCV(v){
   const c = cv();
   const inp = (k, label, type='text', ph='') => `<label class="field">${label}<input class="inp" data-cv="${k}" type="${type}" value="${esc(c[k])}" placeholder="${esc(ph)}"></label>`;
@@ -1882,7 +1891,7 @@ function viewCV(v){
   });
   $$('#cvT button').forEach(b => b.onclick = () => { c.template = b.dataset.t; save(); $$('#cvT button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#cvSheet').className = 'cv-sheet ' + c.template; redraw(); });
   bindCvFile(v);
-  $('#cvPrint').onclick = () => { $('#print-root').innerHTML = `<div class="cv-sheet ${c.template}">${cvHTML(c)}</div>`; window.print(); };
+  $('#cvPrint').onclick = () => { const r = $('#print-root'); r.innerHTML = `<div class="cv-sheet ${c.template}">${cvHTML(c)}</div>`; cvFitPrint(r); window.print(); };
   function keepOpen(k){ const y = window.scrollY; viewCV(v); $$('.cv-editor details').forEach(d => d.open = d.querySelector(`[data-sec="${k}"]`) ? true : d.open); window.scrollTo(0, y); }
   redraw();
 }
