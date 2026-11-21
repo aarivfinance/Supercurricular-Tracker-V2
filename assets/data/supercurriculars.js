@@ -355,9 +355,6 @@ DATA.y11 = [
   {t:"Harvard Political Review Essay Competition", s:"pol", yr:"Grades 9–12; solo or teams of 2–5", elig:"now", tag:"NEW", tbc:true,
    when:"2027 dates TBA · last cycle: priority 15 January, regular 1 March, late 15 March", link:"https://www.algoed.co/competitions/harvard-political-review-essay-competition",
    note:"<em>Paid</em> ($45–$85 in 2026, rising with each deadline) and administered through a commercial partner (AlgoEd), so weigh it below the free university-run prizes. The politics counterpart to HIEEC."},
-  {t:"LIBF Student Investor Challenge", s:"econ", yr:"Ages 14–19 (historically)", elig:"check", tag:"NEW", tbc:true,
-   when:"No UK round found since about 2022/23 — it may have been discontinued in the UK", link:"https://www.libf.ac.uk/",
-   note:"Used to be the big free UK school trading game: teams invested virtual £100,000 portfolios over four months, with a live final. Ask your Economics teacher whether it still runs. If it doesn't, the Wharton Global High School Investment Competition and AmplifyME (both listed) cover the same ground."},
 ]},
 ];
 
