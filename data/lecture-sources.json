@@ -19,7 +19,17 @@
       "city": "London",
       "filter": "subject",
       "s": "pol",
-      "free": true
+      "free": true,
+      "also": [
+        "https://www.lse.ac.uk/events/search-events?pageIndex=2",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=3",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=4",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=5",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=6",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=7",
+        "https://www.lse.ac.uk/events/search-events?pageIndex=8"
+      ],
+      "maxFollow": 60
     },
     {
       "name": "Gresham College",
