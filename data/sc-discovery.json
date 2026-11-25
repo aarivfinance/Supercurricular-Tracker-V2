@@ -2,6 +2,12 @@
  "_help": "Pages that list competitions/programmes, mostly Oxford and Cambridge colleges. Any new competition link on them shows up under Supercurriculars → New finds; pages marked watch:true are also flagged when their competition wording changes (e.g. '2027 competition now open'). New finds are emailed through the openings alert. subject: phil | pol | econ | law | multi",
  "sources": [
   {
+   "name": "University of Oxford — academic competitions for school students (all colleges and departments)",
+   "url": "https://www.ox.ac.uk/admissions/undergraduate/supercurricular-hub/academic-competitions-for-school-aged-students",
+   "subject": "multi",
+   "watch": true
+  },
+  {
    "name": "Trinity College, Cambridge — essay prizes",
    "url": "https://www.trin.cam.ac.uk/undergraduate/essay-prizes/",
    "subject": "multi",
