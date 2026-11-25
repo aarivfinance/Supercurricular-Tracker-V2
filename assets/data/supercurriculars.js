@@ -202,6 +202,9 @@ DATA.y11 = [
   {t:"Harvard Crimson Global Essay Competition (HCGEC — run by Crimson Education)", s:"multi", yr:"Ages 10–18, any country", elig:"now", tag:"NEW", tbc:true,
    when:"Registration deadline 10 February 2027 · early bird to 15 December 2026, then regular · competition runs until 31 March 2027", link:"https://www.essaycomp.org/",
    note:"<b>The confusing one.</b> The name suggests <i>The Harvard Crimson</i> (Harvard's student newspaper) runs it, but it's <b>organised by Crimson Education, a private admissions-consulting company</b>, in partnership with the newspaper. Harvard University has nothing to do with it, and it doubles as a lead generator for Crimson's paid services (prizes include 'Crimson credit'). <em>$15 early / $20 regular</em> fee. Fine as practice; don't rate it alongside HIEEC."},
+  {t:"Disrupt It! Poster Competition (Christ Church &amp; Oxford Edge, Oxford)", s:"econ", yr:"Year 11 or 12 at a UK state-maintained school — Wilson's qualifies", elig:"now", tag:"NEW",
+   when:"Deadline: 9am, Tuesday 5 January 2027 · shortlisted finalists invited to a celebration day in Oxford on Wednesday 10 March 2027", link:"https://www.chch.ox.ac.uk/college/outreach/poster-competition",
+   note:"Pick any industry — <b>finance</b> is one of the suggestions — and propose how technology and new ideas could make it fairer, more sustainable or more accessible. One-page PDF poster (500–800 words plus diagrams or charts), told as problem → idea → who benefits. Finalists give a 2-minute pitch to judges at Christ Church and Oxford's entrepreneurship centre, with tours and a talk on supercurriculars. Free. A natural fit for an AI-in-finance idea; listed on Oxford's official <a href=\"https://www.ox.ac.uk/admissions/undergraduate/supercurricular-hub/academic-competitions-for-school-aged-students\" target=\"_blank\" rel=\"noopener\">academic competitions page</a>."},
 ]},
 
 { month:"February 2027", items:[
@@ -514,7 +517,7 @@ DATA.y1213 = [
      s:"Peter Godfrey-Smith, <i>Other Minds</i>|A philosopher of science and diver using the octopus — complex cognition evolved on a separate branch from ours — to ask what minds are for. Crosses biology, philosophy and consciousness in one readable book.",
      link:"Re:Think rewards essays that genuinely cross disciplines rather than announcing that they do. Hirschman gives you one portable framework that <i>is</i> economics, politics and sociology at once — and unlike Kuhn, nobody will have seen it deployed on their prompt before."}},
   {t:"Rex Nettleford Essay Prize (Oriel College, Oxford)", s:"pol", yr:"Year 12 at a UK school or college", elig:"now", tag:"NEW", tbc:true,
-   when:"2026 deadline: 12pm, Monday 23 February 2026 — expect late February", link:"https://www.oriel.ox.ac.uk/study-with-us/outreach-and-schools-liaison/what-we-do/events-and-prizes/rex-nettleford-prize-for-year-12-students/",
+   when:"2027 round (for this year's Year 12s) closes 22 February 2027 · 2026 closed 23 February — expect late February 2028 for you", link:"https://www.oriel.ox.ac.uk/study-with-us/outreach-and-schools-liaison/what-we-do/events-and-prizes/rex-nettleford-prize-for-year-12-students/",
    note:"Essays on colonialism and its legacies; four questions. Good for politics, history and political economy (development, trade, debt)."},
 ]},
 
