@@ -1,9 +1,23 @@
 {
- "updated": "2026-11-26T17:20:22.302Z",
+ "updated": "2026-11-27T02:06:40.781Z",
  "items": {
+  "y11:oxford-14-16-digital-resources": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "01a979ad0899",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:amplifyme-finance-accelerator-free-live-simulations": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "125c9e94e110",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
   "y11:cambridge-exploring-law-course": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "a204a36881d3",
    "dates": [
     {
@@ -13,49 +27,16 @@
    ],
    "changedOn": "2026-11-24"
   },
-  "y11:amplifyme-finance-accelerator-free-live-simulations": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "125c9e94e110",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y11:oxford-14-16-digital-resources": {
+  "y11:esu-schools-mace-registration": {
    "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "01a979ad0899",
    "dates": [],
-   "changedOn": null
-  },
-  "y11:kcl-online-law-lecture-series": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "20385ee6e5f7",
-   "dates": [
-    {
-     "date": "30 November 2026",
-     "context": "Online Law Lecture Series are now open! Click here to apply. Applications close on Monday 30 November 2026. The Online Law Lecture Series is a fre"
-    }
-   ],
-   "changedOn": "2026-11-24"
-  },
-  "y11:bloomberg-market-concepts-bmc-certificate": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "b5ec1a4878e3",
-   "dates": [],
-   "changedOn": null
-  },
-  "y11:forage-online-job-simulations": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "456683dfc61b",
-   "dates": [],
-   "changedOn": "2026-11-18"
+   "changedOn": "2026-11-23"
   },
   "y11:jli-global-essay-prize-registration-opens": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "22a73989fa96",
    "dates": [
     {
@@ -65,24 +46,17 @@
    ],
    "changedOn": "2026-11-26"
   },
-  "y11:esu-schools-mace-registration": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "01a979ad0899",
-   "dates": [],
-   "changedOn": "2026-11-23"
-  },
   "y11:lloyds-banking-group-work-experience-online-and-in-person": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "326860cdcf39",
    "dates": [],
    "changedOn": "2026-11-26"
   },
   "y11:oxford-centre-for-advanced-research-ocar-global-essay-prize": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "21a1873a43b4",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "c87cd71452bd",
    "dates": [
     {
      "date": "20 December 2026",
@@ -109,11 +83,25 @@
      "context": "Deadline Submit by this date to earn an extra &#163;100 on top of your final scholarship. 20 Dec 2026 Free Registration Deadline Register fre"
     }
    ],
-   "changedOn": "2026-11-16"
+   "changedOn": "2026-11-27"
+  },
+  "y11:bloomberg-market-concepts-bmc-certificate": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "b5ec1a4878e3",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:coursera-courses": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "6206c16f0af7",
+   "dates": [],
+   "changedOn": "2026-11-26"
   },
   "y11:lumiere-scholars-essay-award-fall-2026-round": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "4036755f13d8",
    "dates": [
     {
@@ -143,16 +131,21 @@
    ],
    "changedOn": "2026-11-18"
   },
-  "y11:coursera-courses": {
+  "y11:kcl-online-law-lecture-series": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "6206c16f0af7",
-   "dates": [],
-   "changedOn": "2026-11-26"
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "20385ee6e5f7",
+   "dates": [
+    {
+     "date": "30 November 2026",
+     "context": "Online Law Lecture Series are now open! Click here to apply. Applications close on Monday 30 November 2026. The Online Law Lecture Series is a fre"
+    }
+   ],
+   "changedOn": "2026-11-24"
   },
   "y11:ft-psa-american-politics-group-a-level-essay-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "d5a821f70542",
    "dates": [
     {
@@ -162,65 +155,9 @@
    ],
    "changedOn": "2026-11-11"
   },
-  "y11:dukes-plus-essay-competition": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "d631e0c41055",
-   "dates": [],
-   "changedOn": null
-  },
-  "y11:crest-gold-award-70-hour-research-project": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "1d777436ecd3",
-   "dates": [],
-   "changedOn": "2026-11-25"
-  },
-  "y11:cisi-certifications": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "c3e991b2ee01",
-   "dates": [
-    {
-     "date": "Nov 3, 2026",
-     "context": "ustralia and New Zealand, invites new members&#160;and launches the CISI Regulators Forum Nov 3, 2026, 14:31 by Lora Benson Full story One ho"
-    }
-   ],
-   "changedOn": "2026-11-26"
-  },
-  "y11:harvard-international-economics-essay-contest-hieec": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "246078eb0f3f",
-   "dates": [
-    {
-     "date": "January 5, 2027",
-     "context": "says from dozens of countries each year. The deadline for the 2026–27 contest is Tuesday, January 5, 2027, 11:59 pm Eastern Time (Boston) . Enter"
-    },
-    {
-     "date": "October 26, 2026",
-     "context": "59 pm Eastern Time (Boston) . Enter the 2026–27 contest Key dates Contest opens : Monday, October 26, 2026 Submission deadline : Tuesday, January"
-    }
-   ],
-   "changedOn": "2026-11-25"
-  },
-  "y11:harvard-international-review-hir-academic-writing-contest": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "2a2242dbceee",
-   "dates": [],
-   "changedOn": null
-  },
-  "y11:harvard-crimson-global-essay-competition-hcgec-run-by-crimso": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "110a5152eb51",
-   "dates": [],
-   "changedOn": null
-  },
   "y11:wharton-global-high-school-investment-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "d06ecaaf30c7",
    "dates": [
     {
@@ -234,9 +171,72 @@
    ],
    "changedOn": "2026-10-30"
   },
+  "y11:cisi-certifications": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "c3e991b2ee01",
+   "dates": [
+    {
+     "date": "Nov 3, 2026",
+     "context": "ustralia and New Zealand, invites new members&#160;and launches the CISI Regulators Forum Nov 3, 2026, 14:31 by Lora Benson Full story One ho"
+    }
+   ],
+   "changedOn": "2026-11-26"
+  },
+  "y11:dukes-plus-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "d631e0c41055",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:forage-online-job-simulations": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "456683dfc61b",
+   "dates": [],
+   "changedOn": "2026-11-18"
+  },
+  "y11:harvard-international-economics-essay-contest-hieec": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "246078eb0f3f",
+   "dates": [
+    {
+     "date": "January 5, 2027",
+     "context": "says from dozens of countries each year. The deadline for the 2026–27 contest is Tuesday, January 5, 2027, 11:59 pm Eastern Time (Boston) . Enter"
+    },
+    {
+     "date": "October 26, 2026",
+     "context": "59 pm Eastern Time (Boston) . Enter the 2026–27 contest Key dates Contest opens : Monday, October 26, 2026 Submission deadline : Tuesday, January"
+    }
+   ],
+   "changedOn": "2026-11-25"
+  },
+  "y11:crest-gold-award-70-hour-research-project": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "1d777436ecd3",
+   "dates": [],
+   "changedOn": "2026-11-25"
+  },
+  "y11:harvard-international-review-hir-academic-writing-contest": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "2a2242dbceee",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:harvard-crimson-global-essay-competition-hcgec-run-by-crimso": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "110a5152eb51",
+   "dates": [],
+   "changedOn": null
+  },
   "y11:disrupt-it-poster-competition-christ-church-amp-oxford-edge-": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "bd51e07eddac",
    "dates": [
     {
@@ -250,9 +250,76 @@
    ],
    "changedOn": null
   },
+  "y11:minds-underground-law-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "1968e31998f8",
+   "dates": [
+    {
+     "date": "3 April 2027",
+     "context": "ists. Winners are published as model essays. Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
+    },
+    {
+     "date": "3 APRIL 2027",
+     "context": "0 voucher for the winner, published essay; results by email in spring NOW LIVE · DEADLINE 3 APRIL 2027 2027 Law Essay Competition questions Ch"
+    },
+    {
+     "date": "26 November 2026",
+     "context": "Essays must be submitted by 11pm UK time on 3 April 2027. The questions were released on 26 November 2026. Who can enter the Law Essay Competitio"
+    }
+   ],
+   "changedOn": "2026-11-27"
+  },
+  "y11:queen-s-commonwealth-writing-competition-royal-commonwealth-": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "e69e90e6a3b7",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
+  "y11:jli-global-essay-prize-deadline": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "22a73989fa96",
+   "dates": [
+    {
+     "date": "1 June 2026",
+     "context": "nder 19 years old as of the regular submission deadline (31 May, 2026). If you turn 19 on 1 June 2026 or later, you are eligible to compete."
+    }
+   ],
+   "changedOn": "2026-11-26"
+  },
+  "y11:orwell-youth-prize-the-orwell-foundation": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "96f9f2c4c0e2",
+   "dates": [
+    {
+     "date": "3rd March 2027",
+     "context": "by our experienced volunteer readers and everyone who enters by our feedback deadline of 3rd March 2027 is offered personalised feedback , with"
+    },
+    {
+     "date": "28th April 2027",
+     "context": "ck , with helpful tips to help make your entry the best it can be . The final deadline is 28th April 2027 . Winners and runners up are announced"
+    }
+   ],
+   "changedOn": null
+  },
+  "y11:think-essay-prize-royal-institute-of-philosophy": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "b8277e00574b",
+   "dates": [
+    {
+     "date": "19th April 2027",
+     "context": "ving your submission by email to ThinkEssay@royalinstitutephilosophy.org Deadline: Monday 19th April 2027, Midnight (BST). Rules of Entry & Eligi"
+    }
+   ],
+   "changedOn": "2026-10-24"
+  },
   "y11:king-s-entrepreneurship-essay-competition-king-s-college-cam": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "b44122ebd022",
    "dates": [
     {
@@ -268,7 +335,7 @@
   },
   "y11:peter-cane-legal-reasoning-prize": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "aafa3e92fff4",
    "dates": [
     {
@@ -282,114 +349,9 @@
    ],
    "changedOn": "2026-11-24"
   },
-  "y11:queen-s-commonwealth-writing-competition-royal-commonwealth-": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "e69e90e6a3b7",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y11:think-essay-prize-royal-institute-of-philosophy": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "b8277e00574b",
-   "dates": [
-    {
-     "date": "19th April 2027",
-     "context": "ving your submission by email to ThinkEssay@royalinstitutephilosophy.org Deadline: Monday 19th April 2027, Midnight (BST). Rules of Entry & Eligi"
-    }
-   ],
-   "changedOn": "2026-10-24"
-  },
-  "y11:jli-global-essay-prize-deadline": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "22a73989fa96",
-   "dates": [
-    {
-     "date": "1 June 2026",
-     "context": "nder 19 years old as of the regular submission deadline (31 May, 2026). If you turn 19 on 1 June 2026 or later, you are eligible to compete."
-    }
-   ],
-   "changedOn": "2026-11-26"
-  },
-  "y11:young-economist-of-the-year": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "89b13f8ee08b",
-   "dates": [
-    {
-     "date": "29 June 2026",
-     "context": "at happens next? Submit your entry here . All entries must be submitted by 23.59 (BST) on 29 June 2026. A panel will read and mark your entry"
-    }
-   ],
-   "changedOn": "2026-11-19"
-  },
-  "y11:king-s-entrepreneurship-essay-competition-deadline": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "b44122ebd022",
-   "dates": [
-    {
-     "date": "2 April 2026",
-     "context": "es of suspected breach of eligibility . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm)"
-    },
-    {
-     "date": "5 August 2026",
-     "context": "lity . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm) - Deadline for submission of essa"
-    }
-   ],
-   "changedOn": "2026-10-25"
-  },
-  "y11:orwell-youth-prize-the-orwell-foundation": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "96f9f2c4c0e2",
-   "dates": [
-    {
-     "date": "3rd March 2027",
-     "context": "by our experienced volunteer readers and everyone who enters by our feedback deadline of 3rd March 2027 is offered personalised feedback , with"
-    },
-    {
-     "date": "28th April 2027",
-     "context": "ck , with helpful tips to help make your entry the best it can be . The final deadline is 28th April 2027 . Winners and runners up are announced"
-    }
-   ],
-   "changedOn": null
-  },
-  "y11:minds-underground-law-essay-competition": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "9e96248aca55",
-   "dates": [
-    {
-     "date": "3 April 2027",
-     "context": "ists. Winners are published as model essays. Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
-    },
-    {
-     "date": "26 November 2026",
-     "context": "S Three to choose from; answer one ENTRY FEE £10, paid when you submit QUESTIONS RELEASED 26 November 2026 FORMAT One PDF in English, Harvard refe"
-    }
-   ],
-   "changedOn": "2026-11-18"
-  },
-  "y11:massolit-video-essay-competition-with-brasenose-college-oxfo": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "a5bf329c03fb",
-   "dates": [],
-   "changedOn": null
-  },
-  "y11:big-think-competition-st-edmund-hall-oxford": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "731d3354e4f7",
-   "dates": [],
-   "changedOn": "2026-11-04"
-  },
   "y11:minds-underground-economics-essay-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "79867f7f21d1",
    "dates": [
     {
@@ -403,43 +365,25 @@
    ],
    "changedOn": "2026-11-25"
   },
-  "y11:cambridge-re-think-essay-competition": {
+  "y11:king-s-entrepreneurship-essay-competition-deadline": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "6ec14273b3a3",
-   "dates": [],
-   "changedOn": "2026-10-28"
-  },
-  "y11:amplifyme-accreditation": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "f44b1fc01eec",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y11:harvard-political-review-essay-competition-via-algoed": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "1be3bfdde225",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "b44122ebd022",
    "dates": [
     {
-     "date": "January 15, 2026",
-     "context": "e session. Competition Portal Registration Deadlines and Fees Priority Deadline Deadline: January 15, 2026 Fees: US$45 per student Regular Deadlin"
+     "date": "2 April 2026",
+     "context": "es of suspected breach of eligibility . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm)"
     },
     {
-     "date": "March 1, 2026",
-     "context": "ty Deadline Deadline: January 15, 2026 Fees: US$45 per student Regular Deadline Deadline: March 1, 2026 Fees: US$65 per student Late Deadline D"
-    },
-    {
-     "date": "March 15, 2026",
-     "context": "Regular Deadline Deadline: March 1, 2026 Fees: US$65 per student Late Deadline Deadline: March 15, 2026 Fees: US$85 per student Competition Por"
+     "date": "5 August 2026",
+     "context": "lity . Students can only submit one essay each. Timeline 2 April 2026 - Competition Opens 5 August 2026 (9pm) - Deadline for submission of essa"
     }
    ],
-   "changedOn": null
+   "changedOn": "2026-10-25"
   },
   "y11:fcdo-next-generation-economics-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "31d16dd78d68",
    "dates": [
     {
@@ -469,9 +413,76 @@
    ],
    "changedOn": null
   },
+  "y11:amplifyme-accreditation": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "f44b1fc01eec",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
+  "y11:massolit-video-essay-competition-with-brasenose-college-oxfo": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "a5bf329c03fb",
+   "dates": [],
+   "changedOn": null
+  },
+  "y11:big-think-competition-st-edmund-hall-oxford": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "731d3354e4f7",
+   "dates": [],
+   "changedOn": "2026-11-04"
+  },
+  "y11:young-economist-of-the-year": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "c4c5fd6c4c05",
+   "dates": [
+    {
+     "date": "29 June 2026",
+     "context": "at happens next? Submit your entry here . All entries must be submitted by 23.59 (BST) on 29 June 2026. A panel will read and mark your entry"
+    }
+   ],
+   "changedOn": "2026-11-27"
+  },
+  "y11:harvard-political-review-essay-competition-via-algoed": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "1be3bfdde225",
+   "dates": [
+    {
+     "date": "January 15, 2026",
+     "context": "e session. Competition Portal Registration Deadlines and Fees Priority Deadline Deadline: January 15, 2026 Fees: US$45 per student Regular Deadlin"
+    },
+    {
+     "date": "March 1, 2026",
+     "context": "ty Deadline Deadline: January 15, 2026 Fees: US$45 per student Regular Deadline Deadline: March 1, 2026 Fees: US$65 per student Late Deadline D"
+    },
+    {
+     "date": "March 15, 2026",
+     "context": "Regular Deadline Deadline: March 1, 2026 Fees: US$65 per student Late Deadline Deadline: March 15, 2026 Fees: US$85 per student Competition Por"
+    }
+   ],
+   "changedOn": null
+  },
+  "y11:cambridge-re-think-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "6ec14273b3a3",
+   "dates": [],
+   "changedOn": "2026-10-28"
+  },
+  "y1213:apply-cambridge-year-12": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "870a4c8168b3",
+   "dates": [],
+   "changedOn": "2026-10-30"
+  },
   "y11:fsla-essay-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "5abed704fcae",
    "dates": [
     {
@@ -481,16 +492,9 @@
    ],
    "changedOn": "2026-11-10"
   },
-  "y1213:apply-cambridge-year-12": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "870a4c8168b3",
-   "dates": [],
-   "changedOn": "2026-10-30"
-  },
   "y1213:wharton-global-high-school-investment-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "d06ecaaf30c7",
    "dates": [
     {
@@ -506,14 +510,14 @@
   },
   "y1213:social-mobility-foundation-aspiring-professionals-programme": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "c26165d4075b",
    "dates": [],
    "changedOn": "2026-10-29"
   },
   "y1213:balliol-college-outreach-taster-days-ps-workshops": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "e0603883a0d5",
    "dates": [
     {
@@ -543,23 +547,9 @@
    ],
    "changedOn": "2026-11-26"
   },
-  "y1213:worcester-college-outreach": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "959b65e1c1f3",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y1213:oxford-ppe-supercurricular-hub": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "02936afbefaa",
-   "dates": [],
-   "changedOn": null
-  },
   "y1213:harvard-undergraduate-moot-court-legal-essay-contest": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "f0e465be2b83",
    "dates": [
     {
@@ -569,16 +559,23 @@
    ],
    "changedOn": null
   },
-  "y1213:the-ethics-cup-university-of-st-andrews": {
+  "y1213:oxford-ppe-supercurricular-hub": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "d52fc8bcb31a",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "02936afbefaa",
+   "dates": [],
+   "changedOn": null
+  },
+  "y1213:worcester-college-outreach": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "959b65e1c1f3",
    "dates": [],
    "changedOn": "2026-11-26"
   },
   "y1213:harvard-political-review-global-policy-case-competition-via-": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "943a86014cef",
    "dates": [
     {
@@ -604,9 +601,32 @@
    ],
    "changedOn": "2026-11-24"
   },
+  "y1213:the-ethics-cup-university-of-st-andrews": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "89b18c5d0113",
+   "dates": [],
+   "changedOn": "2026-11-27"
+  },
+  "y1213:sutton-trust-warwick-ppe-stream": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "266f0f56c593",
+   "dates": [
+    {
+     "date": "30 July 2027",
+     "context": "cs (PPE) Philosophy, Politics &#038; Economics (PPE) University of Warwick 27 July 2027 - 30 July 2027 20 programme places Entry requirements"
+    },
+    {
+     "date": "11 January 2027",
+     "context": "s Entry requirements Please note that applications for UK Summer Schools 2027 open Monday 11 January 2027. If you are interested in UK Summer Sch"
+    }
+   ],
+   "changedOn": "2026-11-20"
+  },
   "y1213:oxford-uniq-summer-schools": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "677e536fa058",
    "dates": [
     {
@@ -620,9 +640,53 @@
    ],
    "changedOn": "2026-11-17"
   },
+  "y1213:minds-underground-politics-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "0fb0a89c306c",
+   "dates": [
+    {
+     "date": "3 April 2027",
+     "context": "as model essays. Politics Essay Competition Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
+    },
+    {
+     "date": "3 APRIL 2027",
+     "context": "0 voucher for the winner, published essay; results by email in spring NOW LIVE · DEADLINE 3 APRIL 2027 2027 Politics Essay Competition questio"
+    },
+    {
+     "date": "26 November 2026",
+     "context": "Essays must be submitted by 11pm UK time on 3 April 2027. The questions were released on 26 November 2026. Who can enter the Politics Essay Compe"
+    }
+   ],
+   "changedOn": "2026-11-27"
+  },
+  "y1213:minds-underground-philosophy-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "e7bfc3765b9e",
+   "dates": [
+    {
+     "date": "3 April 2027",
+     "context": "s model essays. Philosophy Essay Competition Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
+    },
+    {
+     "date": "3 APRIL 2027",
+     "context": "0 voucher for the winner, published essay; results by email in spring NOW LIVE · DEADLINE 3 APRIL 2027 2027 Philosophy Essay Competition quest"
+    },
+    {
+     "date": "26 November 2026",
+     "context": "ays must be submitted by 11pm UK time on 3 April 2027. The 2027 questions are released on 26 November 2026. Who can enter the Philosophy Essay Com"
+    },
+    {
+     "date": "24 November 2026",
+     "context": "ter the deadline, and winning essays are published on our results page. Page last updated 24 November 2026. U2 Tuition Ltd., which includes Minds"
+    }
+   ],
+   "changedOn": "2026-11-27"
+  },
   "y1213:peter-cane-legal-reasoning-prize": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "aafa3e92fff4",
    "dates": [
     {
@@ -638,7 +702,7 @@
   },
   "y1213:sutton-trust-y12-social-sciences-law": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "2e4ed4e1f55d",
    "dates": [
     {
@@ -648,16 +712,9 @@
    ],
    "changedOn": "2026-11-26"
   },
-  "y1213:oriel-college-oxford-ppe-study-day": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "01a979ad0899",
-   "dates": [],
-   "changedOn": null
-  },
   "y1213:robert-walker-prize-for-essays-in-law-trinity-cambridge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "27020eeef7fc",
    "dates": [
     {
@@ -667,68 +724,32 @@
    ],
    "changedOn": "2026-11-23"
   },
-  "y1213:minds-underground-philosophy-essay-competition": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "2a29988898bc",
-   "dates": [
-    {
-     "date": "3 April 2027",
-     "context": "s model essays. Philosophy Essay Competition Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
-    },
-    {
-     "date": "26 November 2026",
-     "context": "S Three to choose from; answer one ENTRY FEE £10, paid when you submit QUESTIONS RELEASED 26 November 2026 FORMAT One PDF in English, Harvard refe"
-    },
-    {
-     "date": "24 November 2026",
-     "context": "ter the deadline, and winning essays are published on our results page. Page last updated 24 November 2026. U2 Tuition Ltd., which includes Minds"
-    }
-   ],
-   "changedOn": "2026-11-25"
-  },
-  "y1213:minds-underground-politics-essay-competition": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "252d65ed8a4f",
-   "dates": [
-    {
-     "date": "3 April 2027",
-     "context": "as model essays. Politics Essay Competition Submit your essay · £10 £10 entry · Deadline 3 April 2027, 11pm UK time · Competition guidelines"
-    },
-    {
-     "date": "26 November 2026",
-     "context": "S Three to choose from; answer one ENTRY FEE £10, paid when you submit QUESTIONS RELEASED 26 November 2026 FORMAT One PDF in English, Harvard refe"
-    }
-   ],
-   "changedOn": "2026-11-24"
-  },
-  "y1213:sutton-trust-warwick-ppe-stream": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "266f0f56c593",
-   "dates": [
-    {
-     "date": "30 July 2027",
-     "context": "cs (PPE) Philosophy, Politics &#038; Economics (PPE) University of Warwick 27 July 2027 - 30 July 2027 20 programme places Entry requirements"
-    },
-    {
-     "date": "11 January 2027",
-     "context": "s Entry requirements Please note that applications for UK Summer Schools 2027 open Monday 11 January 2027. If you are interested in UK Summer Sch"
-    }
-   ],
-   "changedOn": "2026-11-20"
-  },
-  "y1213:marshall-society-economics-essay-competition": {
+  "y1213:oriel-college-oxford-ppe-study-day": {
    "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "error": "fetch failed",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "01a979ad0899",
    "dates": [],
+   "changedOn": null
+  },
+  "y1213:rex-nettleford-essay-prize-oriel-college-oxford": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "fee59e360e5f",
+   "dates": [
+    {
+     "date": "22 February 2027",
+     "context": "incomplete entry forms may not be considered. Essays must be received by 12pm on Monday, 22 February 2027. Prizes will be awarded to the winners"
+    },
+    {
+     "date": "20 May 2027",
+     "context": "nded entrants at Oriel College on the occasion of the Rex Nettleford Lecture on Thursday, 20 May 2027. Download the entry form Questions for"
+    }
+   ],
    "changedOn": null
   },
   "y1213:king-s-entrepreneurship-essay-competition-king-s-cambridge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "b44122ebd022",
    "dates": [
     {
@@ -742,9 +763,23 @@
    ],
    "changedOn": "2026-10-25"
   },
+  "y1213:explaw-oxford": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "c854468f36a1",
+   "dates": [],
+   "changedOn": "2026-11-20"
+  },
+  "y1213:iea-dorian-fisher-memorial-prize": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "71f8deaa63aa",
+   "dates": [],
+   "changedOn": "2026-10-26"
+  },
   "y1213:cambridge-open-days": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "d509e65523b7",
    "dates": [
     {
@@ -762,65 +797,44 @@
    ],
    "changedOn": "2026-10-30"
   },
-  "y1213:r-a-butler-prize-for-politics-and-international-studies-trin": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "dcb4e5ac1c36",
-   "dates": [
-    {
-     "date": "31 July 2026",
-     "context": "bmit only one essay. Submissions: Essays must be submitted by 12 noon (UK time) on Friday 31 July 2026 . Please submit essays using the form b"
-    }
-   ],
-   "changedOn": "2026-11-23"
+  "y1213:marshall-society-economics-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "error": "fetch failed",
+   "dates": [],
+   "changedOn": null
+  },
+  "y1213:regent-s-park-college-oxford-online-ppe-masterclass": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "8e495b95a341",
+   "dates": [],
+   "changedOn": "2026-11-26"
   },
   "y1213:iea-monetary-policy-essay-prize-sixth-form": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "bf3e87431b2a",
    "dates": [],
    "changedOn": "2026-10-26"
   },
-  "y1213:iea-dorian-fisher-memorial-prize": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "71f8deaa63aa",
-   "dates": [],
-   "changedOn": "2026-10-26"
-  },
-  "y1213:rex-nettleford-essay-prize-oriel-college-oxford": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "fee59e360e5f",
-   "dates": [
-    {
-     "date": "22 February 2027",
-     "context": "incomplete entry forms may not be considered. Essays must be received by 12pm on Monday, 22 February 2027. Prizes will be awarded to the winners"
-    },
-    {
-     "date": "20 May 2027",
-     "context": "nded entrants at Oriel College on the occasion of the Rex Nettleford Lecture on Thursday, 20 May 2027. Download the entry form Questions for"
-    }
-   ],
-   "changedOn": null
-  },
   "y1213:lsesu-economics-society-essay-competition": {
    "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "01a979ad0899",
    "dates": [],
    "changedOn": null
   },
   "y1213:csep-economics-finance-essay-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "363b4c09e14d",
    "dates": [],
    "changedOn": "2026-10-05"
   },
   "y1213:sidgwick-prize-cambridge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "8cd00cfa5e58",
    "dates": [
     {
@@ -838,9 +852,16 @@
    ],
    "changedOn": "2026-11-26"
   },
+  "y1213:john-locke-institute-ppe-summer-school": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "a9b636e9266b",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
   "y1213:cambridge-subject-masterclasses-applicant-webinars-exploring": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "ec5638e4e897",
    "dates": [
     {
@@ -870,16 +891,77 @@
    ],
    "changedOn": "2026-11-19"
   },
-  "y1213:john-locke-institute-ppe-summer-school": {
+  "y1213:caius-explore-gonville-amp-caius-college-cambridge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "a9b636e9266b",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "d63db0999420",
+   "dates": [
+    {
+     "date": "26th July 2026",
+     "context": "me up with! You can enter for as many subjects as you like and entries will be open until 26th July 2026 . We will pick our favourite entries an"
+    }
+   ],
+   "changedOn": "2026-11-25"
+  },
+  "y1213:ucl-expand": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "c76e60ef7ce7",
+   "dates": [
+    {
+     "date": "30 Jan 2027",
+     "context": "talent Listen, watch and learn Open or close faculty menu Event type: Hybrid Date & time: 30 Jan 2027 - 20 Mar 2027 UCL Expand 2027 Year 12s"
+    },
+    {
+     "date": "20 Mar 2027",
+     "context": "watch and learn Open or close faculty menu Event type: Hybrid Date & time: 30 Jan 2027 - 20 Mar 2027 UCL Expand 2027 Year 12s - expand your"
+    }
+   ],
+   "changedOn": "2026-11-20"
+  },
+  "y1213:cambridge-re-think-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "6ec14273b3a3",
+   "dates": [],
+   "changedOn": "2026-10-28"
+  },
+  "y1213:future-thought-leaders-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "917989ebc3be",
+   "dates": [
+    {
+     "date": "15 February 2027",
+     "context": "2 . To enter, please submit an original 1,500 word essay on one of the questions below by 15 February 2027 . Shortlisted students and their parent"
+    }
+   ],
+   "changedOn": "2026-10-18"
+  },
+  "y1213:immerse-education-ppe-summer-programme": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "48ea678bf47f",
    "dates": [],
    "changedOn": "2026-11-26"
   },
+  "y1213:lse-international-history-edi-essay-competition": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "2812723f3981",
+   "dates": [],
+   "changedOn": "2026-11-25"
+  },
+  "y11:warwick-future-economist-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "55789dba93b6",
+   "dates": [],
+   "changedOn": null
+  },
   "y1213:christ-s-college-cambridge-summer-school": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "1e3d63a3ebf5",
    "dates": [
     {
@@ -889,49 +971,9 @@
    ],
    "changedOn": "2026-11-17"
   },
-  "y1213:caius-explore-gonville-amp-caius-college-cambridge": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "d63db0999420",
-   "dates": [
-    {
-     "date": "26th July 2026",
-     "context": "me up with! You can enter for as many subjects as you like and entries will be open until 26th July 2026 . We will pick our favourite entries an"
-    }
-   ],
-   "changedOn": "2026-11-25"
-  },
-  "y1213:regent-s-park-college-oxford-online-ppe-masterclass": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "8e495b95a341",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y1213:lse-international-history-edi-essay-competition": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "2812723f3981",
-   "dates": [],
-   "changedOn": "2026-11-25"
-  },
-  "y1213:explaw-oxford": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "c854468f36a1",
-   "dates": [],
-   "changedOn": "2026-11-20"
-  },
-  "y11:warwick-future-economist-essay-competition": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "55789dba93b6",
-   "dates": [],
-   "changedOn": null
-  },
   "y1213:caius-explore": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "d63db0999420",
    "dates": [
     {
@@ -940,17 +982,10 @@
     }
    ],
    "changedOn": "2026-11-25"
-  },
-  "y1213:warwick-future-economist-essay-competition": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "55789dba93b6",
-   "dates": [],
-   "changedOn": null
   },
   "y1213:immerse-education-essay-competition": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "bba431ef28af",
    "dates": [
     {
@@ -978,33 +1013,33 @@
   },
   "y11:economics-world-cup": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "fa0bb3b052bb",
    "dates": [],
    "changedOn": "2026-11-20"
   },
-  "y1213:future-thought-leaders-essay-competition": {
+  "y1213:r-a-butler-prize-for-politics-and-international-studies-trin": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "917989ebc3be",
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "dcb4e5ac1c36",
    "dates": [
     {
-     "date": "15 February 2027",
-     "context": "2 . To enter, please submit an original 1,500 word essay on one of the questions below by 15 February 2027 . Shortlisted students and their parent"
+     "date": "31 July 2026",
+     "context": "bmit only one essay. Submissions: Essays must be submitted by 12 noon (UK time) on Friday 31 July 2026 . Please submit essays using the form b"
     }
    ],
-   "changedOn": "2026-10-18"
+   "changedOn": "2026-11-23"
   },
-  "y11:harvard-undergraduate-law-review-high-school-essay-contest": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "d8f793774ea4",
+  "y1213:warwick-future-economist-essay-competition": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "55789dba93b6",
    "dates": [],
    "changedOn": null
   },
   "y1213:iea-budget-challenge-with-the-vinson-centre": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "4e64b21663f2",
    "dates": [
     {
@@ -1014,53 +1049,9 @@
    ],
    "changedOn": null
   },
-  "y11:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "4965e6d1accc",
-   "dates": [],
-   "changedOn": "2026-11-18"
-  },
-  "y1213:cambridge-re-think-essay-competition": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "6ec14273b3a3",
-   "dates": [],
-   "changedOn": "2026-10-28"
-  },
-  "y1213:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "4965e6d1accc",
-   "dates": [],
-   "changedOn": "2026-11-18"
-  },
-  "y1213:ucl-masterclasses": {
-   "ok": false,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "0571eab759cb",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y1213:ucl-expand": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "c76e60ef7ce7",
-   "dates": [
-    {
-     "date": "30 Jan 2027",
-     "context": "talent Listen, watch and learn Open or close faculty menu Event type: Hybrid Date & time: 30 Jan 2027 - 20 Mar 2027 UCL Expand 2027 Year 12s"
-    },
-    {
-     "date": "20 Mar 2027",
-     "context": "watch and learn Open or close faculty menu Event type: Hybrid Date & time: 30 Jan 2027 - 20 Mar 2027 UCL Expand 2027 Year 12s - expand your"
-    }
-   ],
-   "changedOn": "2026-11-20"
-  },
   "y1213:girton-college-humanities-writing-competition-cambridge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "1e9710d9a63c",
    "dates": [
     {
@@ -1070,23 +1061,65 @@
    ],
    "changedOn": null
   },
+  "y1213:ucl-masterclasses": {
+   "ok": false,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "0571eab759cb",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
+  "y11:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "4965e6d1accc",
+   "dates": [],
+   "changedOn": "2026-11-18"
+  },
+  "y11:harvard-undergraduate-law-review-high-school-essay-contest": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "d8f793774ea4",
+   "dates": [],
+   "changedOn": null
+  },
   "y1213:oxford-summer-courses-ppe": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "7d45e9107d39",
    "dates": [],
    "changedOn": "2026-11-24"
   },
+  "y1213:gerald-o-connell-essay-competition-in-economics-fitzwilliam-": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "4965e6d1accc",
+   "dates": [],
+   "changedOn": "2026-11-18"
+  },
+  "y1213:oxbridge-summer-scholars-law-ppe-amp-global-issues": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "04d329579580",
+   "dates": [],
+   "changedOn": "2026-11-26"
+  },
   "y1213:debate-chamber-ppe-summer-school": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "222be2777279",
    "dates": [],
    "changedOn": "2026-11-05"
   },
+  "y11:bar-mock-trial-competition-young-citizens": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "34f5b6335f0b",
+   "dates": [],
+   "changedOn": null
+  },
   "y1213:lse-pathways-to-law": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "cbf4c3628e78",
    "dates": [
     {
@@ -1102,7 +1135,7 @@
   },
   "y1213:northeastern-university-london-ai-futures-challenge": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "f9d55328af6b",
    "dates": [
     {
@@ -1116,16 +1149,9 @@
    ],
    "changedOn": null
   },
-  "y1213:oxbridge-summer-scholars-law-ppe-amp-global-issues": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "04d329579580",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
   "y1213:armstrong-arts-amp-humanities-essay-competition-magdalene-co": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "4ecf8ea7cf04",
    "dates": [
     {
@@ -1135,33 +1161,19 @@
    ],
    "changedOn": null
   },
-  "y11:bar-mock-trial-competition-young-citizens": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "34f5b6335f0b",
-   "dates": [],
-   "changedOn": null
-  },
-  "y11:british-economics-olympiad-beo": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "d0eb912ff088",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
-  "y1213:immerse-education-ppe-summer-programme": {
-   "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
-   "hash": "48ea678bf47f",
-   "dates": [],
-   "changedOn": "2026-11-26"
-  },
   "y1213:lse-explore-subject-masterclasses": {
    "ok": true,
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "hash": "806c036fcaa2",
    "dates": [],
    "changedOn": "2026-11-25"
+  },
+  "y11:british-economics-olympiad-beo": {
+   "ok": true,
+   "checked": "2026-11-27T02:06:40.781Z",
+   "hash": "d0eb912ff088",
+   "dates": [],
+   "changedOn": "2026-11-26"
   }
  },
  "discovered": [
@@ -1540,78 +1552,64 @@
   },
   "https://www.trin.cam.ac.uk/undergraduate/essay-prizes/": {
    "hash": "a3ca98432a62",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.fitz.cam.ac.uk/fitzwilliam-college-essay-competitions-2026": {
    "hash": "67b42987121c",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.fitz.cam.ac.uk/event/fitzwilliam-college-competitions-2026": {
    "hash": "5655fd6d57ab",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.magd.cam.ac.uk/undergraduate/access-and-outreach/essay-competition": {
    "hash": "1d2593f9f209",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://girton.cam.ac.uk/humanities-writing-competition": {
    "hash": "601f2bdbbe44",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.queens.cam.ac.uk/applying-here/access-and-outreach/competitions/": {
    "hash": "4c37e61ad846",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.polis.cam.ac.uk/about-us/ra-butler-prize": {
    "hash": "ae33e2f644d6",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.st-hughs.ox.ac.uk/schools-and-outreach/essay-competitions/": {
    "hash": "5118c4b56685",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.oriel.ox.ac.uk/study-with-us/outreach-and-schools-liaison/what-we-do/events-and-prizes/rex-nettleford-prize-for-year-12-students/": {
    "hash": "438e7faf9ff5",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.seh.ox.ac.uk/study/outreach/events-and-competitions": {
    "hash": "310c72cd3354",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   },
   "https://www.ccc.ox.ac.uk/peter-cane-legal-reasoning-prize": {
    "hash": "b3298a75daa2",
-   "checked": "2026-11-26T17:20:22.302Z",
+   "checked": "2026-11-27T02:06:40.781Z",
    "changedOn": null
   }
  },
  "lectures": {
-  "updated": "2026-11-26T17:23:17.158Z",
-  "took": 2.6,
+  "updated": "2026-11-27T02:09:34.368Z",
+  "took": 2.5,
   "items": [
-   {
-    "id": "lse-public-events-structural-change-and-development-2026-11-12",
-    "title": "Structural change and development",
-    "host": "LSE public events",
-    "venue": "",
-    "speakers": "",
-    "link": "https://www.lse.ac.uk/lse-player/structural-change-and-development",
-    "date": "2026-11-12",
-    "time": "",
-    "city": "London",
-    "format": "",
-    "s": "pol",
-    "free": true
-   },
    {
     "id": "lse-public-events-non-binary-lives-2026-11-16",
     "title": "Non-binary lives",
@@ -1667,20 +1665,6 @@
     "format": "",
     "s": "pol",
     "free": false
-   },
-   {
-    "id": "lse-public-events-the-economics-of-chance-what-random-events-reveal-about-forces-shaping-health-2026-11-26",
-    "title": "The economics of chance: what random events reveal about forces shaping health",
-    "host": "LSE public events",
-    "venue": "",
-    "speakers": "",
-    "link": "https://www.lse.ac.uk/events/economics-chance-health",
-    "date": "2026-11-26",
-    "time": "",
-    "city": "London",
-    "format": "",
-    "s": "econ",
-    "free": true
    },
    {
     "id": "gresham-college-open-the-life-cycle-of-a-holiday-2026-11-26",
@@ -1921,6 +1905,20 @@
     "free": true
    },
    {
+    "id": "lse-public-events-the-science-of-second-chances-2026-12-09",
+    "title": "The science of second chances",
+    "host": "LSE public events",
+    "venue": "",
+    "speakers": "",
+    "link": "https://www.lse.ac.uk/events/science-second-chances",
+    "date": "2026-12-09",
+    "time": "",
+    "city": "London",
+    "format": "",
+    "s": "pol",
+    "free": true
+   },
+   {
     "id": "gresham-college-open-how-to-see-the-world-as-a-child-sees-it-2026-12-09",
     "title": "Open How to See the World As a Child Sees It",
     "host": "Gresham College",
@@ -1932,20 +1930,6 @@
     "city": "London",
     "format": "",
     "s": "multi",
-    "free": true
-   },
-   {
-    "id": "lse-public-events-the-science-of-second-chances-2026-12-09",
-    "title": "The science of second chances",
-    "host": "LSE public events",
-    "venue": "",
-    "speakers": "",
-    "link": "https://www.lse.ac.uk/events/science-second-chances",
-    "date": "2026-12-09",
-    "time": "18:30",
-    "city": "London",
-    "format": "In person and online",
-    "s": "econ",
     "free": true
    },
    {
@@ -2201,20 +2185,6 @@
     "free": true
    },
    {
-    "id": "lse-public-events-a-place-to-call-home-charles-booth-archive-drop-in-2027-01-21",
-    "title": "A Place to Call Home: Charles Booth archive drop-in",
-    "host": "LSE public events",
-    "venue": "",
-    "speakers": "",
-    "link": "https://www.lse.ac.uk/library/whats-on/events/a-place-to-call-home-charles-booth-archive-drop-in",
-    "date": "2027-01-21",
-    "time": "16:00",
-    "city": "London",
-    "format": "In person and online",
-    "s": "econ",
-    "free": true
-   },
-   {
     "id": "lse-public-events-money-the-inside-story-2027-01-21",
     "title": "Money: the inside story",
     "host": "LSE public events",
@@ -2313,20 +2283,6 @@
     "free": true
    },
    {
-    "id": "lse-public-events-preparing-for-an-uncertain-world-what-america-needs-to-do-2027-01-28",
-    "title": "Preparing for an uncertain world: what America needs to do",
-    "host": "LSE public events",
-    "venue": "",
-    "speakers": "",
-    "link": "https://www.lse.ac.uk/events/uncertain-world",
-    "date": "2027-01-28",
-    "time": "18:30",
-    "city": "London",
-    "format": "In person and online",
-    "s": "pol",
-    "free": true
-   },
-   {
     "id": "lse-public-events-the-international-trade-order-and-its-discontents-2027-01-28",
     "title": "The international trade order and its discontents",
     "host": "LSE public events",
@@ -2338,6 +2294,20 @@
     "city": "London",
     "format": "In person and online",
     "s": "econ",
+    "free": true
+   },
+   {
+    "id": "lse-public-events-preparing-for-an-uncertain-world-what-america-needs-to-do-2027-01-28",
+    "title": "Preparing for an uncertain world: what America needs to do",
+    "host": "LSE public events",
+    "venue": "",
+    "speakers": "",
+    "link": "https://www.lse.ac.uk/events/uncertain-world",
+    "date": "2027-01-28",
+    "time": "18:30",
+    "city": "London",
+    "format": "In person and online",
+    "s": "pol",
     "free": true
    },
    {
@@ -2794,17 +2764,17 @@
     "name": "LSE public events",
     "url": "https://www.lse.ac.uk/events",
     "ok": true,
-    "found": 11,
-    "note": "browser, auto, 11 links, 0 pages opened",
+    "found": 10,
+    "note": "browser, auto, 10 links, 0 pages opened",
     "secs": 12
    },
    {
     "name": "LSE public events",
     "url": "https://www.lse.ac.uk/events/search-events",
     "ok": true,
-    "found": 55,
-    "note": "browser, auto, 74 links, 54 pages opened",
-    "secs": 117
+    "found": 53,
+    "note": "browser, auto, 72 links, 53 pages opened",
+    "secs": 118
    },
    {
     "name": "Gresham College",
@@ -2812,7 +2782,7 @@
     "ok": true,
     "found": 20,
     "note": "browser, pattern, 20 links, 0 pages opened",
-    "secs": 10
+    "secs": 9
    },
    {
     "name": "Institute for Fiscal Studies",
@@ -2834,7 +2804,7 @@
     "ok": true,
     "found": 2,
     "note": "browser, pattern, 25 links, 0 pages opened",
-    "secs": 5
+    "secs": 4
    },
    {
     "name": "The British Academy",
@@ -2865,7 +2835,7 @@
   ]
  },
  "hackathons": {
-  "updated": "2026-11-26T17:23:34.963Z",
+  "updated": "2026-11-27T02:09:52.232Z",
   "items": [
    {
     "id": "devpost-launchpad-hacks-580k-in-prizes",
